@@ -2,46 +2,25 @@ import { createTheme } from "@mui/material/styles";
 
 // A custom theme for this app
 const theme = createTheme({
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 600,
+      md: 900,
+      lg: 1328,
+      xl: 1536,
+    },
+  },
   typography: {
-    fontFamily: "Montserrat",
-    color: "#000",
-    sidebarLabel: {
-      display: "block",
-      fontSize: 11,
-      letterSpacing: "0.8px",
-      fontWeight: "bold",
-      padding: "0 16px",
-    },
-    pageTitle: {
-      fontSize: 23,
-      fontWeight: 600,
-    },
-    label: {
-      fontSize: 16,
-      fontWeight: 500,
-      color: "#000",
-    },
-    inputLabel: {
-      color: "#313131",
-      marginBottom: 5,
-    },
-    link: {
-      fontSize: 13,
-      color: "#000 !important",
-    },
+    fontFamily: "Poppins",
+    color: "#333",
   },
   palette: {
     primary: {
-      main: "#6576FF",
+      main: "#333",
     },
     secondary: {
-      main: "#000",
-    },
-    black: {
-      main: "#000",
-    },
-    white: {
-      main: "#fff",
+      main: "#026670",
     },
     success: {
       main: "#3FC6A5",
@@ -51,9 +30,10 @@ const theme = createTheme({
     MuiCssBaseline: {
       styleOverrides: {
         body: {
-          fontFamily: "Montserrat, sans-serif",
+          fontFamily: "Poppins, sans-serif",
           fontWeight: 400,
-          backgroundColor: "#F6F6F7",
+          backgroundColor: "#f7f6f2",
+          color: "#333",
         },
         a: {
           textDecoration: "none",
@@ -61,12 +41,6 @@ const theme = createTheme({
         },
         img: {
           maxWidth: "100%",
-        },
-        ".MuiPickersPopper-root": {
-          zIndex: "1500 !important",
-        },
-        ".MuiDialog-root": {
-          zIndex: "1500 !important",
         },
       },
     },
@@ -88,26 +62,6 @@ const theme = createTheme({
           "&:hover": {
             backgroundColor: "transparent",
           },
-        },
-      },
-    },
-    MuiFormLabel: {
-      styleOverrides: {
-        root: {
-          color: "#000",
-          fontWeight: 500,
-          marginBottom: 6,
-          "&.Mui-focused": {
-            color: "#000",
-          },
-        },
-      },
-    },
-    MuiChip: {
-      styleOverrides: {
-        root: {
-          borderRadius: "5px",
-          backgroundColor: "#E4E5E7",
         },
       },
     },
@@ -175,66 +129,6 @@ const theme = createTheme({
           props: { variant: "contained" },
           style: {
             color: "#fff",
-          },
-        },
-        {
-          props: { variant: "outlined" },
-          style: {
-            backgroundColor: "#fff",
-            border: "1px solid #DBDFEA",
-            "&:hover": {
-              color: "#fff",
-              border: "1px solid #526484",
-              backgroundColor: "#526484;",
-            },
-          },
-        },
-        {
-          props: { variant: "outlinedBlue" },
-          style: {
-            backgroundColor: "#fff",
-            border: "1px solid #E2E2E2",
-            fontSize: "14px",
-            fontWeight: 500,
-            color: "#535151",
-            padding: "10px 13px",
-            "&.MuiButton-sizeSmall": {
-              padding: "5px 9px",
-            },
-            "&:hover": {
-              color: "#fff",
-              border: "1px solid #E2E2E2",
-              backgroundColor: "#3F75C6",
-              "& svg": {
-                fill: "#fff",
-              },
-            },
-          },
-        },
-        {
-          props: { variant: "gray" },
-          style: {
-            backgroundColor: "#F6F6F7",
-            border: "1px solid #DBDFEA",
-            fontWeight: 600,
-            "&:hover": {
-              color: "#fff",
-              border: "1px solid #526484",
-              backgroundColor: "#526484;",
-            },
-            "&.MuiButton-sizeSmall": {
-              fontSize: "12px",
-              fontWeight: 400,
-              color: "#535151",
-              border: "none",
-              padding: "5px 9px",
-              "&:hover": {
-                color: "#fff",
-                "& svg": {
-                  fill: "#fff",
-                },
-              },
-            },
           },
         },
       ],
