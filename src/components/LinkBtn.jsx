@@ -16,14 +16,24 @@ const LinkBtn = (props) => {
         "&.active": {
           color: "primary.main",
         },
-        "&.active::before": {
+        "&::before": {
           content: '""',
           position: "absolute",
           left: 0,
           bottom: "-12px",
           height: 2,
-          width: "calc(100% + 10px)",
+          width: 0,
           bgcolor: "primary.main",
+          transition: "0.2s ease",
+        },
+        "&:hover": {
+          color: "primary.main",
+          "&::before": {
+            width: "calc(100% + 10px)",
+          },
+        },
+        "&.active::before": {
+          width: "calc(100% + 10px)",
         },
       }}
     >

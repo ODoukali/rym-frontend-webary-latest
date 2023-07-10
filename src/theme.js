@@ -81,20 +81,6 @@ const theme = createTheme({
               opacity: 0.6,
             },
           },
-          "&.MuiInputBase-root:hover fieldset": {
-            borderColor: "#b7b6be",
-          },
-          "&.MuiInputBase-root.Mui-focused .MuiOutlinedInput-notchedOutline": {
-            borderWidth: "1px",
-            borderColor: "rgb(73, 0, 133)",
-          },
-          "&.MuiInputBase-root fieldset": {
-            border: "1px solid #DBDFEA",
-            transition: "border-color .05s linear",
-          },
-          "&.MuiInputBase-sizeSmall input": {
-            padding: "6px 12px 7px",
-          },
         },
       },
     },
@@ -106,29 +92,28 @@ const theme = createTheme({
     MuiButton: {
       styleOverrides: {
         root: {
-          fontSize: 13,
-          fontWeight: 700,
-          color: "#303030",
-          letterSpacing: "0.26px",
+          fontSize: 16,
+          fontWeight: 600,
           textTransform: "none",
-          padding: "6px 18px",
-          lineHeight: 1.65,
+          padding: "23px 59px",
+          lineHeight: "18px",
           border: "none",
+          borderRadius: "32px",
           whiteSpace: "nowrap",
-          boxShadow: "none",
+          boxShadow: "0px 10px 20px rgba(0,0,0,0.1)",
           "&:hover": {
             border: "none",
-          },
-          "& svg": {
-            transition: "250ms cubic-bezier(0.4, 0, 0.2, 1)",
           },
         },
       },
       variants: [
         {
-          props: { variant: "contained" },
+          props: { variant: "white" },
           style: {
-            color: "#fff",
+            backgroundColor: "rgba(255,255,255,0.5)",
+            "&:hover": {
+              backgroundColor: "rgba(255,255,255,1)",
+            },
           },
         },
       ],
