@@ -34,7 +34,6 @@ const Home = () => {
   return (
     <Box
       sx={{
-        minHeight: "calc(100vh - 30px)",
         backgroundImage: `url(${BgImg})`,
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",

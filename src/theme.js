@@ -98,6 +98,7 @@ const theme = createTheme({
           padding: "23px 59px",
           lineHeight: "18px",
           border: "none",
+          color: "#026670",
           borderRadius: "32px",
           whiteSpace: "nowrap",
           boxShadow: "0px 10px 20px rgba(0,0,0,0.1)",
@@ -114,6 +115,19 @@ const theme = createTheme({
             "&:hover": {
               backgroundColor: "rgba(255,255,255,1)",
             },
+          },
+        },
+        {
+          props: { variant: "yellow" },
+          style: {
+            backgroundColor: "#FCE181",
+          },
+        },
+        {
+          props: { variant: "green" },
+          style: {
+            color: "#FCE181",
+            backgroundColor: "#026670",
           },
         },
       ],
