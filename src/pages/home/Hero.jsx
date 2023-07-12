@@ -40,7 +40,7 @@ const Hero = () => {
         backgroundPosition: "center",
         borderRadius: "40px",
       }}
-      margin=" 30px 30px 0 30px"
+      mx={{ lg: "30px", xs: "24px" }}
       paddingY={5}
       minHeight="830px"
     >

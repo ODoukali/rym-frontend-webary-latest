@@ -6,7 +6,7 @@ const TagsCloud = () => {
     <Box
       height="700px"
       borderRadius="40px"
-      mx="30px"
+      mx={{ lg: "30px", xs: "24px" }}
       sx={{
         backgroundImage: "linear-gradient(to bottom, transparent,#ffffff 100%)",
       }}
