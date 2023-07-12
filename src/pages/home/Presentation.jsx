@@ -1,10 +1,10 @@
 import React from "react";
 import { Box, Button, Container, Typography, Link } from "@mui/material";
-import SectionTitle from "../components/SectionTitle";
-import BlockBordered from "../components/BlockBordered";
+import SectionTitle from "../../components/SectionTitle";
+import BlockBordered from "../../components/BlockBordered";
 
-import PresentationImg from "../images/presentation-img.png";
-import PlayBtn from "../components/PlayBtn";
+import PresentationImg from "../../images/presentation-img.png";
+import PlayBtn from "../../components/PlayBtn";
 
 const Presentation = () => {
   return (

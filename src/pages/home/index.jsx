@@ -1,7 +1,8 @@
 import React from "react";
 import Hero from "./Hero";
 import TagsCloud from "../../components/TagsCloud";
-import Presentation from "../Presentation";
+import Presentation from "./Presentation";
+import Philosophy from "./Philosophy";
 
 const Home = () => {
   return (
@@ -9,6 +10,7 @@ const Home = () => {
       <Hero />
       <TagsCloud />
       <Presentation />
+      <Philosophy />
     </>
   );
 };
