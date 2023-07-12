@@ -7,13 +7,18 @@ const theme = createTheme({
       xs: 0,
       sm: 600,
       md: 900,
-      lg: 1328,
+      lg: 1228,
       xl: 1536,
     },
   },
   typography: {
     fontFamily: "Poppins",
     color: "#333",
+    large: {
+      fontSize: 18,
+      fontWeight: 500,
+      lineHeight: "30px",
+    },
   },
   palette: {
     primary: {
@@ -121,6 +126,9 @@ const theme = createTheme({
           props: { variant: "yellow" },
           style: {
             backgroundColor: "#FCE181",
+            "&:hover": {
+              backgroundColor: "#ebcf6a",
+            },
           },
         },
         {
