@@ -1,9 +1,10 @@
 import React from "react";
-import { Box, Button, Container, Typography } from "@mui/material";
+import { Box, Button, Container, Typography, Link } from "@mui/material";
 import SectionTitle from "../components/SectionTitle";
 import BlockBordered from "../components/BlockBordered";
 
 import PresentationImg from "../images/presentation-img.png";
+import PlayBtn from "../components/PlayBtn";
 
 const Presentation = () => {
   return (
@@ -26,14 +27,33 @@ const Presentation = () => {
       </BlockBordered>
       <Button variant="yellow">Contact us Today</Button>
       <Box
+        position="relative"
         maxWidth="960px"
         display="flex"
+        alignItems="center"
+        justifyContent="center"
         borderRadius="20px"
         boxShadow="-30px 30px 50px rgba(0,0,0,0.2)"
         ml="auto"
         mt="-32px"
+        sx={{
+          "&::before": {
+            content: "''",
+            position: "absolute",
+            top: "-40px",
+            right: "-40px",
+            width: "57.3%",
+            height: "74.1%",
+            bgcolor: "#FCE181",
+            borderRadius: "20px",
+            zIndex: -1,
+          },
+        }}
       >
         <img src={PresentationImg} alt="" />
+        <Link href="" sx={{ position: "absolute" }}>
+          <PlayBtn width="120px" height="120px" />
+        </Link>
       </Box>
     </Container>
   );
