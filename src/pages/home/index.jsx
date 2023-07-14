@@ -4,6 +4,8 @@ import TagsCloud from "../../components/TagsCloud";
 import Presentation from "./Presentation";
 import Philosophy from "./Philosophy";
 import BlogNews from "./BlogNews";
+import FAQ from "./FAQ";
+import Parsa from "./Parsa";
 
 const Home = () => {
   return (
@@ -37,6 +39,8 @@ const Home = () => {
       <Presentation />
       <Philosophy />
       <BlogNews />
+      <FAQ />
+      <Parsa />
     </Box>
   );
 };

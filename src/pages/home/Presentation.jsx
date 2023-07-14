@@ -23,7 +23,9 @@ const Presentation = () => {
           minim veniam, quis ullamco.
         </Typography>
       </BlockBordered>
-      <Button variant="yellow">Contact us Today</Button>
+      <Button variant="yellow" sx={{ position: "relative", zIndex: 1 }}>
+        Contact us Today
+      </Button>
       <Box
         position="relative"
         maxWidth="960px"
