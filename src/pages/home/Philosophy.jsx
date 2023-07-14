@@ -1,5 +1,4 @@
 import { Box, Button, Container, Stack, Typography } from "@mui/material";
-import SectionTitle from "../../components/SectionTitle";
 import BlockBordered from "../../components/BlockBordered";
 
 import PhilosophyImg from "../../images/philosophy-img.png";
@@ -31,15 +30,14 @@ const Philosophy = () => {
           <img src={PhilosophyImg} alt="" />
         </Box>
         <Box>
-          <SectionTitle
-            title="Philosophy of our valuable"
-            lastWord="work"
+          <Typography
             maxWidth="460px"
+            variant="sectionTitle"
             component="h2"
-            fontSize="45px"
-            lineHeight="48px"
             mb="30px"
-          />
+          >
+            Philosophy of our valuable <span className="highlighted">work</span>
+          </Typography>
           <BlockBordered mb="50px">
             <Typography maxWidth="522px" variant="large">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do

@@ -1,1 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
+
+.highlighted {
+  position: relative;
+}
+
+.highlighted::after {
+  content: "";
+  width: 104%;
+  height: 15px;
+  position: absolute;
+  left: 50%;
+  bottom: 8.5px;
+  transform: translateX(-50%);
+  background-color: rgba(252, 225, 129, 0.5);
+}

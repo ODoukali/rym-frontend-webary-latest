@@ -3,6 +3,7 @@ import Hero from "./Hero";
 import TagsCloud from "../../components/TagsCloud";
 import Presentation from "./Presentation";
 import Philosophy from "./Philosophy";
+import BlogNews from "./BlogNews";
 
 const Home = () => {
   return (
@@ -35,6 +36,7 @@ const Home = () => {
       <TagsCloud />
       <Presentation />
       <Philosophy />
+      <BlogNews />
     </Box>
   );
 };

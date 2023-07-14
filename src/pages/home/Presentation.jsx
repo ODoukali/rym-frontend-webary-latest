@@ -1,6 +1,5 @@
 import React from "react";
 import { Box, Button, Container, Typography, Link } from "@mui/material";
-import SectionTitle from "../../components/SectionTitle";
 import BlockBordered from "../../components/BlockBordered";
 
 import PresentationImg from "../../images/presentation-img.png";
@@ -9,15 +8,14 @@ import PlayBtn from "../../components/PlayBtn";
 const Presentation = () => {
   return (
     <Container sx={{ py: "150px" }}>
-      <SectionTitle
-        title="Presentation of the Reb Yakov"
-        lastWord="Moshe"
+      <Typography
         maxWidth="460px"
+        variant="sectionTitle"
         component="h2"
-        fontSize="45px"
-        lineHeight="48px"
         mb="30px"
-      />
+      >
+        Presentation of the Reb Yakov <span className="highlighted">Moshe</span>
+      </Typography>
       <BlockBordered mb="50px">
         <Typography maxWidth="522px" variant="large">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do

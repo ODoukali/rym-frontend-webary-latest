@@ -14,6 +14,16 @@ const theme = createTheme({
   typography: {
     fontFamily: "Poppins",
     color: "#333",
+    sectionTitle: {
+      fontSize: 45,
+      fontWeight: 700,
+      lineHeight: "48px",
+    },
+    medium: {
+      fontSize: 16,
+      fontWeight: 500,
+      lineHeight: "24px",
+    },
     large: {
       fontSize: 18,
       fontWeight: 500,
@@ -39,6 +49,7 @@ const theme = createTheme({
           fontWeight: 400,
           backgroundColor: "#f7f6f2",
           color: "#333",
+          letterSpacing: "-0.44px",
         },
         a: {
           textDecoration: "none",
@@ -106,6 +117,7 @@ const theme = createTheme({
           color: "#026670",
           borderRadius: "32px",
           whiteSpace: "nowrap",
+          letterSpacing: "-0.44px",
           boxShadow: "0px 10px 20px rgba(0,0,0,0.1)",
           "&:hover": {
             border: "none",
@@ -138,6 +150,32 @@ const theme = createTheme({
             backgroundColor: "#026670",
             "&:hover": {
               backgroundColor: "#00545d",
+            },
+          },
+        },
+        {
+          props: { variant: "link" },
+          style: {
+            padding: 0,
+            backgroundColor: "transparent",
+            boxShadow: "none",
+            "& span": {
+              position: "relative",
+              fontSize: 16,
+              fontWeight: 600,
+            },
+            "&:hover": {
+              color: "#333",
+              backgroundColor: "transparent",
+              "& span.MuiTypography-root::after": {
+                content: "''",
+                position: "absolute",
+                left: 0,
+                bottom: -8,
+                height: 2,
+                width: "100%",
+                backgroundColor: "#333",
+              },
             },
           },
         },

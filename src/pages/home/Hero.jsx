@@ -16,7 +16,6 @@ const PageTitleHighlighted = styled(Typography)(() => {
     fontSize: "80px",
     fontWeight: "bold",
     lineHeight: "75px",
-    letterSpacing: "-2px",
     "&::after": {
       content: "''",
       width: "104%",
@@ -82,7 +81,6 @@ const Hero = () => {
           fontSize="80px"
           fontWeight="bold"
           lineHeight="75px"
-          letterSpacing="-2px"
           mb="30px"
         >
           ‘ It doesn’t{" "}
