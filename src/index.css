@@ -28,5 +28,11 @@
 }
 
 .tagCloud > div {
-  transition: 1.4s;
+  transition: transform 1.4s;
+}
+
+.hovered:hover {
+  color: #026670;
+  text-decoration: underline;
+  cursor: pointer;
 }

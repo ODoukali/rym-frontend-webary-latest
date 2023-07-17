@@ -26,7 +26,7 @@ const TagsCloud = () => {
           style={{
             fontFamily: "Poppins",
             fontWeight: "bold",
-            padding: 7,
+            padding: 8,
             width: "100%",
             height: "100%",
           }}
