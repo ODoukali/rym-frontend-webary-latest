@@ -6,41 +6,23 @@ import Philosophy from "./Philosophy";
 import BlogNews from "./BlogNews";
 import FAQ from "./FAQ";
 import Parsa from "./Parsa";
+import Footer from "../../components/Footer";
+import Guides from "../../components/Guides";
 
 const Home = () => {
   return (
-    <Box position="relative" mt="30px" sx={{ overflowX: "hidden" }}>
-      <Box
-        position="absolute"
-        width="100%"
-        height="100%"
-        top={0}
-        left={0}
-        zIndex={-1}
-        px="24px"
-        sx={{ pointerEvents: "none" }}
-      >
-        <Box
-          position="relative"
-          maxWidth="1180px"
-          height="100%"
-          display="flex"
-          justifyContent="space-between"
-          margin="0 auto"
-        >
-          <Box width="1px" bgcolor="rgba(0,0,0,0.06)" />
-          <Box width="1px" bgcolor="rgba(0,0,0,0.06)" />
-          <Box width="1px" bgcolor="rgba(0,0,0,0.06)" />
-          <Box width="1px" bgcolor="rgba(0,0,0,0.06)" />
-        </Box>
+    <Box mt="30px" sx={{ overflowX: "hidden" }}>
+      <Box position="relative">
+        <Guides color="rgba(0,0,0,0.06)" zIndex={-1} />
+        <Hero />
+        <TagsCloud />
+        <Presentation />
+        <Philosophy />
+        <BlogNews />
+        <FAQ />
+        <Parsa />
       </Box>
-      <Hero />
-      <TagsCloud />
-      <Presentation />
-      <Philosophy />
-      <BlogNews />
-      <FAQ />
-      <Parsa />
+      <Footer />
     </Box>
   );
 };

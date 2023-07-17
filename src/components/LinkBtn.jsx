@@ -10,30 +10,30 @@ const LinkBtn = (props) => {
       underline="none"
       sx={{
         position: "relative",
-        color: "secondary.main",
+        color: props.footerLink ? "#BFBEBB" : "secondary.main",
         fontSize: "16px",
         fontWeight: 600,
         "&.active": {
-          color: "primary.main",
+          color: props.footerLink ? "#fff" : "primary.main",
         },
         "&::before": {
           content: '""',
           position: "absolute",
           left: 0,
-          bottom: "-12px",
+          bottom: "-8px",
           height: 2,
           width: 0,
-          bgcolor: "primary.main",
+          bgcolor: props.footerLink ? "#fff" : "primary.main",
           transition: "0.2s ease",
         },
         "&:hover": {
-          color: "primary.main",
+          color: props.footerLink ? "#fff" : "primary.main",
           "&::before": {
-            width: "calc(100% + 10px)",
+            width: "100%",
           },
         },
         "&.active::before": {
-          width: "calc(100% + 10px)",
+          width: "100%",
         },
       }}
     >

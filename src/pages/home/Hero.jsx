@@ -4,6 +4,7 @@ import { styled } from "@mui/system";
 import IconBtn from "../../components/IconBtn";
 import { Link } from "react-router-dom";
 import LinkBtn from "../../components/LinkBtn";
+import Guides from "../../components/Guides";
 
 import BgImg from "../../images/home-hero-bg.png";
 import Logo from "../../images/logo.svg";
@@ -32,6 +33,7 @@ const PageTitleHighlighted = styled(Typography)(() => {
 const Hero = () => {
   return (
     <Box
+      position="relative"
       sx={{
         backgroundImage: `url(${BgImg})`,
         backgroundRepeat: "no-repeat",
@@ -95,6 +97,7 @@ const Hero = () => {
         </Typography>
         <Button variant="white">Our Philosophy</Button>
       </Box>
+      <Guides color="rgba(0,0,0,0.3)" />
     </Box>
   );
 };
