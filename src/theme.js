@@ -100,6 +100,68 @@ const theme = createTheme({
         },
       },
     },
+    MuiAccordion: {
+      styleOverrides: {
+        root: {
+          boxShadow: "none",
+          marginBottom: "2px",
+          "& .MuiAccordionSummary-root": {
+            minHeight: "100px",
+            padding: "0 40px",
+          },
+          "& .MuiAccordionSummary-root.Mui-expanded": {
+            minHeight: "100px",
+            padding: "0 40px",
+          },
+          "&:first-of-type": {
+            borderTopLeftRadius: "20px",
+            borderTopRightRadius: "20px",
+          },
+          "&:last-of-type": {
+            borderBottomLeftRadius: "20px",
+            borderBottomRightRadius: "20px",
+          },
+          "&.Mui-expanded": {
+            margin: "0 0 16px 0",
+            boxShadow: "0px 20px 40px rgba(0,0,0,0.1)",
+            "&::after": {
+              content: "''",
+              opacity: 1,
+              width: "100%",
+              position: "absolute",
+              height: "16px",
+              top: "initial",
+              bottom: "-16px",
+              backgroundColor: "#FCE181",
+            },
+          },
+          "&::before": {
+            content: "none",
+          },
+          "& .MuiAccordionSummary-content.Mui-expanded .MuiTypography-root": {
+            color: "#333",
+          },
+          "& .MuiAccordionDetails-root": {
+            padding: "0 40px 38px",
+          },
+        },
+      },
+    },
+    MuiAccordionSummary: {
+      styleOverrides: {
+        root: {
+          "& .MuiAccordionSummary-expandIconWrapper": {
+            transform: "rotate(90deg)",
+          },
+          "& .MuiAccordionSummary-expandIconWrapper.Mui-expanded": {
+            transform: "rotate(-90deg)",
+            "& svg": {
+              color: "#333",
+            },
+          },
+        },
+      },
+    },
     MuiButtonBase: {
       defaultProps: {
         disableRipple: true,

@@ -11,6 +11,8 @@ import {
 import BlockBordered from "../../components/BlockBordered";
 import TextLink from "../../components/TextLink";
 
+import { ReactComponent as Arrow } from "../../images/arrow.svg";
+
 const faqArr = [
   {
     id: 1,
@@ -70,37 +72,47 @@ const FAQ = () => {
         </Box>
         <TextLink to="">Explore all Q&A</TextLink>
       </Stack>
-      <Box
-        position="relative"
-        maxWidth="960px"
-        bgcolor="#FCE181"
-        borderRadius="20px"
-        ml="auto"
-        mt="-32px"
-        overflow="hidden"
-      >
+      <Box position="relative" maxWidth="960px" ml="auto" mt="-32px">
         {faqArr.map((a) => (
           <Accordion
+            key={a.id}
             sx={{
-              boxShadow: "none",
-              "&.Mui-expanded": {
-                margin: "0 0 16px 0",
+              "& .MuiAccordionSummary-root": {
+                padding: "0 60px",
               },
-              // "&::before": {
-              //   content: "none",
-              // },
-              // "& .MuiAccordionSummary-root.Mui-expanded": {
-              //   minHeight: "49px",
-              // },
-              // "& .MuiAccordionSummary-content.Mui-expanded": {
-              //   margin: 0,
-              // },
+              "& .MuiAccordionSummary-root.Mui-expanded": {
+                padding: "0 60px",
+              },
             }}
           >
-            <AccordionSummary id={a.id}>
-              <Typography>{a.question}</Typography>
+            <AccordionSummary
+              id={a.id}
+              expandIcon={<Arrow width={14} height={11} color="#026670" />}
+            >
+              <Typography
+                position="relative"
+                fontSize="22px"
+                fontWeight={500}
+                color="secondary"
+                sx={{
+                  isolation: "isolate",
+                  "&::before": {
+                    content: "'Q'",
+                    position: "absolute",
+                    fontSize: "80px",
+                    fontWeight: "700",
+                    color: "#F7F6F2",
+                    left: "-27px",
+                    top: "50%",
+                    transform: "translateY(-50%)",
+                    zIndex: -1,
+                  },
+                }}
+              >
+                {a.question}
+              </Typography>
             </AccordionSummary>
-            <AccordionDetails sx={{ padding: "0 14px 14px" }}>
+            <AccordionDetails sx={{ padding: "0 60px 38px !important" }}>
               <BlockBordered>
                 <Typography variant="large">{a.answer}</Typography>
               </BlockBordered>
