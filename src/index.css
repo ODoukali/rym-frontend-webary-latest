@@ -14,3 +14,19 @@
   transform: translateX(-50%);
   background-color: rgba(252, 225, 129, 0.5);
 }
+
+.tagCloud {
+  flex: 1;
+}
+
+.tagCloud-outer {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 150px;
+  width: 100%;
+}
+
+.tagCloud > div {
+  transition: 1.4s;
+}

@@ -97,7 +97,7 @@ const Hero = () => {
         </Typography>
         <Button variant="white">Our Philosophy</Button>
       </Box>
-      <Guides color="rgba(0,0,0,0.3)" />
+      {/* <Guides color="rgba(0,0,0,0.3)" /> */}
     </Box>
   );
 };

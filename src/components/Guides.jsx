@@ -21,7 +21,7 @@ const Guides = (props) => {
         margin="0 auto"
       >
         {[...Array(4).keys()].map((val) => (
-          <Box width="1px" bgcolor={props.color} />
+          <Box key={val} width="1px" bgcolor={props.color} />
         ))}
       </Box>
     </Box>
