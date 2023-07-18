@@ -28,7 +28,7 @@ const Parsa = () => {
             image={Parsa1}
             title="Sed ut perspiciatis unde omnis iste natus"
             text="Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur."
-            path=""
+            blogLink="/"
           />
         </SwiperSlide>
         <SwiperSlide>
@@ -36,7 +36,7 @@ const Parsa = () => {
             image={Parsa2}
             title="Magni dolores eos qui ratione voluptatem"
             text="Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam."
-            path=""
+            blogLink="/"
           />
         </SwiperSlide>
         <SwiperSlide>
@@ -44,7 +44,7 @@ const Parsa = () => {
             image={Parsa1}
             title="Sed ut perspiciatis unde omnis iste natus"
             text="Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur."
-            path=""
+            blogLink="/"
           />
         </SwiperSlide>
       </Slider>

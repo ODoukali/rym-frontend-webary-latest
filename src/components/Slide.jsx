@@ -1,7 +1,9 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Link, Typography } from "@mui/material";
 import { SwiperSlide } from "swiper/react";
+import { NavLink } from "react-router-dom";
 import BlockBordered from "./BlockBordered";
 import TextLink from "./TextLink";
+import PlayBtn from "./PlayBtn";
 
 const Slide = (props) => {
   return (
@@ -51,10 +53,21 @@ const Slide = (props) => {
       >
         <Box
           display="flex"
+          alignItems="center"
+          justifyContent="center"
           height={240}
           borderRadius="20px 20px 0 0"
           overflow="hidden"
         >
+          {props.videoLink ? (
+            <Link
+              to={props.videoLink}
+              component={NavLink}
+              sx={{ position: "absolute" }}
+            >
+              <PlayBtn width="96px" height="96px" />
+            </Link>
+          ) : null}
           <img
             style={{ objectFit: "cover", width: "100%" }}
             src={props.image}
@@ -89,7 +102,9 @@ const Slide = (props) => {
               {props.text}
             </Typography>
           </BlockBordered>
-          <TextLink to={props.path}>Read More</TextLink>
+          {props.blogLink ? (
+            <TextLink to={props.blogLink}>Read More</TextLink>
+          ) : null}
         </Box>
       </Box>
     </SwiperSlide>

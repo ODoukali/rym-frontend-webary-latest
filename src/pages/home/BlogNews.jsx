@@ -31,7 +31,7 @@ const BlogNews = () => {
             image={SlideBlog1}
             title="Ut enim ad minim elit venia quis ullamco sit"
             text="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accu doloremque laudantium, totam rem aperiam, eaque ipsa."
-            path=""
+            blogLink="/"
           />
         </SwiperSlide>
         <SwiperSlide>
@@ -39,7 +39,7 @@ const BlogNews = () => {
             image={SlideBlog2}
             title="Neque porro quisquam est, qui dolorem ipsum quia"
             text="Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia conseq magni dolores eos qui ratione."
-            path=""
+            blogLink="/"
           />
         </SwiperSlide>
         <SwiperSlide>
@@ -47,7 +47,7 @@ const BlogNews = () => {
             image={SlideBlog3}
             title="Ut enim ad minima venia, nostrum exercitationem"
             text="Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi."
-            path=""
+            blogLink="/"
           />
         </SwiperSlide>
         <SwiperSlide>
@@ -55,7 +55,7 @@ const BlogNews = () => {
             image={SlideBlog2}
             title="Neque porro quisquam est, qui dolorem ipsum quia"
             text="Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia conseq magni dolores eos qui ratione."
-            path=""
+            blogLink="/"
           />
         </SwiperSlide>
       </Slider>

@@ -1,5 +1,6 @@
 import React from "react";
 import { Box, Button, Container, Typography, Link } from "@mui/material";
+import { NavLink } from "react-router-dom";
 import BlockBordered from "../../components/BlockBordered";
 
 import PresentationImg from "../../images/presentation-img.png";
@@ -51,7 +52,7 @@ const Presentation = () => {
         }}
       >
         <img src={PresentationImg} alt="" />
-        <Link href="" sx={{ position: "absolute" }}>
+        <Link to="" component={NavLink} sx={{ position: "absolute" }}>
           <PlayBtn width="120px" height="120px" />
         </Link>
       </Box>
