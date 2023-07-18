@@ -5,36 +5,38 @@ import Footer from "../../components/Footer";
 import TextLink from "../../components/TextLink";
 import Slider from "../../components/Slider";
 import Slide from "../../components/Slide";
+import Header from "../../components/Header";
 
-import SlideBlog1 from "../../images/slide-blog1.jpg";
-import SlideBlog2 from "../../images/slide-blog2.jpg";
-import SlideBlog3 from "../../images/slide-blog3.jpg";
+import SlideVideo1 from "../../images/slide-blog1.jpg";
+import SlideVideo2 from "../../images/slide-blog2.jpg";
+import SlideVideo3 from "../../images/slide-blog3.jpg";
+import PresentationImg from "../../images/presentation-img.png";
 
 const sliderVideos = [
   {
     id: 0,
-    image: SlideBlog1,
+    image: SlideVideo1,
     title: "Ut enim ad minim elit",
     text: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accu doloremque laudantium, totam rem aperiam, eaque ipsa.",
     videoLink: "/",
   },
   {
     id: 1,
-    image: SlideBlog2,
+    image: SlideVideo2,
     title: "Qui dolorem ipsum quia",
     text: "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi.",
     videoLink: "/",
   },
   {
     id: 2,
-    image: SlideBlog3,
+    image: SlideVideo3,
     title: "Neque porro quisquam est",
     text: "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia conseq magni dolores eos qui ratione.",
     videoLink: "/",
   },
   {
     id: 3,
-    image: SlideBlog2,
+    image: SlideVideo2,
     title: "Qui dolorem ipsum quia",
     text: "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi.",
     videoLink: "/",
@@ -43,8 +45,14 @@ const sliderVideos = [
 
 const Course = () => {
   return (
-    <Box position="relative">
+    <Box position="relative" pt="57px">
       <Guides color="rgba(0,0,0,0.06)" zIndex={-1} />
+      <Header />
+      <Box mt="80px">
+        <Container>
+          <img src={PresentationImg} style={{ width: "100%" }} alt="" />
+        </Container>
+      </Box>
       <Box pb="110px">
         <Container>
           <Stack
