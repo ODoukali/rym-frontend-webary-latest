@@ -46,12 +46,14 @@ const Hero = () => {
       minHeight="830px"
     >
       <Stack
+        position="relative"
         flexDirection="row"
         alignItems="center"
         justifyContent="space-between"
         maxWidth="1380px"
         padding="0 30px"
         margin="auto"
+        zIndex={1}
       >
         <Link to="/">
           <img src={Logo} alt="" />
@@ -81,7 +83,12 @@ const Hero = () => {
         </Stack>
       </Stack>
 
-      <Box maxWidth="785px" margin="108px auto 148px">
+      <Box
+        position="relative"
+        maxWidth="785px"
+        margin="108px auto 148px"
+        zIndex={1}
+      >
         <Typography
           component="h1"
           fontSize="80px"
@@ -101,7 +108,7 @@ const Hero = () => {
         </Typography>
         <Button variant="white">Our Philosophy</Button>
       </Box>
-      {/* <Guides color="rgba(0,0,0,0.3)" /> */}
+      <Guides color="rgba(0,0,0,0.03)" zIndex="0" />
     </Box>
   );
 };

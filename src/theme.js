@@ -151,6 +151,7 @@ const theme = createTheme({
           props: { variant: "white" },
           style: {
             backgroundColor: "rgba(255,255,255,0.5)",
+            backdropFilter: "blur(10px)",
             "&:hover": {
               backgroundColor: "rgba(255,255,255,1)",
             },
