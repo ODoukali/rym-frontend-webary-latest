@@ -1,10 +1,10 @@
 import { Box, Stack, Typography } from "@mui/material";
-import IconBtn from "./IconBtn";
-
-import Menu from "../images/menu.svg";
-import User from "../images/user.svg";
-import Search from "../images/search.svg";
+import IconBtnCircular from "./IconBtnCircular";
 import BlockBordered from "./BlockBordered";
+
+import { ReactComponent as Menu } from "../images/menu.svg";
+import { ReactComponent as User } from "../images/user.svg";
+import { ReactComponent as Search } from "../images/search.svg";
 
 const Header = () => {
   return (
@@ -17,7 +17,9 @@ const Header = () => {
       margin="auto"
     >
       <Stack flexDirection="row" alignItems="center">
-        <IconBtn icon={Menu} />
+        <IconBtnCircular>
+          <Menu />
+        </IconBtnCircular>
         <Box ml="22px">
           <Typography fontSize="35px" fontWeight={700} lineHeight="48px">
             Lorem ipsum dolor amet consectetur{" "}
@@ -30,8 +32,12 @@ const Header = () => {
         </Box>
       </Stack>
       <Stack flexDirection="row" alignItems="center" columnGap="15px" ml="60px">
-        <IconBtn icon={User} />
-        <IconBtn icon={Search} />
+        <IconBtnCircular>
+          <User />
+        </IconBtnCircular>
+        <IconBtnCircular>
+          <Search />
+        </IconBtnCircular>
       </Stack>
     </Stack>
   );

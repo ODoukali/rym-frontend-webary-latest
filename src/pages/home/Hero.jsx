@@ -1,15 +1,15 @@
 import React from "react";
 import { Box, Button, Stack, Typography } from "@mui/material";
 import { styled } from "@mui/system";
-import IconBtn from "../../components/IconBtn";
+import IconBtnCircular from "../../components/IconBtnCircular";
 import { Link } from "react-router-dom";
 import LinkBtn from "../../components/LinkBtn";
 import Guides from "../../components/Guides";
 
 import BgImg from "../../images/home-hero-bg.png";
 import Logo from "../../images/logo.svg";
-import User from "../../images/user.svg";
-import Search from "../../images/search.svg";
+import { ReactComponent as User } from "../../images/user.svg";
+import { ReactComponent as Search } from "../../images/search.svg";
 
 const PageTitleHighlighted = styled(Typography)(() => {
   return {
@@ -71,8 +71,12 @@ const Hero = () => {
             columnGap="15px"
             ml="60px"
           >
-            <IconBtn icon={User} />
-            <IconBtn icon={Search} />
+            <IconBtnCircular>
+              <User />
+            </IconBtnCircular>
+            <IconBtnCircular>
+              <Search />
+            </IconBtnCircular>
           </Stack>
         </Stack>
       </Stack>

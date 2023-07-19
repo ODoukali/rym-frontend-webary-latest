@@ -60,46 +60,6 @@ const theme = createTheme({
         },
       },
     },
-    MuiSelect: {
-      styleOverrides: {
-        root: {
-          "& .MuiSelect-select": {
-            padding: "11.5px 14px",
-          },
-        },
-      },
-    },
-    MuiCheckbox: {
-      styleOverrides: {
-        root: {
-          "&.Mui-checked": {
-            color: "#6576FF",
-          },
-          "&:hover": {
-            backgroundColor: "transparent",
-          },
-        },
-      },
-    },
-    MuiOutlinedInput: {
-      styleOverrides: {
-        root: {
-          color: "#313131",
-          backgroundColor: "#fff",
-          fontSize: 16,
-          borderRadius: "5px",
-          overflow: "hidden",
-          "& input": {
-            padding: "11.5px 12px",
-            fontSize: "16px",
-            "&::placeholder": {
-              color: "#A0A0A0",
-              opacity: 0.6,
-            },
-          },
-        },
-      },
-    },
     MuiAccordion: {
       styleOverrides: {
         root: {
@@ -216,11 +176,12 @@ const theme = createTheme({
           },
         },
         {
-          props: { variant: "link" },
+          props: { variant: "text" },
           style: {
             padding: 0,
             backgroundColor: "transparent",
             boxShadow: "none",
+            minWidth: "auto",
             "& span": {
               position: "relative",
               fontSize: 16,

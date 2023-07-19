@@ -10,7 +10,7 @@ import Header from "../../components/Header";
 import SlideVideo1 from "../../images/slide-blog1.jpg";
 import SlideVideo2 from "../../images/slide-blog2.jpg";
 import SlideVideo3 from "../../images/slide-blog3.jpg";
-import PresentationImg from "../../images/presentation-img.png";
+import VideoPlayer from "./VideoPlayer";
 
 const sliderVideos = [
   {
@@ -45,44 +45,49 @@ const sliderVideos = [
 
 const Course = () => {
   return (
-    <Box position="relative" pt="57px">
-      <Guides color="rgba(0,0,0,0.06)" zIndex={-1} />
-      <Header />
-      <Box mt="80px">
-        <Container>
-          <img src={PresentationImg} style={{ width: "100%" }} alt="" />
-        </Container>
+    <>
+      <Box position="relative" pt="57px">
+        <Guides color="rgba(0,0,0,0.02)" zIndex={-1} />
+        <Header />
+        <Box mt="80px">
+          <Container>
+            <VideoPlayer />
+          </Container>
+        </Box>
       </Box>
-      <Box pb="110px">
-        <Container>
-          <Stack
-            flexDirection="row"
-            alignItems="center"
-            justifyContent="space-between"
-            mb="40px"
-          >
-            <Typography variant="sectionTitle" component="h2">
-              You <span className="highlighted">may</span> also{" "}
-              <span className="highlighted">like</span>
-            </Typography>
-            <TextLink to="">View All Videos</TextLink>
-          </Stack>
-        </Container>
-        <Slider slidesPerView={3}>
-          {sliderVideos.map((v) => (
-            <SwiperSlide key={v.id}>
-              <Slide
-                image={v.image}
-                title={v.title}
-                text={v.text}
-                videoLink={v.videoLink}
-              />
-            </SwiperSlide>
-          ))}
-        </Slider>
+      <Box position="relative" pt="100px" mt="-20px">
+        <Guides color="rgba(0,0,0,0.06)" zIndex={-1} />
+        <Box pb="110px">
+          <Container>
+            <Stack
+              flexDirection="row"
+              alignItems="center"
+              justifyContent="space-between"
+              mb="40px"
+            >
+              <Typography variant="sectionTitle" component="h2">
+                You <span className="highlighted">may</span> also{" "}
+                <span className="highlighted">like</span>
+              </Typography>
+              <TextLink to="">View All Videos</TextLink>
+            </Stack>
+          </Container>
+          <Slider slidesPerView={3}>
+            {sliderVideos.map((v) => (
+              <SwiperSlide key={v.id}>
+                <Slide
+                  image={v.image}
+                  title={v.title}
+                  text={v.text}
+                  videoLink={v.videoLink}
+                />
+              </SwiperSlide>
+            ))}
+          </Slider>
+        </Box>
+        <Footer />
       </Box>
-      <Footer />
-    </Box>
+    </>
   );
 };
 

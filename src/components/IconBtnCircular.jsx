@@ -1,7 +1,7 @@
 import React from "react";
 import { IconButton } from "@mui/material";
 
-const IconBtn = (props) => {
+const IconBtnCircular = (props) => {
   return (
     <IconButton
       sx={{
@@ -14,9 +14,9 @@ const IconBtn = (props) => {
         },
       }}
     >
-      <img src={props.icon} alt="" />
+      {props.children}
     </IconButton>
   );
 };
 
-export default IconBtn;
+export default IconBtnCircular;
