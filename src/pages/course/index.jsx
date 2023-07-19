@@ -6,11 +6,13 @@ import TextLink from "../../components/TextLink";
 import Slider from "../../components/Slider";
 import Slide from "../../components/Slide";
 import Header from "../../components/Header";
+import VideoPlayer from "./VideoPlayer";
+import Sidebar from "./Sidebar";
+import CourseTabs from "./CourseTabs";
 
 import SlideVideo1 from "../../images/slide-blog1.jpg";
 import SlideVideo2 from "../../images/slide-blog2.jpg";
 import SlideVideo3 from "../../images/slide-blog3.jpg";
-import VideoPlayer from "./VideoPlayer";
 
 const sliderVideos = [
   {
@@ -46,8 +48,8 @@ const sliderVideos = [
 const Course = () => {
   return (
     <>
-      <Box position="relative" pt="57px">
-        <Guides color="rgba(0,0,0,0.02)" zIndex={-1} />
+      <Box position="relative" pt="57px" zIndex={1}>
+        <Guides color="rgba(0,0,0,0.02)" zIndex={-1} pb="30px" />
         <Header />
         <Box mt="80px">
           <Container>
@@ -55,8 +57,29 @@ const Course = () => {
           </Container>
         </Box>
       </Box>
-      <Box position="relative" pt="100px" mt="-20px">
+      <Box position="relative" pt="100px" mt="-30px">
         <Guides color="rgba(0,0,0,0.06)" zIndex={-1} />
+
+        <Box
+          position="relative"
+          mx="30px"
+          pt="190px"
+          mt="-190px"
+          mb="150px"
+          sx={{ overflowX: "hidden" }}
+        >
+          <Container>
+            <Stack
+              flexDirection="row"
+              justifyContent="space-between"
+              gap="77px"
+            >
+              <CourseTabs />
+              <Sidebar />
+            </Stack>
+          </Container>
+        </Box>
+
         <Box pb="110px">
           <Container>
             <Stack

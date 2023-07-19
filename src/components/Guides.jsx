@@ -3,6 +3,7 @@ import { Box } from "@mui/material";
 const Guides = (props) => {
   return (
     <Box
+      {...props}
       position="absolute"
       width="100%"
       height="100%"
