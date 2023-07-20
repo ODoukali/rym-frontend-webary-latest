@@ -21,7 +21,6 @@ const Slider = (props) => {
             swiperRef.current = swiper;
           }}
           style={{
-            width: "100%",
             padding: "40px 20px 50px",
             margin: "0 -20px",
           }}
