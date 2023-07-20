@@ -72,7 +72,7 @@ const Course = () => {
             <Stack
               flexDirection="row"
               justifyContent="space-between"
-              gap="77px"
+              gap="6.5%"
             >
               <CourseTabs />
               <Sidebar />

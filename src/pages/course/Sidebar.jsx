@@ -49,6 +49,7 @@ const Sidebar = () => {
       pl="40px"
       pb="100px"
       borderRadius="40px"
+      flexShrink={0}
       sx={{
         "&::before": {
           content: "''",
