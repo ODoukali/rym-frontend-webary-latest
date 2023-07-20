@@ -6,6 +6,7 @@ import { ReactComponent as Arrow } from "../images/arrow.svg";
 const TextLink = (props) => {
   return (
     <Button
+      {...props}
       variant="text"
       to={props.to}
       component={NavLink}

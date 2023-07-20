@@ -19,6 +19,11 @@ const theme = createTheme({
       fontWeight: 700,
       lineHeight: "48px",
     },
+    small: {
+      fontSize: 14,
+      fontWeight: 500,
+      lineHeight: "24px",
+    },
     medium: {
       fontSize: 16,
       fontWeight: 500,
@@ -93,6 +98,9 @@ const theme = createTheme({
               top: "initial",
               bottom: "-16px",
               backgroundColor: "#FCE181",
+            },
+            "&:last-of-type::after": {
+              content: "none",
             },
           },
           "&::before": {

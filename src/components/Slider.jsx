@@ -8,23 +8,32 @@ import { ReactComponent as Arrow } from "../images/arrow.svg";
 
 const Slider = (props) => {
   const swiperRef = useRef();
+  const { arrows, ...restProps } = props;
 
   return (
     <Container>
       <Box position="relative">
         <Swiper
-          {...props}
+          {...restProps}
           spaceBetween={20}
           onSlideChange={() => console.log("slide change")}
           onSwiper={(swiper) => {
             swiperRef.current = swiper;
           }}
-          style={{ padding: "40px 20px 50px", margin: "0 -20px" }}
+          style={{
+            width: "100%",
+            padding: "40px 20px 50px",
+            margin: "0 -20px",
+          }}
         >
           {props.children}
         </Swiper>
-        <ArrowBtn onClick={() => swiperRef.current.slidePrev()} />
-        <ArrowBtn nextBtn onClick={() => swiperRef.current.slideNext()} />
+        {arrows ? (
+          <>
+            <ArrowBtn onClick={() => swiperRef.current.slidePrev()} />
+            <ArrowBtn nextBtn onClick={() => swiperRef.current.slideNext()} />
+          </>
+        ) : null}
       </Box>
     </Container>
   );

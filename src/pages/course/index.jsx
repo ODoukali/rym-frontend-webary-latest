@@ -60,14 +60,7 @@ const Course = () => {
       <Box position="relative" pt="100px" mt="-30px">
         <Guides color="rgba(0,0,0,0.06)" zIndex={-1} />
 
-        <Box
-          position="relative"
-          mx="30px"
-          pt="190px"
-          mt="-190px"
-          mb="150px"
-          sx={{ overflowX: "hidden" }}
-        >
+        <Box position="relative" mx="30px" pt="190px" mt="-190px" mb="150px">
           <Container>
             <Stack
               flexDirection="row"
@@ -95,7 +88,7 @@ const Course = () => {
               <TextLink to="">View All Videos</TextLink>
             </Stack>
           </Container>
-          <Slider slidesPerView={3}>
+          <Slider slidesPerView={3} arrows>
             {sliderVideos.map((v) => (
               <SwiperSlide key={v.id}>
                 <Slide

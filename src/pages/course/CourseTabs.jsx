@@ -1,19 +1,18 @@
 import React, { useState } from "react";
-import { Box, Tab, Tabs, Typography } from "@mui/material";
+import { Box, Tab, Tabs } from "@mui/material";
 import { styled } from "@mui/material/styles";
+import ResourcesTab from "./ResourcesTab";
+import NotesBookmarksTab from "./NotesBookmarksTab";
+import ConnectTab from "./ConnectTab";
+import SubscriptionTab from "./SubscriptionTab";
+import DescriptionTab from "./DescriptionTab";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
   return (
-    <div
-      role="tabpanel"
-      hidden={value !== index}
-      id={`vertical-tabpanel-${index}`}
-      s
-      {...other}
-    >
-      {value === index && <Box sx={{ p: 3 }}>{children}</Box>}
+    <div role="tabpanel" hidden={value !== index} {...other}>
+      {value === index && <Box sx={{ pt: "50px" }}>{children}</Box>}
     </div>
   );
 }
@@ -67,7 +66,7 @@ const CourseTabs = () => {
   return (
     <Box
       position="relative"
-      width="100%"
+      width="calc(93.5% - 300px);"
       sx={{
         "&::before": {
           content: "''",
@@ -89,22 +88,19 @@ const CourseTabs = () => {
         <StyledTab label="Resources" />
       </StyledTabs>
       <TabPanel value={value} index={0}>
-        Item One
+        <DescriptionTab />
       </TabPanel>
       <TabPanel value={value} index={1}>
-        Item Two
+        <SubscriptionTab />
       </TabPanel>
       <TabPanel value={value} index={2}>
-        Item Three
+        <NotesBookmarksTab />
       </TabPanel>
       <TabPanel value={value} index={3}>
-        Item Four
+        <ConnectTab />
       </TabPanel>
       <TabPanel value={value} index={4}>
-        Item Five
-      </TabPanel>
-      <TabPanel value={value} index={5}>
-        Item Six
+        <ResourcesTab />
       </TabPanel>
     </Box>
   );

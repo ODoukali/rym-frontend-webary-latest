@@ -25,7 +25,7 @@ const BlogNews = () => {
           <TextLink to="">Visit Blog & News</TextLink>
         </Stack>
       </Container>
-      <Slider slidesPerView={3}>
+      <Slider slidesPerView={3} arrows>
         <SwiperSlide>
           <Slide
             image={SlideBlog1}
