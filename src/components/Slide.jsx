@@ -1,5 +1,4 @@
 import { Box, Link, Typography } from "@mui/material";
-import { SwiperSlide } from "swiper/react";
 import { NavLink } from "react-router-dom";
 import BlockBordered from "./BlockBordered";
 import TextLink from "./TextLink";

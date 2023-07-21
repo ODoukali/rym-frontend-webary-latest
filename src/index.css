@@ -36,3 +36,86 @@
   text-decoration: underline;
   cursor: pointer;
 }
+
+media-player {
+  --media-time-font-size: 12px;
+  --media-time-font-weight: 700;
+  --media-font-family: "Poppins";
+  --media-time-letter-spacing: initial;
+  background-color: transparent !important;
+  border-radius: 20px !important;
+}
+
+media-outlet,
+media-player[data-view-type="video"] {
+  background-color: transparent;
+  border-radius: 20px;
+}
+
+media-play-button {
+  width: 21px;
+}
+
+media-fullscreen-button[data-hover],
+media-menu-button[data-hover],
+media-play-button[data-hover] {
+  background-color: transparent;
+}
+
+media-menu-button[data-hover] svg,
+media-fullscreen-button[data-hover] svg,
+media-play-button[data-hover] svg {
+  color: #fce181;
+}
+
+media-time-slider [part~="track"] {
+  background-color: #026670;
+  border-radius: 4px;
+}
+
+media-time-slider [part~="track-fill"] {
+  background-color: #fce181;
+  border-radius: 4px;
+}
+
+media-time-slider [part~="track-progress"] {
+  background-color: #fce181;
+  border-radius: 4px;
+}
+
+media-seek-button {
+  width: initial;
+  height: initial;
+}
+
+media-seek-button p {
+  white-space: nowrap;
+}
+
+media-seek-button:hover {
+  background-color: transparent;
+}
+
+media-seek-button:hover p {
+  color: #fce181;
+}
+
+media-seek-button svg[slot="forward"],
+media-seek-button svg[slot="backward"] {
+  display: none;
+}
+
+media-fullscreen-button {
+  width: 21px;
+  height: 21px;
+}
+
+media-menu-button {
+  width: 20px;
+}
+
+media-volume-slider {
+  display: none;
+  position: absolute;
+  height: 50px;
+}

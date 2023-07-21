@@ -4,7 +4,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import BlockBordered from "../../components/BlockBordered";
 import TextLink from "../../components/TextLink";
 import Rating from "../../components/Rating";
-import Slider from "../../components/Slider";
 
 import { ReactComponent as Like } from "../../images/like.svg";
 

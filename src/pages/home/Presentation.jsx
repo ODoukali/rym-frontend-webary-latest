@@ -3,7 +3,7 @@ import { Box, Button, Container, Typography, Link } from "@mui/material";
 import { NavLink } from "react-router-dom";
 import BlockBordered from "../../components/BlockBordered";
 
-import PresentationImg from "../../images/presentation-img.png";
+import PresentationImg from "../../images/presentation-img.jpg";
 import PlayBtn from "../../components/PlayBtn";
 
 const Presentation = () => {
@@ -51,7 +51,7 @@ const Presentation = () => {
           },
         }}
       >
-        <img src={PresentationImg} alt="" />
+        <img src={PresentationImg} alt="" style={{ borderRadius: "20px" }} />
         <Link to="" component={NavLink} sx={{ position: "absolute" }}>
           <PlayBtn width="120px" height="120px" />
         </Link>
