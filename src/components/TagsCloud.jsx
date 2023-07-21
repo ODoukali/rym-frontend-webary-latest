@@ -3,7 +3,7 @@ import { useEffect, useReducer } from "react";
 import TagCloud from "react-tag-cloud";
 
 const TagsCloud = () => {
-  const [_, forceUpdate] = useReducer((x) => x + 1, 0);
+  const [ignored, forceUpdate] = useReducer((x) => x + 1, 0);
 
   useEffect(() => {
     setInterval(() => {
