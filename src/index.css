@@ -68,6 +68,7 @@ media-play-button[data-hover] svg {
   color: #fce181;
 }
 
+media-volume-slider [part~="track"],
 media-time-slider [part~="track"] {
   background-color: #026670;
   border-radius: 4px;
@@ -115,7 +116,14 @@ media-menu-button {
 }
 
 media-volume-slider {
+  width: 60px;
   display: none;
-  position: absolute;
-  height: 50px;
+  flex-shrink: 0;
+}
+
+media-player[data-ios-controls] .media-controls-group,
+media-player[data-user-idle] .media-controls-group,
+media-player:not([data-can-play]) .media-controls-group {
+  opacity: 0;
+  pointer-events: none;
 }
