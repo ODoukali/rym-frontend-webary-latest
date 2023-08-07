@@ -1,10 +1,11 @@
 import React from "react";
-import { Box, Button, Stack, Typography } from "@mui/material";
+import { Box, Button, Stack, Typography, Link as MuiLink } from "@mui/material";
 import { styled } from "@mui/system";
 import IconBtnCircular from "../../components/IconBtnCircular";
 import { Link } from "react-router-dom";
 import LinkBtn from "../../components/LinkBtn";
 import Guides from "../../components/Guides";
+import MenuBtn from "../../components/MenuBtn";
 
 import BgImg from "../../images/home-hero-bg.png";
 import Logo from "../../images/logo.svg";
@@ -14,8 +15,9 @@ import { ReactComponent as Search } from "../../images/search.svg";
 const PageTitleHighlighted = styled(Typography)(() => {
   return {
     position: "relative",
+    fontFamily: "FbJoker",
     fontSize: "80px",
-    fontWeight: "bold",
+    fontWeight: "900",
     lineHeight: "75px",
     "&::after": {
       content: "''",
@@ -23,7 +25,7 @@ const PageTitleHighlighted = styled(Typography)(() => {
       height: "20px",
       position: "absolute",
       left: "50%",
-      bottom: "18px",
+      bottom: "-3px",
       transform: "translateX(-50%)",
       backgroundColor: "rgba(252,225,129,0.5)",
     },
@@ -55,24 +57,8 @@ const Hero = () => {
         margin="auto"
         zIndex={1}
       >
-        <Link to="/">
-          <img src={Logo} alt="" />
-        </Link>
-        <Stack flexDirection="row" alignItems="center">
-          <Stack flexDirection="row" alignItems="center" columnGap="56px">
-            <LinkBtn to="/" title="Main" />
-            <LinkBtn to="/philosophy" title="Philosophy" />
-            <LinkBtn to="/blog" title="Blog" />
-            <LinkBtn to="/parsha" title="Parsha" />
-            <LinkBtn to="/qa" title="Q&A" />
-            <LinkBtn to="/contact" title="Contact" />
-          </Stack>
-          <Stack
-            flexDirection="row"
-            alignItems="center"
-            columnGap="15px"
-            ml="60px"
-          >
+        <Stack flexDirection="row" alignItems="center" columnGap="40px">
+          <Stack flexDirection="row" alignItems="center" columnGap="15px">
             <IconBtnCircular>
               <User />
             </IconBtnCircular>
@@ -80,28 +66,51 @@ const Hero = () => {
               <Search />
             </IconBtnCircular>
           </Stack>
+          <Stack flexDirection="row" alignItems="center" columnGap="56px">
+            <LinkBtn to="/" title="Main" />
+            <MenuBtn title="Philosophy">
+              <MuiLink to="/course" underline="none" component={Link}>
+                Submenu link 01
+              </MuiLink>
+            </MenuBtn>
+            {/* <LinkBtn to="/philosophy" title="Philosophy" /> */}
+            <LinkBtn to="/blog" title="Blog" />
+            <LinkBtn to="/parsha" title="Parsha" />
+            <LinkBtn to="/qa" title="Q&A" />
+            <LinkBtn to="/contact" title="Contact" />
+          </Stack>
         </Stack>
+        <Link to="/">
+          <img src={Logo} alt="" />
+        </Link>
       </Stack>
 
       <Box
+        className="rtl-section"
         position="relative"
-        maxWidth="785px"
+        maxWidth="873px"
         margin="108px auto 148px"
         zIndex={1}
       >
         <Typography
           component="h1"
+          fontFamily="FbJoker"
           fontSize="80px"
-          fontWeight="bold"
+          fontWeight={900}
           lineHeight="75px"
           mb="30px"
         >
-          ‘ It doesn’t{" "}
-          <PageTitleHighlighted component="span">matter</PageTitleHighlighted>{" "}
-          <PageTitleHighlighted component="span">where</PageTitleHighlighted>{" "}
-          you’re going, it’s who you{" "}
-          <PageTitleHighlighted component="span">have</PageTitleHighlighted>{" "}
-          beside you. ’
+          דא ווערן{" "}
+          <PageTitleHighlighted component="span">
+            דורכגערעדט
+          </PageTitleHighlighted>{" "}
+          די וויכטיגסטע{" "}
+          <PageTitleHighlighted component="span">
+            יסודות אין לעבן,
+          </PageTitleHighlighted>{" "}
+          וועלכע קומען צוניץ אין{" "}
+          <PageTitleHighlighted component="span">יעדן מצב</PageTitleHighlighted>{" "}
+          פון א מענטשנס לעבן…
         </Typography>
         <Typography fontSize="18px" fontWeight={500} mb="50px">
           Lorem ipsum dolor amet, consectetur adipiscing elit tempor.

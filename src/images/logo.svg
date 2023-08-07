@@ -1,6 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="253" height="32" viewBox="0 0 253 32">
+<svg xmlns="http://www.w3.org/2000/svg" width="100" height="32" viewBox="0 0 100 32">
   <g id="logo" transform="translate(-40 -38)">
-    <text id="Reb.Yakov.Moshe" transform="translate(40 62)" fill="#333" font-size="23" font-family="Poppins-Bold, Poppins" font-weight="700" letter-spacing="0.12em"><tspan x="0" y="0">Reb.Yakov.Moshe</tspan></text>
-    <rect id="Rectangle_16" data-name="Rectangle 16" width="97" height="10" transform="translate(196 57)" fill="#fce181" opacity="0.5"/>
+    <text id="R_Y_M_" data-name="R•Y•M•" transform="translate(40 62)" fill="#333" font-size="23" font-family="Poppins-Bold, Poppins" font-weight="700" letter-spacing="0.12em"><tspan x="0" y="0">R•Y•M•</tspan></text>
   </g>
 </svg>

@@ -1,5 +1,33 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
 
+@font-face {
+  font-family: "FbJoker";
+  src: url("./fonts/FbJoker-Regular.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "FbJoker";
+  src: url("./fonts/FbJoker-Light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "FbJoker";
+  src: url("./fonts/FbJoker-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "FbJoker";
+  src: url("./fonts/FbJoker-Black.otf") format("opentype");
+  font-weight: 900;
+  font-style: normal;
+}
+
 .highlighted {
   position: relative;
 }
@@ -126,4 +154,9 @@ media-player[data-user-idle] .media-controls-group,
 media-player:not([data-can-play]) .media-controls-group {
   opacity: 0;
   pointer-events: none;
+}
+
+.rtl-section {
+  direction: rtl;
+  text-align: right;
 }
