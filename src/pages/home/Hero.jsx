@@ -5,7 +5,8 @@ import IconBtnCircular from "../../components/IconBtnCircular";
 import { Link } from "react-router-dom";
 import LinkBtn from "../../components/LinkBtn";
 import Guides from "../../components/Guides";
-import MenuBtn from "../../components/MenuBtn";
+import MenuDropdown from "../../components/menuDropdown/MenuDropdown";
+import MenuDropdownLink from "../../components/menuDropdown/MenuDropdownLink";
 
 import BgImg from "../../images/home-hero-bg.png";
 import Logo from "../../images/logo.svg";
@@ -68,12 +69,12 @@ const Hero = () => {
           </Stack>
           <Stack flexDirection="row" alignItems="center" columnGap="56px">
             <LinkBtn to="/" title="Main" />
-            <MenuBtn title="Philosophy">
-              <MuiLink to="/course" underline="none" component={Link}>
-                Submenu link 01
-              </MuiLink>
-            </MenuBtn>
-            {/* <LinkBtn to="/philosophy" title="Philosophy" /> */}
+            <MenuDropdown title="Philosophy">
+              <MenuDropdownLink to="/course">Submenu link 01</MenuDropdownLink>
+              <MenuDropdownLink to="/">Another link 02</MenuDropdownLink>
+              <MenuDropdownLink to="/">Submenu link 03</MenuDropdownLink>
+              <MenuDropdownLink to="/">Another link 04</MenuDropdownLink>
+            </MenuDropdown>
             <LinkBtn to="/blog" title="Blog" />
             <LinkBtn to="/parsha" title="Parsha" />
             <LinkBtn to="/qa" title="Q&A" />

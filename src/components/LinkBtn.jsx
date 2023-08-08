@@ -3,9 +3,10 @@ import { Link } from "@mui/material";
 import { NavLink } from "react-router-dom";
 
 const LinkBtn = (props) => {
+  const { footerLink, ...rest } = props;
   return (
     <Link
-      {...props}
+      {...rest}
       to={props.to}
       component={NavLink}
       underline="none"
