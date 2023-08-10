@@ -1,6 +1,6 @@
 import { Stack } from "@mui/material";
 
-import { ReactComponent as Play } from "../images/arrow.svg";
+import { ReactComponent as Play } from "../images/play-video.svg";
 
 const PlayBtn = (props) => {
   return (

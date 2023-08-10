@@ -11,7 +11,7 @@ const IconBtnCircular = (props) => {
         backdropFilter: "blur(10px)",
         boxShadow: "0px 10px 20px rgba(0,0,0,0.1)",
         "&:hover": {
-          backgroundColor: "rgba(255,255,255,1)",
+          backgroundColor: "#FCE181",
         },
       }}
     >

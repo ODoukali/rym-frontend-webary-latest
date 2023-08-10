@@ -8,7 +8,7 @@ const TagsCloud = () => {
   useEffect(() => {
     setInterval(() => {
       forceUpdate();
-    }, 10000);
+    }, 5000);
   }, [forceUpdate]);
 
   return (

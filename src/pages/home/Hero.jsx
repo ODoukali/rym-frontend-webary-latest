@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Button, Stack, Typography, Link as MuiLink } from "@mui/material";
+import { Box, Button, Stack, Typography } from "@mui/material";
 import { styled } from "@mui/system";
 import IconBtnCircular from "../../components/IconBtnCircular";
 import { Link } from "react-router-dom";
@@ -9,7 +9,7 @@ import MenuDropdown from "../../components/menuDropdown/MenuDropdown";
 import MenuDropdownLink from "../../components/menuDropdown/MenuDropdownLink";
 
 import BgImg from "../../images/home-hero-bg.png";
-import Logo from "../../images/logo.svg";
+import { ReactComponent as Logo } from "../../images/logo.svg";
 import { ReactComponent as User } from "../../images/user.svg";
 import { ReactComponent as Search } from "../../images/search.svg";
 
@@ -82,7 +82,7 @@ const Hero = () => {
           </Stack>
         </Stack>
         <Link to="/">
-          <img src={Logo} alt="" />
+          <Logo color="#333" />
         </Link>
       </Stack>
 

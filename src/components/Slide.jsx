@@ -15,25 +15,25 @@ const Slide = (props) => {
         "&::before": {
           content: "''",
           position: "absolute",
+          top: "50%",
           left: "50%",
           width: "calc(100% - 40px)",
           height: "100%",
           backgroundColor: "#FCE181",
           borderRadius: "20px",
-          transform: "translateX(-50%)",
+          transform: "translate(-50%,-50%)",
           zIndex: -1,
           transition: "0.2s ease",
         },
         "&:hover": {
-          transform: "scale(1,1.03)",
           boxShadow: "0px 20px 24px rgba(0,0,0,0.1)",
           "&::before": {
-            transform: "translateX(-50%) scale(1,1.07)",
+            height: "calc(100% + 40px)",
           },
           "& .slideTitle": {
             color: "primary.main",
           },
-          "& .MuiButton-link": {
+          "& .MuiButton-root": {
             color: "#333",
             backgroundColor: "transparent",
             "& span.MuiTypography-root::after": {
@@ -67,7 +67,7 @@ const Slide = (props) => {
           </Link>
         ) : null}
         <img
-          style={{ objectFit: "cover", width: "100%" }}
+          style={{ objectFit: "cover", width: "100%", height: "100%" }}
           src={props.image}
           alt=""
         />

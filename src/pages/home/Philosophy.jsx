@@ -5,7 +5,7 @@ import PhilosophyImg from "../../images/philosophy-img.png";
 
 const Philosophy = () => {
   return (
-    <Container sx={{ pb: "222px" }}>
+    <Container sx={{ mb: "190px" }}>
       <Stack flexDirection="row" alignItems="center" gap="80px">
         <Box
           position="relative"
@@ -13,6 +13,7 @@ const Philosophy = () => {
           display="flex"
           borderRadius="20px"
           boxShadow="30px 30px 50px rgba(0,0,0,0.2)"
+          flexShrink={0}
           sx={{
             "&::before": {
               content: "''",
@@ -45,7 +46,10 @@ const Philosophy = () => {
               enim ad minim veniam, quis ullamco.
             </Typography>
           </BlockBordered>
-          <Button variant="green">Contact us Today</Button>
+          <Stack flexDirection="row" alignItems="center" gap="20px">
+            <Button variant="green">Contact us Today</Button>
+            <Button variant="outlined">Need 1 on 1 help?</Button>
+          </Stack>
         </Box>
       </Stack>
     </Container>

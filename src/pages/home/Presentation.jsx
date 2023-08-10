@@ -9,24 +9,27 @@ import PlayBtn from "../../components/PlayBtn";
 const Presentation = () => {
   return (
     <Container sx={{ py: "150px" }}>
-      <Typography
-        maxWidth="460px"
-        variant="sectionTitle"
-        component="h2"
-        mb="30px"
-      >
-        Presentation of the Reb Yakov <span className="highlighted">Moshe</span>
-      </Typography>
-      <BlockBordered mb="50px">
-        <Typography maxWidth="522px" variant="large">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis ullamco.
+      <Box maxWidth="552px">
+        <Typography
+          maxWidth="460px"
+          variant="sectionTitle"
+          component="h2"
+          mb="30px"
+        >
+          Presentation of the Reb Yakov{" "}
+          <span className="highlighted">Moshe</span>
         </Typography>
-      </BlockBordered>
-      <Button variant="yellow" sx={{ position: "relative", zIndex: 1 }}>
-        Contact us Today
-      </Button>
+        <BlockBordered mb="50px">
+          <Typography maxWidth="522px" variant="large">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis ullamco.
+          </Typography>
+        </BlockBordered>
+        <Button variant="yellow" sx={{ position: "relative", zIndex: 1 }}>
+          Learn More
+        </Button>
+      </Box>
       <Box
         position="relative"
         maxWidth="960px"

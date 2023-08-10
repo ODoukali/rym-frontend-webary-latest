@@ -8,6 +8,9 @@ import FAQ from "./FAQ";
 import Parsa from "./Parsa";
 import Footer from "../../components/Footer";
 import Guides from "../../components/Guides";
+import Courses from "./Courses";
+import Promotion from "./Promotion";
+import VideoSlider from "./VideoSlider";
 
 const Home = () => {
   return (
@@ -16,11 +19,14 @@ const Home = () => {
         <Guides color="rgba(0,0,0,0.06)" zIndex={-1} />
         <Hero />
         <TagsCloud />
+        <VideoSlider />
         <Presentation />
         <Philosophy />
+        <Courses />
         <BlogNews />
         <FAQ />
         <Parsa />
+        <Promotion />
       </Box>
       <Footer />
     </Box>

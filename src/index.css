@@ -56,7 +56,7 @@
 }
 
 .tagCloud > div {
-  transition: transform 1.4s;
+  transition: transform 1s;
 }
 
 .hovered:hover {

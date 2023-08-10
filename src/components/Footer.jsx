@@ -10,8 +10,8 @@ import { Link } from "react-router-dom";
 import Guides from "./Guides";
 
 import BgImg from "../images/footer-tree.svg";
-import Logo from "../images/logo-white.svg";
 import LinkBtn from "./LinkBtn";
+import { ReactComponent as Logo } from "../images/logo.svg";
 
 const Footer = () => {
   return (
@@ -42,7 +42,7 @@ const Footer = () => {
         <Stack flexDirection="row" position="relative" zIndex="1">
           <Box maxWidth="380px" mr="118px">
             <Link to="/" style={{ display: "flex" }}>
-              <img src={Logo} alt="" />
+              <Logo color="#fff" />
             </Link>
             <Typography variant="medium" color="#fff" component="p" mt="20px">
               Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit

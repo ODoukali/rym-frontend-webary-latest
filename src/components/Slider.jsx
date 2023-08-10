@@ -59,11 +59,11 @@ const ArrowBtn = (props) => {
         border: "none",
         cursor: "pointer",
         transition: "0.2s ease",
-        transform: props.nextBtn
-          ? "translateY(-50%) rotate(0deg)"
-          : "translateY(-50%) rotate(180deg)",
+        transform: "translateY(-50%)",
         "& svg": {
           transition: "0.2s ease",
+          transform: props.nextBtn ? "rotate(0deg)" : "rotate(180deg)",
+          margin: props.nextBtn ? "0 0 0 5px" : "0 3px 0 0",
         },
         "&:hover": {
           bgcolor: "#026670",
@@ -73,12 +73,7 @@ const ArrowBtn = (props) => {
         },
       }}
     >
-      <Arrow
-        width={13}
-        height={16}
-        color="#026670"
-        style={{ marginLeft: "6%" }}
-      />
+      <Arrow width={13} height={16} color="#026670" />
     </Box>
   );
 };

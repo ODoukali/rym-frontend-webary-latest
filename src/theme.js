@@ -19,6 +19,15 @@ const theme = createTheme({
       fontWeight: 700,
       lineHeight: "48px",
     },
+    sectionTitleHebrew: {
+      fontFamily: "FbJoker",
+      fontSize: 54,
+      fontWeight: 900,
+      lineHeight: "48px",
+      "& .highlighted::after": {
+        bottom: "-3px",
+      },
+    },
     small: {
       fontSize: 14,
       fontWeight: 500,
@@ -130,6 +139,18 @@ const theme = createTheme({
         },
       },
     },
+    MuiOutlinedInput: {
+      styleOverrides: {
+        root: {
+          "&.MuiInputBase-root .MuiOutlinedInput-notchedOutline": {
+            border: "none",
+          },
+          "&.MuiInputBase-root.Mui-focused .MuiOutlinedInput-notchedOutline": {
+            border: "none",
+          },
+        },
+      },
+    },
     MuiButtonBase: {
       defaultProps: {
         disableRipple: true,
@@ -181,6 +202,20 @@ const theme = createTheme({
             backgroundColor: "#026670",
             "&:hover": {
               backgroundColor: "#00545d",
+            },
+          },
+        },
+        {
+          props: { variant: "outlined" },
+          style: {
+            color: "#026670",
+            backgroundColor: "transparent",
+            border: "3px solid #026670",
+            padding: "20px 59px",
+            "&:hover": {
+              color: "#FCE181",
+              border: "3px solid #026670",
+              backgroundColor: "#026670",
             },
           },
         },

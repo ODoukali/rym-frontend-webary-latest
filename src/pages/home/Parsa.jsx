@@ -8,7 +8,7 @@ import Parsa1 from "../../images/parsa1.jpg";
 import Parsa2 from "../../images/parsa2.jpg";
 const Parsa = () => {
   return (
-    <Box pb="110px">
+    <Box mb="100px">
       <Container>
         <Stack
           flexDirection="row"
