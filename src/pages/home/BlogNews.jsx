@@ -33,7 +33,14 @@ const BlogNews = () => {
           <TextLink to="">Visit Blog & News</TextLink>
         </Stack>
       </Container>
-      <Slider slidesPerView={3} arrows>
+      <Slider
+        slidesPerView={3}
+        arrows
+        style={{
+          padding: "40px 20px 50px",
+          margin: "0 -20px",
+        }}
+      >
         <SwiperSlide>
           <Slide
             image={SlideBlog1}

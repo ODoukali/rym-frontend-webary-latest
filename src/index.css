@@ -160,3 +160,8 @@ media-player:not([data-can-play]) .media-controls-group {
   direction: rtl;
   text-align: right;
 }
+
+.swiper-videos .swiper-slide {
+  width: auto;
+  padding: 20px 0 60px;
+}

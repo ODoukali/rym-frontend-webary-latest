@@ -22,7 +22,14 @@ const Parsa = () => {
           <TextLink to="">Visit Parsa</TextLink>
         </Stack>
       </Container>
-      <Slider slidesPerView={2} arrows>
+      <Slider
+        slidesPerView={2}
+        arrows
+        style={{
+          padding: "40px 20px 50px",
+          margin: "0 -20px",
+        }}
+      >
         <SwiperSlide>
           <Slide
             image={Parsa1}

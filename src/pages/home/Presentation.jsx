@@ -8,7 +8,7 @@ import PlayBtn from "../../components/PlayBtn";
 
 const Presentation = () => {
   return (
-    <Container sx={{ py: "150px" }}>
+    <Container sx={{ pb: "150px" }}>
       <Box maxWidth="552px">
         <Typography
           maxWidth="460px"

@@ -20,10 +20,6 @@ const Slider = (props) => {
           onSwiper={(swiper) => {
             swiperRef.current = swiper;
           }}
-          style={{
-            padding: "40px 20px 50px",
-            margin: "0 -20px",
-          }}
         >
           {props.children}
         </Swiper>
