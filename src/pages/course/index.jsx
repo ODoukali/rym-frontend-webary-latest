@@ -13,6 +13,7 @@ import CourseTabs from "./CourseTabs";
 import SlideVideo1 from "../../images/slide-blog1.jpg";
 import SlideVideo2 from "../../images/slide-blog2.jpg";
 import SlideVideo3 from "../../images/slide-blog3.jpg";
+import BlockBordered from "../../components/BlockBordered";
 
 const sliderVideos = [
   {
@@ -47,12 +48,32 @@ const sliderVideos = [
 
 const Course = () => {
   return (
-    <>
+    <Box maxWidth="1920px" m="0 auto" sx={{ overflowX: "hidden" }}>
       <Box position="relative" pt="57px" zIndex={1}>
         <Guides color="rgba(0,0,0,0.02)" zIndex={-1} pb="30px" />
         <Header />
         <Box mt="80px">
           <Container>
+            <Stack
+              flexDirection="row"
+              alignItems="flex-start"
+              justifyContent="space-between"
+            >
+              <TextLink to="" sx={{ marginTop: "14px" }}>
+                Explore all Q&A
+              </TextLink>
+              <Box>
+                <Typography fontSize="35px" fontWeight={700} lineHeight="48px">
+                  Lorem ipsum dolor amet consectetur{" "}
+                </Typography>
+                <BlockBordered>
+                  <Typography variant="large" color="#666564">
+                    Sed do eiusmod tempor incididunt ut labore et dolore aliqua
+                  </Typography>
+                </BlockBordered>
+              </Box>
+            </Stack>
+
             <VideoPlayer />
           </Container>
         </Box>
@@ -103,7 +124,7 @@ const Course = () => {
         </Box>
         <Footer />
       </Box>
-    </>
+    </Box>
   );
 };
 

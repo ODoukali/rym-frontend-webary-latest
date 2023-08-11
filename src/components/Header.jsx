@@ -1,10 +1,11 @@
-import { Box, Stack, Typography } from "@mui/material";
+import { Stack } from "@mui/material";
+import { Link } from "react-router-dom";
 import IconBtnCircular from "./IconBtnCircular";
-import BlockBordered from "./BlockBordered";
 
 import { ReactComponent as Menu } from "../images/menu.svg";
 import { ReactComponent as User } from "../images/user.svg";
 import { ReactComponent as Search } from "../images/search.svg";
+import { ReactComponent as Logo } from "../images/logo.svg";
 
 const Header = () => {
   return (
@@ -16,22 +17,10 @@ const Header = () => {
       padding="0 30px"
       margin="auto"
     >
-      <Stack flexDirection="row" alignItems="center">
+      <Stack flexDirection="row" alignItems="center" columnGap="15px" ml="60px">
         <IconBtnCircular>
           <Menu />
         </IconBtnCircular>
-        <Box ml="22px">
-          <Typography fontSize="35px" fontWeight={700} lineHeight="48px">
-            Lorem ipsum dolor amet consectetur{" "}
-          </Typography>
-          <BlockBordered>
-            <Typography variant="large" color="#666564">
-              Sed do eiusmod tempor incididunt ut labore et dolore aliqua
-            </Typography>
-          </BlockBordered>
-        </Box>
-      </Stack>
-      <Stack flexDirection="row" alignItems="center" columnGap="15px" ml="60px">
         <IconBtnCircular>
           <User />
         </IconBtnCircular>
@@ -39,6 +28,9 @@ const Header = () => {
           <Search />
         </IconBtnCircular>
       </Stack>
+      <Link to="/">
+        <Logo color="#333" />
+      </Link>
     </Stack>
   );
 };

@@ -14,7 +14,7 @@ import VideoSlider from "./VideoSlider";
 
 const Home = () => {
   return (
-    <Box mt="30px" sx={{ overflowX: "hidden" }}>
+    <Box maxWidth="1920px" m="30px auto" sx={{ overflowX: "hidden" }}>
       <Box position="relative">
         <Guides color="rgba(0,0,0,0.06)" zIndex={-1} />
         <Hero />
