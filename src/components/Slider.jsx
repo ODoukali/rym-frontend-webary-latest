@@ -78,7 +78,7 @@ const ArrowBtn = (props) => {
         },
       }}
     >
-      <Arrow width={13} height={16} color="#026670" />
+      <Arrow color="#026670" />
     </Box>
   );
 };

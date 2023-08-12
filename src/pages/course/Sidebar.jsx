@@ -171,6 +171,7 @@ const Sidebar = () => {
           sx={{
             mt: "30px",
             ml: "auto",
+            "& .MuiButton-endIcon": { ml: "12px" },
             "& svg": { transform: "rotate(90deg)", mt: "3px" },
           }}
         >

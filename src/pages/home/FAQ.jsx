@@ -108,10 +108,7 @@ const FAQ = () => {
               },
             }}
           >
-            <AccordionSummary
-              id={a.id}
-              expandIcon={<Arrow width={14} height={11} color="#026670" />}
-            >
+            <AccordionSummary id={a.id} expandIcon={<Arrow color="#026670" />}>
               <Typography
                 position="relative"
                 fontFamily="FbJoker"

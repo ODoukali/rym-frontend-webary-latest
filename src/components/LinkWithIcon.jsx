@@ -30,7 +30,7 @@ const LinkWithIcon = (props) => {
       }}
       endIcon={
         <IconBtnCircular>
-          <Arrow width={16} height={13} color="#026670" />
+          <Arrow color="#026670" />
         </IconBtnCircular>
       }
     >

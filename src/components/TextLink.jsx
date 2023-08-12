@@ -10,7 +10,7 @@ const TextLink = (props) => {
       variant="text"
       to={props.to}
       component={NavLink}
-      endIcon={<Arrow width={16} height={13} />}
+      endIcon={<Arrow />}
     >
       <Typography component="span">{props.children}</Typography>
     </Button>
