@@ -6,17 +6,21 @@ const MenuBtn = (props) => {
   let currentlyHovering = false;
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
+
   const handleClick = (event) => {
     if (anchorEl !== event.currentTarget) {
       setAnchorEl(event.currentTarget);
     }
   };
+
   function handleHover() {
     currentlyHovering = true;
   }
+
   const handleClose = () => {
     setAnchorEl(null);
   };
+
   function handleCloseHover() {
     currentlyHovering = false;
     setTimeout(() => {
@@ -74,6 +78,7 @@ const MenuBtn = (props) => {
           vertical: "top",
           horizontal: "center",
         }}
+        disableRestoreFocus
         sx={{
           top: "23px",
           pointerEvents: "none",
