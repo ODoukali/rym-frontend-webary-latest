@@ -1,4 +1,7 @@
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, Button, Stack, Typography } from "@mui/material";
+
+import { ReactComponent as Check } from "../../images/check.svg";
+import { ReactComponent as Arrow } from "../../images/arrow.svg";
 
 const lecturesList = [
   {
@@ -6,36 +9,42 @@ const lecturesList = [
     title: "Lecture 1",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing",
     duration: "3:45",
+    status: "completed",
   },
   {
     id: 2,
     title: "Lecture 2",
     description: "Nemo enim ipsam voluptatem quia voluptas sit aspernatur",
     duration: "7:16",
+    status: "playing",
   },
   {
     id: 3,
     title: "Lecture 3",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing",
     duration: "3:45",
+    status: "notCompleted",
   },
   {
     id: 4,
     title: "Lecture 4",
     description: "Nemo enim ipsam voluptatem quia voluptas sit aspernatur",
     duration: "7:16",
+    status: "completed",
   },
   {
     id: 5,
     title: "Lecture 5",
     description: "Nemo enim ipsam voluptatem quia voluptas sit aspernatur",
     duration: "7:16",
+    status: "notCompleted",
   },
   {
     id: 6,
     title: "Lecture 6",
     description: "Nemo enim ipsam voluptatem quia voluptas sit aspernatur",
     duration: "7:16",
+    status: "notCompleted",
   },
 ];
 
@@ -69,9 +78,18 @@ const Sidebar = () => {
         fontSize="20px"
         fontWeight="bold"
         lineHeight="30px"
+      >
+        Course Overview
+      </Typography>
+      <Typography
+        component="p"
+        fontSize="12px"
+        fontWeight="600"
+        lineHeight="18px"
+        color="#BFBEBB"
         mb="30px"
       >
-        Lectures List
+        2/25 Completed
       </Typography>
       <Stack rowGap="30px">
         {lecturesList.map((l) => (
@@ -82,6 +100,7 @@ const Sidebar = () => {
             columnGap="10px"
             p="0 0 30px 0"
             sx={{
+              position: "relative",
               border: "none",
               cursor: "pointer",
               backgroundColor: "transparent",
@@ -94,6 +113,27 @@ const Sidebar = () => {
               },
             }}
           >
+            <Box
+              className="status-ic"
+              position="absolute"
+              left={-56}
+              top={13}
+              width={32}
+              height={32}
+              borderRadius="100%"
+              bgcolor={l.status === "playing" ? "#FCE181" : "#fff"}
+              display="flex"
+              alignItems="center"
+              justifyContent="center"
+            >
+              {l.status === "playing" ? (
+                <Arrow color="#026670" style={{ marginLeft: "3px" }} />
+              ) : (
+                <Check
+                  color={l.status === "completed" ? "#026670" : "#EDECE8"}
+                />
+              )}
+            </Box>
             <Box component="span" textAlign="left">
               <Typography
                 component="span"
@@ -124,6 +164,18 @@ const Sidebar = () => {
             </Typography>
           </Stack>
         ))}
+      </Stack>
+      <Stack>
+        <Button
+          endIcon={<Arrow />}
+          sx={{
+            mt: "30px",
+            ml: "auto",
+            "& svg": { transform: "rotate(90deg)", mt: "3px" },
+          }}
+        >
+          View More
+        </Button>
       </Stack>
     </Box>
   );

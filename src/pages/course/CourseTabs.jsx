@@ -84,7 +84,7 @@ const CourseTabs = () => {
       }}
     >
       <StyledTabs value={value} onChange={handleChange}>
-        <StyledTab label="Description" />
+        <StyledTab label="Overview" />
         <StyledTab label="Subscription" />
         <StyledTab label="Notes & Bookmarks" />
         <StyledTab label="Connect" />
