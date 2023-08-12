@@ -4,6 +4,7 @@ import { IconButton } from "@mui/material";
 const IconBtnCircular = (props) => {
   return (
     <IconButton
+      {...props}
       sx={{
         width: 48,
         height: 48,
