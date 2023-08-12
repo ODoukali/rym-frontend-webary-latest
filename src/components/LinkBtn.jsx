@@ -15,9 +15,6 @@ const LinkBtn = (props) => {
         color: props.footerLink ? "#BFBEBB" : "secondary.main",
         fontSize: "16px",
         fontWeight: 600,
-        // "&.active": {
-        //   color: props.footerLink ? "#fff" : "primary.main",
-        // },
         "&::before": {
           content: '""',
           position: "absolute",
@@ -34,9 +31,6 @@ const LinkBtn = (props) => {
             width: "100%",
           },
         },
-        // "&.active::before": {
-        //   width: "100%",
-        // },
       }}
     >
       {props.title}

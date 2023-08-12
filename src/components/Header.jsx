@@ -17,7 +17,7 @@ const Header = () => {
       padding="0 30px"
       margin="auto"
     >
-      <Stack flexDirection="row" alignItems="center" columnGap="15px" ml="60px">
+      <Stack flexDirection="row" alignItems="center" columnGap="15px">
         <IconBtnCircular>
           <Menu />
         </IconBtnCircular>

@@ -42,7 +42,11 @@ const videos = [
 
 const VideoSlider = () => {
   return (
-    <Box mt="150px" mb="90px">
+    <Box
+      mt="150px"
+      mb="90px"
+      sx={{ "& .arrow-prev, & .arrow-next": { top: "43%" } }}
+    >
       <Container>
         <Stack
           flexDirection="row"

@@ -25,8 +25,15 @@ const Slider = (props) => {
         </Swiper>
         {arrows ? (
           <>
-            <ArrowBtn onClick={() => swiperRef.current.slidePrev()} />
-            <ArrowBtn nextBtn onClick={() => swiperRef.current.slideNext()} />
+            <ArrowBtn
+              className="arrow-prev"
+              onClick={() => swiperRef.current.slidePrev()}
+            />
+            <ArrowBtn
+              className="arrow-next"
+              nextBtn
+              onClick={() => swiperRef.current.slideNext()}
+            />
           </>
         ) : null}
       </Box>
@@ -35,8 +42,10 @@ const Slider = (props) => {
 };
 
 const ArrowBtn = (props) => {
+  const { nextBtn, ...restProps } = props;
   return (
     <Box
+      {...restProps}
       component="button"
       onClick={props.onClick}
       sx={{

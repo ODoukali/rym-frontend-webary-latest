@@ -14,6 +14,7 @@ import SlideVideo1 from "../../images/slide-blog1.jpg";
 import SlideVideo2 from "../../images/slide-blog2.jpg";
 import SlideVideo3 from "../../images/slide-blog3.jpg";
 import BlockBordered from "../../components/BlockBordered";
+import LinkWithIcon from "../../components/LinkWithIcon";
 
 const sliderVideos = [
   {
@@ -52,28 +53,34 @@ const Course = () => {
       <Box position="relative" pt="57px" zIndex={1}>
         <Guides color="rgba(0,0,0,0.02)" zIndex={-1} pb="30px" />
         <Header />
-        <Box mt="80px">
+        <Box mt="50px">
           <Container>
             <Stack
               flexDirection="row"
               alignItems="flex-start"
               justifyContent="space-between"
+              mb="76px"
+              className="rtl-section"
             >
-              <TextLink to="" sx={{ marginTop: "14px" }}>
-                Explore all Q&A
-              </TextLink>
               <Box>
-                <Typography fontSize="35px" fontWeight={700} lineHeight="48px">
-                  Lorem ipsum dolor amet consectetur{" "}
+                <Typography variant="sectionTitleHebrew" fontSize="40px">
+                  צופרידנהייט אין שטוב
                 </Typography>
                 <BlockBordered>
-                  <Typography variant="large" color="#666564">
-                    Sed do eiusmod tempor incididunt ut labore et dolore aliqua
+                  <Typography
+                    fontFamily="FbJoker"
+                    fontSize="20px"
+                    fontWeight="600"
+                    color="#666564"
+                  >
+                    וויאזוי אויסצולעשן איר עקס רעי מאשין
                   </Typography>
                 </BlockBordered>
               </Box>
+              <LinkWithIcon to="" sx={{ marginTop: "14px" }}>
+                Read More
+              </LinkWithIcon>
             </Stack>
-
             <VideoPlayer />
           </Container>
         </Box>
@@ -109,7 +116,14 @@ const Course = () => {
               <TextLink to="">View All Videos</TextLink>
             </Stack>
           </Container>
-          <Slider slidesPerView={3} arrows>
+          <Slider
+            slidesPerView={3}
+            arrows
+            style={{
+              padding: "40px 20px 50px",
+              margin: "0 -20px",
+            }}
+          >
             {sliderVideos.map((v) => (
               <SwiperSlide key={v.id}>
                 <Slide

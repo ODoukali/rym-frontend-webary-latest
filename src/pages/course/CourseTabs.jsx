@@ -44,7 +44,10 @@ const StyledTab = styled((props) => <Tab disableRipple {...props} />)(
     color: "primary",
     backgroundColor: "#E6E5E1",
     borderRadius: "10px 10px 0 0",
-    "&.Mui-selected, &:hover": {
+    "&:hover": {
+      backgroundColor: "#D9D8D4",
+    },
+    "&.Mui-selected": {
       minHeight: 74,
       color: "#FCE181",
       fontSize: 16,
