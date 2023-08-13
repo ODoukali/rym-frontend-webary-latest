@@ -5,7 +5,7 @@ import ResourcesTab from "./ResourcesTab";
 import NotesBookmarksTab from "./NotesBookmarksTab";
 import ConnectTab from "./ConnectTab";
 import SubscriptionTab from "./SubscriptionTab";
-import DescriptionTab from "./DescriptionTab";
+import OverviewTab from "./OverviewTab";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -91,7 +91,7 @@ const CourseTabs = () => {
         <StyledTab label="Resources" />
       </StyledTabs>
       <TabPanel value={value} index={0}>
-        <DescriptionTab />
+        <OverviewTab />
       </TabPanel>
       <TabPanel value={value} index={1}>
         <SubscriptionTab />

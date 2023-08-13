@@ -27,10 +27,7 @@ const Header = () => {
   };
 
   const MenuInner = () => (
-    <Box
-    // onClick={toggleDrawer(false)}
-    // onKeyDown={toggleDrawer(false)}
-    >
+    <Box sx={{ height: "100%", p: "70px 110px 30px", overflowY: "auto" }}>
       <Stack
         flexDirection="row"
         alignItems="center"
@@ -93,7 +90,7 @@ const Header = () => {
           "& .MuiPaper-root": {
             maxWidth: "470px",
             width: "100%",
-            p: "70px 110px",
+            overflowY: "initial",
           },
           "& .MuiBackdrop-root": {
             backgroundColor: "rgba(191,190,187,0.4)",

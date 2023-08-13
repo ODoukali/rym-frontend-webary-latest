@@ -41,7 +41,7 @@ const DescriptionTab = () => {
         fontSize="35px"
         mb="20px"
       >
-        Presentation of the Reb Yakov <span className="highlighted">Moshe</span>
+        Course Details
       </Typography>
       <BlockBordered mb="36px">
         <Typography variant="large" component="p">
