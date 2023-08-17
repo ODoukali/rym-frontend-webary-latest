@@ -1,4 +1,4 @@
-import { Box, Button, Stack, Typography } from "@mui/material";
+import { Box, Stack, Typography } from "@mui/material";
 
 import { ReactComponent as Check } from "../../images/check.svg";
 import { ReactComponent as Arrow } from "../../images/arrow.svg";
@@ -56,7 +56,7 @@ const Sidebar = () => {
       pt="190px"
       mt="-190px"
       pl="40px"
-      pb="100px"
+      pb="40px"
       borderRadius="40px"
       flexShrink={0}
       sx={{
@@ -164,19 +164,6 @@ const Sidebar = () => {
             </Typography>
           </Stack>
         ))}
-      </Stack>
-      <Stack>
-        <Button
-          endIcon={<Arrow />}
-          sx={{
-            mt: "30px",
-            ml: "auto",
-            "& .MuiButton-endIcon": { ml: "12px" },
-            "& svg": { transform: "rotate(90deg)", mt: "3px" },
-          }}
-        >
-          View More
-        </Button>
       </Stack>
     </Box>
   );
