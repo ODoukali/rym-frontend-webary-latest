@@ -96,10 +96,18 @@ media-play-button[data-hover] svg {
   color: #fce181;
 }
 
-media-volume-slider [part~="track"],
 media-time-slider [part~="track"] {
   background-color: #026670;
   border-radius: 4px;
+}
+
+media-volume-slider [part~="track-fill"],
+media-volume-slider [part~="track"] {
+  border-radius: 4px;
+}
+
+media-volume-slider [part~="track-fill"] {
+  background-color: #026670;
 }
 
 media-time-slider [part~="track-fill"] {
@@ -154,6 +162,10 @@ media-player[data-user-idle] .media-controls-group,
 media-player:not([data-can-play]) .media-controls-group {
   opacity: 0;
   pointer-events: none;
+}
+
+media-menu-items {
+  height: auto;
 }
 
 .rtl-section {

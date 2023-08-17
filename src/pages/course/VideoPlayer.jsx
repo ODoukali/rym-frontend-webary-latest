@@ -31,6 +31,7 @@ import PresentationImg from "../../images/presentation-img.jpg";
 import { ReactComponent as Heart } from "../../images/heart.svg";
 import { ReactComponent as Next } from "../../images/next.svg";
 import { ReactComponent as Play } from "../../images/play.svg";
+import { ReactComponent as Pause } from "../../images/pause.svg";
 import { ReactComponent as Volume } from "../../images/volume.svg";
 import { ReactComponent as Fullscreen } from "../../images/fullscreen.svg";
 import { ReactComponent as Settings } from "../../images/settings.svg";
@@ -167,7 +168,7 @@ const VideoPlayer = () => {
               </IconButtonStyled>
               <MediaPlayButton>
                 <Play slot="play" color="#026670" />
-                <Play slot="pause" color="#fce181" />
+                <Pause slot="pause" color="#fce181" />
                 <Play slot="replay" color="#026670" />
               </MediaPlayButton>
               <IconButtonStyled>
