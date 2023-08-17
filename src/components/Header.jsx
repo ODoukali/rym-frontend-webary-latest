@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { Box, Drawer, Stack } from "@mui/material";
+import { Box, Divider, Drawer, Stack } from "@mui/material";
 import { Link } from "react-router-dom";
+import { styled } from "@mui/material/styles";
 import IconBtnCircular from "./IconBtnCircular";
 import LinkBtn from "./LinkBtn";
 import NestedMenu from "./NestedMenu";
@@ -11,6 +12,11 @@ import { ReactComponent as User } from "../images/user.svg";
 import { ReactComponent as Search } from "../images/search.svg";
 import { ReactComponent as Logo } from "../images/logo.svg";
 import { ReactComponent as Close } from "../images/close.svg";
+
+const Hr = styled(Divider)({
+  width: "100%",
+  borderColor: "rgba(191,190,187,0.5)",
+});
 
 const Header = () => {
   const [state, setState] = useState(false);
@@ -27,33 +33,42 @@ const Header = () => {
   };
 
   const MenuInner = () => (
-    <Box sx={{ height: "100%", p: "70px 110px 30px", overflowY: "auto" }}>
+    <Box sx={{ height: "100%", overflowY: "auto" }}>
       <Stack
         flexDirection="row"
         alignItems="center"
         justifyContent="space-between"
-        mb="60px"
+        bgcolor="#EDECE8"
+        p="70px 110px"
       >
+        <Logo color="#333" />
         <IconBtnCircular onClick={toggleDrawer(false)}>
           <Close color="#026670" />
         </IconBtnCircular>
-        <Logo color="#333" />
       </Stack>
       <Stack
         alignItems="flex-start"
         gap="20px"
-        sx={{ "& a": { fontSize: "20px", fontWeight: 700 } }}
+        p="40px 110px 30px"
+        sx={{
+          "& > a, & > .MuiBox-root > a": { fontSize: "30px", fontWeight: 700 },
+        }}
       >
         <LinkBtn to="/" title="Main" />
+        <Hr />
         <NestedMenu title="Philosophy">
           <MenuDropdownLink to="/course">Submenu link 01</MenuDropdownLink>
           <MenuDropdownLink to="/">Another link 02</MenuDropdownLink>
           <MenuDropdownLink to="/">Submenu link 03</MenuDropdownLink>
           <MenuDropdownLink to="/">Another link 04</MenuDropdownLink>
         </NestedMenu>
+        <Hr />
         <LinkBtn to="/blog" title="Blog" />
+        <Hr />
         <LinkBtn to="/parsha" title="Parsha" />
+        <Hr />
         <LinkBtn to="/qa" title="Q&A" />
+        <Hr />
         <LinkBtn to="/contact" title="Contact" />
       </Stack>
     </Box>
@@ -90,6 +105,8 @@ const Header = () => {
           "& .MuiPaper-root": {
             maxWidth: "470px",
             width: "100%",
+            bgcolor: "#F7F6F2",
+            borderRadius: "0 40px 40px 0",
             overflowY: "initial",
           },
           "& .MuiBackdrop-root": {
