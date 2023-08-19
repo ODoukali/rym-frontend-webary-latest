@@ -177,3 +177,17 @@ media-menu-items {
   width: auto;
   padding: 20px 0 60px;
 }
+
+.accordion-white {
+  border-radius: 20px !important;
+  box-shadow: none !important;
+  margin-bottom: 20px !important;
+}
+
+.accordion-white::after {
+  content: none !important;
+}
+
+.accordion-white .MuiAccordionDetails-root {
+  padding: 0 40px 30px !important;
+}
