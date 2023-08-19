@@ -9,14 +9,15 @@ import {
   Typography,
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
+import { Link } from "react-router-dom";
 import TextLink from "../../components/TextLink";
 import IconBtnCircular from "../../components/IconBtnCircular";
 import BlockBordered from "../../components/BlockBordered";
+import Note from "./Note";
 
 import { ReactComponent as Arrow } from "../../images/arrow.svg";
 import { ReactComponent as Download } from "../../images/writing.svg";
 import { ReactComponent as Print } from "../../images/printer.svg";
-import { Link } from "react-router-dom";
 
 const IconBtnStyled = styled(IconBtnCircular)({
   backgroundColor: "#EDECE8",
@@ -83,65 +84,92 @@ const NotesBookmarks = () => {
           </Stack>
         </AccordionSummary>
         <AccordionDetails>
-          <Stack
-            to="/"
-            component={Link}
-            flexDirection="row"
-            alignItems="flex-start"
-            justifyContent="space-between"
-            borderTop="1px solid rgba(191,190,187,0.5)"
-            pt="30px"
-          >
-            <Stack flexDirection="row" columnGap="15px" component="span">
-              <Box
-                component="span"
-                width={27}
-                height={27}
-                borderRadius="100%"
-                bgcolor="#EDECE8"
-                display="flex"
-                alignItems="center"
-                justifyContent="center"
+          <Stack gap="30px">
+            {[...Array(4).keys()].map((val) => (
+              <Stack
+                key={val}
+                to="/"
+                component={Link}
+                flexDirection="row"
+                alignItems="flex-start"
+                justifyContent="space-between"
+                borderTop="1px solid rgba(191,190,187,0.5)"
+                pt="30px"
+                sx={{
+                  "&:hover": {
+                    "& .text span": {
+                      color: "#333",
+                    },
+                    "& .bookmark-number": {
+                      backgroundColor: "#FCE181",
+                      span: {
+                        color: "#026670",
+                      },
+                    },
+                  },
+                }}
               >
-                <Typography fontSize="12px" fontWeight={700} color="#BFBEBB">
-                  1
-                </Typography>
-              </Box>
-              <Box component="span">
+                <Stack flexDirection="row" columnGap="15px" component="span">
+                  <Box
+                    className="bookmark-number"
+                    component="span"
+                    width={27}
+                    height={27}
+                    borderRadius="100%"
+                    bgcolor="#EDECE8"
+                    display="flex"
+                    alignItems="center"
+                    justifyContent="center"
+                  >
+                    <Typography
+                      component="span"
+                      fontSize="12px"
+                      fontWeight={700}
+                      color="#BFBEBB"
+                    >
+                      {val + 1}
+                    </Typography>
+                  </Box>
+                  <Box component="span" className="text">
+                    <Typography
+                      component="span"
+                      display="block"
+                      fontSize="16px"
+                      fontWeight={600}
+                      color="secondary"
+                    >
+                      Lecture name comes here 1
+                    </Typography>
+                    <Typography
+                      component="span"
+                      display="block"
+                      fontSize="14px"
+                      fontWeight={500}
+                      lineHeight="18px"
+                      color="#BFBEBB"
+                    >
+                      Lorem ipsum dolor sit amet, consectetur adipiscing
+                    </Typography>
+                  </Box>
+                </Stack>
                 <Typography
                   component="span"
-                  display="block"
                   fontSize="16px"
                   fontWeight={600}
-                  color="secondary"
+                  color="primary"
                 >
-                  Lecture name comes here 1
+                  3:45
                 </Typography>
-                <Typography
-                  component="span"
-                  display="block"
-                  fontSize="14px"
-                  fontWeight={500}
-                  lineHeight="18px"
-                  color="#BFBEBB"
-                >
-                  Lorem ipsum dolor sit amet, consectetur adipiscing
-                </Typography>
-              </Box>
-            </Stack>
-            <Typography
-              component="span"
-              fontSize="16px"
-              fontWeight={600}
-              color="primary"
-            >
-              3:45
-            </Typography>
+              </Stack>
+            ))}
           </Stack>
         </AccordionDetails>
       </Accordion>
 
-      <Accordion className="accordion-white">
+      <Accordion
+        className="accordion-white"
+        sx={{ "& .MuiAccordionDetails-root": { pb: "0 !important" } }}
+      >
         <AccordionSummary expandIcon={<Arrow color="#026670" />}>
           <Stack
             width="100%"
@@ -179,9 +207,26 @@ const NotesBookmarks = () => {
           </Stack>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography variant="small" fontSize="16px" color="secondary">
-            noteTitle
-          </Typography>
+          <Stack>
+            {[...Array(3).keys()].map((val) => (
+              <Note key={val}>
+                <BlockBordered mb="20px">
+                  <Typography variant="medium" lineHeight="22px">
+                    Sed ut perspiciatis unde omnis iste natus error sit
+                    voluptatem accusantium doloremque laudantium, totam rem
+                    aperiam, eaque ipsa quae ab illo inventore veritatis et
+                    quasi architecto beatae vitae dicta sunt explicabo.
+                  </Typography>
+                </BlockBordered>
+                <TextLink
+                  to=""
+                  sx={{ marginBottom: "30px", "& span": { fontSize: "14px" } }}
+                >
+                  Edit Note
+                </TextLink>
+              </Note>
+            ))}
+          </Stack>
         </AccordionDetails>
       </Accordion>
     </>
