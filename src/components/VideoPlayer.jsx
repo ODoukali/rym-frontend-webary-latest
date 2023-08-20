@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Box, IconButton, Stack, Typography } from "@mui/material";
 import { styled } from "@mui/system";
-import IconBtnCircular from "../../components/IconBtnCircular";
-import PlayBtn from "../../components/PlayBtn";
+import IconBtnCircular from "./IconBtnCircular";
+import PlayBtn from "./PlayBtn";
 import {
   MediaFullscreenButton,
   MediaMenu,
@@ -27,14 +27,14 @@ import {
 import "vidstack/styles/defaults.css";
 import "vidstack/styles/community-skin/video.css";
 
-import PresentationImg from "../../images/presentation-img.jpg";
-import { ReactComponent as Heart } from "../../images/heart.svg";
-import { ReactComponent as Next } from "../../images/next.svg";
-import { ReactComponent as Play } from "../../images/play.svg";
-import { ReactComponent as Pause } from "../../images/pause.svg";
-import { ReactComponent as Volume } from "../../images/volume.svg";
-import { ReactComponent as Fullscreen } from "../../images/fullscreen.svg";
-import { ReactComponent as Settings } from "../../images/settings.svg";
+import PresentationImg from "../images/presentation-img.jpg";
+import { ReactComponent as Heart } from "../images/heart.svg";
+import { ReactComponent as Next } from "../images/next.svg";
+import { ReactComponent as Play } from "../images/play.svg";
+import { ReactComponent as Pause } from "../images/pause.svg";
+import { ReactComponent as Volume } from "../images/volume.svg";
+import { ReactComponent as Fullscreen } from "../images/fullscreen.svg";
+import { ReactComponent as Settings } from "../images/settings.svg";
 
 const IconButtonStyled = styled(IconButton)(() => {
   return {

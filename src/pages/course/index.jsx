@@ -6,8 +6,8 @@ import TextLink from "../../components/TextLink";
 import Slider from "../../components/Slider";
 import Slide from "../../components/Slide";
 import Header from "../../components/Header";
-import VideoPlayer from "./VideoPlayer";
-import Sidebar from "./Sidebar";
+import VideoPlayer from "../../components/VideoPlayer";
+import Sidebar from "../../components/Sidebar";
 import CourseTabs from "./CourseTabs";
 
 import SlideVideo1 from "../../images/slide-blog1.jpg";

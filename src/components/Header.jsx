@@ -58,7 +58,9 @@ const Header = () => {
         <Hr />
         <NestedMenu title="Philosophy">
           <MenuDropdownLink to="/course">Submenu link 01</MenuDropdownLink>
-          <MenuDropdownLink to="/">Another link 02</MenuDropdownLink>
+          <MenuDropdownLink to="/pre-subscribe">
+            Another link 02
+          </MenuDropdownLink>
           <MenuDropdownLink to="/">Submenu link 03</MenuDropdownLink>
           <MenuDropdownLink to="/">Another link 04</MenuDropdownLink>
         </NestedMenu>

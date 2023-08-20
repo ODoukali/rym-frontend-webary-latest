@@ -1,7 +1,7 @@
 import { Badge, Box, Stack, Typography } from "@mui/material";
 
-import { ReactComponent as Check } from "../../images/check.svg";
-import { ReactComponent as Arrow } from "../../images/arrow.svg";
+import { ReactComponent as Check } from "../images/check.svg";
+import { ReactComponent as Arrow } from "../images/arrow.svg";
 
 const lecturesList = [
   {
