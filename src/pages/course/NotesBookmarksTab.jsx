@@ -8,21 +8,15 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import { styled } from "@mui/material/styles";
 import { Link } from "react-router-dom";
 import TextLink from "../../components/TextLink";
-import IconBtnCircular from "../../components/IconBtnCircular";
 import BlockBordered from "../../components/BlockBordered";
 import Note from "./Note";
+import IconBtn from "./IconBtn";
 
 import { ReactComponent as Arrow } from "../../images/arrow.svg";
 import { ReactComponent as Download } from "../../images/writing.svg";
 import { ReactComponent as Print } from "../../images/printer.svg";
-
-const IconBtnStyled = styled(IconBtnCircular)({
-  backgroundColor: "#EDECE8",
-  boxShadow: "none",
-});
 
 const NotesBookmarks = () => {
   return (
@@ -197,12 +191,12 @@ const NotesBookmarks = () => {
               </TextLink>
             </Stack>
             <Stack flexDirection="row" gap="10px">
-              <IconBtnStyled>
+              <IconBtn>
                 <Download />
-              </IconBtnStyled>
-              <IconBtnStyled>
+              </IconBtn>
+              <IconBtn>
                 <Print />
-              </IconBtnStyled>
+              </IconBtn>
             </Stack>
           </Stack>
         </AccordionSummary>

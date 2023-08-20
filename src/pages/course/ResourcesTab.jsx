@@ -1,67 +1,213 @@
+import { useState } from "react";
 import {
   Accordion,
   AccordionDetails,
   AccordionSummary,
+  Box,
+  Button,
+  Stack,
   Typography,
 } from "@mui/material";
+import { Link } from "react-router-dom";
 import BlockBordered from "../../components/BlockBordered";
+import IconBtn from "./IconBtn";
 
 import { ReactComponent as Arrow } from "../../images/arrow.svg";
-
-const arr = [
-  {
-    id: 1,
-    question: "Lecture 1",
-    answer:
-      "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore.",
-  },
-  {
-    id: 2,
-    question: "Lecture 2",
-    answer:
-      "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore.",
-  },
-  {
-    id: 3,
-    question: "Lecture 3",
-    answer:
-      "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore.",
-  },
-  {
-    id: 4,
-    question: "Lecture 1",
-    answer:
-      "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore.",
-  },
-];
+import { ReactComponent as Download } from "../../images/writing.svg";
+import { ReactComponent as Print } from "../../images/printer.svg";
 
 const ResourcesTab = () => {
+  const [expanded, setExpanded] = useState("panel1");
+
+  const handleChange = (panel) => (event, newExpanded) => {
+    setExpanded(newExpanded ? panel : false);
+  };
+
   return (
     <>
-      {arr.map((a) => (
-        <Accordion key={a.id}>
-          <AccordionSummary
-            id={a.id}
-            expandIcon={<Arrow width={14} height={11} color="#026670" />}
-          >
-            <Typography
-              position="relative"
-              fontSize="20px"
-              fontWeight={500}
-              color="secondary"
-            >
-              {a.question}
-            </Typography>
-          </AccordionSummary>
-          <AccordionDetails>
+      <Box className="rtl-section" mb="40px">
+        <Typography variant="sectionTitleHebrew" fontSize="30px">
+          וואס טוט מען ווען דער מאן ארבעט צופרי פאר’ן דאווענען?
+        </Typography>
+        <BlockBordered>
+          <Typography fontSize="18px" fontWeight="500">
+            Lorem ipsum dolor sit amet, consectetur adipiscing.
+          </Typography>
+        </BlockBordered>
+      </Box>
+
+      <Accordion
+        className="accordion-white"
+        expanded={expanded === "panel1"}
+        onChange={handleChange("panel1")}
+      >
+        <AccordionSummary expandIcon={<Arrow color="#026670" />}>
+          <Typography fontSize="20px" fontWeight={700} color="secondary">
+            Course Summary
+          </Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Box borderTop="1px solid rgba(191,190,187,0.5)" p="30px 0 10px">
             <BlockBordered>
-              <Typography variant="large" component="p">
-                {a.answer}
+              <Typography
+                variant="medium"
+                component="p"
+                lineHeight="28px"
+                mb="30px"
+              >
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+                sunt in culpa qui officia deserunt mollit anim id est laborum.
+              </Typography>
+              <ul className="list-items">
+                <li>Sed ut perspiciatis unde omnis iste natus</li>
+                <li>Sit voluptatem accusantium doloremque totam</li>
+                <li>Rem aperiam, eaque ipsa quae ab illo</li>
+              </ul>
+            </BlockBordered>
+          </Box>
+        </AccordionDetails>
+      </Accordion>
+
+      <Accordion
+        className="accordion-white"
+        expanded={expanded === "panel2"}
+        onChange={handleChange("panel2")}
+      >
+        <AccordionSummary expandIcon={<Arrow color="#026670" />}>
+          <Stack
+            width="100%"
+            flexDirection="row"
+            alignItems="center"
+            justifyContent="space-between"
+            flexWrap="wrap"
+            mr="30px"
+          >
+            <Typography fontSize="20px" fontWeight={700} color="secondary">
+              Course References
+            </Typography>
+            <Stack flexDirection="row" gap="10px">
+              <IconBtn>
+                <Download />
+              </IconBtn>
+              <IconBtn>
+                <Print />
+              </IconBtn>
+            </Stack>
+          </Stack>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Box borderTop="1px solid rgba(191,190,187,0.5)" p="30px 0 10px">
+            <BlockBordered>
+              <Typography variant="medium" component="p" lineHeight="28px">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+                sunt in culpa qui officia deserunt mollit anim id est laborum.
               </Typography>
             </BlockBordered>
-          </AccordionDetails>
-        </Accordion>
-      ))}
+          </Box>
+        </AccordionDetails>
+      </Accordion>
+
+      <Accordion
+        className="accordion-white"
+        expanded={expanded === "panel3"}
+        onChange={handleChange("panel3")}
+        sx={{ "& .MuiAccordionDetails-root": { pb: "10px !important" } }}
+      >
+        <AccordionSummary expandIcon={<Arrow color="#026670" />}>
+          <Stack
+            width="100%"
+            flexDirection="row"
+            alignItems="center"
+            justifyContent="space-between"
+            flexWrap="wrap"
+            mr="30px"
+          >
+            <Typography fontSize="20px" fontWeight={700} color="secondary">
+              Downloads
+            </Typography>
+            <Button
+              variant="text"
+              startIcon={<Arrow />}
+              sx={{
+                "& svg": { transform: "rotate(90deg)", mr: "5px", mt: "1px" },
+              }}
+            >
+              <Typography component="span">Download All</Typography>
+            </Button>
+          </Stack>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Box>
+            {[...Array(3).keys()].map((val) => (
+              <Stack
+                key={val}
+                component={Link}
+                flexDirection="row"
+                alignItems="center"
+                justifyContent="space-between"
+                gap="15px"
+                borderTop="1px solid rgba(191,190,187,0.5)"
+                p="30px 0"
+                sx={{
+                  "&:hover": {
+                    "& .badge": {
+                      backgroundColor: "#FCE181",
+                      span: { color: "#026670" },
+                    },
+                    "& .list-item-title": { color: "#333" },
+                  },
+                }}
+              >
+                <Stack
+                  flexDirection="row"
+                  alignItems="center"
+                  gap="15px"
+                  component="span"
+                >
+                  <Box
+                    className="badge"
+                    bgcolor="#EDECE8"
+                    borderRadius="20px"
+                    p="4.5px 7.3px"
+                    component="span"
+                  >
+                    <Typography
+                      fontSize="12px"
+                      fontWeight={700}
+                      color="#BFBEBB"
+                      component="span"
+                      display="block"
+                    >
+                      PDF
+                    </Typography>
+                  </Box>
+                  <Typography
+                    className="list-item-title"
+                    color="secondary"
+                    fontWeight={600}
+                    component="span"
+                  >
+                    This is the title of the downloadable file
+                  </Typography>
+                </Stack>
+                <Typography color="primary" fontWeight={600} component="span">
+                  53kb
+                </Typography>
+              </Stack>
+            ))}
+          </Box>
+        </AccordionDetails>
+      </Accordion>
     </>
   );
 };
