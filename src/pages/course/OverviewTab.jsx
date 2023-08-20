@@ -1,4 +1,4 @@
-import { Button, Stack, Typography } from "@mui/material";
+import { Button, Stack, Typography, Link } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { Swiper, SwiperSlide } from "swiper/react";
 import BlockBordered from "../../components/BlockBordered";
@@ -7,6 +7,13 @@ import Rating from "../../components/Rating";
 import Testimonial from "../../components/Testimonial";
 
 import { ReactComponent as Arrow } from "../../images/arrow.svg";
+
+const LinkStyled = styled(Link)({
+  color: "#026670",
+  fontWeight: "600",
+  cursor: "pointer",
+  "&:hover": { color: "#333", borderBottom: "2px solid #333" },
+});
 
 const TypographyStyled = styled(Typography)({
   display: "flex",
@@ -39,14 +46,14 @@ const OverviewTab = () => {
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
           aliquip ex ea commodo consequat. Duis aute irure dolor in
           reprehenderit in{" "}
-          <span style={{ color: "#026670", fontWeight: "600" }}>
+          <LinkStyled href="" underline="none">
             voluptate velit esse cillum
-          </span>{" "}
+          </LinkStyled>{" "}
           dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
           proident, sunt in{" "}
-          <span style={{ fontWeight: "600", borderBottom: "2px solid #333" }}>
+          <LinkStyled href="" underline="none">
             culpa qui officia deserunt
-          </span>{" "}
+          </LinkStyled>{" "}
           mollit anim id est laborum.
           <br />
           <br />
