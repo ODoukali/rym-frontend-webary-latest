@@ -56,11 +56,8 @@ const VideoSlider = () => {
         >
           <Box>
             <Typography variant="sectionTitle" component="h2" mb="14px">
-              Hi <span className="highlighted"> Alex,</span> welcome back!
+              Hi <span className="highlighted"> Alex,</span> Continue Watching
             </Typography>
-            <BlockBordered>
-              <Typography>Continue Watching…</Typography>
-            </BlockBordered>
           </Box>
           <TextLink to="" sx={{ marginTop: "15px" }}>
             View All Videos
