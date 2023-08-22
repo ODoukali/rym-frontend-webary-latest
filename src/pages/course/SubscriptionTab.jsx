@@ -1,6 +1,5 @@
 import { Box, Button, Stack, Typography } from "@mui/material";
 import BlockBordered from "../../components/BlockBordered";
-import TextLink from "../../components/TextLink";
 import { styled } from "@mui/material/styles";
 
 const TypographyStyled = styled(Typography)({
