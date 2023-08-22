@@ -99,11 +99,15 @@ const OverviewTab = () => {
         </TypographyStyled>
       </Stack>
       <Swiper slidesPerView={2} spaceBetween={20}>
-        {[...Array(3).keys()].map((val) => (
-          <SwiperSlide key={val}>
-            <Testimonial />
-          </SwiperSlide>
-        ))}
+        <SwiperSlide>
+          <Testimonial avatar />
+        </SwiperSlide>
+        <SwiperSlide>
+          <Testimonial />
+        </SwiperSlide>
+        <SwiperSlide>
+          <Testimonial avatar />
+        </SwiperSlide>
       </Swiper>
       <Stack
         direction="row"

@@ -102,7 +102,7 @@ const Footer = () => {
             <LinkBtn to="/parsha" title="Parsha" footerLink />
             <LinkBtn to="/qa" title="Q&A" footerLink />
             <LinkBtn to="/contact" title="Contact" footerLink />
-            <LinkBtn to="/legal" title="legal" footerLink />
+            <LinkBtn to="/legal" title="Legal" footerLink />
           </Stack>
         </Stack>
         <Guides color="rgba(0,0,0,0.1)" />

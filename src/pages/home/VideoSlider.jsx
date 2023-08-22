@@ -1,6 +1,5 @@
 import { Box, Container, Link, Stack, Typography } from "@mui/material";
 import TextLink from "../../components/TextLink";
-import BlockBordered from "../../components/BlockBordered";
 import Slider from "../../components/Slider";
 import { SwiperSlide } from "swiper/react";
 

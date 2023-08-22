@@ -221,3 +221,11 @@ media-menu-items {
   margin-right: 12px;
   margin-bottom: 1px;
 }
+
+.hover-green:hover {
+  background-color: #026670 !important;
+}
+
+.hover-green:hover svg {
+  color: #fff;
+}

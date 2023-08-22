@@ -72,6 +72,16 @@ const theme = createTheme({
         img: {
           maxWidth: "100%",
         },
+        ".MuiTooltip-popper .MuiTooltip-tooltip": {
+          height: "20px",
+          fontSize: "12px",
+          fontWeight: 600,
+          color: "#fff",
+          borderRadius: "10px",
+          backgroundColor: "#026670",
+          padding: "1px 10px",
+          margin: "0 10px 0 0",
+        },
       },
     },
     MuiAccordion: {

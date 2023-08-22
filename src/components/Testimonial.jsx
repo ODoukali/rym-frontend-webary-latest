@@ -20,7 +20,7 @@ const IconButtonStyled = styled(IconButton)(() => {
   };
 });
 
-const Testimonial = () => {
+const Testimonial = (props) => {
   return (
     <Box bgcolor="#fff" borderRadius="10px" p="40px">
       <Stack
@@ -40,7 +40,13 @@ const Testimonial = () => {
             borderRadius="100%"
             bgcolor="#EDECE8"
           >
-            <img src={Avatar} alt="" />
+            {props.avatar ? (
+              <img src={Avatar} alt="" />
+            ) : (
+              <Typography fontSize="20px" fontWeight={600} color="#fff">
+                MK
+              </Typography>
+            )}
           </Box>
           <Stack>
             <Typography
