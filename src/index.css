@@ -170,6 +170,19 @@ media-menu-items {
   height: auto;
 }
 
+media-gesture[action="toggle:paused"] {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+media-player:not([data-started]) .media-controls-group,
+media-player[data-started] .play-btnnn {
+  opacity: 0;
+  pointer-events: none;
+}
+
 .rtl-section {
   direction: rtl;
   text-align: right;
