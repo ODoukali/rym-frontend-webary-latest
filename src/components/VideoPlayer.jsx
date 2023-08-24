@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Box, IconButton, Stack, Typography } from "@mui/material";
+import { useEffect, useRef, useState } from "react";
+import { Box, Button, IconButton, Stack, Typography } from "@mui/material";
 import { styled } from "@mui/system";
 import IconBtnCircular from "./IconBtnCircular";
 import PlayBtn from "./PlayBtn";
@@ -23,6 +23,7 @@ import {
   MediaTime,
   MediaTimeSlider,
   MediaVolumeSlider,
+  useMediaRemote,
 } from "@vidstack/react";
 
 import "vidstack/styles/defaults.css";
@@ -50,11 +51,35 @@ const IconButtonStyled = styled(IconButton)(() => {
 });
 
 const VideoPlayer = () => {
+  const player = useRef(null);
+  const remote = useMediaRemote(player);
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const [isPipActive, setIsPipActive] = useState(false);
 
   function onFullscreenChange(event) {
     setIsFullscreen(event.detail);
   }
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      const [entry] = entries;
+      setIsPipActive(entry.isIntersecting);
+    });
+
+    if (player.current) {
+      observer.observe(player.current);
+    }
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!isPipActive && player.current) {
+      remote.enterPictureInPicture();
+    }
+  }, [isPipActive, remote]);
 
   return (
     <Box
@@ -75,6 +100,7 @@ const VideoPlayer = () => {
     >
       <Box width="100%" display="flex" borderRadius="23px" overflow="hidden">
         <MediaPlayer
+          ref={player}
           src="https://media-files.vidstack.io/hls/index.m3u8"
           poster={PresentationImg}
           aspectRatio={16 / 9}
