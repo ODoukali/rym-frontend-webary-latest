@@ -9,7 +9,6 @@ import {
 } from "@mui/material";
 import { styled } from "@mui/system";
 import IconBtnCircular from "./IconBtnCircular";
-import PlayBtn from "./PlayBtn";
 import {
   MediaFullscreenButton,
   MediaGesture,
