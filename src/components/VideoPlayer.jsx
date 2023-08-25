@@ -61,16 +61,18 @@ const VideoPlayer = () => {
   const player = useRef(null);
   const remote = useMediaRemote(player);
   const [isFullscreen, setIsFullscreen] = useState(false);
-  const [isPipActive, setIsPipActive] = useState(false);
 
   function onFullscreenChange(event) {
     setIsFullscreen(event.detail);
   }
 
   useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
+    const observer = new IntersectionObserver(async (entries) => {
       const [entry] = entries;
-      setIsPipActive(entry.isIntersecting);
+
+      if (!entry.isIntersecting) {
+        remote.enterPictureInPicture();
+      }
     });
 
     if (player.current) {
@@ -80,13 +82,7 @@ const VideoPlayer = () => {
     return () => {
       observer.disconnect();
     };
-  }, []);
-
-  useEffect(() => {
-    if (!isPipActive && player.current) {
-      remote.enterPictureInPicture();
-    }
-  }, [isPipActive, remote]);
+  }, [player, remote]);
 
   return (
     <Box
