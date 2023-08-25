@@ -1,5 +1,12 @@
 import { useEffect, useRef, useState } from "react";
-import { Box, Button, IconButton, Stack, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  IconButton,
+  Stack,
+  Tooltip,
+  Typography,
+} from "@mui/material";
 import { styled } from "@mui/system";
 import IconBtnCircular from "./IconBtnCircular";
 import PlayBtn from "./PlayBtn";
@@ -9,7 +16,6 @@ import {
   MediaMenu,
   MediaMenuButton,
   MediaMenuItems,
-  MediaMuteButton,
   MediaOutlet,
   MediaPlayButton,
   MediaPlaybackRateMenuButton,
@@ -30,7 +36,9 @@ import "vidstack/styles/defaults.css";
 import "vidstack/styles/community-skin/video.css";
 
 import PresentationImg from "../images/presentation-img.jpg";
-import { ReactComponent as Heart } from "../images/heart.svg";
+import { ReactComponent as Bookmark } from "../images/bookmark.svg";
+import { ReactComponent as Notes } from "../images/notes.svg";
+import { ReactComponent as Share } from "../images/share.svg";
 import { ReactComponent as Next } from "../images/next.svg";
 import { ReactComponent as Play } from "../images/play.svg";
 import { ReactComponent as Pause } from "../images/pause.svg";
@@ -98,7 +106,13 @@ const VideoPlayer = () => {
         },
       }}
     >
-      <Box width="100%" display="flex" borderRadius="23px" overflow="hidden">
+      <Box
+        width="100%"
+        display="flex"
+        borderRadius="23px"
+        overflow="hidden"
+        sx={{ "&:hover": { "& .toggle-tooltip": { opacity: 1 } } }}
+      >
         <MediaPlayer
           ref={player}
           src="https://media-files.vidstack.io/hls/index.m3u8"
@@ -111,8 +125,11 @@ const VideoPlayer = () => {
             <MediaGesture event="pointerup" action="toggle:paused" />
             <MediaPoster alt="" />
           </MediaOutlet>
-          <Box
+          <Stack
             className="play-btnnn"
+            flexDirection="row"
+            alignItems="center"
+            gap="20px"
             position="absolute"
             top="50%"
             left="50%"
@@ -123,9 +140,10 @@ const VideoPlayer = () => {
             }}
           >
             <MediaPlayButton>
-              <PlayBtn width={100} height={100} />
+              <PlayerBtn icon={<Play />}>Watch</PlayerBtn>
             </MediaPlayButton>
-          </Box>
+            <PlayerBtn icon={<Volume />}>Listen</PlayerBtn>
+          </Stack>
           <Stack
             className="media-controls-group"
             position="absolute"
@@ -140,15 +158,53 @@ const VideoPlayer = () => {
               },
             }}
           >
-            <IconBtnCircular>
-              <Heart />
-            </IconBtnCircular>
-            <IconBtnCircular>
-              <MediaMuteButton>
-                <Volume slot="mute" color="#026670" />
-                <Volume slot="unmute" color="#fce181" />
-              </MediaMuteButton>
-            </IconBtnCircular>
+            <Tooltip title="Bookmark" placement="left">
+              <Box>
+                <IconBtnCircular className="hover-green">
+                  <Bookmark color="#026670" />
+                </IconBtnCircular>
+              </Box>
+            </Tooltip>
+            <Tooltip title="Notes" placement="left">
+              <Box>
+                <IconBtnCircular className="hover-green">
+                  <Notes color="#026670" />
+                </IconBtnCircular>
+              </Box>
+            </Tooltip>
+            <Tooltip title="Share Now" placement="left">
+              <Box>
+                <IconBtnCircular className="hover-green">
+                  <Share color="#026670" style={{ marginRight: "1.5px" }} />
+                </IconBtnCircular>
+              </Box>
+            </Tooltip>
+            <Box position="relative">
+              <IconBtnCircular className="yellow-ic">
+                <Volume color="#026670" />
+              </IconBtnCircular>
+              <Box
+                className="toggle-tooltip"
+                sx={{
+                  position: "absolute",
+                  top: "50%",
+                  right: "62px",
+                  transform: "translateY(-50%)",
+                  height: "20px",
+                  fontSize: "12px",
+                  fontWeight: 600,
+                  color: "#fff",
+                  borderRadius: "10px",
+                  backgroundColor: "#026670",
+                  whiteSpace: "nowrap",
+                  padding: "1px 10px",
+                  opacity: 0,
+                  transition: "opacity 0.1s ease",
+                }}
+              >
+                Listen / Watch
+              </Box>
+            </Box>
           </Stack>
           <Stack
             className="media-controls-group"
@@ -264,6 +320,18 @@ const VideoPlayer = () => {
         </MediaPlayer>
       </Box>
     </Box>
+  );
+};
+
+const PlayerBtn = (props) => {
+  return (
+    <Button
+      variant="yellow"
+      startIcon={props.icon}
+      sx={{ height: "54px", px: "40px", "&:hover svg": { color: "#026670" } }}
+    >
+      {props.children}
+    </Button>
   );
 };
 

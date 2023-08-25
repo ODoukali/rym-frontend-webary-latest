@@ -235,10 +235,18 @@ media-player[data-started] .play-btnnn {
   margin-bottom: 1px;
 }
 
+.hover-green {
+  background-color: #fff !important;
+}
+
 .hover-green:hover {
   background-color: #026670 !important;
 }
 
 .hover-green:hover svg {
   color: #fff;
+}
+
+.yellow-ic {
+  background-color: #fce181 !important;
 }
