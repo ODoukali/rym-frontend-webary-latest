@@ -12,7 +12,7 @@ import {
 import BlockBordered from "../../components/BlockBordered";
 import TextLink from "../../components/TextLink";
 
-import { ReactComponent as Arrow } from "../../images/arrow.svg";
+import { ReactComponent as Chevron } from "../../images/chevron.svg";
 
 const faqArr = [
   {
@@ -108,7 +108,10 @@ const FAQ = () => {
               },
             }}
           >
-            <AccordionSummary id={a.id} expandIcon={<Arrow color="#026670" />}>
+            <AccordionSummary
+              id={a.id}
+              expandIcon={<Chevron color="#026670" />}
+            >
               <Typography
                 position="relative"
                 fontFamily="FbJoker"

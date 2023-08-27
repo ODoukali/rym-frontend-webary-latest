@@ -1,7 +1,5 @@
 import { Stack } from "@mui/material";
 
-import { ReactComponent as Play } from "../images/play-video.svg";
-
 const PlayBtn = (props) => {
   return (
     <Stack
@@ -22,7 +20,7 @@ const PlayBtn = (props) => {
         },
       }}
     >
-      <Play color="#026670" style={{ marginLeft: "6%" }} />
+      {props.children}
     </Stack>
   );
 };

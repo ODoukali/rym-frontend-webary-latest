@@ -2,9 +2,10 @@ import React from "react";
 import { Box, Button, Container, Typography, Link } from "@mui/material";
 import { NavLink } from "react-router-dom";
 import BlockBordered from "../../components/BlockBordered";
+import PlayBtn from "../../components/PlayBtn";
 
 import PresentationImg from "../../images/presentation-img.jpg";
-import PlayBtn from "../../components/PlayBtn";
+import { ReactComponent as Play } from "../../images/play-video.svg";
 
 const Presentation = () => {
   return (
@@ -56,7 +57,9 @@ const Presentation = () => {
       >
         <img src={PresentationImg} alt="" style={{ borderRadius: "20px" }} />
         <Link to="" component={NavLink} sx={{ position: "absolute" }}>
-          <PlayBtn width="120px" height="120px" />
+          <PlayBtn width="120px" height="120px">
+            <Play color="#026670" style={{ marginLeft: "6%" }} />
+          </PlayBtn>
         </Link>
       </Box>
     </Container>

@@ -4,6 +4,8 @@ import BlockBordered from "./BlockBordered";
 import TextLink from "./TextLink";
 import PlayBtn from "./PlayBtn";
 
+import { ReactComponent as Play } from "../images/play.svg";
+
 const Slide = (props) => {
   return (
     <Box
@@ -63,7 +65,9 @@ const Slide = (props) => {
             component={NavLink}
             sx={{ position: "absolute" }}
           >
-            <PlayBtn width="96px" height="96px" />
+            <PlayBtn width="96px" height="96px">
+              <Play color="#026670" style={{ marginLeft: "6%" }} />
+            </PlayBtn>
           </Link>
         ) : null}
         <img

@@ -73,39 +73,20 @@ const Sidebar = () => {
         },
       }}
     >
-      <Badge
-        badgeContent={
-          <Typography fontSize="12px" fontWeight={700} color="#026670">
-            2 / 25
-          </Typography>
-        }
-        sx={{
-          mr: "90px",
-          "& .MuiBadge-badge": {
-            top: "5px",
-            right: "-33px",
-            height: "27px",
-            borderRadius: "20px",
-            backgroundColor: "#FCE181",
-            p: "5px 10px",
-          },
-        }}
+      <Typography
+        component="p"
+        fontSize="20px"
+        fontWeight="bold"
+        lineHeight="30px"
       >
-        <Typography
-          component="p"
-          fontSize="20px"
-          fontWeight="bold"
-          lineHeight="30px"
-        >
-          Course Overview
-        </Typography>
-      </Badge>
+        Course Overview
+      </Typography>
       <Typography
         component="p"
         fontSize="12px"
-        fontWeight="600"
+        fontWeight="700"
         lineHeight="18px"
-        color="#BFBEBB"
+        color="#026670"
         mb="30px"
       >
         2/25 Completed

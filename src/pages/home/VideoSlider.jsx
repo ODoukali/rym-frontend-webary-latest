@@ -1,13 +1,14 @@
 import { Box, Container, Link, Stack, Typography } from "@mui/material";
+import { NavLink } from "react-router-dom";
+import { SwiperSlide } from "swiper/react";
 import TextLink from "../../components/TextLink";
 import Slider from "../../components/Slider";
-import { SwiperSlide } from "swiper/react";
+import PlayBtn from "../../components/PlayBtn";
 
 import SlideWide from "../../images/video-slide-wide.jpg";
 import SlideVideo1 from "../../images/video-slide2.jpg";
 import SlideVideo2 from "../../images/video-slide3.jpg";
-import { NavLink } from "react-router-dom";
-import PlayBtn from "../../components/PlayBtn";
+import { ReactComponent as Play } from "../../images/play.svg";
 
 const videos = [
   {
@@ -123,7 +124,9 @@ const VideoSlide = (props) => {
           component={NavLink}
           sx={{ position: "absolute" }}
         >
-          <PlayBtn width="96px" height="96px" />
+          <PlayBtn width="96px" height="96px">
+            <Play color="#026670" style={{ marginLeft: "6%" }} />
+          </PlayBtn>
         </Link>
         <img
           style={{

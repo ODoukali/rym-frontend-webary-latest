@@ -4,7 +4,7 @@ import { Swiper } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 
-import { ReactComponent as Arrow } from "../images/arrow.svg";
+import { ReactComponent as Chevron } from "../images/chevron.svg";
 
 const Slider = (props) => {
   const swiperRef = useRef();
@@ -78,7 +78,7 @@ const ArrowBtn = (props) => {
         },
       }}
     >
-      <Arrow color="#026670" />
+      <Chevron color="#026670" />
     </Box>
   );
 };

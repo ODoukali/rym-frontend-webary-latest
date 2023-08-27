@@ -1,7 +1,7 @@
 import { Button, Typography } from "@mui/material";
 import { NavLink } from "react-router-dom";
 
-import { ReactComponent as Arrow } from "../images/arrow.svg";
+import { ReactComponent as Chevron } from "../images/chevron.svg";
 
 const TextLink = (props) => {
   return (
@@ -10,7 +10,7 @@ const TextLink = (props) => {
       variant="text"
       to={props.to}
       component={NavLink}
-      endIcon={<Arrow />}
+      endIcon={<Chevron />}
     >
       <Typography component="span">{props.children}</Typography>
     </Button>
