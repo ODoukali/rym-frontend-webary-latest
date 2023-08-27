@@ -1,6 +1,7 @@
 import { Box, Button, Stack, Typography } from "@mui/material";
-import BlockBordered from "../../components/BlockBordered";
 import { styled } from "@mui/material/styles";
+import BlockBordered from "../../components/BlockBordered";
+import TextLink from "../../components/TextLink";
 
 const TypographyStyled = styled(Typography)({
   fontSize: 18,
@@ -16,7 +17,7 @@ const TypographyStyled = styled(Typography)({
 
 const SubscriptionTab = () => {
   return (
-    <Box sx={{ borderBottom: "1px solid rgba(191,190,187,0.5)", pb: "60px" }}>
+    <Box>
       <Stack
         flexDirection="row"
         alignItems="center"
@@ -28,7 +29,7 @@ const SubscriptionTab = () => {
           Subscription
         </Typography>
         <Button variant="yellow" sx={{ height: "54px" }}>
-          Renew Your Subscription
+          View Purchase Details
         </Button>
       </Stack>
       <Stack
@@ -79,6 +80,8 @@ const SubscriptionTab = () => {
         alignItems="center"
         mt="20px"
         gap="15px"
+        borderBottom="1px solid rgba(191,190,187,0.5)"
+        pb="60px"
       >
         <Button variant="yellow" sx={{ height: "54px" }}>
           Add Associate for $25.49
@@ -96,6 +99,9 @@ const SubscriptionTab = () => {
           Buy Lifetime Subsctiption
         </Button>
       </Stack>
+      <TextLink to="" sx={{ marginTop: "60px" }}>
+        Rate This Course
+      </TextLink>
     </Box>
   );
 };
