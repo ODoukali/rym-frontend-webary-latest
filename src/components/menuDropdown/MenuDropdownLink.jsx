@@ -10,8 +10,8 @@ const MenuDropdownLink = (props) => {
       sx={{
         fontSize: "15px",
         fontWeight: 600,
-        color: "#BFBEBB",
-        "&:hover": { color: "primary.main" },
+        color: "#333",
+        "&:hover": { color: "secondary.main" },
       }}
     >
       {props.children}

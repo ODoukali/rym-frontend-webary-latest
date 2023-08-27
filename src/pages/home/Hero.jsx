@@ -10,7 +10,6 @@ import MenuDropdownLink from "../../components/menuDropdown/MenuDropdownLink";
 
 import BgImg from "../../images/home-hero-bg.png";
 import { ReactComponent as Logo } from "../../images/logo.svg";
-import { ReactComponent as User } from "../../images/user.svg";
 import { ReactComponent as Search } from "../../images/search.svg";
 
 const PageTitleHighlighted = styled(Typography)(() => {
@@ -60,9 +59,6 @@ const Hero = () => {
       >
         <Stack flexDirection="row" alignItems="center" columnGap="40px">
           <Stack flexDirection="row" alignItems="center" columnGap="15px">
-            <IconBtnCircular>
-              <User />
-            </IconBtnCircular>
             <IconBtnCircular>
               <Search />
             </IconBtnCircular>

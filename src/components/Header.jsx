@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Box, Divider, Drawer, Stack } from "@mui/material";
+import { Box, Button, Divider, Drawer, Stack } from "@mui/material";
 import { Link } from "react-router-dom";
 import { styled } from "@mui/material/styles";
 import IconBtnCircular from "./IconBtnCircular";
@@ -8,7 +8,6 @@ import NestedMenu from "./NestedMenu";
 import MenuDropdownLink from "./menuDropdown/MenuDropdownLink";
 
 import { ReactComponent as Menu } from "../images/menu.svg";
-import { ReactComponent as User } from "../images/user.svg";
 import { ReactComponent as Search } from "../images/search.svg";
 import { ReactComponent as Logo } from "../images/logo.svg";
 import { ReactComponent as Close } from "../images/close.svg";
@@ -41,7 +40,12 @@ const Header = () => {
         bgcolor="#EDECE8"
         p="70px 110px"
       >
-        <Logo color="#333" />
+        <Button
+          variant="yellow"
+          sx={{ height: "40px", fontSize: "14px", p: "20px 47px" }}
+        >
+          Sign In
+        </Button>
         <IconBtnCircular onClick={toggleDrawer(false)}>
           <Close color="#026670" />
         </IconBtnCircular>
@@ -72,6 +76,34 @@ const Header = () => {
         <LinkBtn to="/qa" title="Q&A" />
         <Hr />
         <LinkBtn to="/contact" title="Contact" />
+        <Stack
+          width="100%"
+          py="60px"
+          gap="25px"
+          borderTop="1px solid rgba(191,190,187,0.5)"
+          borderBottom="1px solid rgba(191,190,187,0.5)"
+          sx={{ "& a": { fontSize: "16px" } }}
+        >
+          <MenuDropdownLink to="/">Account</MenuDropdownLink>
+          <MenuDropdownLink to="/">Subscriptions</MenuDropdownLink>
+          <MenuDropdownLink to="/">Settings</MenuDropdownLink>
+          <MenuDropdownLink to="/">Help</MenuDropdownLink>
+        </Stack>
+        <Button
+          variant="outlined"
+          sx={{
+            height: "40px",
+            fontSize: "14px",
+            p: "18px 40px",
+            borderWidth: "2px",
+            mt: "35px",
+            "&:hover": {
+              border: "2px solid #026670",
+            },
+          }}
+        >
+          Sign Out
+        </Button>
       </Stack>
     </Box>
   );
@@ -88,9 +120,6 @@ const Header = () => {
       <Stack flexDirection="row" alignItems="center" columnGap="15px">
         <IconBtnCircular onClick={toggleDrawer(true)}>
           <Menu />
-        </IconBtnCircular>
-        <IconBtnCircular>
-          <User />
         </IconBtnCircular>
         <IconBtnCircular>
           <Search />
@@ -110,6 +139,7 @@ const Header = () => {
             bgcolor: "#F7F6F2",
             borderRadius: "0 40px 40px 0",
             overflowY: "initial",
+            overflow: "hidden",
           },
           "& .MuiBackdrop-root": {
             backgroundColor: "rgba(191,190,187,0.4)",
