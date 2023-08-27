@@ -66,7 +66,12 @@ const Slide = (props) => {
             sx={{ position: "absolute" }}
           >
             <PlayBtn width="96px" height="96px">
-              <Play color="#026670" style={{ marginLeft: "6%" }} />
+              <Play
+                color="#026670"
+                width={20}
+                height={24}
+                style={{ marginLeft: "6%" }}
+              />
             </PlayBtn>
           </Link>
         ) : null}

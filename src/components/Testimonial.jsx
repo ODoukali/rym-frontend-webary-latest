@@ -55,17 +55,19 @@ const Testimonial = (props) => {
               fontWeight={600}
               lineHeight="30px"
               color="secondary"
-              mb="4px"
             >
               Miro Koljanin
             </Typography>
-            <Rating defaultValue={4} readOnly />
+            {props.rating ? (
+              <Box py="4px 0 7px">
+                <Rating defaultValue={4} readOnly />
+              </Box>
+            ) : null}
             <Typography
               component="span"
               fontSize="12px"
               fontWeight={600}
               color="#BFBEBB"
-              mt="7px"
             >
               Edited 2 months ago
             </Typography>

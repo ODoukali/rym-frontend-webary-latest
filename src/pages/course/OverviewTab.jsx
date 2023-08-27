@@ -6,7 +6,7 @@ import TextLink from "../../components/TextLink";
 import Rating from "../../components/Rating";
 import Testimonial from "../../components/Testimonial";
 
-import { ReactComponent as Arrow } from "../../images/arrow.svg";
+import { ReactComponent as Chevron } from "../../images/chevron.svg";
 
 const LinkStyled = styled(Link)({
   color: "#026670",
@@ -64,7 +64,7 @@ const OverviewTab = () => {
         </Typography>
       </BlockBordered>
       <Button
-        endIcon={<Arrow />}
+        endIcon={<Chevron />}
         sx={{
           "& .MuiButton-endIcon": { ml: "12px" },
           "& svg": { transform: "rotate(90deg)", mt: "3px" },
