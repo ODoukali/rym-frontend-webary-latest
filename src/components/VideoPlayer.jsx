@@ -27,6 +27,7 @@ import {
   MediaSliderValue,
   MediaTime,
   MediaTimeSlider,
+  MediaTooltip,
   MediaVolumeSlider,
   useMediaRemote,
 } from "@vidstack/react";
@@ -121,10 +122,13 @@ const VideoPlayer = () => {
             <MediaPoster alt="" />
           </MediaOutlet>
           <Stack
-            className="play-btnnn"
+            className="play-btn"
             flexDirection="row"
             alignItems="center"
+            justifyContent="center"
             gap="20px"
+            width="100%"
+            height="100%"
             position="absolute"
             top="50%"
             left="50%"
@@ -188,9 +192,9 @@ const VideoPlayer = () => {
                   height: "20px",
                   fontSize: "12px",
                   fontWeight: 600,
-                  color: "#fff",
+                  color: "#026670",
                   borderRadius: "10px",
-                  backgroundColor: "#026670",
+                  backgroundColor: "#FCE181",
                   whiteSpace: "nowrap",
                   padding: "1px 10px",
                   opacity: 0,
@@ -225,26 +229,47 @@ const VideoPlayer = () => {
               },
             }}
           >
-            <Stack flexDirection="row" alignItems="center" gap="20px">
+            <Stack flexDirection="row" alignItems="center" gap="17px">
               <MediaSeekButton seconds={-10}>
+                <MediaTooltip position="top center">
+                  <span>Seek -10s</span>
+                </MediaTooltip>
                 <Typography fontSize="12px" fontWeight="bold" color="secondary">
                   - 10 sec
                 </Typography>
               </MediaSeekButton>
-              <IconButtonStyled
-                sx={{ "& svg": { transform: "rotate(180deg)" } }}
-              >
-                <Next color="#026670" />
-              </IconButtonStyled>
+              <Box className="tooltip-hover">
+                <MediaTooltip position="top center">
+                  <span>Prev</span>
+                </MediaTooltip>
+                <IconButtonStyled
+                  sx={{ "& svg": { transform: "rotate(180deg)" } }}
+                >
+                  <Next color="#026670" />
+                </IconButtonStyled>
+              </Box>
               <MediaPlayButton>
+                <MediaTooltip position="top center">
+                  <span slot="play">Play</span>
+                  <span slot="pause">Pause</span>
+                  <span slot="replay">Replay</span>
+                </MediaTooltip>
                 <Play slot="play" color="#026670" />
                 <Pause slot="pause" color="#fce181" />
                 <Play slot="replay" color="#026670" />
               </MediaPlayButton>
-              <IconButtonStyled>
-                <Next color="#026670" />
-              </IconButtonStyled>
+              <Box className="tooltip-hover">
+                <MediaTooltip position="top center">
+                  <span>Next</span>
+                </MediaTooltip>
+                <IconButtonStyled>
+                  <Next color="#026670" />
+                </IconButtonStyled>
+              </Box>
               <MediaSeekButton seconds={+10}>
+                <MediaTooltip position="top center">
+                  <span>Seek +10s</span>
+                </MediaTooltip>
                 <Typography fontSize="12px" fontWeight="bold" color="secondary">
                   + 10 sec
                 </Typography>
@@ -256,9 +281,10 @@ const VideoPlayer = () => {
               </div>
             </MediaTimeSlider>
             <Stack
+              width="200px"
               flexDirection="row"
               alignItems="center"
-              gap="20px"
+              justifyContent="space-between"
               flexShrink={0}
             >
               <Typography
@@ -274,42 +300,63 @@ const VideoPlayer = () => {
                 <MediaTime type="current" /> <span>/</span>{" "}
                 <MediaTime type="duration" />
               </Typography>
-              <IconButtonStyled
-                sx={{
-                  "&:hover": {
-                    "& svg": {
-                      display: "none",
-                    },
-                    "& media-volume-slider": {
-                      display: "block",
-                    },
-                  },
-                }}
+              <Stack
+                flexDirection="row"
+                alignItems="center"
+                justifyContent="space-between"
+                gap="20px"
               >
-                <Volume color="#026670" />
-                <MediaVolumeSlider />
-              </IconButtonStyled>
-              <MediaFullscreenButton>
-                <Fullscreen color="#026670" />
-              </MediaFullscreenButton>
-              <MediaMenu>
-                <MediaMenuButton aria-label="Settings">
-                  <Settings color="#026670" />
-                </MediaMenuButton>
-                <MediaMenuItems>
-                  <MediaMenu>
-                    <MediaPlaybackRateMenuButton label="Speed"></MediaPlaybackRateMenuButton>
-                    <MediaPlaybackRateMenuItems
-                      rates={[0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2]}
-                      normalLabel="Normal"
+                <IconButtonStyled
+                  sx={{
+                    "&:hover": {
+                      "& svg": {
+                        display: "none",
+                      },
+                      "& media-volume-slider": {
+                        display: "block",
+                      },
+                    },
+                  }}
+                >
+                  <Volume color="#026670" />
+                  <MediaVolumeSlider>
+                    <MediaSliderValue
+                      type="pointer"
+                      format="percent"
+                      slot="preview"
                     />
-                  </MediaMenu>
-                  <MediaMenu>
-                    <MediaQualityMenuButton label="Quality"></MediaQualityMenuButton>
-                    <MediaQualityMenuItems autoLabel="Auto" />
-                  </MediaMenu>
-                </MediaMenuItems>
-              </MediaMenu>
+                  </MediaVolumeSlider>
+                </IconButtonStyled>
+                <MediaFullscreenButton>
+                  <MediaTooltip position="top center">
+                    <span slot="enter">Enter Fullscreen</span>
+                    <span slot="exit">Exit Fullscreen</span>
+                  </MediaTooltip>
+                  <Fullscreen color="#026670" />
+                </MediaFullscreenButton>
+                <MediaMenu>
+                  <MediaMenuButton aria-label="Settings">
+                    <Settings color="#026670" />
+                    <MediaTooltip>
+                      <span slot="open">Open Settings</span>
+                      <span slot="close">Close Settings</span>
+                    </MediaTooltip>
+                  </MediaMenuButton>
+                  <MediaMenuItems>
+                    <MediaMenu>
+                      <MediaPlaybackRateMenuButton label="Speed"></MediaPlaybackRateMenuButton>
+                      <MediaPlaybackRateMenuItems
+                        rates={[0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2]}
+                        normalLabel="Normal"
+                      />
+                    </MediaMenu>
+                    <MediaMenu>
+                      <MediaQualityMenuButton label="Quality"></MediaQualityMenuButton>
+                      <MediaQualityMenuItems autoLabel="Auto" />
+                    </MediaMenu>
+                  </MediaMenuItems>
+                </MediaMenu>
+              </Stack>
             </Stack>
           </Stack>
         </MediaPlayer>

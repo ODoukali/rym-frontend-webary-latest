@@ -82,7 +82,9 @@ media-player[data-view-type="video"] {
 }
 
 media-play-button {
-  width: 21px;
+  width: 26px;
+  padding: 0 3px;
+  margin: 2px -3px 0;
 }
 
 media-fullscreen-button[data-hover],
@@ -98,7 +100,7 @@ media-play-button[data-hover] svg {
 }
 
 media-time-slider [part~="track"] {
-  background-color: rgba(237, 236, 232, 0.5);
+  background-color: #ccc;
   border-radius: 4px;
 }
 
@@ -118,13 +120,14 @@ media-time-slider [part~="track-fill"] {
 }
 
 media-time-slider [part~="track-progress"] {
-  background-color: #ccc;
+  background-color: rgba(237, 236, 232, 0.5);
   border-radius: 4px;
 }
 
 media-seek-button {
   width: initial;
   height: initial;
+  margin-top: 1px;
 }
 
 media-seek-button p {
@@ -178,9 +181,18 @@ media-gesture[action="toggle:paused"] {
 }
 
 media-player:not([data-started]) .media-controls-group,
-media-player[data-started] .play-btnnn {
+media-player[data-started] .play-btn {
   opacity: 0;
   pointer-events: none;
+}
+
+.play-btn media-play-button {
+  padding: 0;
+  margin: 0;
+}
+
+media-volume-slider [slot="preview"] {
+  left: 50%;
 }
 
 .rtl-section {
@@ -249,4 +261,16 @@ media-player[data-started] .play-btnnn {
 
 .yellow-ic {
   background-color: #fce181 !important;
+}
+
+.tooltip-hover {
+  position: relative;
+  margin-bottom: 1px;
+  padding: 0 3px;
+  cursor: pointer;
+}
+
+.tooltip-hover:hover media-tooltip {
+  opacity: 1;
+  transform: translate(-50%) scale(1);
 }

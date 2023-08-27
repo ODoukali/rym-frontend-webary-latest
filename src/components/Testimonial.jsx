@@ -30,7 +30,7 @@ const Testimonial = (props) => {
         gap="10px"
         mb="20px"
       >
-        <Stack flexDirection="row" columnGap="21px">
+        <Stack flexDirection="row" alignItems="center" columnGap="21px">
           <Box
             display="flex"
             alignItems="center"
@@ -73,7 +73,9 @@ const Testimonial = (props) => {
             </Typography>
           </Stack>
         </Stack>
-        <IconButton sx={{ height: "34px" }}>
+        <IconButton
+          sx={{ height: "34px", marginTop: props.rating ? 0 : "5px" }}
+        >
           <DotMenu color="#026670" />
         </IconButton>
       </Stack>
