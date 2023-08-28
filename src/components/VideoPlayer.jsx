@@ -29,7 +29,6 @@ import {
   MediaTimeSlider,
   MediaTooltip,
   MediaVolumeSlider,
-  useMediaRemote,
 } from "@vidstack/react";
 
 import "vidstack/styles/defaults.css";
@@ -60,7 +59,7 @@ const IconButtonStyled = styled(IconButton)(() => {
 
 const VideoPlayer = () => {
   const player = useRef(null);
-  const remote = useMediaRemote(player);
+  const [isFixed, setIsFixed] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
 
   function onFullscreenChange(event) {
@@ -68,22 +67,32 @@ const VideoPlayer = () => {
   }
 
   useEffect(() => {
-    const observer = new IntersectionObserver(async (entries) => {
+    const callbackFunction = (entries) => {
       const [entry] = entries;
+      setIsFixed(!entry.isIntersecting);
+    };
 
-      if (!entry.isIntersecting) {
-        remote.enterPictureInPicture();
-      }
-    });
+    let observerRefValue = null;
+
+    const options = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.5,
+    };
+
+    const observer = new IntersectionObserver(callbackFunction, options);
 
     if (player.current) {
       observer.observe(player.current);
+      observerRefValue = player.current;
     }
 
     return () => {
-      observer.disconnect();
+      if (observerRefValue) {
+        observer.unobserve(observerRefValue);
+      }
     };
-  }, [player, remote]);
+  }, []);
 
   return (
     <Box
@@ -103,14 +112,17 @@ const VideoPlayer = () => {
       }}
     >
       <Box
+        ref={player}
         width="100%"
+        position="relative"
         display="flex"
         borderRadius="23px"
+        pb="56.2%"
         overflow="hidden"
         sx={{ "&:hover": { "& .toggle-tooltip": { opacity: 1 } } }}
       >
         <MediaPlayer
-          ref={player}
+          className={`${isFixed ? "pip" : ""}`}
           src="https://media-files.vidstack.io/hls/index.m3u8"
           poster={PresentationImg}
           aspectRatio={16 / 9}

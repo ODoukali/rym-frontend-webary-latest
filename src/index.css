@@ -70,6 +70,7 @@ media-player {
   --media-time-font-weight: 700;
   --media-font-family: "Poppins";
   --media-time-letter-spacing: initial;
+  position: absolute;
   background-color: transparent !important;
   border-radius: 20px !important;
   border: none;
@@ -180,10 +181,15 @@ media-gesture[action="toggle:paused"] {
   height: 100%;
 }
 
+media-player[data-started].pip .media-controls-group,
 media-player:not([data-started]) .media-controls-group,
 media-player[data-started] .play-btn {
   opacity: 0;
   pointer-events: none;
+}
+
+media-player[data-started].pip .media-controls-group {
+  transition: none;
 }
 
 .play-btn media-play-button {
@@ -273,4 +279,11 @@ media-volume-slider [slot="preview"] {
 .tooltip-hover:hover media-tooltip {
   opacity: 1;
   transform: translate(-50%) scale(1);
+}
+
+media-player[data-started].pip {
+  width: 500px !important;
+  position: fixed;
+  bottom: 20px;
+  right: 10px;
 }
