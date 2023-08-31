@@ -1,35 +1,34 @@
-import {
-  Accordion,
-  AccordionDetails,
-  AccordionSummary,
-  Badge,
-  Box,
-  Button,
-  Stack,
-  Typography,
-} from "@mui/material";
+import { Badge, Box, Button, Stack, Typography } from "@mui/material";
+import { styled } from "@mui/material/styles";
 import { Link } from "react-router-dom";
 import TextLink from "../../components/TextLink";
 import BlockBordered from "../../components/BlockBordered";
 import Note from "./Note";
 import IconBtn from "./IconBtn";
 
-import { ReactComponent as Arrow } from "../../images/arrow.svg";
 import { ReactComponent as Download } from "../../images/writing.svg";
 import { ReactComponent as Print } from "../../images/printer.svg";
 
+const Block = styled(Box)({
+  backgroundColor: "#fff",
+  borderRadius: "20px",
+  padding: "30px 40px 40px 40px",
+});
+
 const NotesBookmarks = () => {
+  const bookmarksQuantity = 7;
+
   return (
     <>
-      <Accordion className="accordion-white">
-        <AccordionSummary expandIcon={<Arrow color="#026670" />}>
+      <Box>
+        <Block>
           <Stack
             width="100%"
             flexDirection="row"
             alignItems="center"
             justifyContent="space-between"
             flexWrap="wrap"
-            mr="30px"
+            mb="24px"
           >
             <Stack flexDirection="row">
               <Badge
@@ -57,17 +56,10 @@ const NotesBookmarks = () => {
                   position="relative"
                   fontSize="20px"
                   fontWeight={700}
-                  color="secondary"
                 >
                   Bookmarks
                 </Typography>
               </Badge>
-              <TextLink
-                to="/"
-                sx={{ "& span": { color: "#026670 !important" } }}
-              >
-                Add Bookmark
-              </TextLink>
             </Stack>
             <Button
               variant="yellow"
@@ -76,10 +68,15 @@ const NotesBookmarks = () => {
               Jump to Latest Progress
             </Button>
           </Stack>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Stack gap="30px">
-            {[...Array(4).keys()].map((val) => (
+          <Box
+            sx={{
+              display: "grid",
+              gridTemplateColumns: bookmarksQuantity > 4 ? "1fr 1fr" : "1fr",
+              gap: "10px 40px",
+              overflow: "hidden",
+            }}
+          >
+            {[...Array(bookmarksQuantity).keys()].map((val) => (
               <Stack
                 key={val}
                 to="/"
@@ -87,9 +84,18 @@ const NotesBookmarks = () => {
                 flexDirection="row"
                 alignItems="flex-start"
                 justifyContent="space-between"
-                borderTop="1px solid rgba(191,190,187,0.5)"
-                pt="30px"
+                pt="10px"
                 sx={{
+                  position: "relative",
+                  "&::after": {
+                    content: "''",
+                    position: "absolute",
+                    left: 0,
+                    top: 0,
+                    width: "100vw",
+                    height: "1px",
+                    backgroundColor: "#DFDEDD",
+                  },
                   "&:hover": {
                     "& .text span": {
                       color: "#333",
@@ -124,27 +130,15 @@ const NotesBookmarks = () => {
                       {val + 1}
                     </Typography>
                   </Box>
-                  <Box component="span" className="text">
-                    <Typography
-                      component="span"
-                      display="block"
-                      fontSize="16px"
-                      fontWeight={600}
-                      color="secondary"
-                    >
-                      Lecture name comes here 1
-                    </Typography>
-                    <Typography
-                      component="span"
-                      display="block"
-                      fontSize="14px"
-                      fontWeight={500}
-                      lineHeight="18px"
-                      color="#BFBEBB"
-                    >
-                      Lorem ipsum dolor sit amet, consectetur adipiscing
-                    </Typography>
-                  </Box>
+                  <Typography
+                    component="span"
+                    display="block"
+                    fontSize="16px"
+                    fontWeight={600}
+                    color="secondary"
+                  >
+                    Lecture name comes here 1
+                  </Typography>
                 </Stack>
                 <Typography
                   component="span"
@@ -156,39 +150,29 @@ const NotesBookmarks = () => {
                 </Typography>
               </Stack>
             ))}
-          </Stack>
-        </AccordionDetails>
-      </Accordion>
+          </Box>
+        </Block>
+        <Box display="flex" justifyContent="flex-end">
+          <TextLink to="/" sx={{ marginTop: "20px" }}>
+            Add Bookmark
+          </TextLink>
+        </Box>
+      </Box>
 
-      <Accordion
-        className="accordion-white"
-        sx={{ "& .MuiAccordionDetails-root": { pb: "0 !important" } }}
-      >
-        <AccordionSummary expandIcon={<Arrow color="#026670" />}>
+      <Box mt="60px">
+        <Block>
           <Stack
             width="100%"
             flexDirection="row"
             alignItems="center"
             justifyContent="space-between"
             flexWrap="wrap"
-            mr="30px"
+            mb="24px"
           >
             <Stack flexDirection="row">
-              <Typography
-                position="relative"
-                fontSize="20px"
-                fontWeight={700}
-                color="secondary"
-                mr="30px"
-              >
+              <Typography fontSize="20px" fontWeight={700}>
                 Course Notes
               </Typography>
-              <TextLink
-                to="/"
-                sx={{ "& span": { color: "#026670 !important" } }}
-              >
-                Add Note
-              </TextLink>
             </Stack>
             <Stack flexDirection="row" gap="10px">
               <IconBtn>
@@ -199,30 +183,49 @@ const NotesBookmarks = () => {
               </IconBtn>
             </Stack>
           </Stack>
-        </AccordionSummary>
-        <AccordionDetails>
           <Stack>
-            {[...Array(3).keys()].map((val) => (
-              <Note key={val}>
-                <BlockBordered mb="20px">
+            <Note>
+              <BlockBordered mb="20px">
+                <Typography variant="medium" lineHeight="22px">
+                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                  accusantium doloremque laudantium, totam rem aperiam, eaque
+                  ipsa quae ab illo inventore veritatis et quasi architecto
+                  beatae vitae dicta sunt explicabo.
+                </Typography>
+              </BlockBordered>
+              <TextLink
+                to=""
+                sx={{ marginBottom: "10px", "& span": { fontSize: "14px" } }}
+              >
+                Edit Note
+              </TextLink>
+            </Note>
+            <Note>
+              <BlockBordered mb="20px">
+                <Box className="note-edited">
                   <Typography variant="medium" lineHeight="22px">
                     Sed ut perspiciatis unde omnis iste natus error sit
                     voluptatem accusantium doloremque laudantium, totam rem
                     aperiam, eaque ipsa quae ab illo inventore veritatis et
                     quasi architecto beatae vitae dicta sunt explicabo.
                   </Typography>
-                </BlockBordered>
-                <TextLink
-                  to=""
-                  sx={{ marginBottom: "30px", "& span": { fontSize: "14px" } }}
-                >
-                  Edit Note
-                </TextLink>
-              </Note>
-            ))}
+                </Box>
+              </BlockBordered>
+              <TextLink
+                to=""
+                sx={{ marginBottom: "10px", "& span": { fontSize: "14px" } }}
+              >
+                Save Note
+              </TextLink>
+            </Note>
           </Stack>
-        </AccordionDetails>
-      </Accordion>
+        </Block>
+        <Box display="flex" justifyContent="flex-end">
+          <TextLink to="/" sx={{ marginTop: "20px" }}>
+            Add Note
+          </TextLink>
+        </Box>
+      </Box>
     </>
   );
 };

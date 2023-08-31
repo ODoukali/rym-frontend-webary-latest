@@ -7,7 +7,7 @@ import {
   Typography,
 } from "@mui/material";
 
-import { ReactComponent as Arrow } from "../../images/arrow.svg";
+import { ReactComponent as Chevron } from "../../images/chevron.svg";
 
 const Note = (props) => {
   const [open, setOpen] = useState(false);
@@ -22,7 +22,7 @@ const Note = (props) => {
         onClick={handleClick}
         sx={{
           alignItems: "flex-start",
-          p: "30px 0",
+          p: "10px 0",
           "&:hover": { backgroundColor: "transparent" },
         }}
       >
@@ -32,49 +32,35 @@ const Note = (props) => {
           justifyContent="space-between"
           flex={1}
         >
-          <Box>
-            <Typography
-              component="span"
-              display="block"
-              fontSize="16px"
-              fontWeight={600}
-              color="secondary"
-            >
-              Lecture name comes here 1
-            </Typography>
-            <Typography
-              component="span"
-              display="block"
-              fontSize="14px"
-              fontWeight={500}
-              lineHeight="18px"
-              color="#BFBEBB"
-            >
-              Lorem ipsum dolor sit amet, consectetur adipiscing
-            </Typography>
-          </Box>
-          <Box
-            sx={{
-              pt: open ? "1px" : "3px",
-              "& svg": {
-                transform: open ? "rotate(-90deg)" : "rotate(90deg)",
-                transition: "0.1s ease",
-              },
-            }}
+          <Typography
+            component="span"
+            display="block"
+            fontSize="16px"
+            fontWeight={600}
+            color="secondary"
           >
-            <Arrow color={open ? "#333" : "#BFBEBB"} />
-          </Box>
+            Lecture name comes here 1
+          </Typography>
+          <Typography
+            component="span"
+            fontSize="16px"
+            fontWeight={600}
+            color="primary"
+            mr="20px"
+          >
+            3:45
+          </Typography>
         </Stack>
-        <Typography
-          width="64px"
-          component="span"
-          fontSize="16px"
-          fontWeight={600}
-          color="primary"
-          textAlign="right"
+        <Box
+          sx={{
+            "& svg": {
+              transform: open ? "rotate(-90deg)" : "rotate(90deg)",
+              transition: "0.1s ease",
+            },
+          }}
         >
-          3:45
-        </Typography>
+          <Chevron color={open ? "#333" : "#BFBEBB"} />
+        </Box>
       </ListItemButton>
       <Collapse in={open} timeout="auto" unmountOnExit>
         {props.children}

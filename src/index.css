@@ -287,3 +287,10 @@ media-player[data-started].pip {
   bottom: 20px;
   right: 10px;
 }
+
+.note-edited {
+  background-color: #faf9f7;
+  border-radius: 10px;
+  border: 1px solid #edece8;
+  padding: 15px 20px;
+}
