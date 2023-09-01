@@ -78,7 +78,7 @@ const Course = () => {
                 </BlockBordered>
               </Box>
               <LinkWithIcon to="" sx={{ marginTop: "14px" }}>
-                Read More
+                Back
               </LinkWithIcon>
             </Stack>
             <VideoPlayer />

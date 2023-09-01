@@ -12,7 +12,7 @@ import { Link } from "react-router-dom";
 import BlockBordered from "../../components/BlockBordered";
 import IconBtn from "./IconBtn";
 
-import { ReactComponent as Arrow } from "../../images/arrow.svg";
+import { ReactComponent as Chevron } from "../../images/chevron.svg";
 import { ReactComponent as Download } from "../../images/writing.svg";
 import { ReactComponent as Print } from "../../images/printer.svg";
 
@@ -29,11 +29,16 @@ const ResourcesTab = () => {
         <Typography variant="sectionTitleHebrew" fontSize="30px">
           וואס טוט מען ווען דער מאן ארבעט צופרי פאר’ן דאווענען?
         </Typography>
-        <BlockBordered>
-          <Typography fontSize="18px" fontWeight="500">
-            Lorem ipsum dolor sit amet, consectetur adipiscing.
+        <Box
+          display="inline-flex"
+          bgcolor="#FCE181"
+          borderRadius="20px"
+          p="3px 20px"
+        >
+          <Typography fontSize="18px" fontWeight="700" color="#026670">
+            Showing Resources for the active lecture only
           </Typography>
-        </BlockBordered>
+        </Box>
       </Box>
 
       <Accordion
@@ -41,7 +46,7 @@ const ResourcesTab = () => {
         expanded={expanded === "panel1"}
         onChange={handleChange("panel1")}
       >
-        <AccordionSummary expandIcon={<Arrow color="#026670" />}>
+        <AccordionSummary expandIcon={<Chevron color="#026670" />}>
           <Typography fontSize="20px" fontWeight={700} color="secondary">
             Course Summary
           </Typography>
@@ -78,7 +83,7 @@ const ResourcesTab = () => {
         expanded={expanded === "panel2"}
         onChange={handleChange("panel2")}
       >
-        <AccordionSummary expandIcon={<Arrow color="#026670" />}>
+        <AccordionSummary expandIcon={<Chevron color="#026670" />}>
           <Stack
             width="100%"
             flexDirection="row"
@@ -123,7 +128,7 @@ const ResourcesTab = () => {
         onChange={handleChange("panel3")}
         sx={{ "& .MuiAccordionDetails-root": { pb: "10px !important" } }}
       >
-        <AccordionSummary expandIcon={<Arrow color="#026670" />}>
+        <AccordionSummary expandIcon={<Chevron color="#026670" />}>
           <Stack
             width="100%"
             flexDirection="row"
@@ -135,15 +140,7 @@ const ResourcesTab = () => {
             <Typography fontSize="20px" fontWeight={700} color="secondary">
               Downloads
             </Typography>
-            <Button
-              variant="text"
-              startIcon={<Arrow />}
-              sx={{
-                "& svg": { transform: "rotate(90deg)", mr: "5px", mt: "1px" },
-              }}
-            >
-              <Typography component="span">Download All</Typography>
-            </Button>
+            <Button variant="text">Download All</Button>
           </Stack>
         </AccordionSummary>
         <AccordionDetails>

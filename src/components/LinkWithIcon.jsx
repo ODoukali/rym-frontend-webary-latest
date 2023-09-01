@@ -1,8 +1,8 @@
 import { Button, Typography } from "@mui/material";
 import { NavLink } from "react-router-dom";
-
-import { ReactComponent as Arrow } from "../images/arrow.svg";
 import IconBtnCircular from "./IconBtnCircular";
+
+import { ReactComponent as Chevron } from "../images/chevron.svg";
 
 const LinkWithIcon = (props) => {
   return (
@@ -30,7 +30,7 @@ const LinkWithIcon = (props) => {
       }}
       endIcon={
         <IconBtnCircular>
-          <Arrow color="#026670" />
+          <Chevron color="#026670" />
         </IconBtnCircular>
       }
     >
