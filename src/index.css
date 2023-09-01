@@ -253,14 +253,17 @@ media-volume-slider [slot="preview"] {
   margin-bottom: 1px;
 }
 
+.hover-green.active,
 .hover-green {
   background-color: #fff !important;
 }
 
+.hover-green.active,
 .hover-green:hover {
   background-color: #026670 !important;
 }
 
+.hover-green.active svg,
 .hover-green:hover svg {
   color: #fff;
 }

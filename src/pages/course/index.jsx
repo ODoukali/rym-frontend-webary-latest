@@ -49,7 +49,7 @@ const sliderVideos = [
 
 const Course = () => {
   return (
-    <Box maxWidth="1920px" m="0 auto" sx={{ overflowX: "hidden" }}>
+    <Box maxWidth="1920px" m="0 auto 30px" sx={{ overflowX: "hidden" }}>
       <Box position="relative" pt="57px" zIndex={2}>
         <Guides color="rgba(0,0,0,0.02)" zIndex={-1} pb="30px" />
         <Header />

@@ -20,7 +20,9 @@ import TextLink from "../../components/TextLink";
 import Rating from "../../components/Rating";
 import Testimonial from "../../components/Testimonial";
 import IconBtnCircular from "../../components/IconBtnCircular";
+import PlayBtn from "../../components/PlayBtn";
 
+import { ReactComponent as Play } from "../../images/play.svg";
 import PresentationImg from "../../images/pre-subscribed-banner.jpg";
 import { ReactComponent as Star } from "../../images/star.svg";
 import { ReactComponent as Share } from "../../images/share.svg";
@@ -41,20 +43,21 @@ const LinearProgressStyled = styled(LinearProgress)(({ theme }) => ({
 
 const PreSubscribe = () => {
   return (
-    <Box maxWidth="1920px" m="0 auto" sx={{ overflowX: "hidden" }}>
+    <Box maxWidth="1920px" m="0 auto 30px" sx={{ overflowX: "hidden" }}>
       <Box position="relative" pt="57px" zIndex={1}>
         <Guides color="rgba(0,0,0,0.02)" zIndex={-1} pb="30px" />
         <Header />
-        <Box mt="90px">
+        <Box mt="50px">
           <Container>
             <Box
               position="relative"
+              pb="56.3%"
               sx={{
                 "&::before": {
                   content: "''",
                   position: "absolute",
-                  top: "-40px",
-                  right: "-40px",
+                  bottom: "-40px",
+                  left: "-40px",
                   width: "46.6%",
                   height: "59.7%",
                   bgcolor: "#FCE181",
@@ -76,6 +79,7 @@ const PreSubscribe = () => {
                 <Box
                   display="flex"
                   flexDirection="column"
+                  justifyContent="space-between"
                   height="100%"
                   textAlign="right"
                   p="67px 60px 60px"
@@ -85,16 +89,6 @@ const PreSubscribe = () => {
                       <Typography variant="sectionTitleHebrew" fontSize="40px">
                         צופרידנהייט אין שטוב
                       </Typography>
-                      <BlockBordered>
-                        <Typography
-                          fontFamily="FbJoker"
-                          fontSize="20px"
-                          fontWeight="600"
-                          color="#666564"
-                        >
-                          וויאזוי אויסצולעשן איר עקס רעי מאשין
-                        </Typography>
-                      </BlockBordered>
                     </Box>
                     <Typography
                       component="p"
@@ -117,61 +111,32 @@ const PreSubscribe = () => {
                         • 766 Subscribers
                       </Typography>
                     </Stack>
-                    <Stack
-                      flexDirection="row"
-                      justifyContent="flex-end"
-                      alignItems="center"
-                      gap="10px"
+                    <Button
+                      variant="green"
+                      sx={{
+                        height: "54px",
+                        borderWidth: "2px",
+                        pl: "40px",
+                        pr: "40px",
+                      }}
                     >
-                      <Button
-                        variant="outlined"
-                        sx={{
-                          height: "54px",
-                          borderWidth: "2px",
-                          pl: "40px",
-                          pr: "40px",
-                          "&:hover": {
-                            border: "2px solid #026670",
-                          },
-                        }}
-                      >
-                        <Typography component="span" fontWeight={600}>
-                          Subscribe:{" "}
-                          <span style={{ fontWeight: 700, marginLeft: "5px" }}>
-                            $350
-                          </span>
-                        </Typography>
-                      </Button>
-                      <Button
-                        variant="yellow"
-                        sx={{ height: "54px", pl: "40px", pr: "40px" }}
-                      >
-                        <Typography component="span" fontWeight={600}>
-                          Buy:{" "}
-                          <span
-                            style={{
-                              fontWeight: 700,
-                              marginLeft: "5px",
-                              color: "#333",
-                            }}
-                          >
-                            $450
-                          </span>
-                        </Typography>
-                      </Button>
-                    </Stack>
+                      <Typography component="span" fontWeight={600}>
+                        Subscribe:{" "}
+                        <span style={{ fontWeight: 700, marginLeft: "5px" }}>
+                          $350
+                        </span>
+                      </Typography>
+                    </Button>
                   </Box>
 
                   <Stack
                     flexDirection="row"
-                    alignItems="center"
+                    position="relative"
                     justifyContent="flex-end"
-                    gap="20px"
-                    mt="auto"
                   >
-                    <Tooltip title="Share Now" placement="left">
+                    <Tooltip open={true} title="Share Now" placement="left">
                       <Box>
-                        <IconBtnCircular className="hover-green">
+                        <IconBtnCircular className="hover-green active">
                           <Share
                             color="#026670"
                             style={{ marginRight: "1.5px" }}
@@ -179,13 +144,31 @@ const PreSubscribe = () => {
                         </IconBtnCircular>
                       </Box>
                     </Tooltip>
-                    <Button variant="yellow" sx={{ height: "54px" }}>
-                      Preview
-                    </Button>
                   </Stack>
                 </Box>
               </Box>
-              <Box display="flex">
+              <Box
+                position="absolute"
+                top="50%"
+                left="27.2%"
+                sx={{
+                  transform: "translateY(-50%)",
+                  "& .MuiStack-root": { margin: "0 auto 10px" },
+                }}
+              >
+                <PlayBtn width="96px" height="96px">
+                  <Play
+                    color="#026670"
+                    width={20}
+                    height={24}
+                    style={{ marginLeft: "6%" }}
+                  />
+                </PlayBtn>
+                <Button variant="yellow" sx={{ height: "32px", p: "5px 40px" }}>
+                  Preview
+                </Button>
+              </Box>
+              <Box display="flex" position="absolute" zIndex={-1}>
                 <img
                   src={PresentationImg}
                   alt=""
@@ -196,7 +179,7 @@ const PreSubscribe = () => {
           </Container>
         </Box>
       </Box>
-      <Box position="relative" pt="100px" mt="-30px">
+      <Box position="relative" pt="173px" mt="-30px">
         <Guides color="rgba(0,0,0,0.06)" zIndex={-1} />
 
         <Box position="relative" mx="30px" pt="190px" mt="-190px" mb="150px">
@@ -287,46 +270,55 @@ const PreSubscribe = () => {
                     <Typography fontWeight={700}>• 766 Subscribers</Typography>
                   </Stack>
 
-                  <Stack
-                    flexDirection="column-reverse"
-                    bgcolor="#EDECE8"
-                    borderRadius="20px"
-                    gap="12px"
-                    p="40px"
-                    mt="40px"
-                    mb="20px"
-                  >
-                    {[...Array(5).keys()].map((val) => (
-                      <Stack key={val} flexDirection="row" alignItems="center">
-                        <Typography
-                          fontWeight={700}
-                          lineHeight="18px"
-                          mr="10px"
-                          mt="1px"
-                        >
-                          {val + 1}
-                        </Typography>
-                        <Star color="#FCE181" />
-                        <Box sx={{ flexGrow: 1 }}>
-                          <LinearProgressStyled
-                            variant="determinate"
-                            value={60}
-                          />
-                        </Box>{" "}
-                        <Typography fontWeight={700} lineHeight="18px">
-                          164
-                        </Typography>
-                      </Stack>
-                    ))}
-                  </Stack>
-
                   <Box
+                    mt="40px"
                     sx={{
                       display: "grid",
                       gridTemplateColumns: "1fr 1fr",
                       gap: "20px",
                     }}
                   >
+                    <Stack
+                      flexDirection="column-reverse"
+                      justifyContent="space-between"
+                      bgcolor="#EDECE8"
+                      borderRadius="20px"
+                      p="40px 20px"
+                    >
+                      {[...Array(5).keys()].map((val) => (
+                        <Stack
+                          key={val}
+                          flexDirection="row"
+                          alignItems="center"
+                          borderRadius="30px"
+                          p="11px 20px"
+                          sx={{
+                            "&:hover": { backgroundColor: "#F7F6F2" },
+                            cursor: "pointer",
+                          }}
+                        >
+                          <Typography
+                            fontWeight={700}
+                            lineHeight="18px"
+                            mr="10px"
+                            mt="1px"
+                          >
+                            {val + 1}
+                          </Typography>
+                          <Star color="#FCE181" />
+                          <Box sx={{ flexGrow: 1 }}>
+                            <LinearProgressStyled
+                              variant="determinate"
+                              value={60}
+                            />
+                          </Box>{" "}
+                          <Typography fontWeight={700} lineHeight="18px">
+                            164
+                          </Typography>
+                        </Stack>
+                      ))}
+                    </Stack>
+                    <Testimonial avatar />
                     <Testimonial avatar />
                     <Testimonial />
                     <Testimonial />

@@ -96,9 +96,13 @@ const Testimonial = (props) => {
         alignItems="center"
         justifyContent="space-between"
       >
-        <TextLink to="" sx={{ "& span": { fontSize: "14px" } }}>
-          Reply
-        </TextLink>
+        {props.reply ? (
+          <TextLink to="" sx={{ "& span": { fontSize: "14px" } }}>
+            Reply
+          </TextLink>
+        ) : (
+          <div />
+        )}
         <Stack flexDirection="row" alignItems="flex-end" columnGap="10px">
           <Typography fontSize="14px" fontWeight={600} color="#BFBEBB">
             245

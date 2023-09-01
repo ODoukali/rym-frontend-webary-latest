@@ -100,13 +100,13 @@ const OverviewTab = () => {
       </Stack>
       <Swiper slidesPerView={2} spaceBetween={20}>
         <SwiperSlide>
-          <Testimonial avatar />
+          <Testimonial avatar reply />
         </SwiperSlide>
         <SwiperSlide>
-          <Testimonial />
+          <Testimonial reply />
         </SwiperSlide>
         <SwiperSlide>
-          <Testimonial avatar />
+          <Testimonial avatar reply />
         </SwiperSlide>
       </Swiper>
       <Stack
