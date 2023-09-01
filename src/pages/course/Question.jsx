@@ -2,7 +2,6 @@ import { Box, IconButton, Stack, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import TextLink from "../../components/TextLink";
 
-import Avatar from "../../images/avatar.png";
 import { ReactComponent as DotMenu } from "../../images/dots-menu.svg";
 import { ReactComponent as Like } from "../../images/like.svg";
 
@@ -21,32 +20,6 @@ const IconButtonStyled = styled(IconButton)(() => {
 const Question = (props) => {
   return (
     <Box bgcolor="#fff" borderRadius="10px" p="30px 30px 27px">
-      {!props.small ? (
-        <Stack flexDirection="row" alignItems="center" gap="20px" mb="25px">
-          <Box
-            display="flex"
-            alignItems="center"
-            justifyContent="center"
-            flexShrink={0}
-            width={68}
-            height={68}
-            borderRadius="100%"
-            bgcolor="#EDECE8"
-          >
-            <img src={Avatar} alt="" />
-          </Box>
-          <Typography
-            component="span"
-            fontSize="20px"
-            fontWeight={600}
-            lineHeight="25px"
-            color="secondary"
-            mb="4px"
-          >
-            Miro Koljanin
-          </Typography>
-        </Stack>
-      ) : null}
       <Stack
         flexDirection="row"
         justifyContent="space-between"
@@ -83,23 +56,33 @@ const Question = (props) => {
         <TextLink to="" sx={{ "& span": { fontSize: "14px" } }}>
           Read More
         </TextLink>
-        {!props.small ? (
-          <Stack flexDirection="row" alignItems="flex-end" columnGap="10px">
-            <Typography fontSize="14px" fontWeight={600} color="#BFBEBB">
-              245
-            </Typography>
-            <Stack flexDirection="row" alignItems="center" columnGap="7px">
-              <IconButtonStyled sx={{ marginBottom: "4px" }}>
-                <Like color="#BFBEBB" />
-              </IconButtonStyled>
-            </Stack>
+        <Stack flexDirection="row" alignItems="flex-end" columnGap="10px">
+          <Typography fontSize="14px" fontWeight={600} color="#BFBEBB">
+            245
+          </Typography>
+          <Stack flexDirection="row" alignItems="center" columnGap="7px">
+            <IconButtonStyled sx={{ marginBottom: "4px" }}>
+              <Like color="#BFBEBB" />
+            </IconButtonStyled>
           </Stack>
-        ) : null}
+        </Stack>
       </Stack>
       <Box borderTop="1px solid rgba(191,190,187,0.5)" pt="18px" mt="16px">
-        <TextLink to="" sx={{ "& span": { fontSize: "14px" } }}>
-          View Answer
-        </TextLink>
+        {props.awaiting ? (
+          <Typography
+            fontSize="14px"
+            lineHeight="18px"
+            fontWeight={600}
+            color="#BFBEBB"
+            mt="4px"
+          >
+            Awaiting Answer
+          </Typography>
+        ) : (
+          <TextLink to="" sx={{ "& span": { fontSize: "14px" } }}>
+            View Answer
+          </TextLink>
+        )}
       </Box>
     </Box>
   );
