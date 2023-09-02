@@ -265,7 +265,9 @@ const PreSubscribe = () => {
                     </MuiLink>
                   </Stack>
                   <Stack flexDirection="row" alignItems="center" gap="10px">
-                    <Typography fontWeight={700}>4.8</Typography>
+                    <Typography fontWeight={700} mt="2px">
+                      4.8
+                    </Typography>
                     <Rating defaultValue={4} readOnly />
                     <Typography fontWeight={700}>• 766 Subscribers</Typography>
                   </Stack>

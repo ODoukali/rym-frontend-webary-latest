@@ -43,6 +43,7 @@ import { ReactComponent as Play } from "../images/play.svg";
 import { ReactComponent as Pause } from "../images/pause.svg";
 import { ReactComponent as Volume } from "../images/volume.svg";
 import { ReactComponent as Fullscreen } from "../images/fullscreen.svg";
+import { ReactComponent as FullscreenExit } from "../images/full-screen-exit.svg";
 import { ReactComponent as Settings } from "../images/settings.svg";
 
 const IconButtonStyled = styled(IconButton)(() => {
@@ -60,11 +61,6 @@ const IconButtonStyled = styled(IconButton)(() => {
 const VideoPlayer = () => {
   const player = useRef(null);
   const [isFixed, setIsFixed] = useState(false);
-  const [isFullscreen, setIsFullscreen] = useState(false);
-
-  function onFullscreenChange(event) {
-    setIsFullscreen(event.detail);
-  }
 
   useEffect(() => {
     const callbackFunction = (entries) => {
@@ -113,6 +109,7 @@ const VideoPlayer = () => {
     >
       <Box
         ref={player}
+        className="player-bgr"
         width="100%"
         position="relative"
         display="flex"
@@ -127,7 +124,6 @@ const VideoPlayer = () => {
           poster={PresentationImg}
           aspectRatio={16 / 9}
           crossorigin=""
-          onFullscreenChange={onFullscreenChange}
         >
           <MediaOutlet>
             <MediaGesture event="pointerup" action="toggle:paused" />
@@ -161,13 +157,6 @@ const VideoPlayer = () => {
             top="40px"
             right="40px"
             gap="10px"
-            sx={{
-              opacity: isFullscreen ? 0 : 1,
-              transition: "opacity 0.2s ease-in-out",
-              "&:hover": {
-                opacity: 1,
-              },
-            }}
           >
             <Tooltip title="Bookmark" placement="left">
               <Box>
@@ -234,11 +223,6 @@ const VideoPlayer = () => {
             px="40px"
             sx={{
               backdropFilter: "blur(15px)",
-              opacity: isFullscreen ? 0 : 1,
-              transition: "opacity 0.2s ease",
-              "&:hover": {
-                opacity: 1,
-              },
             }}
           >
             <Stack flexDirection="row" alignItems="center" gap="17px">
@@ -344,7 +328,8 @@ const VideoPlayer = () => {
                     <span slot="enter">Enter Fullscreen</span>
                     <span slot="exit">Exit Fullscreen</span>
                   </MediaTooltip>
-                  <Fullscreen color="#026670" />
+                  <Fullscreen slot="enter" color="#026670" />
+                  <FullscreenExit slot="exit" color="#026670" />
                 </MediaFullscreenButton>
                 <MediaMenu>
                   <MediaMenuButton aria-label="Settings">

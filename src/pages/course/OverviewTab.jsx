@@ -94,7 +94,8 @@ const OverviewTab = () => {
           Lectures: <span>15</span>
         </TypographyStyled>
         <TypographyStyled>
-          Rating: <Rating defaultValue={4} readOnly sx={{ mx: "8px" }} />{" "}
+          Rating:{" "}
+          <Rating defaultValue={4} readOnly sx={{ mx: "8px", mb: "2px" }} />{" "}
           <span>28</span>
         </TypographyStyled>
       </Stack>

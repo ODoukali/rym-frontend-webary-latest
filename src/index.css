@@ -272,6 +272,10 @@ media-volume-slider [slot="preview"] {
   background-color: #fce181 !important;
 }
 
+.yellow-ic:hover {
+  background-color: #ebcf6a !important;
+}
+
 .tooltip-hover {
   position: relative;
   margin-bottom: 1px;
@@ -289,6 +293,10 @@ media-player[data-started].pip {
   position: fixed;
   bottom: 20px;
   right: 10px;
+}
+
+.player-bgr:has(media-player[data-started].pip) {
+  background-color: #000;
 }
 
 .note-edited {
