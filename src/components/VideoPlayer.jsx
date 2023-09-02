@@ -29,6 +29,7 @@ import {
   MediaTimeSlider,
   MediaTooltip,
   MediaVolumeSlider,
+  useMediaStore,
 } from "@vidstack/react";
 
 import "vidstack/styles/defaults.css";
@@ -59,8 +60,10 @@ const IconButtonStyled = styled(IconButton)(() => {
 });
 
 const VideoPlayer = () => {
+  const playerWrapper = useRef(null);
   const player = useRef(null);
   const [isFixed, setIsFixed] = useState(false);
+  const { fullscreen } = useMediaStore(player);
 
   useEffect(() => {
     const callbackFunction = (entries) => {
@@ -108,7 +111,7 @@ const VideoPlayer = () => {
       }}
     >
       <Box
-        ref={player}
+        ref={playerWrapper}
         className="player-bgr"
         width="100%"
         position="relative"
@@ -119,6 +122,7 @@ const VideoPlayer = () => {
         sx={{ "&:hover": { "& .toggle-tooltip": { opacity: 1 } } }}
       >
         <MediaPlayer
+          ref={player}
           className={`${isFixed ? "pip" : ""}`}
           src="https://media-files.vidstack.io/hls/index.m3u8"
           poster={PresentationImg}
@@ -129,6 +133,18 @@ const VideoPlayer = () => {
             <MediaGesture event="pointerup" action="toggle:paused" />
             <MediaPoster alt="" />
           </MediaOutlet>
+          {fullscreen ? (
+            <Box
+              className="media-controls-group"
+              position="absolute"
+              left={30}
+              top={30}
+              bgcolor="#000"
+              p="10px 20px"
+            >
+              <Typography color="#fff">Lecture1</Typography>
+            </Box>
+          ) : null}
           <Stack
             className="play-btn"
             flexDirection="row"
