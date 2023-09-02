@@ -81,9 +81,9 @@ const VideoPlayer = () => {
 
     const observer = new IntersectionObserver(callbackFunction, options);
 
-    if (player.current) {
-      observer.observe(player.current);
-      observerRefValue = player.current;
+    if (playerWrapper.current) {
+      observer.observe(playerWrapper.current);
+      observerRefValue = playerWrapper.current;
     }
 
     return () => {
