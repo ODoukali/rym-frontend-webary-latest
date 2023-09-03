@@ -63,6 +63,8 @@ const VideoPlayer = () => {
   const playerWrapper = useRef(null);
   const player = useRef(null);
   const [isFixed, setIsFixed] = useState(false);
+  const [playTriggered, setPlayTriggered] = useState(false);
+  const [pauseTriggered, setPauseTriggered] = useState(false);
   const { fullscreen } = useMediaStore(player);
 
   useEffect(() => {
@@ -92,6 +94,20 @@ const VideoPlayer = () => {
       }
     };
   }, []);
+
+  function onPlay(event) {
+    if (event.request.trigger.MEDIA_GESTURE) {
+      setPlayTriggered(true);
+    }
+    setPauseTriggered(false);
+  }
+
+  function onPause(event) {
+    if (event.request.trigger.MEDIA_GESTURE) {
+      setPauseTriggered(true);
+    }
+    setPlayTriggered(false);
+  }
 
   return (
     <Box
@@ -128,6 +144,8 @@ const VideoPlayer = () => {
           poster={PresentationImg}
           aspectRatio={16 / 9}
           crossorigin=""
+          onPause={onPause}
+          onPlay={onPlay}
         >
           <MediaOutlet>
             <MediaGesture event="pointerup" action="toggle:paused" />
@@ -145,6 +163,27 @@ const VideoPlayer = () => {
               <Typography color="#fff">Lecture1</Typography>
             </Box>
           ) : null}
+          <Box
+            position="absolute"
+            top="40%"
+            left="50%"
+            display="flex"
+            sx={{
+              transform: "translate(-50%)",
+              pointerEvents: "none",
+            }}
+          >
+            {playTriggered ? (
+              <div className="animWrapper">
+                <div className="play" />
+              </div>
+            ) : null}
+            {pauseTriggered ? (
+              <div className="animWrapper">
+                <div className="pause" />
+              </div>
+            ) : null}
+          </Box>
           <Stack
             className="play-btn"
             flexDirection="row"
