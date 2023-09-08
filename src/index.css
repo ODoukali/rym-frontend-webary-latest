@@ -308,6 +308,23 @@ media-fullscreen-button[data-fullscreen] {
   height: 26px;
 }
 
+media-tooltip {
+  transition: none;
+}
+
+media-menu-button media-tooltip,
+media-play-button media-tooltip {
+  margin-bottom: 9px;
+}
+
+media-seek-button media-tooltip {
+  margin-bottom: 15px;
+}
+
+media-fullscreen-button media-tooltip {
+  margin-bottom: 14px;
+}
+
 .note-edited {
   background-color: #faf9f7;
   border-radius: 10px;
