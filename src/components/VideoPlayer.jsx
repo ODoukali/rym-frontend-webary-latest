@@ -332,7 +332,6 @@ const VideoPlayer = () => {
               </div>
             </MediaTimeSlider>
             <Stack
-              width="200px"
               flexDirection="row"
               alignItems="center"
               justifyContent="space-between"
@@ -345,7 +344,7 @@ const VideoPlayer = () => {
                   color: "#026670",
                   display: "flex",
                   gap: "4px",
-                  marginRight: "10px",
+                  marginRight: "30px",
                   "& span": {
                     fontFamily: "Roboto Mono",
                   },
