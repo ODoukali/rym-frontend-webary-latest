@@ -155,12 +155,49 @@ const VideoPlayer = () => {
             <Box
               className="media-controls-group"
               position="absolute"
-              left={30}
-              top={30}
-              bgcolor="#000"
-              p="10px 20px"
+              top={0}
+              left={0}
+              width="100%"
             >
-              <Typography color="#fff">Lecture1</Typography>
+              <Box
+                width="100%"
+                position="absolute"
+                top={0}
+                height="68px"
+                pointerEvents="none"
+                pb="160px"
+                zIndex={25}
+                sx={{
+                  background:
+                    "url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAEmCAYAAACjy/qzAAAAhklEQVQ4y52RUQ6AMAxCKd7/JJ7R6aeJAdr507TjQZqOAE4CWARwx7JE944rch/k6qOWS7bq5bh72zGF8+LTa6goJeRPgXDYNxWFfkS0QXCInLIN1GxTXA0dtS0otWJnuXJR1Y9WYP9GF1UCYRQYHRSlXMARbVO4th3sd7Y3OP5dY3Bn+SkPsGJ1+HGGVtcAAAAASUVORK5CYII=)",
+                  backgroundRepeat: "repeat-x",
+                  backgroundPosition: "top",
+                }}
+              ></Box>
+              <Box
+                width="100%"
+                position="absolute"
+                left={18}
+                top={18}
+                pr="145px"
+                zIndex={26}
+              >
+                <Typography
+                  color="#fff"
+                  fontSize="27px"
+                  sx={{
+                    display: "block",
+                    textOverflow: "ellipsis",
+                    overflow: "hidden",
+                    whiteSpace: "nowrap",
+                    wordWrap: "normal",
+                    cursor: "default",
+                    textShadow: "0 0 2px rgba(0,0,0,.5)",
+                  }}
+                >
+                  Lecture1
+                </Typography>
+              </Box>
             </Box>
           ) : null}
           <Box
