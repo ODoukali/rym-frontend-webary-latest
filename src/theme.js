@@ -79,6 +79,7 @@ const theme = createTheme({
           color: "#fff",
           borderRadius: "10px",
           backgroundColor: "#026670",
+          whiteSpace: "nowrap",
           padding: "1px 10px",
           margin: "0 10px 0 0",
         },

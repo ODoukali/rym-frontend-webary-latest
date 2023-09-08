@@ -249,22 +249,41 @@ const VideoPlayer = () => {
             top="40px"
             right="40px"
             gap="10px"
+            zIndex={27}
           >
-            <Tooltip title="Bookmark" placement="left">
+            <Tooltip
+              title="Bookmark"
+              enterDelay={0}
+              enterTouchDelay={0}
+              PopperProps={{ disablePortal: true }}
+              placement="left"
+            >
               <Box>
                 <IconBtnCircular className="hover-green">
                   <Bookmark color="#026670" />
                 </IconBtnCircular>
               </Box>
             </Tooltip>
-            <Tooltip title="Notes" placement="left">
+            <Tooltip
+              title="Notes"
+              enterDelay={0}
+              enterTouchDelay={0}
+              PopperProps={{ disablePortal: true }}
+              placement="left"
+            >
               <Box>
                 <IconBtnCircular className="hover-green">
                   <Notes color="#026670" />
                 </IconBtnCircular>
               </Box>
             </Tooltip>
-            <Tooltip title="Share Now" placement="left">
+            <Tooltip
+              title="Share Now"
+              enterDelay={0}
+              enterTouchDelay={0}
+              PopperProps={{ disablePortal: true }}
+              placement="left"
+            >
               <Box>
                 <IconBtnCircular className="hover-green">
                   <Share color="#026670" style={{ marginRight: "1.5px" }} />
