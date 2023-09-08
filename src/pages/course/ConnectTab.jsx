@@ -48,7 +48,7 @@ const faqArr = [
 ];
 
 const ConnectTab = () => {
-  const [expanded, setExpanded] = useState("panel1");
+  const [expanded, setExpanded] = useState(false);
 
   const handleChange = (panel) => (event, newExpanded) => {
     setExpanded(newExpanded ? panel : false);

@@ -116,8 +116,8 @@ const VideoPlayer = () => {
         "&::before": {
           content: "''",
           position: "absolute",
-          top: "-40px",
-          right: "-40px",
+          bottom: "-40px",
+          left: "-40px",
           width: "46.6%",
           height: "59.7%",
           bgcolor: "#FCE181",

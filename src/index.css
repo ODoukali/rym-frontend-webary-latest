@@ -288,6 +288,10 @@ media-volume-slider [slot="preview"] {
   transform: translate(-50%) scale(1);
 }
 
+.MuiTooltip-popper {
+  z-index: 2147483649999 !important;
+}
+
 media-player[data-started].pip {
   width: 500px !important;
   position: fixed;

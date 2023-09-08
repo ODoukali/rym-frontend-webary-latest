@@ -59,7 +59,7 @@ const Course = () => {
               flexDirection="row"
               alignItems="flex-start"
               justifyContent="space-between"
-              mb="76px"
+              mb="36px"
               className="rtl-section"
             >
               <Box>
@@ -88,7 +88,7 @@ const Course = () => {
       <Box position="relative" pt="100px" mt="-30px">
         <Guides color="rgba(0,0,0,0.06)" zIndex={-1} />
 
-        <Box position="relative" mx="30px" pt="190px" mt="-190px" mb="150px">
+        <Box position="relative" mx="30px" pt="150px" mt="-110px" mb="150px">
           <Container>
             <Stack
               flexDirection="row"
