@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Roboto+Mono:wght@700&display=swap");
 
 @font-face {
   font-family: "FbJoker";
@@ -301,6 +301,11 @@ media-player[data-started].pip {
 
 .player-bgr:has(media-player[data-started].pip) {
   background-color: #000;
+}
+
+media-fullscreen-button[data-fullscreen] {
+  width: 26px;
+  height: 26px;
 }
 
 .note-edited {

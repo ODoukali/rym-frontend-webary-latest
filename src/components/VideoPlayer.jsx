@@ -346,6 +346,9 @@ const VideoPlayer = () => {
                   display: "flex",
                   gap: "4px",
                   marginRight: "10px",
+                  "& span": {
+                    fontFamily: "Roboto Mono",
+                  },
                 }}
               >
                 <MediaTime type="current" /> <span>/</span>{" "}
