@@ -1,4 +1,4 @@
-import { Button, Stack, Typography, Link } from "@mui/material";
+import { Button, Stack, Typography, Link, Divider } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { Swiper, SwiperSlide } from "swiper/react";
 import BlockBordered from "../../components/BlockBordered";
@@ -79,7 +79,6 @@ const OverviewTab = () => {
         columnGap="20px"
         rowGap="10px"
         mt="40px"
-        mb="80px"
       >
         <TypographyStyled>
           Lenght: <span>2h 53m</span>
@@ -99,6 +98,10 @@ const OverviewTab = () => {
           <span>28</span>
         </TypographyStyled>
       </Stack>
+      <Divider sx={{ backgroundColor: "#BFBEBB", my: "60px" }} />
+      <Typography fontSize="22px" fontWeight={700} mb="20px">
+        Course Questions
+      </Typography>
       <Swiper slidesPerView={2} spaceBetween={20}>
         <SwiperSlide>
           <Testimonial avatar reply />

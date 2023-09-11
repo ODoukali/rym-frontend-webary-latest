@@ -1,12 +1,12 @@
-import { Box, IconButton, Stack, Typography } from "@mui/material";
+import { Box, IconButton, MenuItem, Stack, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import Rating from "./Rating";
 import BlockBordered from "./BlockBordered";
 import TextLink from "./TextLink";
+import TestimonialMenu from "./TestimonialMenu";
 
 import Avatar from "../images/avatar.png";
 import { ReactComponent as Like } from "../images/like.svg";
-import { ReactComponent as DotMenu } from "../images/dots-menu.svg";
 
 const IconButtonStyled = styled(IconButton)(() => {
   return {
@@ -73,11 +73,11 @@ const Testimonial = (props) => {
             </Typography>
           </Stack>
         </Stack>
-        <IconButton
-          sx={{ height: "34px", marginTop: props.rating ? 0 : "5px" }}
-        >
-          <DotMenu color="#026670" />
-        </IconButton>
+        <TestimonialMenu>
+          <MenuItem onClick={() => {}}>Edit</MenuItem>
+          <MenuItem onClick={() => {}}>Copy post link</MenuItem>
+          <MenuItem onClick={() => {}}>Report</MenuItem>
+        </TestimonialMenu>
       </Stack>
       <BlockBordered mb="17px">
         <Typography variant="medium" component="p" lineHeight="22px">
