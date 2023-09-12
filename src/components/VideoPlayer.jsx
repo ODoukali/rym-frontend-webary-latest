@@ -114,6 +114,7 @@ const VideoPlayerDraggable = ({ resetPosition, x, y }) => {
         observer.unobserve(observerRefValue);
       }
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   function onPlay(event) {
