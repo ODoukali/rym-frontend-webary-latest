@@ -31,6 +31,16 @@ import {
   MediaVolumeSlider,
   useMediaStore,
 } from "@vidstack/react";
+import {
+  DndContext,
+  KeyboardSensor,
+  MouseSensor,
+  TouchSensor,
+  useDraggable,
+  useSensor,
+  useSensors,
+} from "@dnd-kit/core";
+import { CSS } from "@dnd-kit/utilities";
 
 import "vidstack/styles/defaults.css";
 import "vidstack/styles/community-skin/video.css";
@@ -59,7 +69,7 @@ const IconButtonStyled = styled(IconButton)(() => {
   };
 });
 
-const VideoPlayer = () => {
+const VideoPlayerDraggable = (props) => {
   const playerWrapper = useRef(null);
   const player = useRef(null);
   const [isFixed, setIsFixed] = useState(false);
@@ -67,10 +77,20 @@ const VideoPlayer = () => {
   const [pauseTriggered, setPauseTriggered] = useState(false);
   const { fullscreen } = useMediaStore(player);
 
+  const { attributes, listeners, transform } = useDraggable({
+    id: "draggable",
+    disabled: !isFixed,
+  });
+
+  const style = {
+    transform: CSS.Translate.toString(transform),
+  };
+
   useEffect(() => {
     const callbackFunction = (entries) => {
       const [entry] = entries;
       setIsFixed(!entry.isIntersecting);
+      props.resetPosition();
     };
 
     let observerRefValue = null;
@@ -138,6 +158,9 @@ const VideoPlayer = () => {
         sx={{ "&:hover": { "& .toggle-tooltip": { opacity: 1 } } }}
       >
         <MediaPlayer
+          style={{ ...style, bottom: props.y * -1, right: props.x * -1 }}
+          {...listeners}
+          {...attributes}
           ref={player}
           className={`${isFixed ? "pip" : ""}`}
           src="https://media-files.vidstack.io/hls/index.m3u8"
@@ -489,6 +512,39 @@ const PlayerBtn = (props) => {
     >
       {props.children}
     </Button>
+  );
+};
+
+const defaultCoordinates = {
+  x: 0,
+  y: 0,
+};
+
+const VideoPlayer = () => {
+  const [{ x, y }, setCoordinates] = useState(defaultCoordinates);
+
+  const mouseSensor = useSensor(MouseSensor);
+  const touchSensor = useSensor(TouchSensor);
+  const keyboardSensor = useSensor(KeyboardSensor);
+
+  const sensors = useSensors(mouseSensor, touchSensor, keyboardSensor);
+
+  return (
+    <DndContext
+      sensors={sensors}
+      onDragEnd={({ delta }) => {
+        setCoordinates(({ x, y }) => ({
+          x: x + delta.x,
+          y: y + delta.y,
+        }));
+      }}
+    >
+      <VideoPlayerDraggable
+        x={x}
+        y={y}
+        resetPosition={() => setCoordinates({ x: 0, y: 0 })}
+      />
+    </DndContext>
   );
 };
 
