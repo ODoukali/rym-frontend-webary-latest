@@ -69,13 +69,14 @@ const IconButtonStyled = styled(IconButton)(() => {
   };
 });
 
-const VideoPlayerDraggable = (props) => {
+const VideoPlayerDraggable = ({ resetPosition, x, y }) => {
   const playerWrapper = useRef(null);
   const player = useRef(null);
+  const { fullscreen } = useMediaStore(player);
+
   const [isFixed, setIsFixed] = useState(false);
   const [playTriggered, setPlayTriggered] = useState(false);
   const [pauseTriggered, setPauseTriggered] = useState(false);
-  const { fullscreen } = useMediaStore(player);
 
   const { attributes, listeners, transform } = useDraggable({
     id: "draggable",
@@ -90,7 +91,7 @@ const VideoPlayerDraggable = (props) => {
     const callbackFunction = (entries) => {
       const [entry] = entries;
       setIsFixed(!entry.isIntersecting);
-      props.resetPosition();
+      resetPosition();
     };
 
     let observerRefValue = null;
@@ -158,7 +159,7 @@ const VideoPlayerDraggable = (props) => {
         sx={{ "&:hover": { "& .toggle-tooltip": { opacity: 1 } } }}
       >
         <MediaPlayer
-          style={{ ...style, bottom: props.y * -1, right: props.x * -1 }}
+          style={{ ...style, bottom: y * -1, right: x * -1 }}
           {...listeners}
           {...attributes}
           ref={player}
