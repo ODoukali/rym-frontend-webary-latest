@@ -38,6 +38,23 @@ const TestimonialMenu = (props) => {
           "& .MuiPaper-root": {
             minWidth: "155px",
             boxShadow: "0px 10px 20px rgba(0,0,0,0.1)",
+            borderRadius: "10px",
+          },
+          "& .MuiList-root": {
+            display: "flex",
+            flexDirection: "column",
+            rowGap: "10px",
+            p: "25px 30px",
+          },
+          "& .MuiMenuItem-root": {
+            fontSize: "15px",
+            fontWeight: 600,
+            color: "#333",
+            p: 0,
+            "&:hover": {
+              color: "secondary.main",
+              backgroundColor: "transparent",
+            },
           },
         }}
       >

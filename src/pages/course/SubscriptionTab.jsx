@@ -28,8 +28,8 @@ const SubscriptionTab = () => {
         <Typography variant="sectionTitle" component="h2" fontSize="35px">
           Subscription
         </Typography>
-        <Button variant="yellow" sx={{ height: "54px" }}>
-          View Purchase Details
+        <Button variant="yellow" sx={{ height: "54px", maxWidth: "300px" }}>
+          Add Associate for $25.49
         </Button>
       </Stack>
       <Stack
@@ -38,17 +38,22 @@ const SubscriptionTab = () => {
         justifyContent="space-between"
         gap="25px"
       >
-        <BlockBordered>
-          <TypographyStyled>
-            <span>Subcription date:</span> 25. June 2023
-          </TypographyStyled>
-          <TypographyStyled>
-            <span>Expiration date:</span> 25. July 2023
-          </TypographyStyled>
-          <TypographyStyled>
-            <span>Progress:</span> 25% Completed
-          </TypographyStyled>
-        </BlockBordered>
+        <Box>
+          <BlockBordered>
+            <TypographyStyled>
+              <span>Subcription date:</span> 25. June 2023
+            </TypographyStyled>
+            <TypographyStyled>
+              <span>Expiration date:</span> 25. July 2023
+            </TypographyStyled>
+            <TypographyStyled>
+              <span>Progress:</span> 25% Completed
+            </TypographyStyled>
+          </BlockBordered>
+          <TextLink to="" sx={{ marginTop: "30px" }}>
+            View Purchase Details
+          </TextLink>
+        </Box>
         <Box maxWidth="314px" flexShrink={0} textAlign="right" mt="50px">
           <Typography
             component="p"
@@ -76,19 +81,17 @@ const SubscriptionTab = () => {
       </Stack>
       <Stack
         flexDirection="row"
-        justifyContent="space-between"
+        justifyContent="flex-end"
         alignItems="center"
         mt="20px"
         gap="15px"
         borderBottom="1px solid rgba(191,190,187,0.5)"
         pb="60px"
       >
-        <Button variant="yellow" sx={{ height: "54px" }}>
-          Add Associate for $25.49
-        </Button>
         <Button
           variant="outlined"
           sx={{
+            maxWidth: "300px",
             height: "54px",
             borderWidth: "2px",
             "&:hover": {
