@@ -55,6 +55,7 @@ const Note = (props) => {
           sx={{
             "& svg": {
               transform: open ? "rotate(-90deg)" : "rotate(90deg)",
+              mr: "2px",
               transition: "0.1s ease",
             },
           }}

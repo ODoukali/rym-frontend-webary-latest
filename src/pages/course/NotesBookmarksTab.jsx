@@ -1,4 +1,4 @@
-import { Badge, Box, Button, Stack, Typography } from "@mui/material";
+import { Badge, Box, Button, Stack, Tooltip, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { Link } from "react-router-dom";
 import TextLink from "../../components/TextLink";
@@ -63,7 +63,12 @@ const NotesBookmarks = () => {
             </Stack>
             <Button
               variant="yellow"
-              sx={{ height: "40px", fontSize: "14px", p: "20px 30px" }}
+              sx={{
+                height: "40px",
+                fontSize: "14px",
+                p: "20px 30px",
+                boxShadow: "none",
+              }}
             >
               Jump to Latest Progress
             </Button>
@@ -82,7 +87,7 @@ const NotesBookmarks = () => {
                 to="/"
                 component={Link}
                 flexDirection="row"
-                alignItems="flex-start"
+                alignItems="center"
                 justifyContent="space-between"
                 pt="10px"
                 sx={{
@@ -97,7 +102,7 @@ const NotesBookmarks = () => {
                     backgroundColor: "#DFDEDD",
                   },
                   "&:hover": {
-                    "& .text span": {
+                    "& .text": {
                       color: "#333",
                     },
                     "& .bookmark-number": {
@@ -120,6 +125,7 @@ const NotesBookmarks = () => {
                     display="flex"
                     alignItems="center"
                     justifyContent="center"
+                    flexShrink={0}
                   >
                     <Typography
                       component="span"
@@ -131,9 +137,11 @@ const NotesBookmarks = () => {
                     </Typography>
                   </Box>
                   <Typography
+                    className="text"
                     component="span"
                     display="block"
                     fontSize="16px"
+                    lineHeight="27px"
                     fontWeight={600}
                     color="secondary"
                   >
@@ -153,7 +161,7 @@ const NotesBookmarks = () => {
           </Box>
         </Block>
         <Box display="flex" justifyContent="flex-end">
-          <TextLink to="/" sx={{ marginTop: "20px" }}>
+          <TextLink to="/" sx={{ marginTop: "20px", marginRight: "40px" }}>
             Add Bookmark
           </TextLink>
         </Box>
@@ -174,13 +182,35 @@ const NotesBookmarks = () => {
                 Course Notes
               </Typography>
             </Stack>
-            <Stack flexDirection="row" gap="10px">
-              <IconBtn>
-                <Download />
-              </IconBtn>
-              <IconBtn>
-                <Print />
-              </IconBtn>
+            <Stack
+              flexDirection="row"
+              gap="10px"
+              sx={{ "& button": { backgroundColor: "#EDECE8" } }}
+            >
+              <Tooltip
+                title="Download notes to text file"
+                enterDelay={0}
+                enterTouchDelay={0}
+                placement="top"
+              >
+                <Box>
+                  <IconBtn className="hover-green">
+                    <Download color="#026670" />
+                  </IconBtn>
+                </Box>
+              </Tooltip>
+              <Tooltip
+                title="Print Notes"
+                enterDelay={0}
+                enterTouchDelay={0}
+                placement="top"
+              >
+                <Box>
+                  <IconBtn className="hover-green">
+                    <Print color="#026670" />
+                  </IconBtn>
+                </Box>
+              </Tooltip>
             </Stack>
           </Stack>
           <Stack>
@@ -221,7 +251,7 @@ const NotesBookmarks = () => {
           </Stack>
         </Block>
         <Box display="flex" justifyContent="flex-end">
-          <TextLink to="/" sx={{ marginTop: "20px" }}>
+          <TextLink to="/" sx={{ marginTop: "20px", marginRight: "40px" }}>
             Add Note
           </TextLink>
         </Box>

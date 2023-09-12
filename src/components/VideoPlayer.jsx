@@ -250,6 +250,11 @@ const VideoPlayer = () => {
             right="40px"
             gap="10px"
             zIndex={27}
+            sx={{
+              "& button": {
+                backgroundColor: "#fff",
+              },
+            }}
           >
             <Tooltip
               title="Bookmark"
@@ -258,7 +263,7 @@ const VideoPlayer = () => {
               PopperProps={{ disablePortal: true }}
               placement="left"
             >
-              <Box>
+              <Box className="tooltip-fix">
                 <IconBtnCircular className="hover-green">
                   <Bookmark color="#026670" />
                 </IconBtnCircular>
