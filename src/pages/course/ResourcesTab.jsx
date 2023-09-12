@@ -6,6 +6,7 @@ import {
   Box,
   Button,
   Stack,
+  Tooltip,
   Typography,
 } from "@mui/material";
 import { Link } from "react-router-dom";
@@ -17,7 +18,7 @@ import { ReactComponent as Download } from "../../images/writing.svg";
 import { ReactComponent as Print } from "../../images/printer.svg";
 
 const ResourcesTab = () => {
-  const [expanded, setExpanded] = useState("panel1");
+  const [expanded, setExpanded] = useState(false);
 
   const handleChange = (panel) => (event, newExpanded) => {
     setExpanded(newExpanded ? panel : false);
@@ -95,13 +96,35 @@ const ResourcesTab = () => {
             <Typography fontSize="20px" fontWeight={700} color="secondary">
               Course References
             </Typography>
-            <Stack flexDirection="row" gap="10px">
-              <IconBtn>
-                <Download />
-              </IconBtn>
-              <IconBtn>
-                <Print />
-              </IconBtn>
+            <Stack
+              flexDirection="row"
+              gap="10px"
+              sx={{ "& button": { backgroundColor: "#EDECE8" } }}
+            >
+              <Tooltip
+                title="Download Resources to text file"
+                enterDelay={0}
+                enterTouchDelay={0}
+                placement="top"
+              >
+                <Box>
+                  <IconBtn className="hover-green">
+                    <Download color="#026670" />
+                  </IconBtn>
+                </Box>
+              </Tooltip>
+              <Tooltip
+                title="Print Resources"
+                enterDelay={0}
+                enterTouchDelay={0}
+                placement="top"
+              >
+                <Box>
+                  <IconBtn className="hover-green">
+                    <Print color="#026670" />
+                  </IconBtn>
+                </Box>
+              </Tooltip>
             </Stack>
           </Stack>
         </AccordionSummary>
