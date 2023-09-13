@@ -53,9 +53,6 @@ const StyledTab = styled((props) => <Tab disableRipple {...props} />)(
       fontSize: 16,
       backgroundColor: "#026670",
     },
-    "&.Mui-focusVisible": {
-      backgroundColor: "rgba(100, 95, 228, 0.32)",
-    },
   })
 );
 

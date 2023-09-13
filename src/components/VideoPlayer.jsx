@@ -40,6 +40,7 @@ import {
   useSensor,
   useSensors,
 } from "@dnd-kit/core";
+import { restrictToWindowEdges } from "@dnd-kit/modifiers";
 import { CSS } from "@dnd-kit/utilities";
 
 import "vidstack/styles/defaults.css";
@@ -78,7 +79,7 @@ const VideoPlayerDraggable = ({ resetPosition, x, y }) => {
   const [playTriggered, setPlayTriggered] = useState(false);
   const [pauseTriggered, setPauseTriggered] = useState(false);
 
-  const { attributes, listeners, transform } = useDraggable({
+  const { attributes, listeners, setNodeRef, transform } = useDraggable({
     id: "draggable",
     disabled: !isFixed,
   });
@@ -163,7 +164,10 @@ const VideoPlayerDraggable = ({ resetPosition, x, y }) => {
           style={{ ...style, bottom: y * -1, right: x * -1 }}
           {...listeners}
           {...attributes}
-          ref={player}
+          ref={(node) => {
+            setNodeRef(node);
+            player.current = node;
+          }}
           className={`${isFixed ? "pip" : ""}`}
           src="https://media-files.vidstack.io/hls/index.m3u8"
           poster={PresentationImg}
@@ -540,6 +544,7 @@ const VideoPlayer = () => {
           y: y + delta.y,
         }));
       }}
+      modifiers={[restrictToWindowEdges]}
     >
       <VideoPlayerDraggable
         x={x}

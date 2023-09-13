@@ -81,7 +81,6 @@ const Course = () => {
                 Back
               </LinkWithIcon>
             </Stack>
-
             <VideoPlayer />
           </Container>
         </Box>
