@@ -133,6 +133,7 @@ const Header = () => {
         open={state}
         onClose={toggleDrawer(false)}
         sx={{
+          zIndex: 1500,
           "& .MuiPaper-root": {
             maxWidth: "470px",
             width: "100%",
