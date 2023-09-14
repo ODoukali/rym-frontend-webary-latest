@@ -40,7 +40,7 @@ import {
   useSensor,
   useSensors,
 } from "@dnd-kit/core";
-import { restrictToWindowEdges } from "@dnd-kit/modifiers";
+import restrictToWindowEdgesMargin from "../utils/restrictToWindowEdges";
 import { CSS } from "@dnd-kit/utilities";
 
 import "vidstack/styles/defaults.css";
@@ -161,7 +161,11 @@ const VideoPlayerDraggable = ({ resetPosition, x, y }) => {
         sx={{ "&:hover": { "& .toggle-tooltip": { opacity: 1 } } }}
       >
         <MediaPlayer
-          style={{ ...style, bottom: y * -1, right: x * -1 }}
+          style={{
+            ...style,
+            bottom: isFixed ? y * -1 : 0,
+            right: isFixed ? x * -1 : 0,
+          }}
           {...listeners}
           {...attributes}
           ref={(node) => {
@@ -522,8 +526,8 @@ const PlayerBtn = (props) => {
 };
 
 const defaultCoordinates = {
-  x: 0,
-  y: 0,
+  x: -25,
+  y: -25,
 };
 
 const VideoPlayer = () => {
@@ -544,12 +548,12 @@ const VideoPlayer = () => {
           y: y + delta.y,
         }));
       }}
-      modifiers={[restrictToWindowEdges]}
+      modifiers={[restrictToWindowEdgesMargin]}
     >
       <VideoPlayerDraggable
         x={x}
         y={y}
-        resetPosition={() => setCoordinates({ x: 0, y: 0 })}
+        resetPosition={() => setCoordinates({ x: -25, y: -25 })}
       />
     </DndContext>
   );

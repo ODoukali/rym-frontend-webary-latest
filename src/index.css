@@ -290,8 +290,8 @@ media-volume-slider [slot="preview"] {
 media-player[data-started].pip {
   width: 500px !important;
   position: fixed;
-  bottom: 20px;
-  right: 10px;
+  bottom: 25px;
+  right: 25px;
 }
 
 .player-bgr:has(media-player[data-started].pip) {
