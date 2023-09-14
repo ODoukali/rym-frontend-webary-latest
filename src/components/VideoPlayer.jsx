@@ -88,6 +88,13 @@ const VideoPlayerDraggable = ({ resetPosition, x, y }) => {
     transform: CSS.Translate.toString(transform),
   };
 
+  function onProviderSetup(event) {
+    const provider = event.detail;
+    if (provider.video) {
+      provider.video.setAttribute("disablePictureInPicture", "");
+    }
+  }
+
   useEffect(() => {
     const callbackFunction = (entries) => {
       const [entry] = entries;
@@ -179,6 +186,7 @@ const VideoPlayerDraggable = ({ resetPosition, x, y }) => {
           crossorigin=""
           onPause={onPause}
           onPlay={onPlay}
+          onProviderSetup={onProviderSetup}
         >
           <MediaOutlet>
             <MediaGesture event="pointerup" action="toggle:paused" />
