@@ -3,7 +3,6 @@ import {
   Button,
   Container,
   LinearProgress,
-  Link as MuiLink,
   Stack,
   Tooltip,
   Typography,
@@ -21,11 +20,13 @@ import Rating from "../../components/Rating";
 import Testimonial from "../../components/Testimonial";
 import IconBtnCircular from "../../components/IconBtnCircular";
 import PlayBtn from "../../components/PlayBtn";
+import VideosSection from "../../components/VideosSection";
 
-import { ReactComponent as Play } from "../../images/play.svg";
 import PresentationImg from "../../images/pre-subscribed-banner.jpg";
+import { ReactComponent as Play } from "../../images/play.svg";
 import { ReactComponent as Star } from "../../images/star.svg";
 import { ReactComponent as Share } from "../../images/share.svg";
+import { ReactComponent as Info } from "../../images/info.svg";
 
 const LinearProgressStyled = styled(LinearProgress)(({ theme }) => ({
   height: 4,
@@ -105,10 +106,12 @@ const PreSubscribe = () => {
                       gap="10px"
                       mb="50px"
                     >
-                      <Typography fontWeight={700}>4.8</Typography>
+                      <Typography fontWeight={700} mt="2px">
+                        4.8
+                      </Typography>
                       <Rating defaultValue={4} readOnly />
                       <Typography fontWeight={700}>
-                        • 766 Subscribers
+                        •&nbsp;&nbsp; 766 Subscribers
                       </Typography>
                     </Stack>
                     <Button
@@ -251,25 +254,35 @@ const PreSubscribe = () => {
                     >
                       Reviews & Ratings
                     </Typography>
-                    <MuiLink
-                      to="/"
-                      component={Link}
-                      underline="hover"
-                      sx={{
-                        fontSize: "12px",
-                        fontWeight: 600,
-                        color: "#BFBEBB",
-                      }}
+                    <Tooltip
+                      title="The overall rating is calculated using the average of submitted ratings. Ratings and reviews can only be submitted when learners complete at least 40% of the course. This helps us avoid fake reviews and spam."
+                      enterDelay={0}
+                      enterTouchDelay={0}
+                      PopperProps={{ disablePortal: true }}
+                      placement="top"
                     >
-                      How are ratings calculated?
-                    </MuiLink>
+                      <Box>
+                        <Button
+                          startIcon={<Info />}
+                          sx={{
+                            fontSize: "12px",
+                            fontWeight: 600,
+                            color: "#BFBEBB",
+                          }}
+                        >
+                          How are ratings calculated?
+                        </Button>
+                      </Box>
+                    </Tooltip>
                   </Stack>
                   <Stack flexDirection="row" alignItems="center" gap="10px">
                     <Typography fontWeight={700} mt="2px">
                       4.8
                     </Typography>
                     <Rating defaultValue={4} readOnly />
-                    <Typography fontWeight={700}>• 766 Subscribers</Typography>
+                    <Typography fontWeight={700}>
+                      •&nbsp;&nbsp; 766 Subscribers
+                    </Typography>
                   </Stack>
 
                   <Box
@@ -336,10 +349,11 @@ const PreSubscribe = () => {
                   </Button>
                 </Box>
               </Box>
-              <Sidebar />
+              <Sidebar locked />
             </Stack>
           </Container>
         </Box>
+        <VideosSection />
         <Footer />
       </Box>
     </Box>

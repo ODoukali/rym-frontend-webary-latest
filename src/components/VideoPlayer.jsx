@@ -329,6 +329,11 @@ const VideoPlayerDraggable = ({ resetPosition, x, y }) => {
               enterTouchDelay={0}
               PopperProps={{ disablePortal: true }}
               placement="left"
+              sx={{
+                "& + .MuiTooltip-popper .MuiTooltip-tooltip": {
+                  whiteSpace: "nowrap",
+                },
+              }}
             >
               <Box>
                 <IconBtnCircular className="hover-green">

@@ -2,6 +2,7 @@ import { Box, Stack, Typography } from "@mui/material";
 
 import { ReactComponent as Check } from "../images/check.svg";
 import { ReactComponent as Arrow } from "../images/arrow.svg";
+import { ReactComponent as Lock } from "../images/lock.svg";
 
 const lecturesList = [
   {
@@ -30,7 +31,7 @@ const lecturesList = [
     title: "Lecture 4",
     description: "Nemo enim ipsam voluptatem quia voluptas sit aspernatur",
     duration: "7:16",
-    status: "completed",
+    status: "notCompleted",
   },
   {
     id: 5,
@@ -48,7 +49,7 @@ const lecturesList = [
   },
 ];
 
-const Sidebar = () => {
+const Sidebar = (props) => {
   return (
     <Box
       width={300}
@@ -96,17 +97,21 @@ const Sidebar = () => {
           <Stack
             key={l.id}
             component="button"
+            disabled={props.locked ? true : false}
             flexDirection="row"
             columnGap="10px"
             p="0 0 30px 0"
             sx={{
               position: "relative",
               border: "none",
-              cursor: "pointer",
               backgroundColor: "transparent",
               borderBottom: "1px solid rgba(191, 190, 187, 0.5)",
-              "&:hover": {
+              "&:disabled:hover .status-ic": {
+                display: "flex",
+              },
+              "&:not(:disabled):hover": {
                 borderColor: "#333",
+                cursor: "pointer",
                 "& span": {
                   color: "#333",
                 },
@@ -121,17 +126,25 @@ const Sidebar = () => {
               width={32}
               height={32}
               borderRadius="100%"
-              bgcolor={l.status === "playing" ? "#FCE181" : "#fff"}
-              display="flex"
+              bgcolor={
+                l.status === "playing" && !props.locked ? "#FCE181" : "#fff"
+              }
+              sx={{ display: props.locked ? "none" : "flex" }}
               alignItems="center"
               justifyContent="center"
             >
-              {l.status === "playing" ? (
-                <Arrow color="#026670" style={{ marginLeft: "3px" }} />
+              {props.locked ? (
+                <Lock />
               ) : (
-                <Check
-                  color={l.status === "completed" ? "#026670" : "#EDECE8"}
-                />
+                <>
+                  {l.status === "playing" ? (
+                    <Arrow color="#026670" style={{ marginLeft: "3px" }} />
+                  ) : (
+                    <Check
+                      color={l.status === "completed" ? "#026670" : "#EDECE8"}
+                    />
+                  )}
+                </>
               )}
             </Box>
             <Box component="span" textAlign="left">
