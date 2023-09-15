@@ -54,8 +54,8 @@ const Sidebar = (props) => {
     <Box
       width={300}
       backgroundColor="#EDECE8"
-      pt="190px"
-      mt="-190px"
+      pt="150px"
+      mt="-150px"
       pl="40px"
       pb="40px"
       borderRadius="40px"

@@ -294,6 +294,11 @@ media-player[data-started].pip {
   right: 25px;
 }
 
+media-player:not([data-started]).pip {
+  bottom: 0 !important;
+  right: 0 !important;
+}
+
 .player-bgr:has(media-player[data-started].pip) {
   background-color: #000;
 }
