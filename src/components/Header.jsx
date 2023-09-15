@@ -18,7 +18,7 @@ const Hr = styled(Divider)({
 });
 
 const Header = () => {
-  const [state, setState] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   const toggleDrawer = (open) => (event) => {
     if (
@@ -28,7 +28,7 @@ const Header = () => {
       return;
     }
 
-    setState(open);
+    setIsOpen(open);
   };
 
   const MenuInner = () => (
@@ -110,12 +110,16 @@ const Header = () => {
 
   return (
     <Stack
+      maxWidth="1380px"
+      width="100%"
+      position="fixed"
+      left="50%"
       flexDirection="row"
       alignItems="center"
       justifyContent="space-between"
-      maxWidth="1380px"
       padding="0 30px"
-      margin="auto"
+      zIndex={100}
+      sx={{ transform: "translateX(-50%)" }}
     >
       <Stack flexDirection="row" alignItems="center" columnGap="15px">
         <IconBtnCircular onClick={toggleDrawer(true)}>
@@ -130,7 +134,7 @@ const Header = () => {
       </Link>
       <Drawer
         anchor="left"
-        open={state}
+        open={isOpen}
         onClose={toggleDrawer(false)}
         sx={{
           zIndex: 1500,

@@ -28,6 +28,15 @@
   font-style: normal;
 }
 
+html {
+  overflow: hidden;
+}
+
+body {
+  overflow: auto !important;
+  max-height: 100vh;
+}
+
 .highlighted {
   position: relative;
 }

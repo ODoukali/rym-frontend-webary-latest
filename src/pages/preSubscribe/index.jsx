@@ -45,10 +45,10 @@ const LinearProgressStyled = styled(LinearProgress)(({ theme }) => ({
 const PreSubscribe = () => {
   return (
     <Box maxWidth="1920px" m="0 auto 30px" sx={{ overflowX: "hidden" }}>
-      <Box position="relative" pt="57px" zIndex={1}>
+      <Box position="relative" pt="57px" zIndex={2}>
         <Guides color="rgba(0,0,0,0.02)" zIndex={-1} pb="30px" />
         <Header />
-        <Box mt="50px">
+        <Box mt="98px">
           <Container>
             <Box
               position="relative"
@@ -138,7 +138,13 @@ const PreSubscribe = () => {
                     justifyContent="flex-end"
                   >
                     <Tooltip open={true} title="Share Now" placement="left">
-                      <Box>
+                      <Box
+                        sx={{
+                          "& button:hover": {
+                            backgroundColor: "#00545d !important",
+                          },
+                        }}
+                      >
                         <IconBtnCircular className="hover-green active">
                           <Share
                             color="#026670"

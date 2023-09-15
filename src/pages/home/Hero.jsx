@@ -44,49 +44,57 @@ const Hero = () => {
         borderRadius: "40px",
       }}
       mx={{ lg: "30px", xs: "24px" }}
-      paddingY={5}
+      py={5}
       minHeight="830px"
     >
-      <Stack
-        position="relative"
-        flexDirection="row"
-        alignItems="center"
-        justifyContent="space-between"
-        maxWidth="1380px"
-        padding="0 30px"
-        margin="auto"
-        zIndex={1}
+      <Box
+        position="fixed"
+        width="100%"
+        left="50%"
+        zIndex={2}
+        sx={{ transform: "translateX(-50%)" }}
       >
-        <Stack flexDirection="row" alignItems="center" columnGap="40px">
-          <Stack flexDirection="row" alignItems="center" columnGap="15px">
-            <IconBtnCircular>
-              <Search />
-            </IconBtnCircular>
+        <Stack
+          maxWidth="1380px"
+          flexDirection="row"
+          alignItems="center"
+          justifyContent="space-between"
+          p="0 30px"
+          m="0 auto"
+        >
+          <Stack flexDirection="row" alignItems="center" columnGap="40px">
+            <Stack flexDirection="row" alignItems="center" columnGap="15px">
+              <IconBtnCircular>
+                <Search />
+              </IconBtnCircular>
+            </Stack>
+            <Stack flexDirection="row" alignItems="center" columnGap="56px">
+              <LinkBtn to="/" title="Main" />
+              <MenuDropdown title="Philosophy">
+                <MenuDropdownLink to="/course">
+                  Submenu link 01
+                </MenuDropdownLink>
+                <MenuDropdownLink to="/">Another link 02</MenuDropdownLink>
+                <MenuDropdownLink to="/">Submenu link 03</MenuDropdownLink>
+                <MenuDropdownLink to="/">Another link 04</MenuDropdownLink>
+              </MenuDropdown>
+              <LinkBtn to="/blog" title="Blog" />
+              <LinkBtn to="/parsha" title="Parsha" />
+              <LinkBtn to="/qa" title="Q&A" />
+              <LinkBtn to="/contact" title="Contact" />
+            </Stack>
           </Stack>
-          <Stack flexDirection="row" alignItems="center" columnGap="56px">
-            <LinkBtn to="/" title="Main" />
-            <MenuDropdown title="Philosophy">
-              <MenuDropdownLink to="/course">Submenu link 01</MenuDropdownLink>
-              <MenuDropdownLink to="/">Another link 02</MenuDropdownLink>
-              <MenuDropdownLink to="/">Submenu link 03</MenuDropdownLink>
-              <MenuDropdownLink to="/">Another link 04</MenuDropdownLink>
-            </MenuDropdown>
-            <LinkBtn to="/blog" title="Blog" />
-            <LinkBtn to="/parsha" title="Parsha" />
-            <LinkBtn to="/qa" title="Q&A" />
-            <LinkBtn to="/contact" title="Contact" />
-          </Stack>
+          <Link to="/" style={{ display: "flex" }}>
+            <Logo color="#333" />
+          </Link>
         </Stack>
-        <Link to="/">
-          <Logo color="#333" />
-        </Link>
-      </Stack>
+      </Box>
 
       <Box
         className="rtl-section"
         position="relative"
         maxWidth="873px"
-        margin="108px auto 148px"
+        margin="160px auto 120px"
         zIndex={1}
       >
         <Typography

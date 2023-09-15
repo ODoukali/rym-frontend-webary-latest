@@ -16,7 +16,7 @@ const Course = () => {
       <Box position="relative" pt="57px" zIndex={2}>
         <Guides color="rgba(0,0,0,0.02)" zIndex={-1} pb="30px" />
         <Header />
-        <Box mt="50px">
+        <Box mt="98px">
           <Container>
             <Stack
               flexDirection="row"
