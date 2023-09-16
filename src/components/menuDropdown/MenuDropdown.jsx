@@ -65,6 +65,7 @@ const MenuBtn = (props) => {
         anchorEl={anchorEl}
         open={open}
         onClose={handleClose}
+        disableScrollLock
         MenuListProps={{
           onMouseEnter: handleHover,
           onMouseLeave: handleCloseHover,

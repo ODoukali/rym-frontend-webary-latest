@@ -1,16 +1,9 @@
-import React from "react";
-import { Box, Button, Stack, Typography } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 import { styled } from "@mui/system";
-import IconBtnCircular from "../../components/IconBtnCircular";
-import { Link } from "react-router-dom";
-import LinkBtn from "../../components/LinkBtn";
 import Guides from "../../components/Guides";
-import MenuDropdown from "../../components/menuDropdown/MenuDropdown";
-import MenuDropdownLink from "../../components/menuDropdown/MenuDropdownLink";
+import Header from "../../components/Header";
 
 import BgImg from "../../images/home-hero-bg.png";
-import { ReactComponent as Logo } from "../../images/logo.svg";
-import { ReactComponent as Search } from "../../images/search.svg";
 
 const PageTitleHighlighted = styled(Typography)(() => {
   return {
@@ -43,58 +36,17 @@ const Hero = () => {
         backgroundPosition: "center",
         borderRadius: "40px",
       }}
-      mx={{ lg: "30px", xs: "24px" }}
-      py={5}
+      pt="30px"
+      pb={5}
       minHeight="830px"
     >
-      <Box
-        position="fixed"
-        width="100%"
-        left="50%"
-        zIndex={2}
-        sx={{ transform: "translateX(-50%)" }}
-      >
-        <Stack
-          maxWidth="1380px"
-          flexDirection="row"
-          alignItems="center"
-          justifyContent="space-between"
-          p="0 30px"
-          m="0 auto"
-        >
-          <Stack flexDirection="row" alignItems="center" columnGap="40px">
-            <Stack flexDirection="row" alignItems="center" columnGap="15px">
-              <IconBtnCircular>
-                <Search />
-              </IconBtnCircular>
-            </Stack>
-            <Stack flexDirection="row" alignItems="center" columnGap="56px">
-              <LinkBtn to="/" title="Main" />
-              <MenuDropdown title="Philosophy">
-                <MenuDropdownLink to="/course">
-                  Submenu link 01
-                </MenuDropdownLink>
-                <MenuDropdownLink to="/">Another link 02</MenuDropdownLink>
-                <MenuDropdownLink to="/">Submenu link 03</MenuDropdownLink>
-                <MenuDropdownLink to="/">Another link 04</MenuDropdownLink>
-              </MenuDropdown>
-              <LinkBtn to="/blog" title="Blog" />
-              <LinkBtn to="/parsha" title="Parsha" />
-              <LinkBtn to="/qa" title="Q&A" />
-              <LinkBtn to="/contact" title="Contact" />
-            </Stack>
-          </Stack>
-          <Link to="/" style={{ display: "flex" }}>
-            <Logo color="#333" />
-          </Link>
-        </Stack>
-      </Box>
+      <Header menuVisible />
 
       <Box
-        className="rtl-section"
+        className="rtl-section header-padding"
         position="relative"
         maxWidth="873px"
-        margin="160px auto 120px"
+        margin="102px auto 120px"
         zIndex={1}
       >
         <Typography

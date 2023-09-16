@@ -5,7 +5,7 @@ import PresentationImg from "../../images/promotion-img.png";
 
 const Promotion = () => {
   return (
-    <Box pb="150px" mx="30px">
+    <Box pb="150px">
       <Box
         borderRadius="30px"
         overflow="hidden"

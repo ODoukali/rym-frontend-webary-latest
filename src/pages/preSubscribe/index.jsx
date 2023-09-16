@@ -11,7 +11,6 @@ import {
 import { styled } from "@mui/material/styles";
 import { Link } from "react-router-dom";
 import Guides from "../../components/Guides";
-import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import Sidebar from "../../components/Sidebar";
 import BlockBordered from "../../components/BlockBordered";
@@ -44,11 +43,11 @@ const LinearProgressStyled = styled(LinearProgress)(({ theme }) => ({
 
 const PreSubscribe = () => {
   return (
-    <Box maxWidth="1920px" m="0 auto 30px" sx={{ overflowX: "hidden" }}>
-      <Box position="relative" pt="57px" zIndex={2}>
+    <>
+      <Box position="relative" pt="30px" zIndex={2}>
         <Guides color="rgba(0,0,0,0.02)" zIndex={-1} pb="30px" />
         <Header />
-        <Box mt="98px">
+        <Box className="header-padding" mt="40px">
           <Container>
             <Box
               position="relative"
@@ -191,7 +190,7 @@ const PreSubscribe = () => {
       <Box position="relative" pt="173px" mt="-30px">
         <Guides color="rgba(0,0,0,0.06)" zIndex={-1} />
 
-        <Box position="relative" mx="30px" pt="190px" mt="-190px" mb="150px">
+        <Box position="relative" pt="190px" mt="-190px" mb="150px">
           <Container>
             <Stack
               flexDirection="row"
@@ -360,9 +359,8 @@ const PreSubscribe = () => {
           </Container>
         </Box>
         <VideosSection />
-        <Footer />
       </Box>
-    </Box>
+    </>
   );
 };
 

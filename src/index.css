@@ -28,13 +28,18 @@
   font-style: normal;
 }
 
-html {
-  overflow: hidden;
+.sticky {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #f7f6f2;
+  box-shadow: 0 4.00037px 11.001px hsla(0, 0%, 86%, 0.5);
+  transition: background-color 0.2s;
 }
 
-body {
-  overflow: auto !important;
-  max-height: 100vh;
+.sticky + .header-padding {
+  padding-top: 68px;
 }
 
 .highlighted {

@@ -19,7 +19,6 @@ const Footer = () => {
       position="relative"
       bgcolor="#026670"
       borderRadius="30px"
-      mx="30px"
       pt="109px"
       pb="103px"
       overflow="hidden"

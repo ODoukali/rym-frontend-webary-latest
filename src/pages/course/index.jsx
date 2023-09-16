@@ -1,6 +1,5 @@
 import { Box, Container, Stack, Typography } from "@mui/material";
 import Guides from "../../components/Guides";
-import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import VideoPlayer from "../../components/VideoPlayer";
 import Sidebar from "../../components/Sidebar";
@@ -12,11 +11,11 @@ import LinkWithIcon from "../../components/LinkWithIcon";
 
 const Course = () => {
   return (
-    <Box maxWidth="1920px" m="0 auto 30px" sx={{ overflowX: "hidden" }}>
-      <Box position="relative" pt="57px" zIndex={2}>
+    <>
+      <Box position="relative" pt="30px" zIndex={2}>
         <Guides color="rgba(0,0,0,0.02)" zIndex={-1} pb="30px" />
         <Header />
-        <Box mt="98px">
+        <Box className="header-padding" mt="40px">
           <Container>
             <Stack
               flexDirection="row"
@@ -51,7 +50,7 @@ const Course = () => {
       <Box position="relative" pt="100px" mt="-30px">
         <Guides color="rgba(0,0,0,0.06)" zIndex={-1} />
 
-        <Box position="relative" mx="30px" pt="150px" mt="-110px" mb="150px">
+        <Box position="relative" pt="150px" mt="-110px" mb="150px">
           <Container>
             <Stack
               flexDirection="row"
@@ -65,9 +64,8 @@ const Course = () => {
         </Box>
 
         <VideosSection />
-        <Footer />
       </Box>
-    </Box>
+    </>
   );
 };
 

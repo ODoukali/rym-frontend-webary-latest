@@ -1,11 +1,20 @@
-import { useState } from "react";
-import { Box, Button, Divider, Drawer, Stack } from "@mui/material";
+import { useEffect, useState, useRef } from "react";
+import {
+  Box,
+  Button,
+  Divider,
+  Drawer,
+  Stack,
+  useTheme,
+  useMediaQuery,
+} from "@mui/material";
 import { Link } from "react-router-dom";
 import { styled } from "@mui/material/styles";
 import IconBtnCircular from "./IconBtnCircular";
 import LinkBtn from "./LinkBtn";
 import NestedMenu from "./NestedMenu";
 import MenuDropdownLink from "./menuDropdown/MenuDropdownLink";
+import MenuDropdown from "./menuDropdown/MenuDropdown";
 
 import { ReactComponent as Menu } from "../images/menu.svg";
 import { ReactComponent as Search } from "../images/search.svg";
@@ -17,8 +26,13 @@ const Hr = styled(Divider)({
   borderColor: "rgba(191,190,187,0.5)",
 });
 
-const Header = () => {
+const Header = (props) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isSticky, setIsSticky] = useState(false);
+  const header = useRef(null);
+
+  const theme = useTheme();
+  const tablet = useMediaQuery(theme.breakpoints.down("md"));
 
   const toggleDrawer = (open) => (event) => {
     if (
@@ -30,6 +44,23 @@ const Header = () => {
 
     setIsOpen(open);
   };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sticky = header.current.offsetTop;
+
+      if (window.scrollY > sticky + 28) {
+        setIsSticky(true);
+      } else {
+        setIsSticky(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const MenuInner = () => (
     <Box sx={{ height: "100%", overflowY: "auto" }}>
@@ -109,52 +140,79 @@ const Header = () => {
   );
 
   return (
-    <Stack
-      maxWidth="1380px"
+    <Box
+      ref={header}
+      className={isSticky ? "sticky" : ""}
       width="100%"
-      position="fixed"
-      left="50%"
-      flexDirection="row"
-      alignItems="center"
-      justifyContent="space-between"
-      padding="0 30px"
       zIndex={100}
-      sx={{ transform: "translateX(-50%)" }}
     >
-      <Stack flexDirection="row" alignItems="center" columnGap="15px">
-        <IconBtnCircular onClick={toggleDrawer(true)}>
-          <Menu />
-        </IconBtnCircular>
-        <IconBtnCircular>
-          <Search />
-        </IconBtnCircular>
-      </Stack>
-      <Link to="/">
-        <Logo color="#333" />
-      </Link>
-      <Drawer
-        anchor="left"
-        open={isOpen}
-        onClose={toggleDrawer(false)}
-        sx={{
-          zIndex: 1500,
-          "& .MuiPaper-root": {
-            maxWidth: "470px",
-            width: "100%",
-            bgcolor: "#F7F6F2",
-            borderRadius: "0 40px 40px 0",
-            overflowY: "initial",
-            overflow: "hidden",
-          },
-          "& .MuiBackdrop-root": {
-            backgroundColor: "rgba(191,190,187,0.4)",
-            backdropFilter: "blur(30px)",
-          },
-        }}
+      <Stack
+        maxWidth="1380px"
+        flexDirection="row"
+        alignItems="center"
+        justifyContent="space-between"
+        padding="10px 30px"
+        m="auto"
       >
-        <MenuInner />
-      </Drawer>
-    </Stack>
+        <Stack flexDirection="row" alignItems="center" columnGap="15px">
+          {!props.menuVisible || tablet ? (
+            <IconBtnCircular onClick={toggleDrawer(true)}>
+              <Menu />
+            </IconBtnCircular>
+          ) : null}
+          <IconBtnCircular>
+            <Search />
+          </IconBtnCircular>
+          {props.menuVisible && !tablet ? (
+            <Stack
+              flexDirection="row"
+              alignItems="center"
+              columnGap="56px"
+              ml="25px"
+            >
+              <LinkBtn to="/" title="Main" />
+              <MenuDropdown title="Philosophy">
+                <MenuDropdownLink to="/course">
+                  Submenu link 01
+                </MenuDropdownLink>
+                <MenuDropdownLink to="/">Another link 02</MenuDropdownLink>
+                <MenuDropdownLink to="/">Submenu link 03</MenuDropdownLink>
+                <MenuDropdownLink to="/">Another link 04</MenuDropdownLink>
+              </MenuDropdown>
+              <LinkBtn to="/blog" title="Blog" />
+              <LinkBtn to="/parsha" title="Parsha" />
+              <LinkBtn to="/qa" title="Q&A" />
+              <LinkBtn to="/contact" title="Contact" />
+            </Stack>
+          ) : null}
+        </Stack>
+        <Link to="/" style={{ display: "flex" }}>
+          <Logo color="#333" />
+        </Link>
+        <Drawer
+          anchor="left"
+          open={isOpen}
+          onClose={toggleDrawer(false)}
+          sx={{
+            zIndex: 1500,
+            "& .MuiPaper-root": {
+              maxWidth: "470px",
+              width: "100%",
+              bgcolor: "#F7F6F2",
+              borderRadius: "0 40px 40px 0",
+              overflowY: "initial",
+              overflow: "hidden",
+            },
+            "& .MuiBackdrop-root": {
+              backgroundColor: "rgba(191,190,187,0.4)",
+              backdropFilter: "blur(30px)",
+            },
+          }}
+        >
+          <MenuInner />
+        </Drawer>
+      </Stack>
+    </Box>
   );
 };
 
