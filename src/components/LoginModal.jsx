@@ -16,7 +16,7 @@ import {
   Checkbox,
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import ReCAPTCHA from "react-google-recaptcha";
+// import ReCAPTCHA from "react-google-recaptcha";
 import IconBtnCircular from "./IconBtnCircular";
 import Switcher from "./Switcher";
 
