@@ -235,7 +235,7 @@ const LoginModal = (props) => {
               <TextFieldStyled
                 name="nickname"
                 type="text"
-                placeholder="Nickname"
+                placeholder="Nickname (optional)"
                 value={loginData.nickname}
                 onChange={(e) => inputChange("nickname", e.target.value)}
               />
