@@ -19,6 +19,7 @@ import { styled } from "@mui/material/styles";
 // import ReCAPTCHA from "react-google-recaptcha";
 import IconBtnCircular from "./IconBtnCircular";
 import Switcher from "./Switcher";
+import PhoneMask from "./PhoneMask";
 
 import { ReactComponent as Close } from "../images/close.svg";
 import { ReactComponent as Google } from "../images/google.svg";
@@ -242,6 +243,9 @@ const LoginModal = (props) => {
                 name="phone"
                 type="text"
                 placeholder="Phone"
+                InputProps={{
+                  inputComponent: PhoneMask,
+                }}
                 value={loginData.phone}
                 onChange={(e) => inputChange("phone", e.target.value)}
               />

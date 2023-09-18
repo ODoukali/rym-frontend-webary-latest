@@ -116,6 +116,7 @@ const Comment = () => {
               borderRadius: "20px",
               p: "1px 13px 2px 15px",
               "& svg": {
+                width: "7px",
                 transform: expanded ? "rotate(270deg)" : "rotate(90deg)",
                 marginTop: expanded ? 0 : "1px",
               },
