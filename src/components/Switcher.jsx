@@ -8,12 +8,6 @@ const IOSSwitch = styled((props) => (
   height: 20,
   padding: 0,
   margin: "0 !important",
-  "& + .MuiTypography-root": {
-    fontSize: 12,
-    fontWeight: 600,
-    color: "#026670",
-    marginLeft: "8px",
-  },
   "& .MuiSwitch-switchBase": {
     padding: 0,
     marginTop: 2,

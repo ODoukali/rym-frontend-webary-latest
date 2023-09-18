@@ -12,6 +12,8 @@ import {
   Divider,
   TextField,
   Link,
+  FormControlLabel,
+  Checkbox,
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import ReCAPTCHA from "react-google-recaptcha";
@@ -89,11 +91,27 @@ const LoginModal = (props) => {
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down("sm"));
   const { ...restProps } = props;
-
   const [register, setRegister] = useState("login");
+
+  const [loginData, setLoginData] = useState({
+    loginEmail: "",
+    loginPassword: "",
+    nickname: "",
+    phone: "",
+    signupEmail: "",
+    signupPassword: "",
+    signupRePassword: "",
+  });
 
   const handleChange = (event, newRegister) => {
     setRegister(newRegister);
+  };
+
+  const inputChange = (name, value) => {
+    setLoginData((oldData) => ({
+      ...oldData,
+      [name]: value,
+    }));
   };
 
   return (
@@ -102,11 +120,18 @@ const LoginModal = (props) => {
       fullScreen={fullScreen}
       maxWidth="xs"
       scroll="body"
+      disableEscapeKeyDown
+      onClose={(event, reason) => {
+        if (reason !== "backdropClick") {
+          return;
+        }
+      }}
       sx={{
         "& .MuiPaper-root": {
           width: "100%",
           maxWidth: "500px",
           borderRadius: "20px",
+          verticalAlign: "top",
         },
         zIndex: 1500,
       }}
@@ -157,8 +182,20 @@ const LoginModal = (props) => {
               </Typography>
             </Hr>
             <Stack gap="10px">
-              <TextFieldStyled type="email" placeholder="Email" />
-              <TextFieldStyled type="password" placeholder="Password" />
+              <TextFieldStyled
+                name="loginEmail"
+                type="email"
+                placeholder="Email"
+                value={loginData.loginEmail}
+                onChange={(e) => inputChange("loginEmail", e.target.value)}
+              />
+              <TextFieldStyled
+                name="loginPassword"
+                type="password"
+                placeholder="Password"
+                value={loginData.loginPassword}
+                onChange={(e) => inputChange("loginPassword", e.target.value)}
+              />
             </Stack>
             <ButtonLogin variant="yellow">Log In</ButtonLogin>
             <Switcher
@@ -175,7 +212,8 @@ const LoginModal = (props) => {
               Forgot Password?
             </Link>
           </Box>
-        ) : (
+        ) : null}
+        {register === "signup" ? (
           <Box textAlign="center">
             <ButtonGoogle fullWidth variant="outlined" startIcon={<Google />}>
               Continue with Google
@@ -186,12 +224,44 @@ const LoginModal = (props) => {
               </Typography>
             </Hr>
             <Stack gap="10px">
-              <TextFieldStyled type="text" placeholder="Name" />
-              <TextFieldStyled type="text" placeholder="Nickname" />
-              <TextFieldStyled type="text" placeholder="Phone" />
-              <TextFieldStyled type="email" placeholder="Email" />
-              <TextFieldStyled type="password" placeholder="Password" />
-              <TextFieldStyled type="password" placeholder="Retype Password" />
+              <TextFieldStyled name="name" type="text" placeholder="Name" />
+              <TextFieldStyled
+                name="nickname"
+                type="text"
+                placeholder="Nickname"
+                value={loginData.nickname}
+                onChange={(e) => inputChange("nickname", e.target.value)}
+              />
+              <TextFieldStyled
+                name="phone"
+                type="text"
+                placeholder="Phone"
+                value={loginData.phone}
+                onChange={(e) => inputChange("phone", e.target.value)}
+              />
+              <TextFieldStyled
+                name="signupEmail"
+                type="email"
+                placeholder="Email"
+                value={loginData.signupEmail}
+                onChange={(e) => inputChange("signupEmail", e.target.value)}
+              />
+              <TextFieldStyled
+                name="signupPassword"
+                type="password"
+                placeholder="Password"
+                value={loginData.signupPassword}
+                onChange={(e) => inputChange("signupPassword", e.target.value)}
+              />
+              <TextFieldStyled
+                name="signupRePassword"
+                type="password"
+                placeholder="Retype Password"
+                value={loginData.signupRePassword}
+                onChange={(e) =>
+                  inputChange("signupRePassword", e.target.value)
+                }
+              />
             </Stack>
             <Stack
               flexDirection="row"
@@ -200,12 +270,11 @@ const LoginModal = (props) => {
               gap="15px"
               mt="37px"
             >
-              <Switcher
-                name="notRobot"
+              <FormControlLabel
+                control={<Checkbox defaultChecked />}
                 label="I am not a robot!"
-                defaultChecked
               />
-              <ReCAPTCHA sitekey="Your client site key" />
+              {/* <ReCAPTCHA sitekey="Your client site key" /> */}
             </Stack>
             <ButtonLogin variant="yellow">Create Account</ButtonLogin>
             <Stack alignItems="center" gap="10px">
@@ -240,7 +309,7 @@ const LoginModal = (props) => {
               .
             </Typography>
           </Box>
-        )}
+        ) : null}
       </Box>
     </Dialog>
   );

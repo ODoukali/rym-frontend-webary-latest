@@ -25,6 +25,12 @@ const CommentModal = (props) => {
       fullScreen={fullScreen}
       maxWidth="xs"
       scroll="body"
+      disableEscapeKeyDown
+      onClose={(event, reason) => {
+        if (reason !== "backdropClick") {
+          return;
+        }
+      }}
       sx={{
         "& .MuiPaper-root": {
           width: "100%",

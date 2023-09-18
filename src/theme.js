@@ -149,6 +149,31 @@ const theme = createTheme({
         },
       },
     },
+    MuiCheckbox: {
+      styleOverrides: {
+        root: {
+          "&.Mui-checked": {
+            color: "#026670",
+          },
+        },
+      },
+    },
+    MuiFormControlLabel: {
+      styleOverrides: {
+        root: {
+          margin: 0,
+          "& .MuiFormControlLabel-label": {
+            fontSize: 12,
+            fontWeight: 600,
+            color: "#026670",
+            marginLeft: "8px",
+          },
+          "& .MuiCheckbox-root": {
+            padding: 0,
+          },
+        },
+      },
+    },
     MuiDialog: {
       styleOverrides: {
         root: {
