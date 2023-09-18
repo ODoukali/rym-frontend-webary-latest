@@ -104,7 +104,9 @@ const LoginModal = (props) => {
   });
 
   const handleChange = (event, newRegister) => {
-    setRegister(newRegister);
+    if (newRegister !== null) {
+      setRegister(newRegister);
+    }
   };
 
   const inputChange = (name, value) => {
@@ -121,6 +123,7 @@ const LoginModal = (props) => {
       maxWidth="xs"
       scroll="body"
       disableEscapeKeyDown
+      disableScrollLock
       onClose={(event, reason) => {
         if (reason !== "backdropClick") {
           return;
@@ -132,6 +135,9 @@ const LoginModal = (props) => {
           maxWidth: "500px",
           borderRadius: "20px",
           verticalAlign: "top",
+        },
+        "& .MuiDialog-container": {
+          overflowY: "scroll",
         },
         zIndex: 1500,
       }}

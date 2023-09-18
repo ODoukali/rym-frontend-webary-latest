@@ -37,6 +37,7 @@ const TestimonialMenu = (props) => {
         open={open}
         onClose={handleClose}
         disableAutoFocus
+        disableScrollLock
         sx={{
           "& .MuiPaper-root": {
             minWidth: "155px",
