@@ -30,7 +30,7 @@ const BlogNews = () => {
             Our <span className="highlighted">blog</span> &{" "}
             <span className="highlighted">news</span>
           </Typography>
-          <TextLink to="">Visit Blog & News</TextLink>
+          <TextLink href="">Visit Blog & News</TextLink>
         </Stack>
       </Container>
       <Slider

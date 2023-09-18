@@ -53,7 +53,7 @@ const VideosSection = () => {
             You <span className="highlighted">may</span> also{" "}
             <span className="highlighted">like</span>
           </Typography>
-          <TextLink to="">View All Videos</TextLink>
+          <TextLink href="">View All Videos</TextLink>
         </Stack>
       </Container>
       <Slider

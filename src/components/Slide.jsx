@@ -110,7 +110,7 @@ const Slide = (props) => {
           </Typography>
         </BlockBordered>
         {props.blogLink ? (
-          <TextLink to={props.blogLink}>Read More</TextLink>
+          <TextLink href={props.blogLink}>Read More</TextLink>
         ) : null}
       </Box>
     </Box>

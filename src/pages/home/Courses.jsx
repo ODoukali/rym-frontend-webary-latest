@@ -62,7 +62,7 @@ const Courses = () => {
           />
         ))}
       </Box>
-      <TextLink to="">View All Courses</TextLink>
+      <TextLink href="">View All Courses</TextLink>
     </Container>
   );
 };

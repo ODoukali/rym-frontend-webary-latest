@@ -225,7 +225,7 @@ const PreSubscribe = () => {
                       ullamco laboris nisi ut aliquip ex ea commodo consequat.
                       Duis aute irure dolor in.
                     </Typography>
-                    <TextLink to="" sx={{ "& span": { fontSize: "14px" } }}>
+                    <TextLink href="" sx={{ "& span": { fontSize: "14px" } }}>
                       Read More
                     </TextLink>
                   </BlockBordered>

@@ -203,10 +203,6 @@ const Header = (props) => {
               overflowY: "initial",
               overflow: "hidden",
             },
-            "& .MuiBackdrop-root": {
-              backgroundColor: "rgba(191,190,187,0.4)",
-              backdropFilter: "blur(30px)",
-            },
           }}
         >
           <MenuInner />

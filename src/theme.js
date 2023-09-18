@@ -12,7 +12,7 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: "Poppins",
+    fontFamily: "Poppins, sans-serif",
     color: "#333",
     sectionTitle: {
       fontSize: 45,
@@ -149,6 +149,34 @@ const theme = createTheme({
         },
       },
     },
+    MuiDialog: {
+      styleOverrides: {
+        root: {
+          zIndex: 1299,
+          "& .MuiBackdrop-root": {
+            backgroundColor: "rgba(51, 51, 51, 0.5)",
+            backdropFilter: "blur(30px)",
+          },
+        },
+      },
+    },
+    MuiDrawer: {
+      styleOverrides: {
+        root: {
+          "& .MuiBackdrop-root": {
+            backgroundColor: "rgba(51, 51, 51, 0.5)",
+            backdropFilter: "blur(30px)",
+          },
+        },
+      },
+    },
+    MuiMenu: {
+      styleOverrides: {
+        root: {
+          zIndex: 1501,
+        },
+      },
+    },
     MuiOutlinedInput: {
       styleOverrides: {
         root: {
@@ -183,6 +211,9 @@ const theme = createTheme({
           "&:hover": {
             border: "none",
           },
+          "& .MuiButton-endIcon": {
+            marginRight: 0,
+          },
         },
       },
       variants: [
@@ -202,6 +233,12 @@ const theme = createTheme({
             backgroundColor: "#FCE181",
             "&:hover": {
               backgroundColor: "#ebcf6a",
+            },
+            "&.MuiButton-sizeSmall": {
+              fontSize: "14px",
+              height: "44px",
+              padding: "14px 40px",
+              boxShadow: "none",
             },
           },
         },
@@ -226,6 +263,13 @@ const theme = createTheme({
               color: "#FCE181",
               border: "3px solid #026670",
               backgroundColor: "#026670",
+            },
+            "&.MuiButton-sizeSmall": {
+              fontSize: "14px",
+              height: "44px",
+              padding: "14px 40px",
+              borderWidth: "2px",
+              boxShadow: "none",
             },
           },
         },

@@ -59,7 +59,7 @@ const VideoSlider = () => {
               Hi <span className="highlighted"> Alex,</span> Continue Watching
             </Typography>
           </Box>
-          <TextLink to="" sx={{ marginTop: "15px" }}>
+          <TextLink href="" sx={{ marginTop: "15px" }}>
             View All Videos
           </TextLink>
         </Stack>

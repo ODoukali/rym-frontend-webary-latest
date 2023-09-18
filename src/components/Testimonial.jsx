@@ -1,28 +1,24 @@
-import { Box, IconButton, MenuItem, Stack, Typography } from "@mui/material";
-import { styled } from "@mui/material/styles";
+import { Box, MenuItem, Stack, Typography } from "@mui/material";
+import { useModal } from "mui-modal-provider";
 import Rating from "./Rating";
 import BlockBordered from "./BlockBordered";
 import TextLink from "./TextLink";
 import TestimonialMenu from "./TestimonialMenu";
+import CommentModal from "./commentModal/CommentModal";
+import Likes from "./Likes";
 
 import Avatar from "../images/avatar.png";
-import { ReactComponent as Like } from "../images/like.svg";
-
-const IconButtonStyled = styled(IconButton)(() => {
-  return {
-    padding: 0,
-    "&:hover": {
-      backgroundColor: "transparent",
-      "& svg": {
-        color: "#026670",
-      },
-    },
-  };
-});
 
 const Testimonial = (props) => {
+  const { showModal } = useModal();
+
   return (
-    <Box bgcolor="#fff" borderRadius="10px" p="40px">
+    <Box
+      bgcolor="#fff"
+      borderRadius="10px"
+      p="40px"
+      onClick={() => props.modal && showModal(CommentModal)}
+    >
       <Stack
         flexDirection="row"
         alignItems="flex-start"
@@ -32,6 +28,7 @@ const Testimonial = (props) => {
       >
         <Stack flexDirection="row" alignItems="center" columnGap="21px">
           <Box
+            className="avatar-container"
             display="flex"
             alignItems="center"
             justifyContent="center"
@@ -84,10 +81,7 @@ const Testimonial = (props) => {
           Sed ut perspiciatis unde omnis iste natus error sit voluptatem accu
           doloremque laudantium, totam rem aperiam, eaque ipsa.
         </Typography>
-        <TextLink
-          to=""
-          sx={{ "& span": { fontSize: "14px", marginTop: "2px" } }}
-        >
+        <TextLink sx={{ "& span": { fontSize: "14px", marginTop: "2px" } }}>
           Read More
         </TextLink>
       </BlockBordered>
@@ -97,22 +91,16 @@ const Testimonial = (props) => {
         justifyContent="space-between"
       >
         {props.reply ? (
-          <TextLink to="" sx={{ "& span": { fontSize: "14px" } }}>
+          <TextLink
+            onClick={() => showModal(CommentModal)}
+            sx={{ "& span": { fontSize: "14px" } }}
+          >
             Reply
           </TextLink>
         ) : (
           <div />
         )}
-        <Stack flexDirection="row" alignItems="flex-end" columnGap="10px">
-          <Typography fontSize="14px" fontWeight={600} color="#BFBEBB">
-            245
-          </Typography>
-          <Stack flexDirection="row" alignItems="center" columnGap="7px">
-            <IconButtonStyled sx={{ marginBottom: "4px" }}>
-              <Like color="#BFBEBB" />
-            </IconButtonStyled>
-          </Stack>
-        </Stack>
+        <Likes number="245" />
       </Stack>
     </Box>
   );

@@ -1,21 +1,8 @@
 import { Box, IconButton, Stack, Typography } from "@mui/material";
-import { styled } from "@mui/material/styles";
 import TextLink from "../../components/TextLink";
+import Likes from "../../components/Likes";
 
 import { ReactComponent as DotMenu } from "../../images/dots-menu.svg";
-import { ReactComponent as Like } from "../../images/like.svg";
-
-const IconButtonStyled = styled(IconButton)(() => {
-  return {
-    padding: 0,
-    "&:hover": {
-      backgroundColor: "transparent",
-      "& svg": {
-        color: "#026670",
-      },
-    },
-  };
-});
 
 const Question = (props) => {
   return (
@@ -53,19 +40,10 @@ const Question = (props) => {
         justifyContent="space-between"
         mt="5px"
       >
-        <TextLink to="" sx={{ "& span": { fontSize: "14px" } }}>
+        <TextLink href="" sx={{ "& span": { fontSize: "14px" } }}>
           Read More
         </TextLink>
-        <Stack flexDirection="row" alignItems="flex-end" columnGap="10px">
-          <Typography fontSize="14px" fontWeight={600} color="#BFBEBB">
-            245
-          </Typography>
-          <Stack flexDirection="row" alignItems="center" columnGap="7px">
-            <IconButtonStyled sx={{ marginBottom: "4px" }}>
-              <Like color="#BFBEBB" />
-            </IconButtonStyled>
-          </Stack>
-        </Stack>
+        <Likes number="245" />
       </Stack>
       <Box borderTop="1px solid rgba(191,190,187,0.5)" pt="18px" mt="16px">
         {props.awaiting ? (
@@ -79,7 +57,7 @@ const Question = (props) => {
             Awaiting Answer
           </Typography>
         ) : (
-          <TextLink to="" sx={{ "& span": { fontSize: "14px" } }}>
+          <TextLink href="" sx={{ "& span": { fontSize: "14px" } }}>
             View Answer
           </TextLink>
         )}

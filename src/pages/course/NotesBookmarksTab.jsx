@@ -161,7 +161,7 @@ const NotesBookmarks = () => {
           </Box>
         </Block>
         <Box display="flex" justifyContent="flex-end">
-          <TextLink to="/" sx={{ marginTop: "20px", marginRight: "40px" }}>
+          <TextLink href="/" sx={{ marginTop: "20px", marginRight: "40px" }}>
             Add Bookmark
           </TextLink>
         </Box>
@@ -224,7 +224,7 @@ const NotesBookmarks = () => {
                 </Typography>
               </BlockBordered>
               <TextLink
-                to=""
+                href=""
                 sx={{ marginBottom: "10px", "& span": { fontSize: "14px" } }}
               >
                 Edit Note
@@ -242,7 +242,7 @@ const NotesBookmarks = () => {
                 </Box>
               </BlockBordered>
               <TextLink
-                to=""
+                href=""
                 sx={{ marginBottom: "10px", "& span": { fontSize: "14px" } }}
               >
                 Save Note
@@ -251,7 +251,7 @@ const NotesBookmarks = () => {
           </Stack>
         </Block>
         <Box display="flex" justifyContent="flex-end">
-          <TextLink to="/" sx={{ marginTop: "20px", marginRight: "40px" }}>
+          <TextLink href="/" sx={{ marginTop: "20px", marginRight: "40px" }}>
             Add Note
           </TextLink>
         </Box>

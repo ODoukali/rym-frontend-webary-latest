@@ -19,7 +19,7 @@ const Parsa = () => {
           <Typography variant="sectionTitle" component="h2">
             Reb Yakov Moshe <span className="highlighted">Parsa</span>
           </Typography>
-          <TextLink to="">Visit Parsa</TextLink>
+          <TextLink href="">Visit Parsa</TextLink>
         </Stack>
       </Container>
       <Slider

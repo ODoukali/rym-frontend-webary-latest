@@ -62,7 +62,7 @@ const FAQ = () => {
         alignItems="flex-start"
         justifyContent="space-between"
       >
-        <TextLink to="" sx={{ marginTop: "14px" }}>
+        <TextLink href="" sx={{ marginTop: "14px" }}>
           Explore all Q&A
         </TextLink>
         <Box maxWidth="553px" className="rtl-section">

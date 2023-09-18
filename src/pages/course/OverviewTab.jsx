@@ -104,13 +104,13 @@ const OverviewTab = () => {
       </Typography>
       <Swiper slidesPerView={2} spaceBetween={20}>
         <SwiperSlide>
-          <Testimonial avatar reply />
+          <Testimonial modal avatar reply />
         </SwiperSlide>
         <SwiperSlide>
-          <Testimonial reply />
+          <Testimonial modal reply />
         </SwiperSlide>
         <SwiperSlide>
-          <Testimonial avatar reply />
+          <Testimonial modal avatar reply />
         </SwiperSlide>
       </Swiper>
       <Stack
@@ -122,7 +122,7 @@ const OverviewTab = () => {
         <Button variant="yellow" sx={{ height: "54px" }}>
           Rate & Comment
         </Button>
-        <TextLink to="">View all 28 Comments</TextLink>
+        <TextLink href="">View all 28 Comments</TextLink>
       </Stack>
     </>
   );

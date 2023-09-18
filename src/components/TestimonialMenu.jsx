@@ -7,9 +7,11 @@ const TestimonialMenu = (props) => {
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
+    event.stopPropagation();
     setAnchorEl(event.currentTarget);
   };
-  const handleClose = () => {
+  const handleClose = (event) => {
+    event.stopPropagation();
     setAnchorEl(null);
   };
 
@@ -34,6 +36,7 @@ const TestimonialMenu = (props) => {
         anchorEl={anchorEl}
         open={open}
         onClose={handleClose}
+        disableAutoFocus
         sx={{
           "& .MuiPaper-root": {
             minWidth: "155px",

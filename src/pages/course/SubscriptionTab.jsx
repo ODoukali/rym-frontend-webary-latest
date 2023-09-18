@@ -50,7 +50,7 @@ const SubscriptionTab = () => {
               <span>Progress:</span> 25% Completed
             </TypographyStyled>
           </BlockBordered>
-          <TextLink to="" sx={{ marginTop: "30px" }}>
+          <TextLink href="" sx={{ marginTop: "30px" }}>
             View Purchase Details
           </TextLink>
         </Box>
@@ -102,7 +102,7 @@ const SubscriptionTab = () => {
           Buy Lifetime Subsctiption
         </Button>
       </Stack>
-      <TextLink to="" sx={{ marginTop: "60px" }}>
+      <TextLink href="" sx={{ marginTop: "60px" }}>
         Rate This Course
       </TextLink>
     </Box>
