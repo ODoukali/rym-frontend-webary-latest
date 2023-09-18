@@ -10,11 +10,13 @@ import {
 } from "@mui/material";
 import { Link } from "react-router-dom";
 import { styled } from "@mui/material/styles";
+import { useModal } from "mui-modal-provider";
 import IconBtnCircular from "./IconBtnCircular";
 import LinkBtn from "./LinkBtn";
 import NestedMenu from "./NestedMenu";
 import MenuDropdownLink from "./menuDropdown/MenuDropdownLink";
 import MenuDropdown from "./menuDropdown/MenuDropdown";
+import LoginModal from "./LoginModal";
 
 import { ReactComponent as Menu } from "../images/menu.svg";
 import { ReactComponent as Search } from "../images/search.svg";
@@ -27,6 +29,7 @@ const Hr = styled(Divider)({
 });
 
 const Header = (props) => {
+  const { showModal } = useModal();
   const [isOpen, setIsOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
   const header = useRef(null);
@@ -72,8 +75,14 @@ const Header = (props) => {
         p="70px 110px"
       >
         <Button
+          onClick={() => showModal(LoginModal)}
           variant="yellow"
-          sx={{ height: "40px", fontSize: "14px", p: "20px 47px" }}
+          sx={{
+            height: "40px",
+            fontSize: "14px",
+            p: "20px 47px",
+            boxShadow: "none",
+          }}
         >
           Sign In
         </Button>

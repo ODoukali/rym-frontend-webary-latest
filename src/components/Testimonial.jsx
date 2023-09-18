@@ -92,7 +92,7 @@ const Testimonial = (props) => {
       >
         {props.reply ? (
           <TextLink
-            onClick={() => showModal(CommentModal)}
+            onClick={() => props.modal && showModal(CommentModal)}
             sx={{ "& span": { fontSize: "14px" } }}
           >
             Reply
