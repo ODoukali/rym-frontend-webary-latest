@@ -48,7 +48,6 @@ const StyledTab = styled((props) => <Tab disableRipple {...props} />)(
       backgroundColor: "#D9D8D4",
     },
     "&.Mui-selected": {
-      minHeight: 74,
       color: "#FCE181",
       fontSize: 16,
       backgroundColor: "#026670",
@@ -71,7 +70,7 @@ const CourseTabs = () => {
         "&::before": {
           content: "''",
           position: "absolute",
-          top: "72px",
+          top: "62px",
           left: 0,
           height: "2px",
           width: "100%",

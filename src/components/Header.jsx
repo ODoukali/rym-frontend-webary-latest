@@ -73,6 +73,7 @@ const Header = (props) => {
         justifyContent="space-between"
         bgcolor="#EDECE8"
         p="70px 110px"
+        sx={{ "& button": { boxShadow: "none" } }}
       >
         <Button
           onClick={() => showModal(LoginModal)}
@@ -81,7 +82,6 @@ const Header = (props) => {
             height: "40px",
             fontSize: "14px",
             p: "20px 47px",
-            boxShadow: "none",
           }}
         >
           Sign In
