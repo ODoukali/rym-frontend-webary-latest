@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { Box, Container } from "@mui/material";
 import { Swiper } from "swiper/react";
 import "swiper/css";
@@ -9,6 +9,10 @@ import { ReactComponent as Chevron } from "../images/chevron.svg";
 const Slider = (props) => {
   const swiperRef = useRef();
   const { arrows, ...restProps } = props;
+  const [slideConfig, setSlideConfig] = useState({
+    isBeginning: true,
+    isEnd: false,
+  });
 
   return (
     <Container>
@@ -16,7 +20,12 @@ const Slider = (props) => {
         <Swiper
           {...restProps}
           spaceBetween={20}
-          onSlideChange={() => console.log("slide change")}
+          onSlideChange={(swipe) =>
+            setSlideConfig({
+              isBeginning: swipe.isBeginning,
+              isEnd: swipe.isEnd,
+            })
+          }
           onSwiper={(swiper) => {
             swiperRef.current = swiper;
           }}
@@ -26,11 +35,13 @@ const Slider = (props) => {
         {arrows ? (
           <>
             <ArrowBtn
-              className="arrow-prev"
+              className={`arrow-prev ${
+                slideConfig.isBeginning ? "disabled" : ""
+              }`}
               onClick={() => swiperRef.current.slidePrev()}
             />
             <ArrowBtn
-              className="arrow-next"
+              className={`arrow-next ${slideConfig.isEnd ? "disabled" : ""}`}
               nextBtn
               onClick={() => swiperRef.current.slideNext()}
             />

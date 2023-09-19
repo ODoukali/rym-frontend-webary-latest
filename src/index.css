@@ -398,6 +398,13 @@ media-fullscreen-button media-tooltip {
   transform: translate3d(-48px, 14px, 0) !important;
 }
 
+.arrow-prev.disabled,
+.arrow-next.disabled {
+  opacity: 0.7;
+  cursor: auto;
+  pointer-events: none;
+}
+
 @keyframes playAnim {
   from {
     opacity: 1;
