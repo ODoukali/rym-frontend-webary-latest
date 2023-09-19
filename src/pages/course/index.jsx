@@ -12,7 +12,7 @@ import LinkWithIcon from "../../components/LinkWithIcon";
 const Course = () => {
   return (
     <>
-      <Box position="relative" pt="30px" zIndex={2}>
+      <Box position="relative" zIndex={2}>
         <Guides color="rgba(0,0,0,0.02)" zIndex={-1} pb="30px" />
         <Header />
         <Box className="header-padding" mt="40px">
