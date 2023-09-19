@@ -358,7 +358,7 @@ const VideoPlayerDraggable = ({ resetPosition, x, y }) => {
                   borderRadius: "10px",
                   backgroundColor: "#FCE181",
                   whiteSpace: "nowrap",
-                  padding: "4px 10px",
+                  padding: "1px 10px",
                   opacity: 0,
                   transition: "opacity 0.1s ease",
                 }}

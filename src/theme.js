@@ -80,7 +80,7 @@ const theme = createTheme({
           borderRadius: "10px",
           backgroundColor: "#026670",
           textAlign: "center",
-          padding: "4px 10px",
+          padding: "1px 10px",
         },
       },
     },
@@ -232,7 +232,6 @@ const theme = createTheme({
           borderRadius: "32px",
           whiteSpace: "nowrap",
           letterSpacing: "-0.44px",
-          // boxShadow: "0px 10px 20px rgba(0,0,0,0.1)",
           boxShadow: "none",
           "&:hover": {
             border: "none",

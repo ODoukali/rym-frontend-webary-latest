@@ -176,7 +176,13 @@ const PreSubscribe = () => {
                   Preview
                 </Button>
               </Box>
-              <Box display="flex" position="absolute" zIndex={-1}>
+              <Box
+                display="flex"
+                position="absolute"
+                bgcolor="#fff"
+                borderRadius="20px"
+                zIndex={-1}
+              >
                 <img
                   src={PresentationImg}
                   alt=""
@@ -265,6 +271,11 @@ const PreSubscribe = () => {
                       enterTouchDelay={0}
                       PopperProps={{ disablePortal: true }}
                       placement="top"
+                      sx={{
+                        "& + .MuiTooltip-popper .MuiTooltip-tooltip": {
+                          py: "4px",
+                        },
+                      }}
                     >
                       <Box>
                         <Button
