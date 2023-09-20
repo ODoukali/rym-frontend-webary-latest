@@ -193,7 +193,7 @@ const LoginModal = (props) => {
             <ToggleButtonStyled value="signup">Sign Up</ToggleButtonStyled>
           </ToggleButtonGroupStyled>
         </Box>
-        <Box position="relative">
+        <Box position="relative" overflow="hidden">
           <Stack
             className={`${register === "signup" ? "active" : ""}`}
             width="200%"
