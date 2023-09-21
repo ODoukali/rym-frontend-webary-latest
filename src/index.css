@@ -405,6 +405,62 @@ media-fullscreen-button media-tooltip {
   pointer-events: none;
 }
 
+.pip-overlay {
+  display: none;
+  position: absolute;
+  border-radius: 20px;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 28;
+}
+
+media-player[data-started].pip:hover .pip-overlay {
+  display: block;
+}
+
+.pip-overlay media-play-button {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  margin: 0;
+  padding: 0;
+}
+
+.pip-overlay media-play-button::after {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  z-index: -1;
+}
+
+.pip-overlay media-play-button:hover::after {
+  opacity: 1;
+}
+
+.pip-close {
+  position: absolute !important;
+  top: 10px;
+  right: 10px;
+}
+
+.pip-close:hover {
+  background-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+.pip-back-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 @keyframes playAnim {
   from {
     opacity: 1;

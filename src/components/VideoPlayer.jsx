@@ -57,6 +57,8 @@ import { ReactComponent as Volume } from "../images/volume.svg";
 import { ReactComponent as Fullscreen } from "../images/fullscreen.svg";
 import { ReactComponent as FullscreenExit } from "../images/full-screen-exit.svg";
 import { ReactComponent as Settings } from "../images/settings.svg";
+import { ReactComponent as Close } from "../images/close.svg";
+import { ReactComponent as NewWindow } from "../images/open-in-new-window.svg";
 
 const IconButtonStyled = styled(IconButton)(() => {
   return {
@@ -192,6 +194,32 @@ const VideoPlayerDraggable = ({ resetPosition, x, y }) => {
             <MediaGesture event="pointerup" action="toggle:paused" />
             <MediaPoster alt="" />
           </MediaOutlet>
+          <Box className="pip-overlay">
+            <IconButton className="pip-close" onClick={() => setIsFixed(false)}>
+              <Close color="#fff" width={10} height={10} />
+            </IconButton>
+            <Button
+              className="pip-back-btn"
+              endIcon={<NewWindow width={20} height={20} />}
+              onClick={() => {
+                window.scrollTo(0, 0);
+              }}
+              sx={{
+                backgroundColor: "#000",
+                color: "#fff",
+                fontSize: "12px",
+                fontWeight: 400,
+                p: "2px 8px 2px 12px",
+                "&:hover": {
+                  color: "#FCE181",
+                  backgroundColor: "#000",
+                },
+              }}
+            >
+              Back to tab
+            </Button>
+            <MediaPlayButton />
+          </Box>
           {fullscreen ? (
             <Box
               className="media-controls-group"
