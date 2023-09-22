@@ -1,53 +1,9 @@
-import { Box, Stack, Typography } from "@mui/material";
+import { useState } from "react";
+import { Box, Stack, Typography, Tooltip } from "@mui/material";
 
 import { ReactComponent as Check } from "../images/check.svg";
 import { ReactComponent as Arrow } from "../images/arrow.svg";
 import { ReactComponent as Lock } from "../images/lock.svg";
-
-const lecturesList = [
-  {
-    id: 1,
-    title: "Lecture 1",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing",
-    duration: "3:45",
-    status: "completed",
-  },
-  {
-    id: 2,
-    title: "Lecture 2",
-    description: "Nemo enim ipsam voluptatem quia voluptas sit aspernatur",
-    duration: "7:16",
-    status: "playing",
-  },
-  {
-    id: 3,
-    title: "Lecture 3",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing",
-    duration: "3:45",
-    status: "notCompleted",
-  },
-  {
-    id: 4,
-    title: "Lecture 4",
-    description: "Nemo enim ipsam voluptatem quia voluptas sit aspernatur",
-    duration: "7:16",
-    status: "notCompleted",
-  },
-  {
-    id: 5,
-    title: "Lecture 5",
-    description: "Nemo enim ipsam voluptatem quia voluptas sit aspernatur",
-    duration: "7:16",
-    status: "notCompleted",
-  },
-  {
-    id: 6,
-    title: "Lecture 6",
-    description: "Nemo enim ipsam voluptatem quia voluptas sit aspernatur",
-    duration: "7:16",
-    status: "notCompleted",
-  },
-];
 
 const Sidebar = (props) => {
   return (
@@ -93,92 +49,130 @@ const Sidebar = (props) => {
         2/25 Completed
       </Typography>
       <Stack rowGap="30px">
-        {lecturesList.map((l) => (
-          <Stack
+        {props.arr.map((l) => (
+          <ListItem
             key={l.id}
-            component="button"
-            disabled={props.locked ? true : false}
-            flexDirection="row"
-            columnGap="10px"
-            p="0 0 30px 0"
-            sx={{
-              position: "relative",
-              border: "none",
-              backgroundColor: "transparent",
-              borderBottom: "1px solid rgba(191, 190, 187, 0.5)",
-              "&:disabled:hover .status-ic": {
-                display: "flex",
-              },
-              "&:not(:disabled):hover": {
-                borderColor: "#333",
-                cursor: "pointer",
-                "& span": {
-                  color: "#333",
-                },
-              },
-            }}
-          >
-            <Box
-              className="status-ic"
-              position="absolute"
-              left={-56}
-              top={13}
-              width={32}
-              height={32}
-              borderRadius="100%"
-              bgcolor={
-                l.status === "playing" && !props.locked ? "#FCE181" : "#fff"
-              }
-              sx={{ display: props.locked ? "none" : "flex" }}
-              alignItems="center"
-              justifyContent="center"
-            >
-              {props.locked ? (
-                <Lock />
-              ) : (
-                <>
-                  {l.status === "playing" ? (
-                    <Arrow color="#026670" style={{ marginLeft: "3px" }} />
-                  ) : (
-                    <Check
-                      color={l.status === "completed" ? "#026670" : "#EDECE8"}
-                    />
-                  )}
-                </>
-              )}
-            </Box>
-            <Box component="span" textAlign="left">
-              <Typography
-                component="span"
-                display="block"
-                fontSize="16px"
-                fontWeight={600}
-                color="secondary"
-              >
-                {l.title}
-              </Typography>
-              <Typography
-                component="span"
-                fontSize="14px"
-                fontWeight={500}
-                lineHeight="18px"
-                color="#BFBEBB"
-              >
-                {l.description}
-              </Typography>
-            </Box>
-            <Typography
-              component="span"
-              fontSize="16px"
-              fontWeight={600}
-              color="primary"
-            >
-              {l.duration}
-            </Typography>
-          </Stack>
+            title={l.title}
+            description={l.description}
+            duration={l.duration}
+            status={l.status}
+            isTooltip={l.isTooltip}
+          />
         ))}
       </Stack>
     </Box>
+  );
+};
+
+const ListItem = (props) => {
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = () => {
+    props.isTooltip && setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  return (
+    <Tooltip
+      title="Complete previous lectures to unlock"
+      placement="top"
+      open={open}
+      onClose={handleClose}
+      onOpen={handleOpen}
+      enterDelay={0}
+      enterTouchDelay={0}
+      leaveTouchDelay={0}
+      PopperProps={{ disablePortal: true }}
+    >
+      <Stack
+        className={`${props.status === "playing" ? "active" : ""}`}
+        component="button"
+        flexDirection="row"
+        columnGap="10px"
+        p="0 0 30px 0"
+        sx={{
+          position: "relative",
+          border: "none",
+          backgroundColor: "transparent",
+          borderBottom: "1px solid rgba(191, 190, 187, 0.5)",
+          "& + .MuiTooltip-popper .MuiTooltip-tooltip": {
+            mb: "3px !important",
+          },
+          "&:hover .status-ic": {
+            display: "flex",
+          },
+          "&.active": {
+            borderColor: "#333",
+            "& span": {
+              color: "#333",
+            },
+          },
+        }}
+      >
+        <Box
+          className="status-ic"
+          position="absolute"
+          left={-56}
+          top={13}
+          width={32}
+          height={32}
+          borderRadius="100%"
+          bgcolor={
+            props.status === "playing" && props.status !== "locked"
+              ? "#FCE181"
+              : "#fff"
+          }
+          sx={{ display: props.status === "locked" ? "none" : "flex" }}
+          alignItems="center"
+          justifyContent="center"
+        >
+          {props.status === "locked" ? (
+            <Lock />
+          ) : (
+            <>
+              {props.status === "playing" ? (
+                <Arrow color="#026670" style={{ marginLeft: "3px" }} />
+              ) : (
+                <Check
+                  color={props.status === "completed" ? "#026670" : "#EDECE8"}
+                />
+              )}
+            </>
+          )}
+        </Box>
+        <Box component="span" textAlign="left">
+          <Typography
+            component="span"
+            display="block"
+            fontSize="16px"
+            fontWeight={600}
+            color="secondary"
+          >
+            {props.title}
+          </Typography>
+          <Typography
+            component="span"
+            fontSize="14px"
+            fontWeight={500}
+            lineHeight="18px"
+            color="#BFBEBB"
+          >
+            {props.description}
+          </Typography>
+        </Box>
+        <Typography
+          component="span"
+          fontSize="16px"
+          fontWeight={600}
+          color="primary"
+        >
+          {props.duration}
+        </Typography>
+      </Stack>
+    </Tooltip>
   );
 };
 

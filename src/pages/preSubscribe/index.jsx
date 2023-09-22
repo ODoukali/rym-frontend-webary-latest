@@ -27,6 +27,51 @@ import { ReactComponent as Star } from "../../images/star.svg";
 import { ReactComponent as Share } from "../../images/share.svg";
 import { ReactComponent as Info } from "../../images/info.svg";
 
+const lectureListPreSubscribed = [
+  {
+    id: 1,
+    title: "Lecture 1",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing",
+    duration: "3:45",
+    status: "locked",
+  },
+  {
+    id: 2,
+    title: "Lecture 2",
+    description: "Nemo enim ipsam voluptatem quia voluptas sit aspernatur",
+    duration: "7:16",
+    status: "locked",
+  },
+  {
+    id: 3,
+    title: "Lecture 3",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing",
+    duration: "3:45",
+    status: "locked",
+  },
+  {
+    id: 4,
+    title: "Lecture 4",
+    description: "Nemo enim ipsam voluptatem quia voluptas sit aspernatur",
+    duration: "7:16",
+    status: "locked",
+  },
+  {
+    id: 5,
+    title: "Lecture 5",
+    description: "Nemo enim ipsam voluptatem quia voluptas sit aspernatur",
+    duration: "7:16",
+    status: "locked",
+  },
+  {
+    id: 6,
+    title: "Lecture 6",
+    description: "Nemo enim ipsam voluptatem quia voluptas sit aspernatur",
+    duration: "7:16",
+    status: "locked",
+  },
+];
+
 const LinearProgressStyled = styled(LinearProgress)(({ theme }) => ({
   height: 4,
   borderRadius: 10,
@@ -365,7 +410,7 @@ const PreSubscribe = () => {
                   </Button>
                 </Box>
               </Box>
-              <Sidebar locked />
+              <Sidebar arr={lectureListPreSubscribed} />
             </Stack>
           </Container>
         </Box>

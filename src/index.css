@@ -411,7 +411,6 @@ media-fullscreen-button media-tooltip {
   border-radius: 20px;
   inset: 0;
   background-color: rgba(0, 0, 0, 0.5);
-  z-index: 28;
 }
 
 media-player[data-started].pip:hover .pip-overlay {

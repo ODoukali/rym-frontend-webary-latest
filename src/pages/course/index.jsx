@@ -9,6 +9,52 @@ import VideosSection from "../../components/VideosSection";
 import BlockBordered from "../../components/BlockBordered";
 import LinkWithIcon from "../../components/LinkWithIcon";
 
+const lectureListCourse = [
+  {
+    id: 1,
+    title: "Lecture 1",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing",
+    duration: "3:45",
+    status: "completed",
+  },
+  {
+    id: 2,
+    title: "Lecture 2",
+    description: "Nemo enim ipsam voluptatem quia voluptas sit aspernatur",
+    duration: "7:16",
+    status: "playing",
+  },
+  {
+    id: 3,
+    title: "Lecture 3",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing",
+    duration: "3:45",
+    status: "notCompleted",
+    isTooltip: true,
+  },
+  {
+    id: 4,
+    title: "Lecture 4",
+    description: "Nemo enim ipsam voluptatem quia voluptas sit aspernatur",
+    duration: "7:16",
+    status: "notCompleted",
+  },
+  {
+    id: 5,
+    title: "Lecture 5",
+    description: "Nemo enim ipsam voluptatem quia voluptas sit aspernatur",
+    duration: "7:16",
+    status: "notCompleted",
+  },
+  {
+    id: 6,
+    title: "Lecture 6",
+    description: "Nemo enim ipsam voluptatem quia voluptas sit aspernatur",
+    duration: "7:16",
+    status: "notCompleted",
+  },
+];
+
 const Course = () => {
   return (
     <>
@@ -58,7 +104,7 @@ const Course = () => {
               gap="6.5%"
             >
               <CourseTabs />
-              <Sidebar />
+              <Sidebar arr={lectureListCourse} />
             </Stack>
           </Container>
         </Box>
