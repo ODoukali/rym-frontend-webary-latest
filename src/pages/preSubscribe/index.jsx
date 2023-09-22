@@ -26,6 +26,7 @@ import { ReactComponent as Play } from "../../images/play.svg";
 import { ReactComponent as Star } from "../../images/star.svg";
 import { ReactComponent as Share } from "../../images/share.svg";
 import { ReactComponent as Info } from "../../images/info.svg";
+import { ReactComponent as Gift } from "../../images/gift.svg";
 
 const lectureListPreSubscribed = [
   {
@@ -176,11 +177,24 @@ const PreSubscribe = () => {
                     </Button>
                   </Box>
 
-                  <Stack
-                    flexDirection="row"
-                    position="relative"
-                    justifyContent="flex-end"
-                  >
+                  <Stack position="relative" alignItems="flex-end" gap="10px">
+                    <Tooltip
+                      title="Tooltip"
+                      placement="left"
+                      PopperProps={{ disablePortal: true }}
+                    >
+                      <Box
+                        sx={{
+                          "& + .MuiTooltip-popper .MuiTooltip-tooltip": {
+                            backgroundColor: "#fce181",
+                          },
+                        }}
+                      >
+                        <IconBtnCircular className="yellow-ic">
+                          <Gift />
+                        </IconBtnCircular>
+                      </Box>
+                    </Tooltip>
                     <Tooltip open={true} title="Share Now" placement="left">
                       <Box
                         sx={{
