@@ -90,6 +90,9 @@ const VideoPlayerDraggable = ({ resetPosition, x, y }) => {
     transform: CSS.Translate.toString(transform),
   };
 
+  const scrollTargetPosition =
+    playerWrapper?.current?.getBoundingClientRect().top + window.scrollY;
+
   function onProviderSetup(event) {
     const provider = event.detail;
     if (provider.video) {
@@ -202,7 +205,10 @@ const VideoPlayerDraggable = ({ resetPosition, x, y }) => {
               className="pip-back-btn"
               endIcon={<NewWindow width={20} height={20} />}
               onClick={() => {
-                window.scrollTo(0, 0);
+                window.scrollTo({
+                  top: scrollTargetPosition - 68,
+                  behavior: "smooth",
+                });
               }}
               sx={{
                 backgroundColor: "#000",
