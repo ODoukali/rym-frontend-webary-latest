@@ -35,6 +35,7 @@ import {
   DndContext,
   KeyboardSensor,
   MouseSensor,
+  PointerSensor,
   TouchSensor,
   useDraggable,
   useSensor,
@@ -582,8 +583,18 @@ const VideoPlayer = () => {
   const mouseSensor = useSensor(MouseSensor);
   const touchSensor = useSensor(TouchSensor);
   const keyboardSensor = useSensor(KeyboardSensor);
+  const pointerSensor = useSensor(PointerSensor, {
+    activationConstraint: {
+      distance: 1,
+    },
+  });
 
-  const sensors = useSensors(mouseSensor, touchSensor, keyboardSensor);
+  const sensors = useSensors(
+    mouseSensor,
+    touchSensor,
+    keyboardSensor,
+    pointerSensor
+  );
 
   return (
     <DndContext
