@@ -16,10 +16,10 @@ import {
   Checkbox,
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
+import ReactPhoneInput from "react-phone-input-material-ui";
 // import ReCAPTCHA from "react-google-recaptcha";
 import IconBtnCircular from "./IconBtnCircular";
 import Switcher from "./Switcher";
-import PhoneMask from "./PhoneMask";
 
 import { ReactComponent as Close } from "../images/close.svg";
 import { ReactComponent as Google } from "../images/google.svg";
@@ -261,15 +261,15 @@ const LoginModal = (props) => {
                   value={loginData.nickname}
                   onChange={(e) => inputChange("nickname", e.target.value)}
                 />
-                <TextFieldStyled
-                  name="phone"
-                  type="text"
-                  placeholder="Phone"
-                  InputProps={{
-                    inputComponent: PhoneMask,
+                <ReactPhoneInput
+                  inputProps={{
+                    name: "phone",
+                    label: "",
+                    placeholder: "Phone",
                   }}
                   value={loginData.phone}
-                  onChange={(e) => inputChange("phone", e.target.value)}
+                  onChange={(phone) => inputChange("phone", phone)}
+                  component={TextFieldStyled}
                 />
                 <TextFieldStyled
                   name="signupEmail"
