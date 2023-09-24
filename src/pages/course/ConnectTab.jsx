@@ -107,10 +107,9 @@ const ConnectTab = () => {
                   }}
                 >
                   <Typography
-                    fontFamily="PloniBlack"
+                    fontFamily="PloniBold"
                     fontSize="30px"
                     lineHeight="30px"
-                    fontWeight={900}
                     color="secondary"
                     ml="20px"
                     sx={{

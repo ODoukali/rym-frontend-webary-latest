@@ -114,9 +114,8 @@ const FAQ = () => {
             >
               <Typography
                 position="relative"
-                fontFamily="PloniBlack"
+                fontFamily="PloniBold"
                 fontSize="30px"
-                fontWeight={900}
                 color="secondary"
                 sx={{
                   isolation: "isolate",

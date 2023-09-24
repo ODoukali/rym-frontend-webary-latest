@@ -1,5 +1,6 @@
 import { Box, Button, Typography } from "@mui/material";
 import { styled } from "@mui/system";
+import { pxToRem } from "px2rem2px";
 import Guides from "../../components/Guides";
 import Header from "../../components/Header";
 
@@ -8,17 +9,16 @@ import BgImg from "../../images/home-hero-bg.png";
 const PageTitleHighlighted = styled(Typography)(() => {
   return {
     position: "relative",
-    fontFamily: "PloniBlack",
-    fontSize: "80px",
-    fontWeight: "900",
-    lineHeight: "75px",
+    fontFamily: "PloniBold",
+    fontSize: pxToRem(80),
+    lineHeight: pxToRem(75),
     "&::after": {
       content: "''",
       width: "104%",
-      height: "20px",
+      height: pxToRem(20),
       position: "absolute",
       left: "50%",
-      bottom: "-3px",
+      bottom: pxToRem(-3),
       transform: "translateX(-50%)",
       backgroundColor: "rgba(252,225,129,0.5)",
     },
@@ -51,11 +51,10 @@ const Hero = () => {
       >
         <Typography
           component="h1"
-          fontFamily="PloniBlack"
-          fontSize="80px"
-          fontWeight={900}
-          lineHeight="75px"
-          mb="30px"
+          fontFamily="PloniBold"
+          fontSize={pxToRem(80)}
+          lineHeight={pxToRem(75)}
+          mb={pxToRem(30)}
         >
           דא ווערן{" "}
           <PageTitleHighlighted component="span">

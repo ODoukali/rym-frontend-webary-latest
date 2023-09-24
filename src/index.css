@@ -28,13 +28,6 @@
   font-style: normal;
 }
 
-@font-face {
-  font-family: "PloniBlack";
-  src: url("./fonts/PloniBlack.woff") format("woff");
-  font-weight: 900;
-  font-style: normal;
-}
-
 .sticky {
   position: fixed;
   top: 0;

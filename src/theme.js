@@ -20,9 +20,8 @@ const theme = createTheme({
       lineHeight: "48px",
     },
     sectionTitleHebrew: {
-      fontFamily: "PloniBlack",
+      fontFamily: "PloniBold",
       fontSize: 54,
-      fontWeight: 900,
       lineHeight: "48px",
       "& .highlighted::after": {
         bottom: "-3px",
@@ -61,6 +60,7 @@ const theme = createTheme({
         body: {
           fontFamily: "Poppins, sans-serif",
           fontWeight: 400,
+          fontSize: "16px",
           backgroundColor: "#f7f6f2",
           color: "#333",
           letterSpacing: "-0.44px",
