@@ -88,7 +88,15 @@ const ListItem = (props) => {
       PopperProps={{ disablePortal: true }}
     >
       <Stack
-        className={`${props.status === "playing" ? "active" : ""}`}
+        className={`${
+          props.status === "playing"
+            ? "active"
+            : props.status === "completed"
+            ? "completed"
+            : props.isTooltip
+            ? "withTooltip"
+            : ""
+        }`}
         component="button"
         flexDirection="row"
         columnGap="10px"
@@ -104,11 +112,18 @@ const ListItem = (props) => {
           "&:hover .status-ic": {
             display: "flex",
           },
-          "&.active": {
+          "&.active, &.completed:hover": {
             borderColor: "#333",
+            cursor: "pointer",
             "& span": {
               color: "#333",
             },
+          },
+          "&.withTooltip:hover .checkmark-holder svg:first-child": {
+            display: "none",
+          },
+          "&.withTooltip:hover .checkmark-holder svg:last-child": {
+            display: "block !important",
           },
         }}
       >
@@ -136,9 +151,12 @@ const ListItem = (props) => {
               {props.status === "playing" ? (
                 <Arrow color="#026670" style={{ marginLeft: "3px" }} />
               ) : (
-                <Check
-                  color={props.status === "completed" ? "#026670" : "#EDECE8"}
-                />
+                <Box className="checkmark-holder">
+                  <Check
+                    color={props.status === "completed" ? "#026670" : "#EDECE8"}
+                  />
+                  <Lock style={{ display: "none" }} />
+                </Box>
               )}
             </>
           )}
