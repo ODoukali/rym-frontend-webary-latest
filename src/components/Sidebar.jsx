@@ -119,10 +119,10 @@ const ListItem = (props) => {
               color: "#333",
             },
           },
-          "&.withTooltip:hover .checkmark-holder svg:first-child": {
+          "&.withTooltip:hover .checkmark-holder svg:first-of-type": {
             display: "none",
           },
-          "&.withTooltip:hover .checkmark-holder svg:last-child": {
+          "&.withTooltip:hover .checkmark-holder svg:last-of-type": {
             display: "block !important",
           },
         }}

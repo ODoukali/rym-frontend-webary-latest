@@ -8,7 +8,7 @@ import BgImg from "../../images/home-hero-bg.png";
 const PageTitleHighlighted = styled(Typography)(() => {
   return {
     position: "relative",
-    fontFamily: "FbJoker",
+    fontFamily: "PloniBlack",
     fontSize: "80px",
     fontWeight: "900",
     lineHeight: "75px",
@@ -51,7 +51,7 @@ const Hero = () => {
       >
         <Typography
           component="h1"
-          fontFamily="FbJoker"
+          fontFamily="PloniBlack"
           fontSize="80px"
           fontWeight={900}
           lineHeight="75px"

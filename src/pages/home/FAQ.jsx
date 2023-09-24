@@ -73,7 +73,7 @@ const FAQ = () => {
             <Typography
               maxWidth="522px"
               variant="large"
-              fontFamily="FbJoker"
+              fontFamily="Noto Sans Hebrew"
               fontWeight={700}
             >
               האט איר א פראגע? די איז די פלאץ וואו איר קענט פרעגן אייער פראגע
@@ -114,7 +114,7 @@ const FAQ = () => {
             >
               <Typography
                 position="relative"
-                fontFamily="FbJoker"
+                fontFamily="PloniBlack"
                 fontSize="30px"
                 fontWeight={900}
                 color="secondary"
@@ -141,7 +141,7 @@ const FAQ = () => {
               <BlockBordered>
                 <Typography
                   variant="large"
-                  fontFamily="FbJoker"
+                  fontFamily="Noto Sans Hebrew"
                   fontWeight={700}
                   component="p"
                 >

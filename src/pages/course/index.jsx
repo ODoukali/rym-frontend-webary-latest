@@ -76,7 +76,7 @@ const Course = () => {
                 </Typography>
                 <BlockBordered>
                   <Typography
-                    fontFamily="FbJoker"
+                    fontFamily="PloniDBold"
                     fontSize="20px"
                     fontWeight="600"
                     color="#666564"

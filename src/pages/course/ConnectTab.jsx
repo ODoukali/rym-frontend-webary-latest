@@ -107,7 +107,7 @@ const ConnectTab = () => {
                   }}
                 >
                   <Typography
-                    fontFamily="FbJoker"
+                    fontFamily="PloniBlack"
                     fontSize="30px"
                     lineHeight="30px"
                     fontWeight={900}
@@ -136,7 +136,7 @@ const ConnectTab = () => {
                   <BlockBordered>
                     <Typography
                       variant="large"
-                      fontFamily="FbJoker"
+                      fontFamily="Noto Sans Hebrew"
                       fontWeight={700}
                       component="p"
                     >

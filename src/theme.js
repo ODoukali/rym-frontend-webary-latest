@@ -20,7 +20,7 @@ const theme = createTheme({
       lineHeight: "48px",
     },
     sectionTitleHebrew: {
-      fontFamily: "FbJoker",
+      fontFamily: "PloniBlack",
       fontSize: 54,
       fontWeight: 900,
       lineHeight: "48px",

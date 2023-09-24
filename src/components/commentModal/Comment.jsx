@@ -86,7 +86,13 @@ const Comment = () => {
             </TestimonialMenu>
           </Stack>
         </Stack>
-        <Typography fontSize="20px" fontWeight={600} color="#026670" mb="10px">
+        <Typography
+          fontFamily="PloniDBold"
+          fontSize="20px"
+          fontWeight={600}
+          color="#026670"
+          mb="10px"
+        >
           וויאזוי אויסצולעשן איר עקס רעי מאשין
         </Typography>
         <BlockBordered mb="20px">

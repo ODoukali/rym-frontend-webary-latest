@@ -1,29 +1,36 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Roboto+Mono:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Noto+Sans+Hebrew:wght@700&family=Roboto+Mono:wght@700&display=swap");
 
 @font-face {
-  font-family: "FbJoker";
-  src: url("./fonts/FbJoker-Regular.otf") format("opentype");
+  font-family: "PloniRegular";
+  src: url("./fonts/PloniRegular.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "FbJoker";
-  src: url("./fonts/FbJoker-Light.otf") format("opentype");
+  font-family: "PloniLight";
+  src: url("./fonts/PloniLight.woff") format("woff");
   font-weight: 300;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "FbJoker";
-  src: url("./fonts/FbJoker-Bold.otf") format("opentype");
+  font-family: "PloniDBold";
+  src: url("./fonts/PloniDBold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "PloniBold";
+  src: url("./fonts/PloniBold.woff") format("woff");
   font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "FbJoker";
-  src: url("./fonts/FbJoker-Black.otf") format("opentype");
+  font-family: "PloniBlack";
+  src: url("./fonts/PloniBlack.woff") format("woff");
   font-weight: 900;
   font-style: normal;
 }
