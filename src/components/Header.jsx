@@ -17,6 +17,8 @@ import NestedMenu from "./NestedMenu";
 import MenuDropdownLink from "./menuDropdown/MenuDropdownLink";
 import MenuDropdown from "./menuDropdown/MenuDropdown";
 import LoginModal from "./LoginModal";
+import Toast from "./Toast";
+import ToastCookie from "./ToastCookie";
 
 import { ReactComponent as Menu } from "../images/menu.svg";
 import { ReactComponent as Search } from "../images/search.svg";
@@ -32,10 +34,23 @@ const Header = (props) => {
   const { showModal } = useModal();
   const [isOpen, setIsOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
+  const [toast1, setToast1] = useState(false);
+  const [toast2, setToast2] = useState(false);
+  const [toast3, setToast3] = useState(false);
   const header = useRef(null);
 
   const theme = useTheme();
   const tablet = useMediaQuery(theme.breakpoints.down("md"));
+
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setToast1(false);
+    setToast2(false);
+    setToast3(false);
+  };
 
   const toggleDrawer = (open) => (event) => {
     if (
@@ -101,10 +116,8 @@ const Header = (props) => {
         <LinkBtn to="/" title="Main" />
         <Hr />
         <NestedMenu title="Philosophy">
-          <MenuDropdownLink to="/course">Submenu link 01</MenuDropdownLink>
-          <MenuDropdownLink to="/pre-subscribe">
-            Another link 02
-          </MenuDropdownLink>
+          <MenuDropdownLink to="/course">Course</MenuDropdownLink>
+          <MenuDropdownLink to="/pre-subscribe">Presubscribed</MenuDropdownLink>
           <MenuDropdownLink to="/">Submenu link 03</MenuDropdownLink>
           <MenuDropdownLink to="/">Another link 04</MenuDropdownLink>
         </NestedMenu>
@@ -149,75 +162,101 @@ const Header = (props) => {
   );
 
   return (
-    <Box
-      ref={header}
-      className={isSticky ? "sticky" : ""}
-      width="100%"
-      zIndex={100}
-    >
-      <Stack
-        maxWidth="1380px"
-        flexDirection="row"
-        alignItems="center"
-        justifyContent="space-between"
-        padding="10px 30px"
-        m="auto"
+    <>
+      <Box
+        ref={header}
+        className={isSticky ? "sticky" : ""}
+        width="100%"
+        zIndex={100}
       >
-        <Stack flexDirection="row" alignItems="center" columnGap="15px">
-          {!props.menuVisible || tablet ? (
-            <IconBtnCircular onClick={toggleDrawer(true)}>
-              <Menu />
-            </IconBtnCircular>
-          ) : null}
-          <IconBtnCircular>
-            <Search />
-          </IconBtnCircular>
-          {props.menuVisible && !tablet ? (
-            <Stack
-              flexDirection="row"
-              alignItems="center"
-              columnGap="56px"
-              ml="25px"
-            >
-              <LinkBtn to="/" title="Main" />
-              <MenuDropdown title="Philosophy">
-                <MenuDropdownLink to="/course">
-                  Submenu link 01
-                </MenuDropdownLink>
-                <MenuDropdownLink to="/">Another link 02</MenuDropdownLink>
-                <MenuDropdownLink to="/">Submenu link 03</MenuDropdownLink>
-                <MenuDropdownLink to="/">Another link 04</MenuDropdownLink>
-              </MenuDropdown>
-              <LinkBtn to="/blog" title="Blog" />
-              <LinkBtn to="/parsha" title="Parsha" />
-              <LinkBtn to="/qa" title="Q&A" />
-              <LinkBtn to="/contact" title="Contact" />
-            </Stack>
-          ) : null}
-        </Stack>
-        <Link to="/" style={{ display: "flex" }}>
-          <Logo color="#333" />
-        </Link>
-        <Drawer
-          anchor="left"
-          open={isOpen}
-          onClose={toggleDrawer(false)}
-          sx={{
-            zIndex: 1500,
-            "& .MuiPaper-root": {
-              maxWidth: "470px",
-              width: "100%",
-              bgcolor: "#F7F6F2",
-              borderRadius: "0 40px 40px 0",
-              overflowY: "initial",
-              overflow: "hidden",
-            },
-          }}
+        <Stack
+          maxWidth="1380px"
+          flexDirection="row"
+          alignItems="center"
+          justifyContent="space-between"
+          padding="10px 30px"
+          m="auto"
         >
-          <MenuInner />
-        </Drawer>
-      </Stack>
-    </Box>
+          <Stack flexDirection="row" alignItems="center" columnGap="15px">
+            {!props.menuVisible || tablet ? (
+              <IconBtnCircular onClick={toggleDrawer(true)}>
+                <Menu />
+              </IconBtnCircular>
+            ) : null}
+            <IconBtnCircular>
+              <Search />
+            </IconBtnCircular>
+            {props.menuVisible && !tablet ? (
+              <Stack
+                flexDirection="row"
+                alignItems="center"
+                columnGap="56px"
+                ml="25px"
+              >
+                <LinkBtn to="/" title="Main" />
+                <MenuDropdown title="Philosophy">
+                  <MenuDropdownLink to="/course">Course</MenuDropdownLink>
+                  <MenuDropdownLink to="/pre-subscribe">
+                    Presubscribed
+                  </MenuDropdownLink>
+                  <MenuDropdownLink onClick={() => setToast1(true)}>
+                    Toast1
+                  </MenuDropdownLink>
+                  <MenuDropdownLink onClick={() => setToast2(true)}>
+                    Toast2
+                  </MenuDropdownLink>
+                  <MenuDropdownLink onClick={() => setToast3(true)}>
+                    Cookie Policy
+                  </MenuDropdownLink>
+                </MenuDropdown>
+                <LinkBtn to="/blog" title="Blog" />
+                <LinkBtn to="/parsha" title="Parsha" />
+                <LinkBtn to="/qa" title="Q&A" />
+                <LinkBtn to="/contact" title="Contact" />
+              </Stack>
+            ) : null}
+          </Stack>
+          <Link to="/" style={{ display: "flex" }}>
+            <Logo color="#333" />
+          </Link>
+          <Drawer
+            anchor="left"
+            open={isOpen}
+            onClose={toggleDrawer(false)}
+            sx={{
+              zIndex: 1500,
+              "& .MuiPaper-root": {
+                maxWidth: "470px",
+                width: "100%",
+                bgcolor: "#F7F6F2",
+                borderRadius: "0 40px 40px 0",
+                overflowY: "initial",
+                overflow: "hidden",
+              },
+            }}
+          >
+            <MenuInner />
+          </Drawer>
+        </Stack>
+      </Box>
+      <Toast
+        open={toast1}
+        onClose={handleClose}
+        message="Toast notification text here"
+        button
+      />
+      <Toast
+        open={toast2}
+        onClose={handleClose}
+        message="Toast notification text here"
+      />
+      <ToastCookie
+        open={toast3}
+        onClose={handleClose}
+        message="Nemo enim ipsam voluptatem
+        quia voluptas sit aspernatur."
+      />
+    </>
   );
 };
 

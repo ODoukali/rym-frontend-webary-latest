@@ -4,6 +4,7 @@ import { Link as MuiLink } from "@mui/material";
 const MenuDropdownLink = (props) => {
   return (
     <MuiLink
+      {...props}
       to={props.to}
       underline="none"
       component={Link}
