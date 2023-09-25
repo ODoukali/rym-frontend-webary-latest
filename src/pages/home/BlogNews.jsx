@@ -7,6 +7,7 @@ import {
   Typography,
 } from "@mui/material";
 import { SwiperSlide } from "swiper/react";
+import { pxToRem } from "px2rem2px";
 import Slider from "../../components/Slider";
 import TextLink from "../../components/TextLink";
 import Slide from "../../components/Slide";
@@ -18,13 +19,13 @@ import Guides from "../../components/Guides";
 
 const BlogNews = () => {
   return (
-    <Box mb="150px">
+    <Box mb={pxToRem(150)}>
       <Container>
         <Stack
           flexDirection="row"
           alignItems="center"
           justifyContent="space-between"
-          mb="40px"
+          mb={pxToRem(40)}
         >
           <Typography variant="sectionTitle" component="h2">
             Our <span className="highlighted">blog</span> &{" "}
@@ -37,8 +38,14 @@ const BlogNews = () => {
         slidesPerView={3}
         arrows
         style={{
-          padding: "40px 20px 50px",
-          margin: "0 -20px",
+          paddingTop: pxToRem(40),
+          paddingBottom: pxToRem(50),
+          paddingLeft: pxToRem(20),
+          paddingRight: pxToRem(20),
+          marginTop: 0,
+          marginBottom: 0,
+          marginLeft: pxToRem(-20),
+          marginRight: pxToRem(-20),
         }}
       >
         <SwiperSlide>
@@ -77,39 +84,40 @@ const BlogNews = () => {
       <Container sx={{ position: "relative" }}>
         <Box
           bgcolor="#026670"
-          borderRadius="30px"
+          borderRadius={pxToRem(30)}
           textAlign="center"
-          p="60px 30px"
-          mt="40px"
+          py={pxToRem(60)}
+          px={pxToRem(30)}
+          mt={pxToRem(40)}
         >
           <Box position="relative" zIndex={1}>
             <Typography
               component="h3"
-              fontSize="22px"
+              fontSize={pxToRem(22)}
               fontWeight={700}
               color="#fff"
-              mb="20px"
+              mb={pxToRem(20)}
             >
               Subscribe to our newsletter:
             </Typography>
-            <Box maxWidth="380px" m="auto">
+            <Box maxWidth={pxToRem(380)} m="auto">
               <form>
                 <OutlinedInput
                   fullWidth
                   placeholder="Your Email Address"
                   sx={{
-                    height: "54px",
+                    height: pxToRem(54),
                     border: "2px solid #BFBEBB",
-                    borderRadius: "32px",
+                    borderRadius: pxToRem(32),
                     outline: 0,
                     backgroundColor: "#167078",
-                    mb: "20px",
+                    mb: pxToRem(20),
                     "& input": {
                       textAlign: "center",
                       color: "#fff",
                       outline: 0,
                       "&::placeholder": {
-                        fontSize: "16px",
+                        fontSize: pxToRem(16),
                         color: "#BFBEBB",
                         fontWeight: 500,
                         opacity: 1,
@@ -120,7 +128,7 @@ const BlogNews = () => {
                 <Button
                   type="submit"
                   variant="yellow"
-                  sx={{ height: "54px", position: "relative", zIndex: 1 }}
+                  sx={{ height: pxToRem(54), position: "relative", zIndex: 1 }}
                 >
                   Subscribe
                 </Button>

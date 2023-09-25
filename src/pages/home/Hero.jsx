@@ -34,19 +34,21 @@ const Hero = () => {
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
         backgroundPosition: "center",
-        borderRadius: "40px",
+        borderRadius: pxToRem(40),
       }}
-      pt="30px"
-      pb={5}
-      minHeight="830px"
+      pt={pxToRem(30)}
+      pb={pxToRem(40)}
+      minHeight={pxToRem(830)}
     >
       <Header menuVisible />
 
       <Box
         className="rtl-section header-padding"
         position="relative"
-        maxWidth="873px"
-        margin="102px auto 120px"
+        maxWidth={pxToRem(873)}
+        mt={pxToRem(102)}
+        mb={pxToRem(120)}
+        mx="auto"
         zIndex={1}
       >
         <Typography
@@ -68,7 +70,7 @@ const Hero = () => {
           <PageTitleHighlighted component="span">יעדן מצב</PageTitleHighlighted>{" "}
           פון א מענטשנס לעבן…
         </Typography>
-        <Typography fontSize="18px" fontWeight={500} mb="50px">
+        <Typography fontSize={pxToRem(18)} fontWeight={500} mb={pxToRem(50)}>
           Lorem ipsum dolor amet, consectetur adipiscing elit tempor.
         </Typography>
         <Button variant="white">Our Philosophy</Button>

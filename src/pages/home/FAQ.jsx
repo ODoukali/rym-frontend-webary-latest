@@ -9,6 +9,7 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
+import { pxToRem } from "px2rem2px";
 import BlockBordered from "../../components/BlockBordered";
 import TextLink from "../../components/TextLink";
 
@@ -56,22 +57,26 @@ const FAQ = () => {
   };
 
   return (
-    <Container sx={{ mb: "150px" }}>
+    <Container sx={{ mb: pxToRem(150) }}>
       <Stack
         flexDirection="row"
         alignItems="flex-start"
         justifyContent="space-between"
       >
-        <TextLink href="" sx={{ marginTop: "14px" }}>
+        <TextLink href="" sx={{ marginTop: pxToRem(14) }}>
           Explore all Q&A
         </TextLink>
-        <Box maxWidth="553px" className="rtl-section">
-          <Typography variant="sectionTitleHebrew" component="h2" mb="30px">
+        <Box maxWidth={pxToRem(553)} className="rtl-section">
+          <Typography
+            variant="sectionTitleHebrew"
+            component="h2"
+            mb={pxToRem(30)}
+          >
             פראגעס און <span className="highlighted">ענטפערס</span>
           </Typography>
-          <BlockBordered mb="50px">
+          <BlockBordered mb={pxToRem(50)}>
             <Typography
-              maxWidth="522px"
+              maxWidth={pxToRem(522)}
               variant="large"
               fontFamily="Noto Sans Hebrew"
               fontWeight={700}
@@ -89,9 +94,9 @@ const FAQ = () => {
       </Stack>
       <Box
         position="relative"
-        maxWidth="960px"
+        maxWidth={pxToRem(960)}
         mr="auto"
-        mt="-32px"
+        mt={pxToRem(-32)}
         className="rtl-section"
       >
         {faqArr.map((a) => (
@@ -100,12 +105,11 @@ const FAQ = () => {
             expanded={expanded === `panel${a.id}`}
             onChange={handleChange(`panel${a.id}`)}
             sx={{
-              "& .MuiAccordionSummary-root": {
-                padding: "0 60px",
-              },
-              "& .MuiAccordionSummary-root.Mui-expanded": {
-                padding: "0 60px",
-              },
+              "& .MuiAccordionSummary-root, & .MuiAccordionSummary-root.Mui-expanded":
+                {
+                  py: 0,
+                  px: pxToRem(60),
+                },
             }}
           >
             <AccordionSummary
@@ -115,7 +119,7 @@ const FAQ = () => {
               <Typography
                 position="relative"
                 fontFamily="PloniBold"
-                fontSize="30px"
+                fontSize={pxToRem(30)}
                 color="secondary"
                 sx={{
                   isolation: "isolate",
@@ -123,10 +127,10 @@ const FAQ = () => {
                     content: "'Q'",
                     fontFamily: "Poppins",
                     position: "absolute",
-                    fontSize: "80px",
+                    fontSize: pxToRem(80),
                     fontWeight: "700",
                     color: "#F7F6F2",
-                    right: "-27px",
+                    right: pxToRem(-27),
                     top: "50%",
                     transform: "translateY(-50%)",
                     zIndex: -1,
@@ -136,7 +140,9 @@ const FAQ = () => {
                 {a.question}
               </Typography>
             </AccordionSummary>
-            <AccordionDetails sx={{ padding: "0 60px 38px !important" }}>
+            <AccordionDetails
+              sx={{ padding: `0 ${pxToRem(60)} ${pxToRem(38)} !important` }}
+            >
               <BlockBordered>
                 <Typography
                   variant="large"

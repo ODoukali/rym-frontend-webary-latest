@@ -1,17 +1,18 @@
 import { Box, Button, Container, Stack, Typography } from "@mui/material";
+import { pxToRem } from "px2rem2px";
 import BlockBordered from "../../components/BlockBordered";
 
 import PhilosophyImg from "../../images/philosophy-img.png";
 
 const Philosophy = () => {
   return (
-    <Container sx={{ mb: "190px" }}>
+    <Container sx={{ mb: pxToRem(190) }}>
       <Stack flexDirection="row" alignItems="center" gap="80px">
         <Box
           position="relative"
-          maxWidth="500px"
+          maxWidth={pxToRem(500)}
           display="flex"
-          borderRadius="20px"
+          borderRadius={pxToRem(20)}
           boxShadow="30px 30px 50px rgba(0,0,0,0.2)"
           flexShrink={0}
           sx={{

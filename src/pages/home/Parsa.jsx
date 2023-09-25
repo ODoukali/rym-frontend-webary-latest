@@ -1,5 +1,6 @@
 import { Box, Container, Stack, Typography } from "@mui/material";
 import { SwiperSlide } from "swiper/react";
+import { pxToRem } from "px2rem2px";
 import Slider from "../../components/Slider";
 import TextLink from "../../components/TextLink";
 import Slide from "../../components/Slide";
@@ -8,13 +9,13 @@ import Parsa1 from "../../images/parsa1.jpg";
 import Parsa2 from "../../images/parsa2.jpg";
 const Parsa = () => {
   return (
-    <Box mb="100px">
+    <Box mb={pxToRem(100)}>
       <Container>
         <Stack
           flexDirection="row"
           alignItems="center"
           justifyContent="space-between"
-          mb="40px"
+          mb={pxToRem(40)}
         >
           <Typography variant="sectionTitle" component="h2">
             Reb Yakov Moshe <span className="highlighted">Parsa</span>
@@ -26,8 +27,8 @@ const Parsa = () => {
         slidesPerView={2}
         arrows
         style={{
-          padding: "40px 20px 50px",
-          margin: "0 -20px",
+          padding: `${pxToRem(40)} ${pxToRem(20)} ${pxToRem(50)}`,
+          margin: `0 ${pxToRem(-20)}`,
         }}
       >
         <SwiperSlide>

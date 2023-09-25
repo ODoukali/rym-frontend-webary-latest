@@ -1,4 +1,5 @@
 import { Box, Container, Typography } from "@mui/material";
+import { pxToRem } from "px2rem2px";
 import TextLink from "../../components/TextLink";
 import Slide from "../../components/Slide";
 
@@ -40,16 +41,17 @@ const sliderVideos = [
 
 const Courses = () => {
   return (
-    <Container sx={{ mb: "150px" }}>
-      <Typography variant="sectionTitle" component="h2" mb="40px">
+    <Container sx={{ mb: pxToRem(150) }}>
+      <Typography variant="sectionTitle" component="h2" mb={pxToRem(40)}>
         Free <span className="highlighted">courses</span>
       </Typography>
       <Box
         sx={{
           display: "grid",
           gridTemplateColumns: "1fr 1fr",
-          gap: "40px 20px",
-          mb: "50px",
+          rowGap: pxToRem(40),
+          columnGap: pxToRem(20),
+          mb: pxToRem(50),
         }}
       >
         {sliderVideos.map((v) => (
