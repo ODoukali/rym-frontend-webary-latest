@@ -1,5 +1,6 @@
 import { Button, Typography } from "@mui/material";
 import { NavLink } from "react-router-dom";
+import { pxToRem } from "px2rem2px";
 import IconBtnCircular from "./IconBtnCircular";
 
 import { ReactComponent as Chevron } from "../images/chevron.svg";
@@ -21,9 +22,9 @@ const LinkWithIcon = (props) => {
         },
         "& .MuiButton-endIcon": {
           marginInlineEnd: "0px",
-          marginInlineStart: "15px",
+          marginInlineStart: pxToRem(15),
           svg: {
-            marginRight: "3px",
+            marginRight: pxToRem(3),
             transform: "rotate(180deg)",
           },
         },

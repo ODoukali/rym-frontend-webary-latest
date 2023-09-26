@@ -9,6 +9,7 @@ import {
   linearProgressClasses,
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
+import { pxToRem } from "px2rem2px";
 import { Link } from "react-router-dom";
 import Guides from "../../components/Guides";
 import Header from "../../components/Header";
@@ -74,15 +75,15 @@ const lectureListPreSubscribed = [
 ];
 
 const LinearProgressStyled = styled(LinearProgress)(({ theme }) => ({
-  height: 4,
-  borderRadius: 10,
-  marginLeft: 20,
-  marginRight: 20,
+  height: pxToRem(4),
+  borderRadius: pxToRem(10),
+  marginLeft: pxToRem(20),
+  marginRight: pxToRem(20),
   [`&.${linearProgressClasses.colorPrimary}`]: {
     backgroundColor: "rgba(191,190,187,0.5)",
   },
   [`& .${linearProgressClasses.bar}`]: {
-    borderRadius: 10,
+    borderRadius: pxToRem(10),
     backgroundColor: "#026670",
   },
 }));
@@ -91,9 +92,9 @@ const PreSubscribe = () => {
   return (
     <>
       <Box position="relative" zIndex={2}>
-        <Guides color="rgba(0,0,0,0.02)" zIndex={-1} pb="30px" />
+        <Guides color="rgba(0,0,0,0.02)" zIndex={-1} pb={pxToRem(30)} />
         <Header />
-        <Box className="header-padding" mt="40px">
+        <Box className="header-padding" mt={pxToRem(40)}>
           <Container>
             <Box
               position="relative"
@@ -102,12 +103,12 @@ const PreSubscribe = () => {
                 "&::before": {
                   content: "''",
                   position: "absolute",
-                  bottom: "-40px",
-                  left: "-40px",
+                  bottom: pxToRem(-40),
+                  left: pxToRem(-40),
                   width: "46.6%",
                   height: "59.7%",
                   bgcolor: "#FCE181",
-                  borderRadius: "20px",
+                  borderRadius: pxToRem(20),
                   zIndex: -1,
                 },
               }}
@@ -116,7 +117,7 @@ const PreSubscribe = () => {
                 position="absolute"
                 height="100%"
                 width="100%"
-                borderRadius="20px"
+                borderRadius={pxToRem(20)}
                 sx={{
                   background:
                     "linear-gradient(to right, rgba(255,255,255,0) 30%,rgba(255,255,255,1) 65%,rgba(255,255,255,1) 100%)",
@@ -128,19 +129,22 @@ const PreSubscribe = () => {
                   justifyContent="space-between"
                   height="100%"
                   textAlign="right"
-                  p="67px 60px 60px"
+                  p={`${pxToRem(67)} ${pxToRem(60)} ${pxToRem(60)}`}
                 >
-                  <Box mb="50px">
-                    <Box className="rtl-section" mb="29px">
-                      <Typography variant="sectionTitleHebrew" fontSize="40px">
+                  <Box mb={pxToRem(50)}>
+                    <Box className="rtl-section" mb={pxToRem(29)}>
+                      <Typography
+                        variant="sectionTitleHebrew"
+                        fontSize={pxToRem(40)}
+                      >
                         צופרידנהייט אין שטוב
                       </Typography>
                     </Box>
                     <Typography
                       component="p"
-                      fontSize="14px"
+                      fontSize={pxToRem(14)}
                       fontWeight={600}
-                      mb="10px"
+                      mb={pxToRem(10)}
                     >
                       5h 54m • Posted Jul 5, 2022
                     </Typography>
@@ -148,10 +152,10 @@ const PreSubscribe = () => {
                       flexDirection="row"
                       alignItems="center"
                       justifyContent="flex-end"
-                      gap="10px"
-                      mb="50px"
+                      gap={pxToRem(10)}
+                      mb={pxToRem(50)}
                     >
-                      <Typography fontWeight={700} mt="2px">
+                      <Typography fontWeight={700} mt={pxToRem(2)}>
                         4.8
                       </Typography>
                       <Rating defaultValue={4} readOnly />
@@ -162,22 +166,28 @@ const PreSubscribe = () => {
                     <Button
                       variant="green"
                       sx={{
-                        height: "54px",
-                        borderWidth: "2px",
-                        pl: "40px",
-                        pr: "40px",
+                        height: pxToRem(54),
+                        borderWidth: pxToRem(2),
+                        pl: pxToRem(40),
+                        pr: pxToRem(40),
                       }}
                     >
                       <Typography component="span" fontWeight={600}>
                         Subscribe:{" "}
-                        <span style={{ fontWeight: 700, marginLeft: "5px" }}>
+                        <span
+                          style={{ fontWeight: 700, marginLeft: pxToRem(5) }}
+                        >
                           $350
                         </span>
                       </Typography>
                     </Button>
                   </Box>
 
-                  <Stack position="relative" alignItems="flex-end" gap="10px">
+                  <Stack
+                    position="relative"
+                    alignItems="flex-end"
+                    gap={pxToRem(10)}
+                  >
                     <Tooltip
                       title="Tooltip"
                       placement="left"
@@ -206,7 +216,7 @@ const PreSubscribe = () => {
                         <IconBtnCircular className="hover-green active">
                           <Share
                             color="#026670"
-                            style={{ marginRight: "1.5px" }}
+                            style={{ marginRight: pxToRem(1.5) }}
                           />
                         </IconBtnCircular>
                       </Box>
@@ -220,18 +230,24 @@ const PreSubscribe = () => {
                 left="27.2%"
                 sx={{
                   transform: "translateY(-50%)",
-                  "& .MuiStack-root": { margin: "0 auto 10px" },
+                  "& .MuiStack-root": { margin: `0 auto ${pxToRem(10)}` },
                 }}
               >
-                <PlayBtn width="96px" height="96px">
+                <PlayBtn width={pxToRem(96)} height={pxToRem(96)}>
                   <Play
                     color="#026670"
-                    width={20}
-                    height={24}
+                    width={pxToRem(20)}
+                    height={pxToRem(24)}
                     style={{ marginLeft: "6%" }}
                   />
                 </PlayBtn>
-                <Button variant="yellow" sx={{ height: "32px", p: "5px 40px" }}>
+                <Button
+                  variant="yellow"
+                  sx={{
+                    height: pxToRem(32),
+                    p: `${pxToRem(5)} ${pxToRem(40)}`,
+                  }}
+                >
                   Preview
                 </Button>
               </Box>
@@ -239,23 +255,28 @@ const PreSubscribe = () => {
                 display="flex"
                 position="absolute"
                 bgcolor="#fff"
-                borderRadius="20px"
+                borderRadius={pxToRem(20)}
                 zIndex={-1}
               >
                 <img
                   src={PresentationImg}
                   alt=""
-                  style={{ borderRadius: "20px" }}
+                  style={{ borderRadius: pxToRem(20) }}
                 />
               </Box>
             </Box>
           </Container>
         </Box>
       </Box>
-      <Box position="relative" pt="173px" mt="-30px">
+      <Box position="relative" pt={pxToRem(173)} mt={pxToRem(-30)}>
         <Guides color="rgba(0,0,0,0.06)" zIndex={-1} />
 
-        <Box position="relative" pt="190px" mt="-190px" mb="150px">
+        <Box
+          position="relative"
+          pt={pxToRem(190)}
+          mt={pxToRem(-190)}
+          mb={pxToRem(150)}
+        >
           <Container>
             <Stack
               flexDirection="row"
@@ -281,8 +302,8 @@ const PreSubscribe = () => {
                     <Typography
                       component="p"
                       variant="medium"
-                      lineHeight="28px"
-                      mb="15px"
+                      lineHeight={pxToRem(28)}
+                      mb={pxToRem(15)}
                     >
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                       sed do eiusmod tempor incididunt ut labore et dolore magna
@@ -290,7 +311,10 @@ const PreSubscribe = () => {
                       ullamco laboris nisi ut aliquip ex ea commodo consequat.
                       Duis aute irure dolor in.
                     </Typography>
-                    <TextLink href="" sx={{ "& span": { fontSize: "14px" } }}>
+                    <TextLink
+                      href=""
+                      sx={{ "& span": { fontSize: pxToRem(14) } }}
+                    >
                       Read More
                     </TextLink>
                   </BlockBordered>
@@ -309,17 +333,17 @@ const PreSubscribe = () => {
                   </BlockBordered>
                 </InfoBlock>
 
-                <Box mt="80px">
+                <Box mt={pxToRem(80)}>
                   <Stack
                     flexDirection="row"
                     alignItems="center"
                     justifyContent="space-between"
-                    gap="15px"
-                    mb="15px"
+                    gap={pxToRem(15)}
+                    mb={pxToRem(15)}
                   >
                     <Typography
-                      fontSize="20px"
-                      lineHeight="30px"
+                      fontSize={pxToRem(20)}
+                      lineHeight={pxToRem(30)}
                       fontWeight={700}
                     >
                       Reviews & Ratings
@@ -332,7 +356,7 @@ const PreSubscribe = () => {
                       placement="top"
                       sx={{
                         "& + .MuiTooltip-popper .MuiTooltip-tooltip": {
-                          py: "4px",
+                          py: pxToRem(4),
                         },
                       }}
                     >
@@ -340,7 +364,7 @@ const PreSubscribe = () => {
                         <Button
                           startIcon={<Info />}
                           sx={{
-                            fontSize: "12px",
+                            fontSize: pxToRem(12),
                             fontWeight: 600,
                             color: "#BFBEBB",
                           }}
@@ -350,8 +374,12 @@ const PreSubscribe = () => {
                       </Box>
                     </Tooltip>
                   </Stack>
-                  <Stack flexDirection="row" alignItems="center" gap="10px">
-                    <Typography fontWeight={700} mt="2px">
+                  <Stack
+                    flexDirection="row"
+                    alignItems="center"
+                    gap={pxToRem(10)}
+                  >
+                    <Typography fontWeight={700} mt={pxToRem(2)}>
                       4.8
                     </Typography>
                     <Rating defaultValue={4} readOnly />
@@ -361,27 +389,27 @@ const PreSubscribe = () => {
                   </Stack>
 
                   <Box
-                    mt="40px"
+                    mt={pxToRem(40)}
                     sx={{
                       display: "grid",
                       gridTemplateColumns: "1fr 1fr",
-                      gap: "20px",
+                      gap: pxToRem(20),
                     }}
                   >
                     <Stack
                       flexDirection="column-reverse"
                       justifyContent="space-between"
                       bgcolor="#EDECE8"
-                      borderRadius="20px"
-                      p="40px 20px"
+                      borderRadius={pxToRem(20)}
+                      p={`${pxToRem(40)} ${pxToRem(20)}`}
                     >
                       {[...Array(5).keys()].map((val) => (
                         <Stack
                           key={val}
                           flexDirection="row"
                           alignItems="center"
-                          borderRadius="30px"
-                          p="11px 20px"
+                          borderRadius={pxToRem(30)}
+                          p={`${pxToRem(11)} ${pxToRem(20)}`}
                           sx={{
                             "&:hover": { backgroundColor: "#F7F6F2" },
                             cursor: "pointer",
@@ -389,9 +417,9 @@ const PreSubscribe = () => {
                         >
                           <Typography
                             fontWeight={700}
-                            lineHeight="18px"
-                            mr="10px"
-                            mt="1px"
+                            lineHeight={pxToRem(18)}
+                            mr={pxToRem(10)}
+                            mt={pxToRem(1)}
                           >
                             {val + 1}
                           </Typography>
@@ -402,7 +430,7 @@ const PreSubscribe = () => {
                               value={60}
                             />
                           </Box>{" "}
-                          <Typography fontWeight={700} lineHeight="18px">
+                          <Typography fontWeight={700} lineHeight={pxToRem(18)}>
                             164
                           </Typography>
                         </Stack>
@@ -418,7 +446,7 @@ const PreSubscribe = () => {
                     to="/"
                     component={Link}
                     variant="yellow"
-                    sx={{ height: "54px", mt: "40px" }}
+                    sx={{ height: pxToRem(54), mt: pxToRem(40) }}
                   >
                     See all Reviews
                   </Button>
@@ -439,15 +467,20 @@ const InfoBlock = (props) => {
     <Box
       sx={{
         backgroundColor: "#fff",
-        borderRadius: "20px",
-        p: "36px 40px 30px",
-        mb: "20px",
+        borderRadius: pxToRem(20),
+        p: `${pxToRem(36)} ${pxToRem(40)} ${pxToRem(30)}`,
+        mb: pxToRem(20),
       }}
     >
-      <Typography fontSize="20px" lineHeight="30px" fontWeight={700} mb="30px">
+      <Typography
+        fontSize={pxToRem(20)}
+        lineHeight={pxToRem(30)}
+        fontWeight={700}
+        mb={pxToRem(30)}
+      >
         {props.title}
       </Typography>
-      <Box borderTop="1px solid rgba(191,190,187,0.5)" pt="30px">
+      <Box borderTop="1px solid rgba(191,190,187,0.5)" pt={pxToRem(30)}>
         {props.children}
       </Box>
     </Box>

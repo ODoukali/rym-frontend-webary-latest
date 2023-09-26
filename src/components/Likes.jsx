@@ -1,5 +1,6 @@
 import { IconButton, Stack, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
+import { pxToRem } from "px2rem2px";
 
 import { ReactComponent as Like } from "../images/like.svg";
 
@@ -17,12 +18,12 @@ const IconButtonStyled = styled(IconButton)(() => {
 
 const Likes = (props) => {
   return (
-    <Stack flexDirection="row" alignItems="flex-end" columnGap="10px">
-      <Typography fontSize="14px" fontWeight={600} color="#BFBEBB">
+    <Stack flexDirection="row" alignItems="flex-end" columnGap={pxToRem(10)}>
+      <Typography fontSize={pxToRem(14)} fontWeight={600} color="#BFBEBB">
         {props.number}
       </Typography>
-      <Stack flexDirection="row" alignItems="center" columnGap="7px">
-        <IconButtonStyled sx={{ marginBottom: "4px" }}>
+      <Stack flexDirection="row" alignItems="center" columnGap={pxToRem(7)}>
+        <IconButtonStyled sx={{ marginBottom: pxToRem(4) }}>
           <Like color="#BFBEBB" />
         </IconButtonStyled>
       </Stack>

@@ -1,17 +1,18 @@
 import { Box, Button, Stack, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
+import { pxToRem } from "px2rem2px";
 import BlockBordered from "../../components/BlockBordered";
 import TextLink from "../../components/TextLink";
 
 const TypographyStyled = styled(Typography)({
-  fontSize: 18,
+  fontSize: pxToRem(18),
   fontWeight: 600,
-  lineHeight: "30px",
+  lineHeight: pxToRem(30),
   "& span": {
     display: "inline-block",
-    width: "152px",
+    width: pxToRem(152),
     color: "#BFBEBB",
-    marginRight: "20px",
+    marginRight: pxToRem(20),
   },
 });
 
@@ -22,13 +23,20 @@ const SubscriptionTab = () => {
         flexDirection="row"
         alignItems="center"
         justifyContent="space-between"
-        gap="15px"
-        mb="17px"
+        gap={pxToRem(15)}
+        mb={pxToRem(17)}
       >
-        <Typography variant="sectionTitle" component="h2" fontSize="35px">
+        <Typography
+          variant="sectionTitle"
+          component="h2"
+          fontSize={pxToRem(35)}
+        >
           Subscription
         </Typography>
-        <Button variant="yellow" sx={{ height: "54px", maxWidth: "300px" }}>
+        <Button
+          variant="yellow"
+          sx={{ height: pxToRem(54), maxWidth: pxToRem(300) }}
+        >
           Add Associate for $25.49
         </Button>
       </Stack>
@@ -36,7 +44,7 @@ const SubscriptionTab = () => {
         flexDirection="row"
         alignItems="flex-start"
         justifyContent="space-between"
-        gap="25px"
+        gap={pxToRem(25)}
       >
         <Box>
           <BlockBordered>
@@ -50,17 +58,22 @@ const SubscriptionTab = () => {
               <span>Progress:</span> 25% Completed
             </TypographyStyled>
           </BlockBordered>
-          <TextLink href="" sx={{ marginTop: "30px" }}>
+          <TextLink href="" sx={{ marginTop: pxToRem(30) }}>
             View Purchase Details
           </TextLink>
         </Box>
-        <Box maxWidth="314px" flexShrink={0} textAlign="right" mt="50px">
+        <Box
+          maxWidth={pxToRem(314)}
+          flexShrink={0}
+          textAlign="right"
+          mt={pxToRem(50)}
+        >
           <Typography
             component="p"
-            fontSize="16px"
+            fontSize={pxToRem(16)}
             fontWeight={600}
-            lineHeight="24px"
-            mb="15px"
+            lineHeight={pxToRem(24)}
+            mb={pxToRem(15)}
           >
             Buy Lifetime Subscription without any expirations today with
             discounted price.
@@ -69,10 +82,10 @@ const SubscriptionTab = () => {
             Discounted price:{" "}
             <Typography
               component="span"
-              fontSize="25px"
+              fontSize={pxToRem(25)}
               color="#026670"
               fontWeight={700}
-              ml="8px"
+              ml={pxToRem(8)}
             >
               $599.49
             </Typography>
@@ -83,16 +96,16 @@ const SubscriptionTab = () => {
         flexDirection="row"
         justifyContent="flex-end"
         alignItems="center"
-        mt="20px"
-        gap="15px"
+        mt={pxToRem(20)}
+        gap={pxToRem(15)}
         borderBottom="1px solid rgba(191,190,187,0.5)"
-        pb="60px"
+        pb={pxToRem(60)}
       >
         <Button
           variant="outlined"
           sx={{
-            maxWidth: "300px",
-            height: "54px",
+            maxWidth: pxToRem(300),
+            height: pxToRem(54),
             borderWidth: "2px",
             "&:hover": {
               border: "2px solid #026670",
@@ -102,7 +115,7 @@ const SubscriptionTab = () => {
           Buy Lifetime Subsctiption
         </Button>
       </Stack>
-      <TextLink href="" sx={{ marginTop: "60px" }}>
+      <TextLink href="" sx={{ marginTop: pxToRem(60) }}>
         Rate This Course
       </TextLink>
     </Box>

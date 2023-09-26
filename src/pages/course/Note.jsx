@@ -6,6 +6,7 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
+import { pxToRem } from "px2rem2px";
 
 import { ReactComponent as Chevron } from "../../images/chevron.svg";
 
@@ -22,7 +23,7 @@ const Note = (props) => {
         onClick={handleClick}
         sx={{
           alignItems: "flex-start",
-          p: "10px 0",
+          p: `${pxToRem(10)} 0`,
           "&:hover": { backgroundColor: "transparent" },
         }}
       >
@@ -35,7 +36,7 @@ const Note = (props) => {
           <Typography
             component="span"
             display="block"
-            fontSize="16px"
+            fontSize={pxToRem(16)}
             fontWeight={600}
             color="secondary"
           >
@@ -43,10 +44,10 @@ const Note = (props) => {
           </Typography>
           <Typography
             component="span"
-            fontSize="16px"
+            fontSize={pxToRem(16)}
             fontWeight={600}
             color="primary"
-            mr="20px"
+            mr={pxToRem(20)}
           >
             3:45
           </Typography>
@@ -55,7 +56,7 @@ const Note = (props) => {
           sx={{
             "& svg": {
               transform: open ? "rotate(-90deg)" : "rotate(90deg)",
-              mr: "2px",
+              mr: pxToRem(2),
               transition: "0.1s ease",
             },
           }}

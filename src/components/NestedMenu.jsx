@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Box, Collapse } from "@mui/material";
+import { pxToRem } from "px2rem2px";
 import LinkBtn from "./LinkBtn";
 
 const NestedMenu = (props) => {
@@ -30,10 +31,10 @@ const NestedMenu = (props) => {
           "&::after": {
             content: "''",
             position: "absolute",
-            bottom: "-13px",
+            bottom: pxToRem(-13),
             left: 0,
             width: "100%",
-            height: "23px",
+            height: pxToRem(23),
           },
         },
       }}
@@ -55,11 +56,11 @@ const NestedMenu = (props) => {
           sx={{
             display: "flex",
             flexDirection: "column",
-            rowGap: "10px",
-            pl: "20px",
-            mt: "15px",
+            rowGap: pxToRem(10),
+            pl: pxToRem(20),
+            mt: pxToRem(15),
             a: {
-              fontSize: "15px",
+              fontSize: pxToRem(15),
               fontWeight: 600,
             },
           }}

@@ -10,6 +10,7 @@ import {
   Typography,
 } from "@mui/material";
 import { Link } from "react-router-dom";
+import { pxToRem } from "px2rem2px";
 import BlockBordered from "../../components/BlockBordered";
 import IconBtn from "./IconBtn";
 
@@ -26,17 +27,17 @@ const ResourcesTab = () => {
 
   return (
     <>
-      <Box className="rtl-section" mb="40px">
-        <Typography variant="sectionTitleHebrew" fontSize="30px">
+      <Box className="rtl-section" mb={pxToRem(40)}>
+        <Typography variant="sectionTitleHebrew" fontSize={pxToRem(30)}>
           וואס טוט מען ווען דער מאן ארבעט צופרי פאר’ן דאווענען?
         </Typography>
         <Box
           display="inline-flex"
           bgcolor="#FCE181"
-          borderRadius="20px"
-          p="3px 20px"
+          borderRadius={pxToRem(20)}
+          p={`${pxToRem(3)} ${pxToRem(20)}`}
         >
-          <Typography fontSize="18px" fontWeight="700" color="#026670">
+          <Typography fontSize={pxToRem(18)} fontWeight="700" color="#026670">
             Showing Resources for the active lecture only
           </Typography>
         </Box>
@@ -53,13 +54,16 @@ const ResourcesTab = () => {
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Box borderTop="1px solid rgba(191,190,187,0.5)" p="30px 0 10px">
+          <Box
+            borderTop="1px solid rgba(191,190,187,0.5)"
+            p={`${pxToRem(30)} 0 ${pxToRem(10)}`}
+          >
             <BlockBordered>
               <Typography
                 variant="medium"
                 component="p"
-                lineHeight="28px"
-                mb="30px"
+                lineHeight={pxToRem(28)}
+                mb={pxToRem(30)}
               >
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
@@ -91,14 +95,18 @@ const ResourcesTab = () => {
             alignItems="center"
             justifyContent="space-between"
             flexWrap="wrap"
-            mr="30px"
+            mr={pxToRem(30)}
           >
-            <Typography fontSize="20px" fontWeight={700} color="secondary">
+            <Typography
+              fontSize={pxToRem(20)}
+              fontWeight={700}
+              color="secondary"
+            >
               Course References
             </Typography>
             <Stack
               flexDirection="row"
-              gap="10px"
+              gap={pxToRem(10)}
               sx={{ "& button": { backgroundColor: "#EDECE8" } }}
             >
               <Tooltip
@@ -129,9 +137,16 @@ const ResourcesTab = () => {
           </Stack>
         </AccordionSummary>
         <AccordionDetails>
-          <Box borderTop="1px solid rgba(191,190,187,0.5)" p="30px 0 10px">
+          <Box
+            borderTop="1px solid rgba(191,190,187,0.5)"
+            p={`${pxToRem(30)} 0 ${pxToRem(10)}`}
+          >
             <BlockBordered>
-              <Typography variant="medium" component="p" lineHeight="28px">
+              <Typography
+                variant="medium"
+                component="p"
+                lineHeight={pxToRem(28)}
+              >
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
                 enim ad minim veniam, quis nostrud exercitation ullamco laboris
@@ -149,7 +164,9 @@ const ResourcesTab = () => {
         className="accordion-white"
         expanded={expanded === "panel3"}
         onChange={handleChange("panel3")}
-        sx={{ "& .MuiAccordionDetails-root": { pb: "10px !important" } }}
+        sx={{
+          "& .MuiAccordionDetails-root": { pb: `${pxToRem(10)} !important` },
+        }}
       >
         <AccordionSummary expandIcon={<Chevron color="#026670" />}>
           <Stack
@@ -158,9 +175,13 @@ const ResourcesTab = () => {
             alignItems="center"
             justifyContent="space-between"
             flexWrap="wrap"
-            mr="30px"
+            mr={pxToRem(30)}
           >
-            <Typography fontSize="20px" fontWeight={700} color="secondary">
+            <Typography
+              fontSize={pxToRem(20)}
+              fontWeight={700}
+              color="secondary"
+            >
               Downloads
             </Typography>
             <Button variant="text">Download All</Button>
@@ -175,9 +196,9 @@ const ResourcesTab = () => {
                 flexDirection="row"
                 alignItems="center"
                 justifyContent="space-between"
-                gap="15px"
+                gap={pxToRem(15)}
                 borderTop="1px solid rgba(191,190,187,0.5)"
-                p="30px 0"
+                p={`${pxToRem(30)} 0`}
                 sx={{
                   "&:hover": {
                     "& .badge": {
@@ -191,18 +212,18 @@ const ResourcesTab = () => {
                 <Stack
                   flexDirection="row"
                   alignItems="center"
-                  gap="15px"
+                  gap={pxToRem(15)}
                   component="span"
                 >
                   <Box
                     className="badge"
                     bgcolor="#EDECE8"
-                    borderRadius="20px"
-                    p="4.5px 7.3px"
+                    borderRadius={pxToRem(20)}
+                    p={`${pxToRem(4.5)} ${pxToRem(7.3)}`}
                     component="span"
                   >
                     <Typography
-                      fontSize="12px"
+                      fontSize={pxToRem(12)}
                       fontWeight={700}
                       color="#BFBEBB"
                       component="span"

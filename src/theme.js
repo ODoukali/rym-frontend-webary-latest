@@ -1,4 +1,5 @@
 import { createTheme } from "@mui/material/styles";
+import { pxToRem } from "px2rem2px";
 
 // A custom theme for this app
 const theme = createTheme({
@@ -7,7 +8,7 @@ const theme = createTheme({
       xs: 0,
       sm: 600,
       md: 900,
-      lg: 1228,
+      lg: 1105.2,
       xl: 1536,
     },
   },
@@ -15,32 +16,32 @@ const theme = createTheme({
     fontFamily: "Poppins, sans-serif",
     color: "#333",
     sectionTitle: {
-      fontSize: 45,
+      fontSize: pxToRem(45),
       fontWeight: 700,
-      lineHeight: "48px",
+      lineHeight: pxToRem(48),
     },
     sectionTitleHebrew: {
       fontFamily: "PloniBold",
-      fontSize: 54,
-      lineHeight: "48px",
+      fontSize: pxToRem(54),
+      lineHeight: pxToRem(48),
       "& .highlighted::after": {
-        bottom: "-3px",
+        bottom: pxToRem(-3),
       },
     },
     small: {
-      fontSize: 14,
+      fontSize: pxToRem(14),
       fontWeight: 500,
-      lineHeight: "24px",
+      lineHeight: pxToRem(24),
     },
     medium: {
-      fontSize: 16,
+      fontSize: pxToRem(16),
       fontWeight: 500,
-      lineHeight: "24px",
+      lineHeight: pxToRem(24),
     },
     large: {
-      fontSize: 18,
+      fontSize: pxToRem(18),
       fontWeight: 500,
-      lineHeight: "30px",
+      lineHeight: pxToRem(30),
     },
   },
   palette: {
@@ -73,14 +74,14 @@ const theme = createTheme({
           maxWidth: "100%",
         },
         ".MuiTooltip-popper .MuiTooltip-tooltip": {
-          fontSize: "12px",
-          lineHeight: "17px",
+          fontSize: pxToRem(12),
+          lineHeight: pxToRem(17),
           fontWeight: 600,
           color: "#fff",
-          borderRadius: "10px",
+          borderRadius: pxToRem(10),
           backgroundColor: "#026670",
           textAlign: "center",
-          padding: "1px 10px",
+          padding: `${pxToRem(1)} ${pxToRem(10)}`,
         },
       },
     },
@@ -88,34 +89,31 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           boxShadow: "none",
-          marginBottom: "2px",
-          "& .MuiAccordionSummary-root": {
-            minHeight: "100px",
-            padding: "0 40px",
-          },
-          "& .MuiAccordionSummary-root.Mui-expanded": {
-            minHeight: "100px",
-            padding: "0 40px",
-          },
+          marginBottom: pxToRem(2),
+          "& .MuiAccordionSummary-root, & .MuiAccordionSummary-root.Mui-expanded":
+            {
+              minHeight: pxToRem(100),
+              padding: `0 ${pxToRem(40)}`,
+            },
           "&:first-of-type": {
-            borderTopLeftRadius: "20px",
-            borderTopRightRadius: "20px",
+            borderTopLeftRadius: pxToRem(20),
+            borderTopRightRadius: pxToRem(20),
           },
           "&:last-of-type": {
-            borderBottomLeftRadius: "20px",
-            borderBottomRightRadius: "20px",
+            borderBottomLeftRadius: pxToRem(20),
+            borderBottomRightRadius: pxToRem(20),
           },
           "&.Mui-expanded": {
-            margin: "0 0 16px 0",
-            boxShadow: "0px 20px 40px rgba(0,0,0,0.1)",
+            margin: `0 0 ${pxToRem(16)} 0`,
+            boxShadow: `0px ${pxToRem(20)} ${pxToRem(40)} rgba(0,0,0,0.1)`,
             "&::after": {
               content: "''",
               opacity: 1,
               width: "100%",
               position: "absolute",
-              height: "16px",
+              height: pxToRem(16),
               top: "initial",
-              bottom: "-16px",
+              bottom: pxToRem(-16),
               backgroundColor: "#FCE181",
             },
             "&:last-of-type::after": {
@@ -129,7 +127,7 @@ const theme = createTheme({
             color: "#333",
           },
           "& .MuiAccordionDetails-root": {
-            padding: "0 40px 38px",
+            padding: `0 ${pxToRem(40)} ${pxToRem(38)}`,
           },
         },
       },
@@ -163,10 +161,10 @@ const theme = createTheme({
         root: {
           margin: 0,
           "& .MuiFormControlLabel-label": {
-            fontSize: 12,
+            fontSize: pxToRem(12),
             fontWeight: 600,
             color: "#026670",
-            marginLeft: "8px",
+            marginLeft: pxToRem(8),
           },
           "& .MuiCheckbox-root": {
             padding: 0,
@@ -222,16 +220,16 @@ const theme = createTheme({
     MuiButton: {
       styleOverrides: {
         root: {
-          fontSize: 16,
+          fontSize: pxToRem(16),
           fontWeight: 600,
           textTransform: "none",
-          padding: "23px 59px",
-          lineHeight: "18px",
+          padding: `${pxToRem(23)} ${pxToRem(59)}`,
+          lineHeight: pxToRem(18),
           border: "none",
           color: "#026670",
-          borderRadius: "32px",
+          borderRadius: pxToRem(32),
           whiteSpace: "nowrap",
-          letterSpacing: "-0.44px",
+          letterSpacing: pxToRem(-0.44),
           boxShadow: "none",
           "&:hover": {
             border: "none",
@@ -260,9 +258,9 @@ const theme = createTheme({
               backgroundColor: "#ebcf6a",
             },
             "&.MuiButton-sizeSmall": {
-              fontSize: "14px",
-              height: "44px",
-              padding: "14px 40px",
+              fontSize: pxToRem(14),
+              height: pxToRem(44),
+              padding: `${pxToRem(14)} ${pxToRem(40)}`,
               boxShadow: "none",
             },
           },
@@ -282,18 +280,18 @@ const theme = createTheme({
           style: {
             color: "#026670",
             backgroundColor: "transparent",
-            border: "3px solid #026670",
-            padding: "20px 59px",
+            border: `${pxToRem(3)} solid #026670`,
+            padding: `${pxToRem(20)} ${pxToRem(59)}`,
             "&:hover": {
               color: "#FCE181",
-              border: "3px solid #026670",
+              border: `${pxToRem(3)} solid #026670`,
               backgroundColor: "#026670",
             },
             "&.MuiButton-sizeSmall": {
-              fontSize: "14px",
-              height: "44px",
-              padding: "14px 40px",
-              borderWidth: "2px",
+              fontSize: pxToRem(14),
+              height: pxToRem(44),
+              padding: `${pxToRem(14)} ${pxToRem(40)}`,
+              borderWidth: pxToRem(2),
               boxShadow: "none",
             },
           },
@@ -307,7 +305,7 @@ const theme = createTheme({
             minWidth: "auto",
             "& span": {
               position: "relative",
-              fontSize: 16,
+              fontSize: pxToRem(16),
               fontWeight: 600,
             },
             "&:hover": {
@@ -317,8 +315,8 @@ const theme = createTheme({
                 content: "''",
                 position: "absolute",
                 left: 0,
-                bottom: -8,
-                height: 2,
+                bottom: pxToRem(-8),
+                height: pxToRem(2),
                 width: "100%",
                 backgroundColor: "#333",
               },

@@ -15,7 +15,7 @@ const Guides = (props) => {
     >
       <Box
         position="relative"
-        maxWidth="1180px"
+        maxWidth="1057px"
         height="100%"
         display="flex"
         justifyContent="space-between"

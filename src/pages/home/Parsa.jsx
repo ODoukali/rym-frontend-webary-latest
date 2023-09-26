@@ -25,6 +25,7 @@ const Parsa = () => {
       </Container>
       <Slider
         slidesPerView={2}
+        spaceBetween={20}
         arrows
         style={{
           padding: `${pxToRem(40)} ${pxToRem(20)} ${pxToRem(50)}`,

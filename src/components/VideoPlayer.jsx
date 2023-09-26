@@ -42,6 +42,7 @@ import {
   useSensors,
 } from "@dnd-kit/core";
 import restrictToWindowEdgesMargin from "../utils/restrictToWindowEdges";
+import { pxToRem } from "px2rem2px";
 import { CSS } from "@dnd-kit/utilities";
 
 import "vidstack/styles/defaults.css";
@@ -152,12 +153,12 @@ const VideoPlayerDraggable = ({ resetPosition, x, y }) => {
         "&::before": {
           content: "''",
           position: "absolute",
-          bottom: "-40px",
-          left: "-40px",
+          bottom: pxToRem(-40),
+          left: pxToRem(-40),
           width: "46.6%",
           height: "59.7%",
           bgcolor: "#FCE181",
-          borderRadius: "20px",
+          borderRadius: pxToRem(20),
           zIndex: -1,
         },
       }}
@@ -168,7 +169,7 @@ const VideoPlayerDraggable = ({ resetPosition, x, y }) => {
         width="100%"
         position="relative"
         display="flex"
-        borderRadius="23px"
+        borderRadius={pxToRem(23)}
         pb="56.2%"
         overflow="hidden"
         sx={{ "&:hover": { "& .toggle-tooltip": { opacity: 1 } } }}
@@ -200,23 +201,23 @@ const VideoPlayerDraggable = ({ resetPosition, x, y }) => {
           </MediaOutlet>
           <Box className="pip-overlay">
             <IconButton className="pip-close" onClick={() => setIsFixed(false)}>
-              <Close color="#fff" width={10} height={10} />
+              <Close color="#fff" width={pxToRem(10)} height={pxToRem(10)} />
             </IconButton>
             <Button
               className="pip-back-btn"
-              endIcon={<NewWindow width={20} height={20} />}
+              endIcon={<NewWindow width={pxToRem(20)} height={pxToRem(20)} />}
               onClick={() => {
                 window.scrollTo({
-                  top: scrollTargetPosition - 68,
+                  top: scrollTargetPosition - pxToRem(68),
                   behavior: "smooth",
                 });
               }}
               sx={{
                 backgroundColor: "#000",
                 color: "#fff",
-                fontSize: "12px",
+                fontSize: pxToRem(12),
                 fontWeight: 400,
-                p: "2px 8px 2px 12px",
+                p: `${pxToRem(2)} ${pxToRem(8)} ${pxToRem(2)} ${pxToRem(12)}`,
                 "&:hover": {
                   color: "#FCE181",
                   backgroundColor: "#000",
@@ -239,9 +240,9 @@ const VideoPlayerDraggable = ({ resetPosition, x, y }) => {
                 width="100%"
                 position="absolute"
                 top={0}
-                height="68px"
+                height={pxToRem(68)}
                 pointerEvents="none"
-                pb="160px"
+                pb={pxToRem(160)}
                 zIndex={25}
                 sx={{
                   background:
@@ -253,14 +254,14 @@ const VideoPlayerDraggable = ({ resetPosition, x, y }) => {
               <Box
                 width="100%"
                 position="absolute"
-                left={18}
-                top={18}
-                pr="145px"
+                left={pxToRem(18)}
+                top={pxToRem(18)}
+                pr={pxToRem(145)}
                 zIndex={26}
               >
                 <Typography
                   color="#fff"
-                  fontSize="27px"
+                  fontSize={pxToRem(27)}
                   sx={{
                     display: "block",
                     textOverflow: "ellipsis",
@@ -302,7 +303,7 @@ const VideoPlayerDraggable = ({ resetPosition, x, y }) => {
             flexDirection="row"
             alignItems="center"
             justifyContent="center"
-            gap="20px"
+            gap={pxToRem(20)}
             width="100%"
             height="100%"
             position="absolute"
@@ -322,9 +323,9 @@ const VideoPlayerDraggable = ({ resetPosition, x, y }) => {
           <Stack
             className="media-controls-group"
             position="absolute"
-            top="40px"
-            right="40px"
-            gap="10px"
+            top={pxToRem(40)}
+            right={pxToRem(40)}
+            gap={pxToRem(10)}
             zIndex={27}
             sx={{
               "& button": {
@@ -372,7 +373,10 @@ const VideoPlayerDraggable = ({ resetPosition, x, y }) => {
             >
               <Box>
                 <IconBtnCircular className="hover-green">
-                  <Share color="#026670" style={{ marginRight: "1.5px" }} />
+                  <Share
+                    color="#026670"
+                    style={{ marginRight: pxToRem(1.5) }}
+                  />
                 </IconBtnCircular>
               </Box>
             </Tooltip>
@@ -385,15 +389,15 @@ const VideoPlayerDraggable = ({ resetPosition, x, y }) => {
                 sx={{
                   position: "absolute",
                   top: "50%",
-                  right: "62px",
+                  right: pxToRem(62),
                   transform: "translateY(-50%)",
-                  fontSize: "12px",
+                  fontSize: pxToRem(12),
                   fontWeight: 600,
                   color: "#026670",
-                  borderRadius: "10px",
+                  borderRadius: pxToRem(10),
                   backgroundColor: "#FCE181",
                   whiteSpace: "nowrap",
-                  padding: "1px 10px",
+                  padding: `${pxToRem(1)} ${pxToRem(10)}`,
                   opacity: 0,
                   transition: "opacity 0.1s ease",
                 }}
@@ -404,29 +408,33 @@ const VideoPlayerDraggable = ({ resetPosition, x, y }) => {
           </Stack>
           <Stack
             className="media-controls-group"
-            height="64px"
+            height={pxToRem(64)}
             flexDirection="row"
             alignItems="center"
             justifyContent="space-between"
-            gap="40px"
+            gap={pxToRem(40)}
             position="absolute"
-            bottom="40px"
-            left="40px"
-            right="40px"
-            borderRadius="32px"
-            boxShadow="0px 10px 20px rgba(0,0,0,0.16)"
+            bottom={pxToRem(40)}
+            left={pxToRem(40)}
+            right={pxToRem(40)}
+            borderRadius={pxToRem(32)}
+            boxShadow={`0px ${pxToRem(10)} ${pxToRem(20)} rgba(0,0,0,0.16)`}
             backgroundColor="rgba(255, 255, 255, 0.5)"
-            px="40px"
+            px={pxToRem(40)}
             sx={{
               backdropFilter: "blur(15px)",
             }}
           >
-            <Stack flexDirection="row" alignItems="center" gap="17px">
+            <Stack flexDirection="row" alignItems="center" gap={pxToRem(17)}>
               <MediaSeekButton seconds={-10}>
                 <MediaTooltip position="top center">
                   <span>Seek -10s</span>
                 </MediaTooltip>
-                <Typography fontSize="12px" fontWeight="bold" color="secondary">
+                <Typography
+                  fontSize={pxToRem(12)}
+                  fontWeight="bold"
+                  color="secondary"
+                >
                   - 10 sec
                 </Typography>
               </MediaSeekButton>
@@ -435,7 +443,10 @@ const VideoPlayerDraggable = ({ resetPosition, x, y }) => {
                   <span>Prev</span>
                 </MediaTooltip>
                 <IconButtonStyled
-                  sx={{ "& svg": { transform: "rotate(180deg)" } }}
+                  sx={{
+                    width: pxToRem(21),
+                    "& svg": { transform: "rotate(180deg)" },
+                  }}
                 >
                   <Next color="#026670" />
                 </IconButtonStyled>
@@ -454,7 +465,7 @@ const VideoPlayerDraggable = ({ resetPosition, x, y }) => {
                 <MediaTooltip position="top center">
                   <span>Next</span>
                 </MediaTooltip>
-                <IconButtonStyled>
+                <IconButtonStyled sx={{ width: pxToRem(21) }}>
                   <Next color="#026670" />
                 </IconButtonStyled>
               </Box>
@@ -462,7 +473,11 @@ const VideoPlayerDraggable = ({ resetPosition, x, y }) => {
                 <MediaTooltip position="top center">
                   <span>Seek +10s</span>
                 </MediaTooltip>
-                <Typography fontSize="12px" fontWeight="bold" color="secondary">
+                <Typography
+                  fontSize={pxToRem(12)}
+                  fontWeight="bold"
+                  color="secondary"
+                >
                   + 10 sec
                 </Typography>
               </MediaSeekButton>
@@ -480,12 +495,12 @@ const VideoPlayerDraggable = ({ resetPosition, x, y }) => {
             >
               <Typography
                 sx={{
-                  fontSize: "12px",
+                  fontSize: pxToRem(12),
                   fontWeight: "bold",
                   color: "#026670",
                   display: "flex",
-                  gap: "4px",
-                  marginRight: "30px",
+                  gap: pxToRem(4),
+                  marginRight: pxToRem(30),
                   "& span": {
                     fontFamily: "Roboto Mono",
                   },
@@ -498,10 +513,13 @@ const VideoPlayerDraggable = ({ resetPosition, x, y }) => {
                 flexDirection="row"
                 alignItems="center"
                 justifyContent="space-between"
-                gap="20px"
+                gap={pxToRem(20)}
               >
                 <IconButtonStyled
                   sx={{
+                    "& svg": {
+                      width: pxToRem(22),
+                    },
                     "&:hover": {
                       "& svg": {
                         display: "none",
@@ -565,7 +583,11 @@ const PlayerBtn = (props) => {
     <Button
       variant="yellow"
       startIcon={props.icon}
-      sx={{ height: "54px", px: "40px", "&:hover svg": { color: "#026670" } }}
+      sx={{
+        height: pxToRem(54),
+        px: pxToRem(40),
+        "&:hover svg": { color: "#026670" },
+      }}
     >
       {props.children}
     </Button>

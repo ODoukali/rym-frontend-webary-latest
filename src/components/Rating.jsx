@@ -1,10 +1,11 @@
 import { Rating as MuiRating } from "@mui/material";
 import { styled } from "@mui/material/styles";
+import { pxToRem } from "px2rem2px";
 
 import { ReactComponent as Star } from "../images/star.svg";
 
 const StyledRating = styled(MuiRating)({
-  gap: "2px",
+  gap: pxToRem(2),
   "& .MuiRating-iconFilled": {
     color: "#FCE181",
   },

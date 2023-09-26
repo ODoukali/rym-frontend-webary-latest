@@ -1,4 +1,5 @@
 import { Button, IconButton, Snackbar } from "@mui/material";
+import { pxToRem } from "px2rem2px";
 
 import { ReactComponent as Close } from "../images/close.svg";
 
@@ -12,16 +13,16 @@ const Toast = (props) => {
       message={props.message}
       sx={{
         "& .MuiPaper-root": {
-          minWidth: "320px",
-          borderRadius: "10px",
-          padding: "8px 30px",
+          minWidth: pxToRem(320),
+          borderRadius: pxToRem(10),
+          padding: `${pxToRem(8)} ${pxToRem(30)}`,
         },
         "& .MuiSnackbarContent-message": {
-          fontSize: "12px",
+          fontSize: pxToRem(12),
           fontWeight: 700,
         },
         "& .MuiSnackbarContent-action": {
-          gap: "20px",
+          gap: pxToRem(20),
         },
       }}
       action={
@@ -31,7 +32,7 @@ const Toast = (props) => {
               onClick={props.onClose}
               sx={{
                 color: "#fff",
-                fontSize: "12px",
+                fontSize: pxToRem(12),
                 fontWeight: 500,
                 "&:hover": { color: "#FCE181" },
               }}
@@ -43,7 +44,7 @@ const Toast = (props) => {
             onClick={props.onClose}
             sx={{ "&:hover": { backgroundColor: "rgba(255,255,255,0.3)" } }}
           >
-            <Close color="#fff" width={14} height={14} />
+            <Close color="#fff" width={pxToRem(14)} height={pxToRem(14)} />
           </IconButton>
         </>
       }

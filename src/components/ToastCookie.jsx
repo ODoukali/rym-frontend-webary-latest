@@ -1,4 +1,5 @@
 import { Box, Button, Snackbar, Typography } from "@mui/material";
+import { pxToRem } from "px2rem2px";
 
 const ToastCookie = (props) => {
   return (
@@ -8,10 +9,10 @@ const ToastCookie = (props) => {
       onClose={props.onClose}
       sx={{
         "& .MuiPaper-root": {
-          minWidth: "320px",
-          maxWidth: "320px",
-          borderRadius: "10px",
-          padding: "30px",
+          minWidth: pxToRem(320),
+          maxWidth: pxToRem(320),
+          borderRadius: pxToRem(10),
+          padding: pxToRem(30),
         },
         "& .MuiSnackbarContent-message": {
           padding: 0,
@@ -25,14 +26,19 @@ const ToastCookie = (props) => {
       }}
       action={
         <Box textAlign="center">
-          <Typography color="#FCE181" fontSize="20px" fontWeight={700} mb="5px">
+          <Typography
+            color="#FCE181"
+            fontSize={pxToRem(20)}
+            fontWeight={700}
+            mb={pxToRem(5)}
+          >
             Cookie Policy
           </Typography>
           <Typography
             color="#BFBEBB"
-            fontSize="14px"
+            fontSize={pxToRem(14)}
             fontWeight={500}
-            mb="15px"
+            mb={pxToRem(15)}
           >
             {props.message}
           </Typography>
@@ -41,7 +47,7 @@ const ToastCookie = (props) => {
             size="small"
             onClick={props.onClose}
             sx={{
-              height: "40px !important",
+              height: `${pxToRem(40)} !important`,
             }}
           >
             Got It

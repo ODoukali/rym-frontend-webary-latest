@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Box, Menu } from "@mui/material";
+import { pxToRem } from "px2rem2px";
 import LinkBtn from "../LinkBtn";
 
 const MenuBtn = (props) => {
@@ -47,10 +48,10 @@ const MenuBtn = (props) => {
           "&::after": {
             content: "''",
             position: "absolute",
-            bottom: "-23px",
+            bottom: pxToRem(-23),
             left: 0,
             width: "100%",
-            height: "23px",
+            height: pxToRem(23),
           },
         },
       }}
@@ -81,17 +82,17 @@ const MenuBtn = (props) => {
         }}
         disableRestoreFocus
         sx={{
-          top: "23px",
+          top: pxToRem(23),
           pointerEvents: "none",
           "& .MuiPaper-root": {
-            boxShadow: "0px 10px 20px rgba(0,0,0,0.1)",
-            borderRadius: "10px",
+            boxShadow: `0px ${pxToRem(10)} ${pxToRem(20)} rgba(0,0,0,0.1)`,
+            borderRadius: pxToRem(10),
           },
           "& .MuiList-root": {
             display: "flex",
             flexDirection: "column",
-            rowGap: "10px",
-            p: "25px 30px",
+            rowGap: pxToRem(10),
+            p: `${pxToRem(25)} ${pxToRem(30)}`,
           },
         }}
       >

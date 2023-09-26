@@ -1,6 +1,7 @@
 import { Box } from "@mui/material";
 import { useEffect, useReducer } from "react";
 import TagCloud from "react-tag-cloud";
+import { pxToRem } from "px2rem2px";
 
 const TagsCloud = () => {
   const [, forceUpdate] = useReducer((x) => x + 1, 0);
@@ -13,8 +14,8 @@ const TagsCloud = () => {
 
   return (
     <Box
-      height="700px"
-      borderRadius="40px"
+      height={pxToRem(700)}
+      borderRadius={pxToRem(40)}
       sx={{
         backgroundImage: "linear-gradient(to bottom, transparent,#ffffff 100%)",
       }}

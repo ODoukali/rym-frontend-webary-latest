@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Box, Stack, Typography, Tooltip } from "@mui/material";
+import { pxToRem } from "px2rem2px";
 
 import { ReactComponent as Check } from "../images/check.svg";
 import { ReactComponent as Arrow } from "../images/arrow.svg";
@@ -8,13 +9,13 @@ import { ReactComponent as Lock } from "../images/lock.svg";
 const Sidebar = (props) => {
   return (
     <Box
-      width={300}
+      width={pxToRem(300)}
       backgroundColor="#EDECE8"
-      pt="150px"
-      mt="-150px"
-      pl="40px"
-      pb="40px"
-      borderRadius="40px"
+      pt={pxToRem(150)}
+      mt={pxToRem(-150)}
+      pl={pxToRem(40)}
+      pb={pxToRem(40)}
+      borderRadius={pxToRem(40)}
       flexShrink={0}
       sx={{
         "&::before": {
@@ -22,33 +23,33 @@ const Sidebar = (props) => {
           position: "absolute",
           bottom: 0,
           right: 0,
-          left: "calc(54% + 300px)",
+          left: `calc(54% + ${pxToRem(300)})`,
           height: "100%",
           backgroundColor: "#EDECE8",
-          borderRadius: "40px",
+          borderRadius: pxToRem(40),
           zIndex: -1,
         },
       }}
     >
       <Typography
         component="p"
-        fontSize="20px"
+        fontSize={pxToRem(20)}
         fontWeight="bold"
-        lineHeight="30px"
+        lineHeight={pxToRem(30)}
       >
         Course Overview
       </Typography>
       <Typography
         component="p"
-        fontSize="12px"
+        fontSize={pxToRem(12)}
         fontWeight="700"
-        lineHeight="18px"
+        lineHeight={pxToRem(18)}
         color="#026670"
-        mb="30px"
+        mb={pxToRem(30)}
       >
         2/25 Completed
       </Typography>
-      <Stack rowGap="30px">
+      <Stack rowGap={pxToRem(30)}>
         {props.arr.map((l) => (
           <ListItem
             key={l.id}
@@ -99,15 +100,15 @@ const ListItem = (props) => {
         }`}
         component="button"
         flexDirection="row"
-        columnGap="10px"
-        p="0 0 30px 0"
+        columnGap={pxToRem(10)}
+        p={`0 0 ${pxToRem(30)} 0`}
         sx={{
           position: "relative",
           border: "none",
           backgroundColor: "transparent",
           borderBottom: "1px solid rgba(191, 190, 187, 0.5)",
           "& + .MuiTooltip-popper .MuiTooltip-tooltip": {
-            mb: "3px !important",
+            mb: `${pxToRem(3)} !important`,
           },
           "&:hover .status-ic": {
             display: "flex",
@@ -130,10 +131,10 @@ const ListItem = (props) => {
         <Box
           className="status-ic"
           position="absolute"
-          left={-56}
-          top={13}
-          width={32}
-          height={32}
+          left={pxToRem(-56)}
+          top={pxToRem(13)}
+          width={pxToRem(32)}
+          height={pxToRem(32)}
           borderRadius="100%"
           bgcolor={
             props.status === "playing" && props.status !== "locked"
@@ -149,7 +150,7 @@ const ListItem = (props) => {
           ) : (
             <>
               {props.status === "playing" ? (
-                <Arrow color="#026670" style={{ marginLeft: "3px" }} />
+                <Arrow color="#026670" style={{ marginLeft: pxToRem(3) }} />
               ) : (
                 <Box className="checkmark-holder">
                   <Check
@@ -165,7 +166,7 @@ const ListItem = (props) => {
           <Typography
             component="span"
             display="block"
-            fontSize="16px"
+            fontSize={pxToRem(16)}
             fontWeight={600}
             color="secondary"
           >
@@ -173,9 +174,9 @@ const ListItem = (props) => {
           </Typography>
           <Typography
             component="span"
-            fontSize="14px"
+            fontSize={pxToRem(14)}
             fontWeight={500}
-            lineHeight="18px"
+            lineHeight={pxToRem(18)}
             color="#BFBEBB"
           >
             {props.description}
@@ -183,7 +184,7 @@ const ListItem = (props) => {
         </Box>
         <Typography
           component="span"
-          fontSize="16px"
+          fontSize={pxToRem(16)}
           fontWeight={600}
           color="primary"
         >

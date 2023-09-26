@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "@mui/material";
 import { NavLink } from "react-router-dom";
+import { pxToRem } from "px2rem2px";
 
 const LinkBtn = (props) => {
   const { title, footerLink, ...rest } = props;
@@ -13,14 +14,14 @@ const LinkBtn = (props) => {
       sx={{
         position: "relative",
         color: props.footerLink ? "#BFBEBB" : "secondary.main",
-        fontSize: "16px",
+        fontSize: pxToRem(16),
         fontWeight: 600,
         "&::before": {
           content: '""',
           position: "absolute",
           left: 0,
-          bottom: "-8px",
-          height: 2,
+          bottom: pxToRem(-8),
+          height: pxToRem(2),
           width: 0,
           bgcolor: props.footerLink ? "#fff" : "primary.main",
           transition: "0.2s ease",

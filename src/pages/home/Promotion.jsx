@@ -1,13 +1,14 @@
 import { Box, Button, Typography } from "@mui/material";
+import { pxToRem } from "px2rem2px";
 import BlockBordered from "../../components/BlockBordered";
 
 import PresentationImg from "../../images/promotion-img.png";
 
 const Promotion = () => {
   return (
-    <Box pb="150px">
+    <Box pb={pxToRem(150)}>
       <Box
-        borderRadius="30px"
+        borderRadius={pxToRem(30)}
         overflow="hidden"
         sx={{ display: "grid", gridTemplateColumns: "1fr 1fr" }}
       >
@@ -21,14 +22,14 @@ const Promotion = () => {
           display="flex"
           alignItems="center"
           bgcolor="#FCE181"
-          py="87px"
-          px="80px"
+          py={pxToRem(87)}
+          px={pxToRem(80)}
         >
-          <Box maxWidth="510px">
-            <Typography variant="sectionTitle" component="h2" mb="20px">
+          <Box maxWidth={pxToRem(510)}>
+            <Typography variant="sectionTitle" component="h2" mb={pxToRem(20)}>
               Promotion here
             </Typography>
-            <BlockBordered mb="35px">
+            <BlockBordered mb={pxToRem(35)}>
               <Typography variant="large" component="p">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt et dolore.

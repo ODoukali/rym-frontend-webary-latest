@@ -7,6 +7,7 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
+import { pxToRem } from "px2rem2px";
 import Testimonial from "../Testimonial";
 import TestimonialMenu from "../TestimonialMenu";
 import BlockBordered from "../BlockBordered";
@@ -25,21 +26,25 @@ const Comment = () => {
 
   return (
     <Box>
-      <Box bgcolor="#fff" borderRadius="10px" p="40px">
+      <Box bgcolor="#fff" borderRadius={pxToRem(10)} p={pxToRem(40)}>
         <Stack
           flexDirection="row"
           alignItems="flex-start"
           justifyContent="space-between"
-          gap="10px"
-          mb="4px"
+          gap={pxToRem(10)}
+          mb={pxToRem(4)}
         >
-          <Stack flexDirection="row" alignItems="center" columnGap="21px">
+          <Stack
+            flexDirection="row"
+            alignItems="center"
+            columnGap={pxToRem(21)}
+          >
             <Box
               display="flex"
               alignItems="center"
               justifyContent="center"
-              width={68}
-              height={68}
+              width={pxToRem(68)}
+              height={pxToRem(68)}
               borderRadius="100%"
               bgcolor="#EDECE8"
             >
@@ -48,16 +53,16 @@ const Comment = () => {
             <Stack>
               <Typography
                 component="span"
-                fontSize="20px"
+                fontSize={pxToRem(20)}
                 fontWeight={600}
-                lineHeight="30px"
+                lineHeight={pxToRem(30)}
                 color="secondary"
               >
                 Miro Koljanin
               </Typography>
               <Typography
                 component="span"
-                fontSize="12px"
+                fontSize={pxToRem(12)}
                 fontWeight={600}
                 color="#BFBEBB"
               >
@@ -65,18 +70,22 @@ const Comment = () => {
               </Typography>
             </Stack>
           </Stack>
-          <Stack flexDirection="row" alignItems="center" columnGap="15px">
+          <Stack
+            flexDirection="row"
+            alignItems="center"
+            columnGap={pxToRem(15)}
+          >
             <Stack
               flexDirection="row"
               alignItems="center"
-              columnGap="5px"
+              columnGap={pxToRem(5)}
               bgcolor="#026670"
-              borderRadius="10px"
-              p="1px 12px"
-              mt="5px"
+              borderRadius={pxToRem(10)}
+              p={`1px ${pxToRem(12)}`}
+              mt={pxToRem(5)}
             >
               <Pin />
-              <Typography fontSize="12px" fontWeight={600} color="#fff">
+              <Typography fontSize={pxToRem(12)} fontWeight={600} color="#fff">
                 Pinned
               </Typography>
             </Stack>
@@ -88,23 +97,23 @@ const Comment = () => {
         </Stack>
         <Typography
           fontFamily="PloniDBold"
-          fontSize="20px"
+          fontSize={pxToRem(20)}
           fontWeight={600}
           color="#026670"
-          mb="10px"
+          mb={pxToRem(10)}
         >
           וויאזוי אויסצולעשן איר עקס רעי מאשין
         </Typography>
-        <BlockBordered mb="20px">
-          <Typography variant="medium" component="p" lineHeight="22px">
+        <BlockBordered mb={pxToRem(20)}>
+          <Typography variant="medium" component="p" lineHeight={pxToRem(22)}>
             Sed ut perspiciatis unde omnis iste natus error sit voluptatem accu
             doloremque laudantium, totam rem aperiam, eaque ipsa.
           </Typography>
           <Stack
             flexDirection="row"
             justifyContent="space-between"
-            gap="10px"
-            mt="10px"
+            gap={pxToRem(10)}
+            mt={pxToRem(10)}
           >
             <Button variant="text" href="" endIcon={<Chevron />}>
               <Typography component="span">Read More</Typography>
@@ -112,19 +121,19 @@ const Comment = () => {
             <Likes number="245" />
           </Stack>
         </BlockBordered>
-        <Stack flexDirection="row" alignItems="center" gap="20px">
+        <Stack flexDirection="row" alignItems="center" gap={pxToRem(20)}>
           <Button
             onClick={handleExpandClick}
             startIcon={<Chevron color="#fff" />}
             sx={{
               color: "#fff",
               backgroundColor: "#026670",
-              borderRadius: "20px",
-              p: "1px 13px 2px 15px",
+              borderRadius: pxToRem(20),
+              p: `${pxToRem(1)} ${pxToRem(13)} ${pxToRem(2)} ${pxToRem(15)}`,
               "& svg": {
-                width: "7px",
+                width: pxToRem(7),
                 transform: expanded ? "rotate(270deg)" : "rotate(90deg)",
-                marginTop: expanded ? 0 : "1px",
+                marginTop: expanded ? 0 : pxToRem(1),
               },
               "&:hover": {
                 backgroundColor: "#00545d",
@@ -142,9 +151,9 @@ const Comment = () => {
 
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <Stack
-          gap="20px"
-          pl="80px"
-          mt="20px"
+          gap={pxToRem(20)}
+          pl={pxToRem(80)}
+          mt={pxToRem(20)}
           sx={{
             "& > div": { backgroundColor: "#F2F1ED" },
             "& .avatar-container": {

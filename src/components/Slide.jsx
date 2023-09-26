@@ -1,5 +1,6 @@
 import { Box, Link, Typography } from "@mui/material";
 import { NavLink } from "react-router-dom";
+import { pxToRem } from "px2rem2px";
 import BlockBordered from "./BlockBordered";
 import TextLink from "./TextLink";
 import PlayBtn from "./PlayBtn";
@@ -11,7 +12,7 @@ const Slide = (props) => {
     <Box
       position="relative"
       bgcolor="#fff"
-      borderRadius="20px"
+      borderRadius={pxToRem(20)}
       sx={{
         transition: "0.2s ease",
         "&::before": {
@@ -19,18 +20,18 @@ const Slide = (props) => {
           position: "absolute",
           top: "50%",
           left: "50%",
-          width: "calc(100% - 40px)",
+          width: `calc(100% - ${pxToRem(40)})`,
           height: "100%",
           backgroundColor: "#FCE181",
-          borderRadius: "20px",
+          borderRadius: pxToRem(20),
           transform: "translate(-50%,-50%)",
           zIndex: -1,
           transition: "0.2s ease",
         },
         "&:hover": {
-          boxShadow: "0px 20px 24px rgba(0,0,0,0.1)",
+          boxShadow: `0px ${pxToRem(20)} ${pxToRem(24)} rgba(0,0,0,0.1)`,
           "&::before": {
-            height: "calc(100% + 40px)",
+            height: `calc(100% + ${pxToRem(40)})`,
           },
           "& .slideTitle": {
             color: "primary.main",
@@ -42,8 +43,8 @@ const Slide = (props) => {
               content: "''",
               position: "absolute",
               left: 0,
-              bottom: -8,
-              height: 2,
+              bottom: pxToRem(-8),
+              height: pxToRem(2),
               width: "100%",
               backgroundColor: "#333",
             },
@@ -55,8 +56,8 @@ const Slide = (props) => {
         display="flex"
         alignItems="center"
         justifyContent="center"
-        height={240}
-        borderRadius="20px 20px 0 0"
+        height={pxToRem(240)}
+        borderRadius={`${pxToRem(20)} ${pxToRem(20)} 0 0`}
         overflow="hidden"
       >
         {props.videoLink ? (
@@ -65,11 +66,11 @@ const Slide = (props) => {
             component={NavLink}
             sx={{ position: "absolute" }}
           >
-            <PlayBtn width="96px" height="96px">
+            <PlayBtn width={pxToRem(96)} height={pxToRem(96)}>
               <Play
                 color="#026670"
-                width={20}
-                height={24}
+                width={pxToRem(20)}
+                height={pxToRem(24)}
                 style={{ marginLeft: "6%" }}
               />
             </PlayBtn>
@@ -82,18 +83,18 @@ const Slide = (props) => {
         />
       </Box>
       <Box
-        p="40px"
+        p={pxToRem(40)}
         bgcolor="#fff"
-        borderRadius="0 0 20px 20px"
+        borderRadius={`0 0 ${pxToRem(20)} ${pxToRem(20)}`}
         overflow="hidden"
       >
         <Typography
           className="slideTitle"
-          fontSize="22px"
+          fontSize={pxToRem(22)}
           fontWeight={700}
-          lineHeight="30px"
+          lineHeight={pxToRem(30)}
           color="secondary.main"
-          mb="20px"
+          mb={pxToRem(20)}
           sx={{
             overflow: "hidden",
             textOverflow: "ellipsis",
@@ -104,7 +105,7 @@ const Slide = (props) => {
         >
           {props.title}
         </Typography>
-        <BlockBordered mb="20px">
+        <BlockBordered mb={pxToRem(20)}>
           <Typography variant="medium" component="p">
             {props.text}
           </Typography>

@@ -1,20 +1,21 @@
 import { FormControlLabel, Switch } from "@mui/material";
 import { styled } from "@mui/material/styles";
+import { pxToRem } from "px2rem2px";
 
 const IOSSwitch = styled((props) => (
   <Switch focusVisibleClassName=".Mui-focusVisible" disableRipple {...props} />
 ))(({ theme }) => ({
-  width: 36,
-  height: 20,
+  width: pxToRem(36),
+  height: pxToRem(20),
   padding: 0,
   margin: "0 !important",
   "& .MuiSwitch-switchBase": {
     padding: 0,
-    marginTop: 2,
+    marginTop: pxToRem(2),
     transitionDuration: "300ms",
-    transform: "translateX(2px)",
+    transform: `translateX(${pxToRem(2)})`,
     "&.Mui-checked": {
-      transform: "translateX(18px)",
+      transform: `translateX(${pxToRem(18)})`,
       color: "#fff",
       "& + .MuiSwitch-track": {
         backgroundColor: "#026670",
@@ -27,7 +28,7 @@ const IOSSwitch = styled((props) => (
     },
     "&.Mui-focusVisible .MuiSwitch-thumb": {
       color: "#33cf4d",
-      border: "6px solid #fff",
+      border: `${pxToRem(6)} solid #fff`,
     },
     "&.Mui-disabled .MuiSwitch-thumb": {
       color: theme.palette.grey[600],
@@ -38,13 +39,13 @@ const IOSSwitch = styled((props) => (
   },
   "& .MuiSwitch-thumb": {
     boxSizing: "border-box",
-    width: 16,
-    height: 16,
+    width: pxToRem(16),
+    height: pxToRem(16),
     boxShadow: "none",
     color: "#fff",
   },
   "& .MuiSwitch-track": {
-    borderRadius: 20,
+    borderRadius: pxToRem(20),
     backgroundColor: "#ccc",
     opacity: 1,
     transition: theme.transitions.create(["background-color"], {
@@ -63,7 +64,6 @@ const Switcher = ({ label, checked, defaultChecked, onChange, name }) => {
           checked={checked}
           onChange={onChange}
           defaultChecked={defaultChecked}
-          sx={{ m: 1 }}
         />
       }
       label={label}

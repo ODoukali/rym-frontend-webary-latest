@@ -1,6 +1,7 @@
 import { Box, Container, Link, Stack, Typography } from "@mui/material";
 import { NavLink } from "react-router-dom";
 import { SwiperSlide } from "swiper/react";
+import { pxToRem } from "px2rem2px";
 import TextLink from "../../components/TextLink";
 import Slider from "../../components/Slider";
 import PlayBtn from "../../components/PlayBtn";
@@ -43,8 +44,8 @@ const videos = [
 const VideoSlider = () => {
   return (
     <Box
-      mt="150px"
-      mb="90px"
+      mt={pxToRem(150)}
+      mb={pxToRem(90)}
       sx={{ "& .arrow-prev, & .arrow-next": { top: "43%" } }}
     >
       <Container>
@@ -52,21 +53,21 @@ const VideoSlider = () => {
           flexDirection="row"
           alignItems="flex-start"
           justifyContent="space-between"
-          mb="30px"
+          mb={pxToRem(30)}
         >
           <Box>
-            <Typography variant="sectionTitle" component="h2" mb="14px">
+            <Typography variant="sectionTitle" component="h2" mb={pxToRem(14)}>
               Hi <span className="highlighted"> Alex,</span> Continue Watching
             </Typography>
           </Box>
-          <TextLink href="" sx={{ marginTop: "15px" }}>
+          <TextLink href="" sx={{ marginTop: pxToRem(15) }}>
             View All Videos
           </TextLink>
         </Stack>
       </Container>
       <Slider
         slidesPerView={"auto"}
-        spaceBetween={20}
+        spaceBetween={16}
         arrows
         className="swiper-videos"
       >
@@ -95,20 +96,20 @@ const VideoSlide = (props) => {
           position: "absolute",
           top: 0,
           left: "50%",
-          width: "calc(100% - 40px)",
-          height: "20px",
+          width: `calc(100% - ${pxToRem(40)})`,
+          height: pxToRem(20),
           backgroundColor: "#FCE181",
-          borderRadius: "20px 20px 0 0",
+          borderRadius: `${pxToRem(20)} ${pxToRem(20)} 0 0`,
           transform: "translateX(-50%)",
           zIndex: -1,
           transition: "0.2s ease",
         },
         "&:hover": {
           "&::before": {
-            top: "-20px",
+            top: pxToRem(-20),
           },
           "& .border-bottom": {
-            bottom: props.progress ? "-60px" : "-20px",
+            bottom: props.progress ? pxToRem(-60) : pxToRem(-20),
           },
         },
       }}
@@ -117,18 +118,18 @@ const VideoSlide = (props) => {
         display="flex"
         alignItems="center"
         justifyContent="center"
-        height={240}
+        height={pxToRem(240)}
       >
         <Link
           to={props.videoLink}
           component={NavLink}
           sx={{ position: "absolute" }}
         >
-          <PlayBtn width="96px" height="96px">
+          <PlayBtn width={pxToRem(96)} height={pxToRem(96)}>
             <Play
               color="#026670"
-              width={20}
-              height={24}
+              width={pxToRem(20)}
+              height={pxToRem(24)}
               style={{ marginLeft: "6%" }}
             />
           </PlayBtn>
@@ -138,7 +139,7 @@ const VideoSlide = (props) => {
             objectFit: "cover",
             width: "100%",
             height: "100%",
-            borderRadius: "20px",
+            borderRadius: pxToRem(20),
           }}
           src={props.image}
           alt=""
@@ -150,10 +151,10 @@ const VideoSlide = (props) => {
           position: "absolute",
           bottom: 0,
           left: "50%",
-          width: "calc(100% - 40px)",
-          height: props.progress ? "60px" : "20px",
+          width: `calc(100% - ${pxToRem(40)})`,
+          height: props.progress ? pxToRem(60) : pxToRem(20),
           backgroundColor: "#FCE181",
-          borderRadius: "0 0 20px 20px",
+          borderRadius: `0 0 ${pxToRem(20)} ${pxToRem(20)}`,
           transform: "translateX(-50%)",
           textAlign: "center",
           zIndex: -1,
@@ -170,16 +171,16 @@ const VideoSlide = (props) => {
           >
             <Typography
               color="#026670"
-              fontSize="14px"
-              lineHeight="18px"
+              fontSize={pxToRem(14)}
+              lineHeight={pxToRem(18)}
               fontWeight={600}
             >
               Continue watching
             </Typography>
             <Typography
               color="#026670"
-              fontSize="14px"
-              lineHeight="18px"
+              fontSize={pxToRem(14)}
+              lineHeight={pxToRem(18)}
               fontWeight={500}
             >
               ({props.progress} progress)

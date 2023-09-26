@@ -1,6 +1,7 @@
 import { Badge, Box, Button, Stack, Tooltip, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { Link } from "react-router-dom";
+import { pxToRem } from "px2rem2px";
 import TextLink from "../../components/TextLink";
 import BlockBordered from "../../components/BlockBordered";
 import Note from "./Note";
@@ -11,8 +12,8 @@ import { ReactComponent as Print } from "../../images/printer.svg";
 
 const Block = styled(Box)({
   backgroundColor: "#fff",
-  borderRadius: "20px",
-  padding: "30px 40px 40px 40px",
+  borderRadius: pxToRem(20),
+  padding: `${pxToRem(30)} ${pxToRem(40)} ${pxToRem(40)} ${pxToRem(40)}`,
 });
 
 const NotesBookmarks = () => {
@@ -28,13 +29,13 @@ const NotesBookmarks = () => {
             alignItems="center"
             justifyContent="space-between"
             flexWrap="wrap"
-            mb="24px"
+            mb={pxToRem(24)}
           >
             <Stack flexDirection="row">
               <Badge
                 badgeContent={
                   <Typography
-                    fontSize="12px"
+                    fontSize={pxToRem(12)}
                     fontWeight={700}
                     color="#BFBEBB !important"
                   >
@@ -42,19 +43,19 @@ const NotesBookmarks = () => {
                   </Typography>
                 }
                 sx={{
-                  mr: "90px",
+                  mr: pxToRem(90),
                   "& .MuiBadge-badge": {
-                    right: "-33px",
-                    height: "27px",
-                    borderRadius: "20px",
+                    right: pxToRem(-33),
+                    height: pxToRem(27),
+                    borderRadius: pxToRem(20),
                     backgroundColor: "#EDECE8",
-                    p: "5px 10px",
+                    p: `${pxToRem(5)} ${pxToRem(10)}`,
                   },
                 }}
               >
                 <Typography
                   position="relative"
-                  fontSize="20px"
+                  fontSize={pxToRem(20)}
                   fontWeight={700}
                 >
                   Bookmarks
@@ -64,9 +65,9 @@ const NotesBookmarks = () => {
             <Button
               variant="yellow"
               sx={{
-                height: "40px",
-                fontSize: "14px",
-                p: "20px 30px",
+                height: pxToRem(40),
+                fontSize: pxToRem(14),
+                p: `${pxToRem(20)} ${pxToRem(30)}`,
                 boxShadow: "none",
               }}
             >
@@ -77,7 +78,7 @@ const NotesBookmarks = () => {
             sx={{
               display: "grid",
               gridTemplateColumns: bookmarksQuantity > 4 ? "1fr 1fr" : "1fr",
-              gap: "10px 40px",
+              gap: `${pxToRem(10)} ${pxToRem(40)}`,
               overflow: "hidden",
             }}
           >
@@ -89,7 +90,7 @@ const NotesBookmarks = () => {
                 flexDirection="row"
                 alignItems="center"
                 justifyContent="space-between"
-                pt="10px"
+                pt={pxToRem(10)}
                 sx={{
                   position: "relative",
                   "&::after": {
@@ -114,12 +115,16 @@ const NotesBookmarks = () => {
                   },
                 }}
               >
-                <Stack flexDirection="row" columnGap="15px" component="span">
+                <Stack
+                  flexDirection="row"
+                  columnGap={pxToRem(15)}
+                  component="span"
+                >
                   <Box
                     className="bookmark-number"
                     component="span"
-                    width={27}
-                    height={27}
+                    width={pxToRem(27)}
+                    height={pxToRem(27)}
                     borderRadius="100%"
                     bgcolor="#EDECE8"
                     display="flex"
@@ -129,7 +134,7 @@ const NotesBookmarks = () => {
                   >
                     <Typography
                       component="span"
-                      fontSize="12px"
+                      fontSize={pxToRem(12)}
                       fontWeight={700}
                       color="#BFBEBB"
                     >
@@ -140,8 +145,8 @@ const NotesBookmarks = () => {
                     className="text"
                     component="span"
                     display="block"
-                    fontSize="16px"
-                    lineHeight="27px"
+                    fontSize={pxToRem(16)}
+                    lineHeight={pxToRem(27)}
                     fontWeight={600}
                     color="secondary"
                   >
@@ -150,7 +155,7 @@ const NotesBookmarks = () => {
                 </Stack>
                 <Typography
                   component="span"
-                  fontSize="16px"
+                  fontSize={pxToRem(16)}
                   fontWeight={600}
                   color="primary"
                 >
@@ -161,13 +166,16 @@ const NotesBookmarks = () => {
           </Box>
         </Block>
         <Box display="flex" justifyContent="flex-end">
-          <TextLink href="/" sx={{ marginTop: "20px", marginRight: "40px" }}>
+          <TextLink
+            href="/"
+            sx={{ marginTop: pxToRem(20), marginRight: pxToRem(40) }}
+          >
             Add Bookmark
           </TextLink>
         </Box>
       </Box>
 
-      <Box mt="60px">
+      <Box mt={pxToRem(60)}>
         <Block>
           <Stack
             width="100%"
@@ -175,16 +183,16 @@ const NotesBookmarks = () => {
             alignItems="center"
             justifyContent="space-between"
             flexWrap="wrap"
-            mb="24px"
+            mb={pxToRem(24)}
           >
             <Stack flexDirection="row">
-              <Typography fontSize="20px" fontWeight={700}>
+              <Typography fontSize={pxToRem(20)} fontWeight={700}>
                 Course Notes
               </Typography>
             </Stack>
             <Stack
               flexDirection="row"
-              gap="10px"
+              gap={pxToRem(10)}
               sx={{ "& button": { backgroundColor: "#EDECE8" } }}
             >
               <Tooltip
@@ -215,8 +223,8 @@ const NotesBookmarks = () => {
           </Stack>
           <Stack>
             <Note>
-              <BlockBordered mb="20px">
-                <Typography variant="medium" lineHeight="22px">
+              <BlockBordered mb={pxToRem(20)}>
+                <Typography variant="medium" lineHeight={pxToRem(22)}>
                   Sed ut perspiciatis unde omnis iste natus error sit voluptatem
                   accusantium doloremque laudantium, totam rem aperiam, eaque
                   ipsa quae ab illo inventore veritatis et quasi architecto
@@ -225,15 +233,18 @@ const NotesBookmarks = () => {
               </BlockBordered>
               <TextLink
                 href=""
-                sx={{ marginBottom: "10px", "& span": { fontSize: "14px" } }}
+                sx={{
+                  marginBottom: pxToRem(10),
+                  "& span": { fontSize: pxToRem(14) },
+                }}
               >
                 Edit Note
               </TextLink>
             </Note>
             <Note>
-              <BlockBordered mb="20px">
+              <BlockBordered mb={pxToRem(20)}>
                 <Box className="note-edited">
-                  <Typography variant="medium" lineHeight="22px">
+                  <Typography variant="medium" lineHeight={pxToRem(22)}>
                     Sed ut perspiciatis unde omnis iste natus error sit
                     voluptatem accusantium doloremque laudantium, totam rem
                     aperiam, eaque ipsa quae ab illo inventore veritatis et
@@ -243,7 +254,10 @@ const NotesBookmarks = () => {
               </BlockBordered>
               <TextLink
                 href=""
-                sx={{ marginBottom: "10px", "& span": { fontSize: "14px" } }}
+                sx={{
+                  marginBottom: pxToRem(10),
+                  "& span": { fontSize: pxToRem(14) },
+                }}
               >
                 Save Note
               </TextLink>
@@ -251,7 +265,10 @@ const NotesBookmarks = () => {
           </Stack>
         </Block>
         <Box display="flex" justifyContent="flex-end">
-          <TextLink href="/" sx={{ marginTop: "20px", marginRight: "40px" }}>
+          <TextLink
+            href="/"
+            sx={{ marginTop: pxToRem(20), marginRight: pxToRem(40) }}
+          >
             Add Note
           </TextLink>
         </Box>

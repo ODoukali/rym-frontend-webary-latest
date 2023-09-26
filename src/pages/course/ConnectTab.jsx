@@ -8,6 +8,7 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
+import { pxToRem } from "px2rem2px";
 import Question from "./Question";
 import BlockBordered from "../../components/BlockBordered";
 
@@ -59,10 +60,10 @@ const ConnectTab = () => {
       <Box>
         <Typography
           component="h2"
-          fontSize="22px"
+          fontSize={pxToRem(22)}
           fontWeight="bold"
-          lineHeight="30px"
-          mb="20px"
+          lineHeight={pxToRem(30)}
+          mb={pxToRem(20)}
         >
           Have a Question? Ask the Rabbi!
         </Typography>
@@ -70,7 +71,7 @@ const ConnectTab = () => {
           position="relative"
           flexDirection="row"
           alignItems="flex-start"
-          gap="36px"
+          gap={pxToRem(36)}
         >
           <Box
             className="rtl-section"
@@ -79,7 +80,7 @@ const ConnectTab = () => {
                 content: "''",
                 position: "absolute",
                 top: 0,
-                right: "246px",
+                right: pxToRem(246),
                 height: "100%",
                 borderLeft: "2px solid #BFBEBB",
               },
@@ -91,12 +92,10 @@ const ConnectTab = () => {
                 expanded={expanded === `panel${a.id}`}
                 onChange={handleChange(`panel${a.id}`)}
                 sx={{
-                  "& .MuiAccordionSummary-root": {
-                    padding: "0 50px 0 25px",
-                  },
-                  "& .MuiAccordionSummary-root.Mui-expanded": {
-                    padding: "0 50px 0 25px",
-                  },
+                  "& .MuiAccordionSummary-root, & .MuiAccordionSummary-root.Mui-expanded":
+                    {
+                      padding: `0 ${pxToRem(50)} 0 ${pxToRem(25)}`,
+                    },
                 }}
               >
                 <AccordionSummary
@@ -108,20 +107,20 @@ const ConnectTab = () => {
                 >
                   <Typography
                     fontFamily="PloniBold"
-                    fontSize="30px"
-                    lineHeight="30px"
+                    fontSize={pxToRem(30)}
+                    lineHeight={pxToRem(30)}
                     color="secondary"
-                    ml="20px"
+                    ml={pxToRem(20)}
                     sx={{
                       isolation: "isolate",
                       "&::before": {
                         content: "'Q'",
                         fontFamily: "Poppins",
                         position: "absolute",
-                        fontSize: "80px",
+                        fontSize: pxToRem(80),
                         fontWeight: "700",
                         color: "#F7F6F2",
-                        right: "27px",
+                        right: pxToRem(27),
                         top: "50%",
                         transform: "translateY(-50%)",
                         zIndex: -1,
@@ -131,7 +130,9 @@ const ConnectTab = () => {
                     {a.question}
                   </Typography>
                 </AccordionSummary>
-                <AccordionDetails sx={{ padding: "0 60px 38px !important" }}>
+                <AccordionDetails
+                  sx={{ padding: `0 ${pxToRem(60)} ${pxToRem(38)} !important` }}
+                >
                   <BlockBordered>
                     <Typography
                       variant="large"
@@ -146,34 +147,39 @@ const ConnectTab = () => {
               </Accordion>
             ))}
           </Box>
-          <Box maxWidth="230px" bgcolor="#026670" borderRadius="10px" p="30px">
+          <Box
+            maxWidth={pxToRem(230)}
+            bgcolor="#026670"
+            borderRadius={pxToRem(10)}
+            p={pxToRem(30)}
+          >
             <Typography
               color="#fff"
-              fontSize="22px"
+              fontSize={pxToRem(22)}
               fontWeight={700}
-              lineHeight="30px"
-              letterSpacing="-0.86px"
-              mb="15px"
+              lineHeight={pxToRem(30)}
+              letterSpacing={pxToRem(-0.86)}
+              mb={pxToRem(15)}
             >
               Need 1 on 1 help?
             </Typography>
             <Typography
               color="#fff"
-              fontSize="14px"
+              fontSize={pxToRem(14)}
               fontWeight={700}
-              lineHeight="21px"
-              mb="24px"
+              lineHeight={pxToRem(21)}
+              mb={pxToRem(24)}
             >
               Book an Appointment with the Rabbi Today and improve your
               marriage.
             </Typography>
             <Typography
               color="#fff"
-              fontSize="13px"
+              fontSize={pxToRem(13)}
               fontWeight={500}
-              lineHeight="21px"
-              letterSpacing="-0.39px"
-              mb="25px"
+              lineHeight={pxToRem(21)}
+              letterSpacing={pxToRem(-0.39)}
+              mb={pxToRem(25)}
             >
               One-on-one appointments with the Reb Yakov Moshe are a great way
               to get personalized advice and support. He can tailor his guidance
@@ -183,27 +189,30 @@ const ConnectTab = () => {
             <Button
               variant="yellow"
               sx={{
-                height: "40px",
-                fontSize: "14px",
-                p: "20px",
-                maxWidth: "170px",
+                height: pxToRem(40),
+                fontSize: pxToRem(14),
+                p: pxToRem(20),
+                maxWidth: pxToRem(170),
               }}
             >
               Book Appointment
             </Button>
           </Box>
         </Stack>
-        <Button variant="yellow" sx={{ height: "54px", m: "26px 0 60px" }}>
+        <Button
+          variant="yellow"
+          sx={{ height: pxToRem(54), m: `${pxToRem(26)} 0 ${pxToRem(60)}` }}
+        >
           Send us Your Question
         </Button>
 
-        <Box borderTop="1px solid #BFBEBB" pt="60px">
+        <Box borderTop="1px solid #BFBEBB" pt={pxToRem(60)}>
           <Typography
             component="h2"
-            fontSize="22px"
+            fontSize={pxToRem(22)}
             fontWeight="bold"
-            lineHeight="30px"
-            mb="20px"
+            lineHeight={pxToRem(30)}
+            mb={pxToRem(20)}
           >
             View Your Submited Questions
           </Typography>
@@ -211,7 +220,7 @@ const ConnectTab = () => {
             sx={{
               display: "grid",
               gridTemplateColumns: "1fr 1fr 1fr",
-              gap: "16px",
+              gap: pxToRem(16),
             }}
           >
             <Question />

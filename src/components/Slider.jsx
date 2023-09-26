@@ -3,6 +3,7 @@ import { Box, Container } from "@mui/material";
 import { Swiper } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
+import { pxToRem } from "px2rem2px";
 
 import { ReactComponent as Chevron } from "../images/chevron.svg";
 
@@ -19,7 +20,6 @@ const Slider = (props) => {
       <Box position="relative">
         <Swiper
           {...restProps}
-          spaceBetween={20}
           onSlideChange={(swipe) =>
             setSlideConfig({
               isBeginning: swipe.isBeginning,
@@ -62,16 +62,16 @@ const ArrowBtn = (props) => {
       sx={{
         position: "absolute",
         top: "50%",
-        left: props.nextBtn ? "initial" : "-145px",
-        right: props.nextBtn ? "-145px" : "initial",
+        left: props.nextBtn ? "initial" : pxToRem(-145),
+        right: props.nextBtn ? pxToRem(-145) : "initial",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        width: "80px",
-        height: "80px",
+        width: pxToRem(80),
+        height: pxToRem(80),
         borderRadius: "50%",
         bgcolor: "#fff",
-        boxShadow: "0px 10px 20px rgba(0,0,0,0.07)",
+        boxShadow: `0px ${pxToRem(10)} ${pxToRem(20)} rgba(0,0,0,0.07)`,
         border: "none",
         cursor: "pointer",
         transition: "0.2s ease",
@@ -79,7 +79,7 @@ const ArrowBtn = (props) => {
         "& svg": {
           transition: "0.2s ease",
           transform: props.nextBtn ? "rotate(0deg)" : "rotate(180deg)",
-          margin: props.nextBtn ? "0 0 0 5px" : "0 3px 0 0",
+          margin: props.nextBtn ? `0 0 0 ${pxToRem(5)}` : `0 ${pxToRem(3)} 0 0`,
         },
         "&:hover": {
           bgcolor: "#026670",

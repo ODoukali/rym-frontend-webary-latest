@@ -11,6 +11,7 @@ import {
 import { Link } from "react-router-dom";
 import { styled } from "@mui/material/styles";
 import { useModal } from "mui-modal-provider";
+import { pxToRem } from "px2rem2px";
 import IconBtnCircular from "./IconBtnCircular";
 import LinkBtn from "./LinkBtn";
 import NestedMenu from "./NestedMenu";
@@ -87,16 +88,16 @@ const Header = (props) => {
         alignItems="center"
         justifyContent="space-between"
         bgcolor="#EDECE8"
-        p="70px 110px"
+        p={`${pxToRem(70)} ${pxToRem(110)}`}
         sx={{ "& button": { boxShadow: "none" } }}
       >
         <Button
           onClick={() => showModal(LoginModal)}
           variant="yellow"
           sx={{
-            height: "40px",
-            fontSize: "14px",
-            p: "20px 47px",
+            height: pxToRem(40),
+            fontSize: pxToRem(14),
+            p: `${pxToRem(20)} ${pxToRem(47)}`,
           }}
         >
           Sign In
@@ -107,10 +108,13 @@ const Header = (props) => {
       </Stack>
       <Stack
         alignItems="flex-start"
-        gap="20px"
-        p="40px 110px 30px"
+        gap={pxToRem(20)}
+        p={`${pxToRem(40)} ${pxToRem(110)} ${pxToRem(30)}`}
         sx={{
-          "& > a, & > .MuiBox-root > a": { fontSize: "30px", fontWeight: 700 },
+          "& > a, & > .MuiBox-root > a": {
+            fontSize: pxToRem(30),
+            fontWeight: 700,
+          },
         }}
       >
         <LinkBtn to="/" title="Main" />
@@ -131,11 +135,11 @@ const Header = (props) => {
         <LinkBtn to="/contact" title="Contact" />
         <Stack
           width="100%"
-          py="60px"
-          gap="25px"
+          py={pxToRem(60)}
+          gap={pxToRem(25)}
           borderTop="1px solid rgba(191,190,187,0.5)"
           borderBottom="1px solid rgba(191,190,187,0.5)"
-          sx={{ "& a": { fontSize: "16px" } }}
+          sx={{ "& a": { fontSize: pxToRem(16) } }}
         >
           <MenuDropdownLink to="/">Account</MenuDropdownLink>
           <MenuDropdownLink to="/">Subscriptions</MenuDropdownLink>
@@ -145,11 +149,11 @@ const Header = (props) => {
         <Button
           variant="outlined"
           sx={{
-            height: "40px",
-            fontSize: "14px",
-            p: "18px 40px",
-            borderWidth: "2px",
-            mt: "35px",
+            height: pxToRem(40),
+            fontSize: pxToRem(14),
+            p: `${pxToRem(18)} ${pxToRem(40)}`,
+            borderWidth: pxToRem(2),
+            mt: pxToRem(35),
             "&:hover": {
               border: "2px solid #026670",
             },
@@ -170,14 +174,18 @@ const Header = (props) => {
         zIndex={100}
       >
         <Stack
-          maxWidth="1380px"
+          maxWidth={pxToRem(1380)}
           flexDirection="row"
           alignItems="center"
           justifyContent="space-between"
-          padding="10px 30px"
+          padding={`${pxToRem(10)} ${pxToRem(30)}`}
           m="auto"
         >
-          <Stack flexDirection="row" alignItems="center" columnGap="15px">
+          <Stack
+            flexDirection="row"
+            alignItems="center"
+            columnGap={pxToRem(15)}
+          >
             {!props.menuVisible || tablet ? (
               <IconBtnCircular onClick={toggleDrawer(true)}>
                 <Menu />
@@ -190,8 +198,8 @@ const Header = (props) => {
               <Stack
                 flexDirection="row"
                 alignItems="center"
-                columnGap="56px"
-                ml="25px"
+                columnGap={pxToRem(56)}
+                ml={pxToRem(25)}
               >
                 <LinkBtn to="/" title="Main" />
                 <MenuDropdown title="Philosophy">
@@ -226,10 +234,10 @@ const Header = (props) => {
             sx={{
               zIndex: 1500,
               "& .MuiPaper-root": {
-                maxWidth: "470px",
+                maxWidth: pxToRem(470),
                 width: "100%",
                 bgcolor: "#F7F6F2",
-                borderRadius: "0 40px 40px 0",
+                borderRadius: `0 ${pxToRem(40)} ${pxToRem(40)} 0`,
                 overflowY: "initial",
                 overflow: "hidden",
               },

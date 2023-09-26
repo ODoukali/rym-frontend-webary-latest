@@ -16,6 +16,7 @@ import {
   Checkbox,
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
+import { pxToRem } from "px2rem2px";
 import ReactPhoneInput from "react-phone-input-material-ui";
 // import ReCAPTCHA from "react-google-recaptcha";
 import IconBtnCircular from "./IconBtnCircular";
@@ -26,10 +27,10 @@ import { ReactComponent as Google } from "../images/google.svg";
 
 const ToggleButtonStyled = styled(ToggleButton)({
   color: "#EDECE8",
-  width: "147px",
-  height: "50px",
-  borderRadius: "30px !important",
-  fontSize: "16px",
+  width: pxToRem(147),
+  height: pxToRem(50),
+  borderRadius: `${pxToRem(30)} !important`,
+  fontSize: pxToRem(16),
   fontWeight: 600,
   textTransform: "capitalize",
   border: "none",
@@ -47,66 +48,66 @@ const ToggleButtonStyled = styled(ToggleButton)({
 });
 
 const ButtonGoogle = styled(Button)({
-  height: "54px",
-  borderWidth: "2px",
+  height: pxToRem(54),
+  borderWidth: pxToRem(2),
   fontWeight: 500,
-  marginBottom: "35px",
+  marginBottom: pxToRem(35),
   boxShadow: "none",
   "&:hover": {
-    borderWidth: "2px",
+    borderWidth: pxToRem(2),
   },
 });
 
 const ButtonLogin = styled(Button)({
-  width: "300px",
-  height: "54px",
-  fontSize: "14px",
+  width: pxToRem(300),
+  height: pxToRem(54),
+  fontSize: pxToRem(14),
   fontWeight: 600,
   boxShadow: "none",
-  margin: "40px 0",
+  margin: `${pxToRem(40)} 0`,
 });
 
 const Hr = styled(Divider)({
-  marginBottom: "40px",
+  marginBottom: pxToRem(40),
   "&::after, &::before": {
     borderTop: "1px solid #BFBEBB",
   },
   "& span": {
-    paddingLeft: "23px",
-    paddingRight: "23px",
+    paddingLeft: pxToRem(23),
+    paddingRight: pxToRem(23),
   },
 });
 
 const TextFieldStyled = styled(TextField)({
   width: "100%",
-  height: "54px",
-  borderRadius: "30px",
+  height: pxToRem(54),
+  borderRadius: pxToRem(30),
   backgroundColor: "#EDECE8",
   "& input": {
-    borderRadius: "30px !important",
-    padding: "15px 40px",
+    borderRadius: `${pxToRem(30)} !important`,
+    padding: `${pxToRem(15)} ${pxToRem(40)}`,
   },
 });
 
 const ToggleButtonGroupStyled = styled(ToggleButtonGroup)({
   position: "relative",
-  width: "300px",
+  width: pxToRem(300),
   justifyContent: "space-between",
   backgroundColor: "#BFBEBB",
-  borderRadius: "30px",
-  padding: "2px",
+  borderRadius: pxToRem(30),
+  padding: pxToRem(2),
   "&::before": {
     content: "''",
-    width: "147px",
-    height: "50px",
+    width: pxToRem(147),
+    height: pxToRem(50),
     position: "absolute",
-    left: 2,
+    left: pxToRem(2),
     backgroundColor: "#EDECE8",
-    borderRadius: "30px",
+    borderRadius: pxToRem(30),
     transition: "left 0.2s ease-in-out",
   },
   "&.active::before": {
-    left: 151,
+    left: pxToRem(151),
   },
 });
 
@@ -155,8 +156,8 @@ const LoginModal = (props) => {
       sx={{
         "& .MuiPaper-root": {
           width: "100%",
-          maxWidth: "500px",
-          borderRadius: "20px",
+          maxWidth: pxToRem(500),
+          borderRadius: pxToRem(20),
           verticalAlign: "top",
         },
         "& .MuiDialog-container": {
@@ -171,18 +172,23 @@ const LoginModal = (props) => {
         alignItems="center"
         justifyContent="space-between"
         bgcolor="#EDECE8"
-        p="40px 50px 67px"
+        p={`${pxToRem(40)} ${pxToRem(50)} ${pxToRem(67)}`}
         sx={{ "& button": { boxShadow: "none" } }}
       >
-        <Typography fontSize="22px" fontWeight="bold">
+        <Typography fontSize={pxToRem(22)} fontWeight="bold">
           R.Y.M. {register === "login" ? "Log In" : "Sign Up"}
         </Typography>
         <IconBtnCircular onClick={() => props.onClose()}>
           <Close color="#026670" />
         </IconBtnCircular>
       </Stack>
-      <Box bgcolor="#F7F6F2" p="0px 50px 40px">
-        <Box position="relative" textAlign="center" mt="-27px" mb="40px">
+      <Box bgcolor="#F7F6F2" p={`0 ${pxToRem(50)} ${pxToRem(40)}`}>
+        <Box
+          position="relative"
+          textAlign="center"
+          mt={pxToRem(-27)}
+          mb={pxToRem(40)}
+        >
           <ToggleButtonGroupStyled
             className={`${register === "signup" ? "active" : ""}`}
             value={register}
@@ -208,11 +214,15 @@ const LoginModal = (props) => {
                 Continue with Google
               </ButtonGoogle>
               <Hr>
-                <Typography fontSize="14px" fontWeight={600} color="#BFBEBB">
+                <Typography
+                  fontSize={pxToRem(14)}
+                  fontWeight={600}
+                  color="#BFBEBB"
+                >
                   or
                 </Typography>
               </Hr>
-              <Stack gap="10px">
+              <Stack gap={pxToRem(10)}>
                 <TextFieldStyled
                   name="loginEmail"
                   type="email"
@@ -234,11 +244,15 @@ const LoginModal = (props) => {
                 label="Keep me logged in?"
                 defaultChecked
               />
-              <Divider sx={{ borderColor: "#BFBEBB", my: "40px" }} />
+              <Divider sx={{ borderColor: "#BFBEBB", my: pxToRem(40) }} />
               <Link
                 href=""
                 underline="hover"
-                sx={{ fontSize: "12px", fontWeight: 600, color: "#BFBEBB" }}
+                sx={{
+                  fontSize: pxToRem(12),
+                  fontWeight: 600,
+                  color: "#BFBEBB",
+                }}
               >
                 Forgot Password?
               </Link>
@@ -248,11 +262,15 @@ const LoginModal = (props) => {
                 Continue with Google
               </ButtonGoogle>
               <Hr>
-                <Typography fontSize="14px" fontWeight={600} color="#BFBEBB">
+                <Typography
+                  fontSize={pxToRem(14)}
+                  fontWeight={600}
+                  color="#BFBEBB"
+                >
                   or
                 </Typography>
               </Hr>
-              <Stack gap="10px">
+              <Stack gap={pxToRem(10)}>
                 <TextFieldStyled name="name" type="text" placeholder="Name" />
                 <TextFieldStyled
                   name="nickname"
@@ -301,8 +319,8 @@ const LoginModal = (props) => {
                 flexDirection="row"
                 alignItems="center"
                 justifyContent="center"
-                gap="15px"
-                mt="37px"
+                gap={pxToRem(15)}
+                mt={pxToRem(37)}
               >
                 <FormControlLabel
                   control={<Checkbox defaultChecked />}
@@ -311,7 +329,7 @@ const LoginModal = (props) => {
                 {/* <ReCAPTCHA sitekey="Your client site key" /> */}
               </Stack>
               <ButtonLogin variant="yellow">Create Account</ButtonLogin>
-              <Stack alignItems="center" gap="10px">
+              <Stack alignItems="center" gap={pxToRem(10)}>
                 <Switcher
                   name="keepSignedin"
                   label="Keep me signed in."
@@ -323,12 +341,12 @@ const LoginModal = (props) => {
                   defaultChecked
                 />
               </Stack>
-              <Divider sx={{ borderColor: "#BFBEBB", my: "40px" }} />
+              <Divider sx={{ borderColor: "#BFBEBB", my: pxToRem(40) }} />
               <Typography
-                maxWidth="300px"
-                fontSize="12px"
+                maxWidth={pxToRem(300)}
+                fontSize={pxToRem(12)}
                 fontWeight={500}
-                lineHeight="16px"
+                lineHeight={pxToRem(16)}
                 color="#BFBEBB"
                 margin="auto"
               >

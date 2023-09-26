@@ -1,5 +1,6 @@
 import { Box, Container, Stack, Typography } from "@mui/material";
 import { SwiperSlide } from "swiper/react";
+import { pxToRem } from "px2rem2px";
 import TextLink from "./TextLink";
 import Slider from "./Slider";
 import Slide from "./Slide";
@@ -41,13 +42,13 @@ const sliderVideos = [
 
 const VideosSection = () => {
   return (
-    <Box pb="110px">
+    <Box pb={pxToRem(110)}>
       <Container>
         <Stack
           flexDirection="row"
           alignItems="center"
           justifyContent="space-between"
-          mb="40px"
+          mb={pxToRem(40)}
         >
           <Typography variant="sectionTitle" component="h2">
             You <span className="highlighted">may</span> also{" "}
@@ -58,10 +59,11 @@ const VideosSection = () => {
       </Container>
       <Slider
         slidesPerView={3}
+        spaceBetween={20}
         arrows
         style={{
-          padding: "40px 20px 50px",
-          margin: "0 -20px",
+          padding: `${pxToRem(40)} ${pxToRem(20)} ${pxToRem(50)}`,
+          margin: `0 ${pxToRem(-20)}`,
         }}
       >
         {sliderVideos.map((v) => (

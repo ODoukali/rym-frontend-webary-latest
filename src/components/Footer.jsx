@@ -7,10 +7,11 @@ import {
   Link as MuiLink,
 } from "@mui/material";
 import { Link } from "react-router-dom";
+import { pxToRem } from "px2rem2px";
 import Guides from "./Guides";
+import LinkBtn from "./LinkBtn";
 
 import BgImg from "../images/footer-tree.svg";
-import LinkBtn from "./LinkBtn";
 import { ReactComponent as Logo } from "../images/logo.svg";
 
 const Footer = () => {
@@ -18,9 +19,9 @@ const Footer = () => {
     <Box
       position="relative"
       bgcolor="#026670"
-      borderRadius="30px"
-      pt="109px"
-      pb="103px"
+      borderRadius={pxToRem(30)}
+      pt={pxToRem(109)}
+      pb={pxToRem(103)}
       overflow="hidden"
       sx={{
         "&::after": {
@@ -31,28 +32,33 @@ const Footer = () => {
           transform: "translateX(-50%)",
           background: `url(${BgImg}) center no-repeat`,
           backgroundSize: "100%",
-          width: "520px",
+          width: pxToRem(520),
           height: "100%",
         },
       }}
     >
       <Container>
         <Stack flexDirection="row" position="relative" zIndex="1">
-          <Box maxWidth="380px" mr="118px">
+          <Box maxWidth={pxToRem(380)} mr={pxToRem(118)}>
             <Link to="/" style={{ display: "flex" }}>
               <Logo color="#fff" />
             </Link>
-            <Typography variant="medium" color="#fff" component="p" mt="20px">
+            <Typography
+              variant="medium"
+              color="#fff"
+              component="p"
+              mt={pxToRem(20)}
+            >
               Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit
               aut fugit, sed quia consequuntur magni dolores eos qui ratione.
             </Typography>
             <Divider
-              sx={{ backgroundColor: "rgba(255,255,255,0.3)", my: "32px" }}
+              sx={{ backgroundColor: "rgba(255,255,255,0.3)", my: pxToRem(32) }}
             />
             <Stack flexDirection="row">
               <Typography
-                width="60px"
-                fontSize="16px"
+                width={pxToRem(60)}
+                fontSize={pxToRem(16)}
                 fontWeight="500"
                 color="#BFBEBB"
               >
@@ -69,8 +75,8 @@ const Footer = () => {
             </Stack>
             <Stack flexDirection="row">
               <Typography
-                width="60px"
-                fontSize="16px"
+                width={pxToRem(60)}
+                fontSize={pxToRem(16)}
                 fontWeight="500"
                 color="#BFBEBB"
               >
@@ -86,15 +92,15 @@ const Footer = () => {
               </MuiLink>
             </Stack>
             <Typography
-              fontSize="14px"
+              fontSize={pxToRem(14)}
               color="rgba(191, 190, 187, 0.5)"
-              mt="50px"
+              mt={pxToRem(50)}
             >
               ©copyright 2023 RebYakovMoshe.com
             </Typography>
           </Box>
 
-          <Stack alignItems={"flex-start"} rowGap="23px">
+          <Stack alignItems={"flex-start"} rowGap={pxToRem(23)}>
             <LinkBtn to="/" title="Main" footerLink />
             <LinkBtn to="/philosophy" title="Philosophy" footerLink />
             <LinkBtn to="/blog" title="Blog" footerLink />

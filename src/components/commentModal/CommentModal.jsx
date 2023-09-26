@@ -8,6 +8,7 @@ import {
   Box,
   Button,
 } from "@mui/material";
+import { pxToRem } from "px2rem2px";
 import IconBtnCircular from "../IconBtnCircular";
 import Switcher from "../Switcher";
 import Comment from "./Comment";
@@ -34,8 +35,8 @@ const CommentModal = (props) => {
       sx={{
         "& .MuiPaper-root": {
           width: "100%",
-          maxWidth: "920px",
-          borderRadius: "20px",
+          maxWidth: pxToRem(920),
+          borderRadius: pxToRem(20),
         },
         zIndex: 1500,
       }}
@@ -45,7 +46,7 @@ const CommentModal = (props) => {
         alignItems="center"
         justifyContent="space-between"
         bgcolor="#EDECE8"
-        p="40px 60px"
+        p={`${pxToRem(40)} ${pxToRem(60)}`}
         sx={{ "& button": { boxShadow: "none" } }}
       >
         <Button variant="yellow" size="small">
@@ -55,10 +56,19 @@ const CommentModal = (props) => {
           <Close color="#026670" />
         </IconBtnCircular>
       </Stack>
-      <Box bgcolor="#F7F6F2" p="40px 60px 50px">
-        <Box mb="40px">
-          <Box bgcolor="#EDECE8" borderRadius="10px" p="26px 30px" mb="20px">
-            <Typography lineHeight="26px" fontWeight={500} color="#807F7D">
+      <Box bgcolor="#F7F6F2" p={`${pxToRem(40)} ${pxToRem(60)} ${pxToRem(50)}`}>
+        <Box mb={pxToRem(40)}>
+          <Box
+            bgcolor="#EDECE8"
+            borderRadius={pxToRem(10)}
+            p={`${pxToRem(26)} ${pxToRem(30)}`}
+            mb={pxToRem(20)}
+          >
+            <Typography
+              lineHeight={pxToRem(26)}
+              fontWeight={500}
+              color="#807F7D"
+            >
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
               enim ad minim veniam, quis nostrud exercitation ullamco laboris
@@ -70,11 +80,11 @@ const CommentModal = (props) => {
             alignContent="center"
             justifyContent="flex-end"
             flexWrap="wrap"
-            gap="30px"
-            mr="30px"
+            gap={pxToRem(30)}
+            mr={pxToRem(30)}
           >
             <Switcher name="anonymous" label="Post Anonymous" defaultChecked />
-            <Stack flexDirection="row" alignContent="center" gap="10px">
+            <Stack flexDirection="row" alignContent="center" gap={pxToRem(10)}>
               <Button variant="outlined" size="small">
                 Cancel
               </Button>
@@ -85,10 +95,10 @@ const CommentModal = (props) => {
           </Stack>
         </Box>
         <Box>
-          <Typography fontSize="20px" fontWeight={700} mb="40px">
+          <Typography fontSize={pxToRem(20)} fontWeight={700} mb={pxToRem(40)}>
             Comments (34)
           </Typography>
-          <Stack gap="20px">
+          <Stack gap={pxToRem(20)}>
             <Comment />
             <Comment />
             <Comment />

@@ -1,4 +1,5 @@
 import { Box, IconButton, Stack, Typography } from "@mui/material";
+import { pxToRem } from "px2rem2px";
 import TextLink from "../../components/TextLink";
 import Likes from "../../components/Likes";
 
@@ -6,30 +7,34 @@ import { ReactComponent as DotMenu } from "../../images/dots-menu.svg";
 
 const Question = (props) => {
   return (
-    <Box bgcolor="#fff" borderRadius="10px" p="30px 30px 27px">
+    <Box
+      bgcolor="#fff"
+      borderRadius={pxToRem(10)}
+      p={`${pxToRem(30)} ${pxToRem(30)} ${pxToRem(27)}`}
+    >
       <Stack
         flexDirection="row"
         justifyContent="space-between"
-        gap="15px"
-        mb="18px"
+        gap={pxToRem(15)}
+        mb={pxToRem(18)}
       >
         <Box>
-          <Typography fontWeight={600} color="secondary" mb="3px">
+          <Typography fontWeight={600} color="secondary" mb={pxToRem(3)}>
             Lecture 3
           </Typography>
-          <Typography fontSize="12px" fontWeight="600" color="#BFBEBB">
+          <Typography fontSize={pxToRem(12)} fontWeight="600" color="#BFBEBB">
             7th of August 2023
           </Typography>
         </Box>
-        <IconButton sx={{ height: "34px", mt: "-5px" }}>
+        <IconButton sx={{ height: pxToRem(34), mt: pxToRem(-5) }}>
           <DotMenu color="#026670" />
         </IconButton>
       </Stack>
       <Box>
-        <Typography fontWeight={700} color="#BFBEBB" lineHeight="22px">
+        <Typography fontWeight={700} color="#BFBEBB" lineHeight={pxToRem(22)}>
           QUESTION
         </Typography>
-        <Typography variant="medium" lineHeight="22px">
+        <Typography variant="medium" lineHeight={pxToRem(22)}>
           Sed ut perspiciatis unde omnis iste natus error sit voluptatem accu
           doloremque laudantium, totam rem aperiam, eaque ipsa?
         </Typography>
@@ -38,26 +43,30 @@ const Question = (props) => {
         flexDirection="row"
         alignItems="center"
         justifyContent="space-between"
-        mt="5px"
+        mt={pxToRem(5)}
       >
-        <TextLink href="" sx={{ "& span": { fontSize: "14px" } }}>
+        <TextLink href="" sx={{ "& span": { fontSize: pxToRem(14) } }}>
           Read More
         </TextLink>
         <Likes number="245" />
       </Stack>
-      <Box borderTop="1px solid rgba(191,190,187,0.5)" pt="18px" mt="16px">
+      <Box
+        borderTop="1px solid rgba(191,190,187,0.5)"
+        pt={pxToRem(18)}
+        mt={pxToRem(16)}
+      >
         {props.awaiting ? (
           <Typography
-            fontSize="14px"
-            lineHeight="18px"
+            fontSize={pxToRem(14)}
+            lineHeight={pxToRem(18)}
             fontWeight={600}
             color="#BFBEBB"
-            mt="4px"
+            mt={pxToRem(4)}
           >
             Awaiting Answer
           </Typography>
         ) : (
-          <TextLink href="" sx={{ "& span": { fontSize: "14px" } }}>
+          <TextLink href="" sx={{ "& span": { fontSize: pxToRem(14) } }}>
             View Answer
           </TextLink>
         )}

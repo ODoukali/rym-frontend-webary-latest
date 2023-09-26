@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Box, Tab, Tabs } from "@mui/material";
 import { styled } from "@mui/material/styles";
+import { pxToRem } from "px2rem2px";
 import ResourcesTab from "./ResourcesTab";
 import NotesBookmarksTab from "./NotesBookmarksTab";
 import ConnectTab from "./ConnectTab";
@@ -12,7 +13,7 @@ function TabPanel(props) {
 
   return (
     <div role="tabpanel" hidden={value !== index} {...other}>
-      {value === index && <Box sx={{ pt: "50px" }}>{children}</Box>}
+      {value === index && <Box sx={{ pt: pxToRem(50) }}>{children}</Box>}
     </div>
   );
 }
@@ -20,7 +21,7 @@ function TabPanel(props) {
 const StyledTabs = styled(Tabs)({
   "& .MuiTabs-flexContainer": {
     alignItems: "flex-end",
-    gap: "2px",
+    gap: pxToRem(2),
   },
   "& .MuiTabs-indicator": {
     display: "flex",
@@ -28,7 +29,7 @@ const StyledTabs = styled(Tabs)({
     backgroundColor: "transparent",
   },
   "& .MuiTabs-indicatorSpan": {
-    maxWidth: 40,
+    maxWidth: pxToRem(40),
     width: "100%",
     backgroundColor: "#635ee7",
   },
@@ -37,19 +38,19 @@ const StyledTabs = styled(Tabs)({
 const StyledTab = styled((props) => <Tab disableRipple {...props} />)(
   ({ theme }) => ({
     flex: 1,
-    minHeight: 64,
+    minHeight: pxToRem(64),
     textTransform: "none",
     fontWeight: 600,
-    fontSize: 14,
+    fontSize: pxToRem(14),
     color: "primary",
     backgroundColor: "#E6E5E1",
-    borderRadius: "10px 10px 0 0",
+    borderRadius: `${pxToRem(10)} ${pxToRem(10)} 0 0`,
     "&:hover": {
       backgroundColor: "#D9D8D4",
     },
     "&.Mui-selected": {
       color: "#FCE181",
-      fontSize: 16,
+      fontSize: pxToRem(16),
       backgroundColor: "#026670",
     },
   })
@@ -65,14 +66,14 @@ const CourseTabs = () => {
   return (
     <Box
       position="relative"
-      width="calc(93.5% - 300px);"
+      width={`calc(93.5% - ${pxToRem(300)})`}
       sx={{
         "&::before": {
           content: "''",
           position: "absolute",
-          top: "62px",
+          top: pxToRem(62),
           left: 0,
-          height: "2px",
+          height: pxToRem(2),
           width: "100%",
           backgroundColor: "#026670",
           zIndex: 1,

@@ -1,5 +1,6 @@
 import { Box, MenuItem, Stack, Typography } from "@mui/material";
 import { useModal } from "mui-modal-provider";
+import { pxToRem } from "px2rem2px";
 import Rating from "./Rating";
 import BlockBordered from "./BlockBordered";
 import TextLink from "./TextLink";
@@ -15,32 +16,32 @@ const Testimonial = (props) => {
   return (
     <Box
       bgcolor="#fff"
-      borderRadius="10px"
-      p="40px"
+      borderRadius={pxToRem(10)}
+      p={pxToRem(40)}
       onClick={() => props.modal && showModal(CommentModal)}
     >
       <Stack
         flexDirection="row"
         alignItems="flex-start"
         justifyContent="space-between"
-        gap="10px"
-        mb="20px"
+        gap={pxToRem(10)}
+        mb={pxToRem(20)}
       >
-        <Stack flexDirection="row" alignItems="center" columnGap="21px">
+        <Stack flexDirection="row" alignItems="center" columnGap={pxToRem(21)}>
           <Box
             className="avatar-container"
             display="flex"
             alignItems="center"
             justifyContent="center"
-            width={68}
-            height={68}
+            width={pxToRem(68)}
+            height={pxToRem(68)}
             borderRadius="100%"
             bgcolor="#EDECE8"
           >
             {props.avatar ? (
               <img src={Avatar} alt="" />
             ) : (
-              <Typography fontSize="20px" fontWeight={600} color="#fff">
+              <Typography fontSize={pxToRem(20)} fontWeight={600} color="#fff">
                 MK
               </Typography>
             )}
@@ -48,21 +49,21 @@ const Testimonial = (props) => {
           <Stack>
             <Typography
               component="span"
-              fontSize="20px"
+              fontSize={pxToRem(20)}
               fontWeight={600}
-              lineHeight="30px"
+              lineHeight={pxToRem(30)}
               color="secondary"
             >
               Miro Koljanin
             </Typography>
             {props.rating ? (
-              <Box py="4px 0 7px">
+              <Box py={`${pxToRem(4)} 0 ${pxToRem(7)}`}>
                 <Rating defaultValue={4} readOnly />
               </Box>
             ) : null}
             <Typography
               component="span"
-              fontSize="12px"
+              fontSize={pxToRem(12)}
               fontWeight={600}
               color="#BFBEBB"
             >
@@ -76,12 +77,14 @@ const Testimonial = (props) => {
           <MenuItem onClick={() => {}}>Report</MenuItem>
         </TestimonialMenu>
       </Stack>
-      <BlockBordered mb="17px">
-        <Typography variant="medium" component="p" lineHeight="22px">
+      <BlockBordered mb={pxToRem(17)}>
+        <Typography variant="medium" component="p" lineHeight={pxToRem(22)}>
           Sed ut perspiciatis unde omnis iste natus error sit voluptatem accu
           doloremque laudantium, totam rem aperiam, eaque ipsa.
         </Typography>
-        <TextLink sx={{ "& span": { fontSize: "14px", marginTop: "2px" } }}>
+        <TextLink
+          sx={{ "& span": { fontSize: pxToRem(14), marginTop: pxToRem(2) } }}
+        >
           Read More
         </TextLink>
       </BlockBordered>
@@ -96,7 +99,7 @@ const Testimonial = (props) => {
               e.stopPropagation();
               props.modal && showModal(CommentModal);
             }}
-            sx={{ "& span": { fontSize: "14px" } }}
+            sx={{ "& span": { fontSize: pxToRem(14) } }}
           >
             Reply
           </TextLink>

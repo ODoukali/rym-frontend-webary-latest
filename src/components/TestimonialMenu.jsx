@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { IconButton, Menu } from "@mui/material";
+import { pxToRem } from "px2rem2px";
 
 import { ReactComponent as DotIc } from "../images/dots-menu.svg";
 
@@ -19,7 +20,7 @@ const TestimonialMenu = (props) => {
     <>
       <IconButton
         onClick={handleClick}
-        sx={{ height: "34px", marginTop: "5px" }}
+        sx={{ height: pxToRem(34), marginTop: pxToRem(5) }}
       >
         <DotIc color="#026670" />
       </IconButton>
@@ -40,18 +41,18 @@ const TestimonialMenu = (props) => {
         disableScrollLock
         sx={{
           "& .MuiPaper-root": {
-            minWidth: "155px",
-            boxShadow: "0px 10px 20px rgba(0,0,0,0.1)",
-            borderRadius: "10px",
+            minWidth: pxToRem(155),
+            boxShadow: `0px ${pxToRem(10)} ${pxToRem(20)} rgba(0,0,0,0.1)`,
+            borderRadius: pxToRem(10),
           },
           "& .MuiList-root": {
             display: "flex",
             flexDirection: "column",
-            rowGap: "10px",
-            p: "25px 30px",
+            rowGap: pxToRem(10),
+            p: `${pxToRem(25)} ${pxToRem(30)}`,
           },
           "& .MuiMenuItem-root": {
-            fontSize: "15px",
+            fontSize: pxToRem(15),
             fontWeight: 600,
             color: "#333",
             p: 0,

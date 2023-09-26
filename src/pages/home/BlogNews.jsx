@@ -36,6 +36,7 @@ const BlogNews = () => {
       </Container>
       <Slider
         slidesPerView={3}
+        spaceBetween={20}
         arrows
         style={{
           paddingTop: pxToRem(40),

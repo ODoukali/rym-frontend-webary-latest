@@ -1,6 +1,7 @@
 import { Button, Stack, Typography, Link, Divider } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { pxToRem } from "px2rem2px";
 import BlockBordered from "../../components/BlockBordered";
 import TextLink from "../../components/TextLink";
 import Rating from "../../components/Rating";
@@ -18,10 +19,10 @@ const LinkStyled = styled(Link)({
 const TypographyStyled = styled(Typography)({
   display: "flex",
   alignItems: "center",
-  gap: "2px",
-  fontSize: 14,
+  gap: pxToRem(2),
+  fontSize: pxToRem(14),
   fontWeight: 600,
-  lineHeight: "18px",
+  lineHeight: pxToRem(18),
   color: "#BFBEBB",
   "& span": {
     color: "#333",
@@ -34,12 +35,12 @@ const OverviewTab = () => {
       <Typography
         variant="sectionTitle"
         component="h2"
-        fontSize="35px"
-        mb="20px"
+        fontSize={pxToRem(35)}
+        mb={pxToRem(20)}
       >
         Course Details
       </Typography>
-      <BlockBordered mb="36px">
+      <BlockBordered mb={pxToRem(36)}>
         <Typography variant="large" component="p">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
@@ -66,8 +67,8 @@ const OverviewTab = () => {
       <Button
         endIcon={<Chevron />}
         sx={{
-          "& .MuiButton-endIcon": { ml: "12px" },
-          "& svg": { transform: "rotate(90deg)", mt: "3px" },
+          "& .MuiButton-endIcon": { ml: pxToRem(12) },
+          "& svg": { transform: "rotate(90deg)", mt: pxToRem(3) },
         }}
       >
         Read More
@@ -76,9 +77,9 @@ const OverviewTab = () => {
         flexDirection="row"
         alignItems="center"
         flexWrap="wrap"
-        columnGap="20px"
-        rowGap="10px"
-        mt="40px"
+        columnGap={pxToRem(20)}
+        rowGap={pxToRem(10)}
+        mt={pxToRem(40)}
       >
         <TypographyStyled>
           Lenght: <span>2h 53m</span>
@@ -94,12 +95,16 @@ const OverviewTab = () => {
         </TypographyStyled>
         <TypographyStyled>
           Rating:{" "}
-          <Rating defaultValue={4} readOnly sx={{ mx: "8px", mb: "2px" }} />{" "}
+          <Rating
+            defaultValue={4}
+            readOnly
+            sx={{ mx: pxToRem(8), mb: pxToRem(2) }}
+          />{" "}
           <span>28</span>
         </TypographyStyled>
       </Stack>
-      <Divider sx={{ backgroundColor: "#BFBEBB", my: "60px" }} />
-      <Typography fontSize="22px" fontWeight={700} mb="20px">
+      <Divider sx={{ backgroundColor: "#BFBEBB", my: pxToRem(60) }} />
+      <Typography fontSize={pxToRem(22)} fontWeight={700} mb={pxToRem(20)}>
         Course Questions
       </Typography>
       <Swiper slidesPerView={2} spaceBetween={20}>
@@ -117,9 +122,9 @@ const OverviewTab = () => {
         direction="row"
         alignItems="center"
         justifyContent="space-between"
-        mt="50px"
+        mt={pxToRem(50)}
       >
-        <Button variant="yellow" sx={{ height: "54px" }}>
+        <Button variant="yellow" sx={{ height: pxToRem(54) }}>
           Rate & Comment
         </Button>
         <TextLink href="">View all 28 Comments</TextLink>
