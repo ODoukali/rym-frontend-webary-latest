@@ -20,7 +20,7 @@ const TestimonialMenu = (props) => {
     <>
       <IconButton
         onClick={handleClick}
-        sx={{ height: pxToRem(34), marginTop: pxToRem(5) }}
+        sx={{ height: pxToRem(38), marginTop: pxToRem(5) }}
       >
         <DotIc color="#026670" />
       </IconButton>

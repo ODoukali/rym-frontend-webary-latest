@@ -25,7 +25,7 @@ const CommentModal = (props) => {
       {...restProps}
       fullScreen={fullScreen}
       maxWidth="xs"
-      scroll="body"
+      scroll="paper"
       disableEscapeKeyDown
       disableScrollLock
       onClose={(event, reason) => {

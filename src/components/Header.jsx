@@ -231,6 +231,7 @@ const Header = (props) => {
             anchor="left"
             open={isOpen}
             onClose={toggleDrawer(false)}
+            disableScrollLock
             sx={{
               zIndex: 1500,
               "& .MuiPaper-root": {
