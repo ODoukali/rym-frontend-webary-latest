@@ -34,6 +34,7 @@ const MenuBtn = (props) => {
   return (
     <Box
       sx={{
+        display: "flex",
         "& .MuiLink-root:hover": {
           color: "primary.main",
           "&::before": {

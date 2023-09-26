@@ -18,7 +18,7 @@ const PageTitleHighlighted = styled(Typography)(() => {
       height: pxToRem(20),
       position: "absolute",
       left: "50%",
-      bottom: pxToRem(-3),
+      bottom: pxToRem(12),
       transform: "translateX(-50%)",
       backgroundColor: "rgba(252,225,129,0.5)",
     },
