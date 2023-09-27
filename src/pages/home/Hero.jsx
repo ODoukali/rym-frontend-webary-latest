@@ -6,7 +6,7 @@ import Header from "../../components/Header";
 
 import BgImg from "../../images/home-hero-bg.png";
 
-const PageTitleHighlighted = styled(Typography)(() => {
+const PageTitleHighlighted = styled(Typography)(({ theme }) => {
   return {
     position: "relative",
     fontFamily: "PloniBold",
@@ -22,6 +22,13 @@ const PageTitleHighlighted = styled(Typography)(() => {
       transform: "translateX(-50%)",
       backgroundColor: "rgba(252,225,129,0.5)",
     },
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "50px",
+      lineHeight: "50px",
+      "&::after": {
+        bottom: "6px",
+      },
+    },
   };
 });
 
@@ -34,7 +41,7 @@ const Hero = () => {
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
         backgroundPosition: "center",
-        borderRadius: pxToRem(40),
+        borderRadius: { xs: 0, md: pxToRem(40) },
       }}
       pt={pxToRem(30)}
       pb={pxToRem(40)}
@@ -48,14 +55,16 @@ const Hero = () => {
         maxWidth={pxToRem(873)}
         mt={pxToRem(102)}
         mb={pxToRem(120)}
-        mx="auto"
+        mx={{ md: "auto" }}
+        ml="auto"
+        px={{ xs: "20px", sm: "30px", md: 0 }}
         zIndex={1}
       >
         <Typography
           component="h1"
           fontFamily="PloniBold"
-          fontSize={pxToRem(80)}
-          lineHeight={pxToRem(75)}
+          fontSize={{ xs: "50px", sm: pxToRem(80) }}
+          lineHeight={{ xs: "50px", sm: pxToRem(75) }}
           mb={pxToRem(30)}
         >
           דא ווערן{" "}

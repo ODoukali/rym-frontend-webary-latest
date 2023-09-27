@@ -68,7 +68,7 @@ const Header = (props) => {
     const handleScroll = () => {
       const sticky = header.current.offsetTop;
 
-      if (window.scrollY > sticky + 28) {
+      if (window.scrollY > sticky) {
         setIsSticky(true);
       } else {
         setIsSticky(false);

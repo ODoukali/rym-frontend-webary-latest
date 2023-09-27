@@ -10,7 +10,7 @@ const Layout = () => {
       <Box
         maxWidth={pxToRem(1920)}
         m="0 auto"
-        p={pxToRem(30)}
+        p={{ xs: 0, md: pxToRem(30) }}
         sx={{ overflowX: "hidden" }}
       >
         <Outlet />

@@ -65,14 +65,6 @@ html {
   flex: 1;
 }
 
-.tagCloud-outer {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  padding: 9.375rem;
-  width: 100%;
-}
-
 .tagCloud > div {
   transition: transform 1s;
 }

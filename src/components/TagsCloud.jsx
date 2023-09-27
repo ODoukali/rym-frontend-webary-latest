@@ -20,7 +20,15 @@ const TagsCloud = () => {
         backgroundImage: "linear-gradient(to bottom, transparent,#ffffff 100%)",
       }}
     >
-      <div className="tagCloud-outer">
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          height: "100%",
+          padding: { xs: "120px 0", lg: pxToRem(150) },
+          width: "100%",
+        }}
+      >
         <TagCloud
           className="tagCloud"
           style={{
@@ -259,7 +267,7 @@ const TagsCloud = () => {
             Relationship counseling
           </div>
         </TagCloud>
-      </div>
+      </Box>
     </Box>
   );
 };
