@@ -27,7 +27,6 @@ const CommentModal = (props) => {
       maxWidth="xs"
       scroll="body"
       disableEscapeKeyDown
-      disableScrollLock
       onClose={(event, reason) => {
         if (reason !== "backdropClick") {
           return;

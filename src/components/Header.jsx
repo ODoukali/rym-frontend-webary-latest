@@ -170,7 +170,7 @@ const Header = (props) => {
       <Box
         ref={header}
         className={isSticky ? "sticky" : ""}
-        width="100%"
+        width="100vw"
         zIndex={100}
       >
         <Stack
@@ -231,7 +231,6 @@ const Header = (props) => {
             anchor="left"
             open={isOpen}
             onClose={toggleDrawer(false)}
-            disableScrollLock
             sx={{
               zIndex: 1500,
               "& .MuiPaper-root": {

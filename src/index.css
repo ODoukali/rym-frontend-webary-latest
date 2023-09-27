@@ -35,8 +35,8 @@ html {
 .sticky {
   position: fixed;
   top: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0;
+  right: 0;
   background-color: #f7f6f2;
   box-shadow: 0 0.25rem 0.688rem hsla(0, 0%, 86%, 0.5);
   transition: background-color 0.2s;
