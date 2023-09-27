@@ -6,9 +6,9 @@ const theme = createTheme({
   breakpoints: {
     values: {
       xs: 0,
-      sm: 600,
+      sm: 768,
       md: 900,
-      lg: 1105.2,
+      lg: 1117,
       xl: 1536,
     },
   },
@@ -19,6 +19,10 @@ const theme = createTheme({
       fontSize: pxToRem(45),
       fontWeight: 700,
       lineHeight: pxToRem(48),
+      "@media(max-width: 767px)": {
+        fontSize: "30px",
+        lineHeight: "35px",
+      },
     },
     sectionTitleHebrew: {
       fontFamily: "PloniBold",
@@ -42,6 +46,10 @@ const theme = createTheme({
       fontSize: pxToRem(18),
       fontWeight: 500,
       lineHeight: pxToRem(30),
+      "@media(max-width: 767px)": {
+        fontSize: "16px",
+        lineHeight: "26px",
+      },
     },
   },
   palette: {
@@ -143,6 +151,18 @@ const theme = createTheme({
             "& svg": {
               color: "#333",
             },
+          },
+        },
+      },
+    },
+    MuiContainer: {
+      styleOverrides: {
+        root: {
+          paddingLeft: "30px",
+          paddingRight: "30px",
+          "@media(max-width: 767px)": {
+            paddingLeft: "25px",
+            paddingRight: "25px",
           },
         },
       },
@@ -262,6 +282,11 @@ const theme = createTheme({
               height: pxToRem(44),
               padding: `${pxToRem(14)} ${pxToRem(40)}`,
               boxShadow: "none",
+            },
+            "@media(max-width: 767px)": {
+              height: "54px",
+              paddingLeft: "40px",
+              paddingRight: "40px",
             },
           },
         },

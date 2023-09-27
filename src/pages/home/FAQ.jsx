@@ -57,7 +57,7 @@ const FAQ = () => {
   };
 
   return (
-    <Container sx={{ mb: pxToRem(150) }}>
+    <Container disableGutters sx={{ mb: pxToRem(150) }}>
       <Stack
         flexDirection="row"
         alignItems="flex-start"

@@ -41,7 +41,7 @@ const sliderVideos = [
 
 const Courses = () => {
   return (
-    <Container sx={{ mb: pxToRem(150) }}>
+    <Container disableGutters sx={{ mb: pxToRem(150) }}>
       <Typography variant="sectionTitle" component="h2" mb={pxToRem(40)}>
         Free <span className="highlighted">courses</span>
       </Typography>

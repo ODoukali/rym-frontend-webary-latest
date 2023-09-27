@@ -43,7 +43,7 @@ const sliderVideos = [
 const VideosSection = () => {
   return (
     <Box pb={pxToRem(110)}>
-      <Container>
+      <Container disableGutters>
         <Stack
           flexDirection="row"
           alignItems="center"

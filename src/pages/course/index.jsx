@@ -63,7 +63,7 @@ const Course = () => {
         <Guides color="rgba(0,0,0,0.02)" zIndex={-1} pb={pxToRem(30)} />
         <Header />
         <Box className="header-padding" mt={pxToRem(40)}>
-          <Container>
+          <Container disableGutters>
             <Stack
               className="rtl-section"
               flexDirection="row"
@@ -103,7 +103,7 @@ const Course = () => {
           mt={pxToRem(-110)}
           mb={pxToRem(150)}
         >
-          <Container>
+          <Container disableGutters>
             <Stack
               flexDirection="row"
               justifyContent="space-between"

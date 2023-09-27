@@ -10,7 +10,7 @@ const Guides = (props) => {
       top={0}
       left={0}
       zIndex={props.zIndex}
-      px="24px"
+      px="30px"
       sx={{ pointerEvents: "none", display: { xs: "none", md: "block" } }}
     >
       <Box

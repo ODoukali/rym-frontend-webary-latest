@@ -37,7 +37,7 @@ const Footer = () => {
         },
       }}
     >
-      <Container>
+      <Container disableGutters>
         <Stack flexDirection="row" position="relative" zIndex="1">
           <Box maxWidth={pxToRem(380)} mr={pxToRem(118)}>
             <Link to="/" style={{ display: "flex" }}>

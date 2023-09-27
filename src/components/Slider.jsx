@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { Box, Container } from "@mui/material";
+import { Box, Container, Stack } from "@mui/material";
 import { Swiper } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -16,7 +16,7 @@ const Slider = (props) => {
   });
 
   return (
-    <Container>
+    <Container disableGutters>
       <Box position="relative">
         <Swiper
           {...restProps}
@@ -33,7 +33,17 @@ const Slider = (props) => {
           {props.children}
         </Swiper>
         {arrows ? (
-          <>
+          <Stack
+            flexDirection="row"
+            justifyContent={{ xs: "flex-end", sm: "center" }}
+            alignItems="center"
+            gap={{ xs: "10px", sm: "15px" }}
+            sx={{
+              "@media (max-width: 1330px)": {
+                marginTop: "5px",
+              },
+            }}
+          >
             <ArrowBtn
               className={`arrow-prev ${
                 slideConfig.isBeginning ? "disabled" : ""
@@ -45,7 +55,7 @@ const Slider = (props) => {
               nextBtn
               onClick={() => swiperRef.current.slideNext()}
             />
-          </>
+          </Stack>
         ) : null}
       </Box>
     </Container>
@@ -67,8 +77,8 @@ const ArrowBtn = (props) => {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        width: pxToRem(80),
-        height: pxToRem(80),
+        width: { xs: "40px", sm: pxToRem(80) },
+        height: { xs: "40px", sm: pxToRem(80) },
         borderRadius: "50%",
         bgcolor: "#fff",
         boxShadow: `0px ${pxToRem(10)} ${pxToRem(20)} rgba(0,0,0,0.07)`,
@@ -83,6 +93,12 @@ const ArrowBtn = (props) => {
         },
         "&:hover": {
           bgcolor: "#026670",
+          "@media (max-width: 899px)": {
+            transform: "scale(1.1) !important",
+          },
+          "@media (max-width: 767px)": {
+            transform: "scale(1.2) !important",
+          },
           "& svg": {
             color: "#FCE181",
           },

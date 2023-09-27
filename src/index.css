@@ -468,3 +468,17 @@ media-player[data-started].pip:hover .pip-overlay {
     transform: scale(1.5);
   }
 }
+
+@media (max-width: 1330px) {
+  .arrow-prev,
+  .arrow-next {
+    position: static !important;
+    transform: none !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .highlighted::after {
+    bottom: 5px;
+  }
+}

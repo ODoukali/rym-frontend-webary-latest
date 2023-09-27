@@ -44,19 +44,20 @@ const videos = [
 const VideoSlider = () => {
   return (
     <Box
-      mt={pxToRem(150)}
-      mb={pxToRem(90)}
+      mt={{ xs: "80px", sm: "120px", md: pxToRem(150) }}
+      mb={{ xs: "80px", sm: "120px", md: pxToRem(90) }}
       sx={{ "& .arrow-prev, & .arrow-next": { top: "43%" } }}
     >
-      <Container>
+      <Container disableGutters>
         <Stack
-          flexDirection="row"
+          flexDirection={{ xs: "column", sm: "row" }}
           alignItems="flex-start"
           justifyContent="space-between"
+          gap="15px"
           mb={pxToRem(30)}
         >
           <Box>
-            <Typography variant="sectionTitle" component="h2" mb={pxToRem(14)}>
+            <Typography variant="sectionTitle" component="h2">
               Hi <span className="highlighted"> Alex,</span> Continue Watching
             </Typography>
           </Box>
@@ -118,14 +119,17 @@ const VideoSlide = (props) => {
         display="flex"
         alignItems="center"
         justifyContent="center"
-        height={pxToRem(240)}
+        height={{ xs: "180px", sm: pxToRem(240) }}
       >
         <Link
           to={props.videoLink}
           component={NavLink}
           sx={{ position: "absolute" }}
         >
-          <PlayBtn width={pxToRem(96)} height={pxToRem(96)}>
+          <PlayBtn
+            width={{ xs: "60px", sm: pxToRem(96) }}
+            height={{ xs: "60px", sm: pxToRem(96) }}
+          >
             <Play
               color="#026670"
               width={pxToRem(20)}

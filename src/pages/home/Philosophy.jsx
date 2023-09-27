@@ -6,7 +6,7 @@ import PhilosophyImg from "../../images/philosophy-img.png";
 
 const Philosophy = () => {
   return (
-    <Container sx={{ mb: pxToRem(190) }}>
+    <Container disableGutters sx={{ mb: pxToRem(190) }}>
       <Stack flexDirection="row" alignItems="center" gap="80px">
         <Box
           position="relative"

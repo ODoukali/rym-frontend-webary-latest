@@ -173,7 +173,8 @@ const Header = (props) => {
           flexDirection="row"
           alignItems="center"
           justifyContent="space-between"
-          padding={`${pxToRem(10)} ${pxToRem(30)}`}
+          py="10px"
+          px={{ xs: "25px", sm: "30px" }}
           m="auto"
         >
           <Stack

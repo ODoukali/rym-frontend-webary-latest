@@ -10,7 +10,7 @@ import Parsa2 from "../../images/parsa2.jpg";
 const Parsa = () => {
   return (
     <Box mb={pxToRem(100)}>
-      <Container>
+      <Container disableGutters>
         <Stack
           flexDirection="row"
           alignItems="center"
