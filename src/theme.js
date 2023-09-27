@@ -25,7 +25,7 @@ const theme = createTheme({
       fontSize: pxToRem(54),
       lineHeight: pxToRem(48),
       "& .highlighted::after": {
-        bottom: pxToRem(-3),
+        bottom: pxToRem(8),
       },
     },
     small: {
