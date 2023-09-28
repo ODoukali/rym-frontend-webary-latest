@@ -298,6 +298,11 @@ const theme = createTheme({
             "&:hover": {
               backgroundColor: "#00545d",
             },
+            "@media(max-width: 767px)": {
+              height: "54px",
+              paddingLeft: "40px",
+              paddingRight: "40px",
+            },
           },
         },
         {
@@ -318,6 +323,11 @@ const theme = createTheme({
               padding: `${pxToRem(14)} ${pxToRem(40)}`,
               borderWidth: pxToRem(2),
               boxShadow: "none",
+            },
+            "@media(max-width: 767px)": {
+              height: "54px",
+              paddingLeft: "40px",
+              paddingRight: "40px",
             },
           },
         },

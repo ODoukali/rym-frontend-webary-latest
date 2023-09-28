@@ -29,7 +29,10 @@ const Slide = (props) => {
           transition: "0.2s ease",
         },
         "&:hover": {
-          boxShadow: `0px ${pxToRem(20)} ${pxToRem(24)} rgba(0,0,0,0.1)`,
+          boxShadow: {
+            xs: "none",
+            sm: `0px ${pxToRem(20)} ${pxToRem(24)} rgba(0,0,0,0.1)`,
+          },
           "&::before": {
             height: `calc(100% + ${pxToRem(40)})`,
           },
@@ -66,7 +69,10 @@ const Slide = (props) => {
             component={NavLink}
             sx={{ position: "absolute" }}
           >
-            <PlayBtn width={pxToRem(96)} height={pxToRem(96)}>
+            <PlayBtn
+              width={{ xs: "64px", md: pxToRem(96) }}
+              height={{ xs: "64px", md: pxToRem(96) }}
+            >
               <Play
                 color="#026670"
                 width={pxToRem(20)}
@@ -105,7 +111,7 @@ const Slide = (props) => {
         >
           {props.title}
         </Typography>
-        <BlockBordered mb={pxToRem(20)}>
+        <BlockBordered mb={props.blogLink ? pxToRem(20) : 0}>
           <Typography variant="medium" component="p">
             {props.text}
           </Typography>

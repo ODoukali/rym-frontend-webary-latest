@@ -1,5 +1,7 @@
 import { Box, Container, Typography } from "@mui/material";
 import { pxToRem } from "px2rem2px";
+import { SwiperSlide } from "swiper/react";
+import Slider from "../../components/Slider";
 import TextLink from "../../components/TextLink";
 import Slide from "../../components/Slide";
 
@@ -41,13 +43,23 @@ const sliderVideos = [
 
 const Courses = () => {
   return (
-    <Container disableGutters sx={{ mb: pxToRem(150) }}>
-      <Typography variant="sectionTitle" component="h2" mb={pxToRem(40)}>
+    <Container
+      disableGutters
+      sx={{
+        mb: { xs: "75px", sm: "120px", md: pxToRem(150) },
+        mt: { xs: "80px", sm: 0 },
+      }}
+    >
+      <Typography
+        variant="sectionTitle"
+        component="h2"
+        mb={{ xs: 0, sm: pxToRem(40) }}
+      >
         Free <span className="highlighted">courses</span>
       </Typography>
       <Box
         sx={{
-          display: "grid",
+          display: { xs: "none", sm: "grid" },
           gridTemplateColumns: "1fr 1fr",
           rowGap: pxToRem(40),
           columnGap: pxToRem(20),
@@ -64,7 +76,30 @@ const Courses = () => {
           />
         ))}
       </Box>
-      <TextLink href="">View All Courses</TextLink>
+      <Box display={{ xs: "block", sm: "none" }} mx="-25px">
+        <Slider
+          slidesPerView={"auto"}
+          spaceBetween={16}
+          arrows
+          init={false}
+          style={{ padding: "20px 0 30px" }}
+        >
+          {sliderVideos.map((v) => (
+            <SwiperSlide key={v.id}>
+              <Slide
+                key={v.id}
+                image={v.image}
+                title={v.title}
+                text={v.text}
+                videoLink={v.videoLink}
+              />
+            </SwiperSlide>
+          ))}
+        </Slider>
+      </Box>
+      <TextLink href="" sx={{ marginTop: { xs: "-66px", sm: 0 } }}>
+        View All Courses
+      </TextLink>
     </Container>
   );
 };
