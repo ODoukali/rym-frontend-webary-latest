@@ -9,13 +9,20 @@ import Parsa1 from "../../images/parsa1.jpg";
 import Parsa2 from "../../images/parsa2.jpg";
 const Parsa = () => {
   return (
-    <Box mb={pxToRem(100)}>
+    <Box
+      mb={pxToRem(100)}
+      sx={{
+        "@media (max-width: 1330px)": { mb: "120px" },
+        "@media (max-width: 767px)": { mb: "80px" },
+      }}
+    >
       <Container disableGutters>
         <Stack
-          flexDirection="row"
-          alignItems="center"
+          flexDirection={{ xs: "column", md: "row" }}
+          alignItems={{ xs: "flex-start", md: "center" }}
           justifyContent="space-between"
-          mb={pxToRem(40)}
+          gap="15px"
+          mb={{ xs: 0, md: pxToRem(40) }}
         >
           <Typography variant="sectionTitle" component="h2">
             Reb Yakov Moshe <span className="highlighted">Parsa</span>
@@ -24,9 +31,14 @@ const Parsa = () => {
         </Stack>
       </Container>
       <Slider
-        slidesPerView={2}
+        slidesPerView={1}
         spaceBetween={20}
         arrows
+        breakpoints={{
+          600: {
+            slidesPerView: 2,
+          },
+        }}
         style={{
           padding: `${pxToRem(40)} ${pxToRem(20)} ${pxToRem(50)}`,
           margin: `0 ${pxToRem(-20)}`,

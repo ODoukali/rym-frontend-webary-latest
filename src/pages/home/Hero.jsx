@@ -5,6 +5,7 @@ import Guides from "../../components/Guides";
 import Header from "../../components/Header";
 
 import BgImg from "../../images/home-hero-bg.png";
+import TreeImg from "../../images/footer-tree.svg";
 
 const PageTitleHighlighted = styled(Typography)(({ theme }) => {
   return {
@@ -36,16 +37,37 @@ const Hero = () => {
   return (
     <Box
       position="relative"
+      pt={pxToRem(30)}
+      pb={pxToRem(40)}
+      minHeight={pxToRem(830)}
       sx={{
         backgroundImage: `url(${BgImg})`,
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
         backgroundPosition: "center",
         borderRadius: { xs: 0, md: pxToRem(40) },
+        "&::before": {
+          content: "''",
+          position: "absolute",
+          bottom: 0,
+          left: "50%",
+          transform: "translateX(-125%)",
+          background: `url(${TreeImg})`,
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "100%",
+          width: pxToRem(520),
+          height: pxToRem(702),
+          opacity: 0.4,
+          "@media(max-width: 1300px)": {
+            left: "30px",
+            transform: "none",
+          },
+          "@media(max-width: 899px)": {
+            left: "50%",
+            transform: "translateX(-50%)",
+          },
+        },
       }}
-      pt={pxToRem(30)}
-      pb={pxToRem(40)}
-      minHeight={pxToRem(830)}
     >
       <Header menuVisible />
 

@@ -31,6 +31,9 @@ const theme = createTheme({
       "& .highlighted::after": {
         bottom: pxToRem(8),
       },
+      "@media(max-width: 767px)": {
+        fontSize: "40px",
+      },
     },
     small: {
       fontSize: pxToRem(14),
@@ -102,14 +105,26 @@ const theme = createTheme({
             {
               minHeight: pxToRem(100),
               padding: `0 ${pxToRem(40)}`,
+              gap: "10px",
+              "@media(max-width: 767px)": {
+                padding: "0 25px !important",
+              },
             },
           "&:first-of-type": {
             borderTopLeftRadius: pxToRem(20),
             borderTopRightRadius: pxToRem(20),
+            "@media(max-width: 767px)": {
+              borderTopLeftRadius: 0,
+              borderTopRightRadius: 0,
+            },
           },
           "&:last-of-type": {
             borderBottomLeftRadius: pxToRem(20),
             borderBottomRightRadius: pxToRem(20),
+            "@media(max-width: 767px)": {
+              borderBottomLeftRadius: 0,
+              borderBottomRightRadius: 0,
+            },
           },
           "&.Mui-expanded": {
             margin: `0 0 ${pxToRem(16)} 0`,

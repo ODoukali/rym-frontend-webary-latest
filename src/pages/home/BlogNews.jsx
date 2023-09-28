@@ -19,13 +19,14 @@ import Guides from "../../components/Guides";
 
 const BlogNews = () => {
   return (
-    <Box mb={pxToRem(150)}>
-      <Container>
+    <Box mb={{ xs: "80px", sm: pxToRem(150) }}>
+      <Container disableGutters>
         <Stack
-          flexDirection="row"
-          alignItems="center"
+          flexDirection={{ xs: "column", md: "row" }}
+          alignItems={{ xs: "flex-start", md: "center" }}
           justifyContent="space-between"
-          mb={pxToRem(40)}
+          gap="15px"
+          mb={{ xs: 0, md: pxToRem(40) }}
         >
           <Typography variant="sectionTitle" component="h2">
             Our <span className="highlighted">blog</span> &{" "}
@@ -35,9 +36,17 @@ const BlogNews = () => {
         </Stack>
       </Container>
       <Slider
-        slidesPerView={3}
+        slidesPerView={1}
         spaceBetween={20}
         arrows
+        breakpoints={{
+          600: {
+            slidesPerView: 2,
+          },
+          900: {
+            slidesPerView: 3,
+          },
+        }}
         style={{
           paddingTop: pxToRem(40),
           paddingBottom: pxToRem(50),
@@ -82,14 +91,21 @@ const BlogNews = () => {
           />
         </SwiperSlide>
       </Slider>
-      <Container sx={{ position: "relative" }}>
+      <Container
+        disableGutters
+        sx={{ position: "relative", px: { xs: 0, md: "30px" } }}
+      >
         <Box
           bgcolor="#026670"
-          borderRadius={pxToRem(30)}
+          borderRadius={{ xs: 0, md: pxToRem(30) }}
           textAlign="center"
           py={pxToRem(60)}
-          px={pxToRem(30)}
+          px={{ xs: "25px", sm: pxToRem(30) }}
           mt={pxToRem(40)}
+          sx={{
+            "@media (max-width: 1330px)": { mt: "120px" },
+            "@media (max-width: 767px)": { mt: "80px" },
+          }}
         >
           <Box position="relative" zIndex={1}>
             <Typography

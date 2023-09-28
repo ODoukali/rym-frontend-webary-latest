@@ -57,13 +57,16 @@ const FAQ = () => {
   };
 
   return (
-    <Container disableGutters sx={{ mb: pxToRem(150) }}>
+    <Container
+      disableGutters
+      sx={{ mb: { xs: "86px", sm: "100px", md: pxToRem(150) } }}
+    >
       <Stack
-        flexDirection="row"
-        alignItems="flex-start"
+        flexDirection={{ xs: "column-reverse", sm: "row" }}
+        alignItems={{ xs: "flex-end", sm: "flex-start" }}
         justifyContent="space-between"
       >
-        <TextLink href="" sx={{ marginTop: pxToRem(14) }}>
+        <TextLink href="" sx={{ marginTop: { xs: "30px", sm: pxToRem(14) } }}>
           Explore all Q&A
         </TextLink>
         <Box maxWidth={pxToRem(553)} className="rtl-section">
@@ -74,7 +77,7 @@ const FAQ = () => {
           >
             פראגעס און <span className="highlighted">ענטפערס</span>
           </Typography>
-          <BlockBordered mb={pxToRem(50)}>
+          <BlockBordered mb={{ xs: "40px", md: pxToRem(50) }}>
             <Typography
               maxWidth={pxToRem(522)}
               variant="large"
@@ -95,8 +98,9 @@ const FAQ = () => {
       <Box
         position="relative"
         maxWidth={pxToRem(960)}
+        mx={{ xs: "-25px", sm: 0 }}
         mr="auto"
-        mt={pxToRem(-32)}
+        mt={{ xs: "50px", sm: pxToRem(-32) }}
         className="rtl-section"
       >
         {faqArr.map((a) => (
@@ -120,6 +124,7 @@ const FAQ = () => {
                 position="relative"
                 fontFamily="PloniBold"
                 fontSize={pxToRem(30)}
+                lineHeight={pxToRem(30)}
                 color="secondary"
                 sx={{
                   isolation: "isolate",
@@ -130,7 +135,7 @@ const FAQ = () => {
                     fontSize: pxToRem(80),
                     fontWeight: "700",
                     color: "#F7F6F2",
-                    right: pxToRem(-27),
+                    right: { xs: 0, sm: pxToRem(-27) },
                     top: "50%",
                     transform: "translateY(-50%)",
                     zIndex: -1,

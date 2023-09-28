@@ -19,16 +19,16 @@ const Footer = () => {
     <Box
       position="relative"
       bgcolor="#026670"
-      borderRadius={pxToRem(30)}
-      pt={pxToRem(109)}
-      pb={pxToRem(103)}
+      borderRadius={{ xs: 0, md: pxToRem(30) }}
+      pt={{ xs: "100px", sm: pxToRem(109) }}
+      pb={{ xs: "100px", sm: pxToRem(103) }}
       overflow="hidden"
       sx={{
         "&::after": {
           content: "''",
           position: "absolute",
           top: 0,
-          left: "78%",
+          left: { xs: "50%", md: "78%" },
           transform: "translateX(-50%)",
           background: `url(${BgImg}) center no-repeat`,
           backgroundSize: "100%",
@@ -39,7 +39,11 @@ const Footer = () => {
     >
       <Container disableGutters>
         <Stack flexDirection="row" position="relative" zIndex="1">
-          <Box maxWidth={pxToRem(380)} mr={pxToRem(118)}>
+          <Box
+            maxWidth={pxToRem(380)}
+            mr={pxToRem(118)}
+            sx={{ "@media(max-width: 660px)": { mr: 0, maxWidth: "100%" } }}
+          >
             <Link to="/" style={{ display: "flex" }}>
               <Logo color="#fff" />
             </Link>
@@ -100,7 +104,11 @@ const Footer = () => {
             </Typography>
           </Box>
 
-          <Stack alignItems={"flex-start"} rowGap={pxToRem(23)}>
+          <Stack
+            alignItems={"flex-start"}
+            rowGap={pxToRem(23)}
+            sx={{ "@media(max-width: 660px)": { display: "none" } }}
+          >
             <LinkBtn to="/" title="Main" footerLink />
             <LinkBtn to="/philosophy" title="Philosophy" footerLink />
             <LinkBtn to="/blog" title="Blog" footerLink />
