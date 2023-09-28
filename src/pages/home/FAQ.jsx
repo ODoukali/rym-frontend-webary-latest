@@ -146,7 +146,12 @@ const FAQ = () => {
               </Typography>
             </AccordionSummary>
             <AccordionDetails
-              sx={{ padding: `0 ${pxToRem(60)} ${pxToRem(38)} !important` }}
+              sx={{
+                padding: {
+                  xs: "0 25px 30px !important",
+                  sm: `0 ${pxToRem(60)} ${pxToRem(38)} !important`,
+                },
+              }}
             >
               <BlockBordered>
                 <Typography
