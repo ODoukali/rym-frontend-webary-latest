@@ -20,7 +20,6 @@ import { pxToRem } from "px2rem2px";
 import ReactPhoneInput from "react-phone-input-material-ui";
 // import ReCAPTCHA from "react-google-recaptcha";
 import IconBtnCircular from "./IconBtnCircular";
-import Switcher from "./Switcher";
 
 import { ReactComponent as Close } from "../images/close.svg";
 import { ReactComponent as Google } from "../images/google.svg";
@@ -238,10 +237,9 @@ const LoginModal = (props) => {
                 />
               </Stack>
               <ButtonLogin variant="yellow">Log In</ButtonLogin>
-              <Switcher
-                name="keepLogged"
+              <FormControlLabel
+                control={<Checkbox defaultChecked />}
                 label="Keep me logged in?"
-                defaultChecked
               />
               <Divider sx={{ borderColor: "#BFBEBB", my: pxToRem(40) }} />
               <Link
@@ -329,15 +327,13 @@ const LoginModal = (props) => {
               </Stack>
               <ButtonLogin variant="yellow">Create Account</ButtonLogin>
               <Stack alignItems="center" gap={pxToRem(10)}>
-                <Switcher
-                  name="keepSignedin"
+                <FormControlLabel
+                  control={<Checkbox defaultChecked />}
                   label="Keep me signed in."
-                  defaultChecked
                 />
-                <Switcher
-                  name="sendEmails"
+                <FormControlLabel
+                  control={<Checkbox defaultChecked />}
                   label="Send me emails about updates and news."
-                  defaultChecked
                 />
               </Stack>
               <Divider sx={{ borderColor: "#BFBEBB", my: pxToRem(40) }} />
