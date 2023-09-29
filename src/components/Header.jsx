@@ -64,6 +64,11 @@ const Header = (props) => {
     setIsOpen(open);
   };
 
+  const openPopup = () => {
+    toggleDrawer(false)({ type: "click" });
+    showModal(LoginModal);
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       const sticky = header.current.offsetTop;
@@ -92,7 +97,7 @@ const Header = (props) => {
         sx={{ "& button": { boxShadow: "none" } }}
       >
         <Button
-          onClick={() => showModal(LoginModal)}
+          onClick={openPopup}
           variant="yellow"
           sx={{
             height: pxToRem(40),
