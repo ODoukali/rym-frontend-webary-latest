@@ -152,6 +152,9 @@ const theme = createTheme({
           "& .MuiAccordionDetails-root": {
             padding: `0 ${pxToRem(40)} ${pxToRem(38)}`,
           },
+          "& .MuiAccordionSummary-content.Mui-expanded": {
+            margin: "12px 0",
+          },
         },
       },
     },
