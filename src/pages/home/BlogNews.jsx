@@ -22,8 +22,8 @@ const BlogNews = () => {
     <Box mb={{ xs: "80px", sm: pxToRem(150) }}>
       <Container disableGutters>
         <Stack
-          flexDirection={{ xs: "column", md: "row" }}
-          alignItems={{ xs: "flex-start", md: "center" }}
+          flexDirection={{ xs: "column", sm: "row" }}
+          alignItems={{ xs: "flex-start", sm: "center" }}
           justifyContent="space-between"
           gap="15px"
           mb={{ xs: 0, md: pxToRem(40) }}

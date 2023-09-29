@@ -1,4 +1,11 @@
-import { Box, Container, Typography } from "@mui/material";
+import {
+  Box,
+  Container,
+  Stack,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
 import { pxToRem } from "px2rem2px";
 import { SwiperSlide } from "swiper/react";
 import Slider from "../../components/Slider";
@@ -42,6 +49,9 @@ const sliderVideos = [
 ];
 
 const Courses = () => {
+  const theme = useTheme();
+  const mobile = useMediaQuery(theme.breakpoints.down("sm"));
+
   return (
     <Container
       disableGutters
@@ -50,13 +60,16 @@ const Courses = () => {
         mt: { xs: "80px", sm: 0 },
       }}
     >
-      <Typography
-        variant="sectionTitle"
-        component="h2"
-        mb={{ xs: 0, sm: pxToRem(40) }}
-      >
-        Free <span className="highlighted">courses</span>
-      </Typography>
+      <Stack alignItems="flex-start" gap="15px" mb="16px">
+        <Typography
+          variant="sectionTitle"
+          component="h2"
+          mb={{ xs: 0, sm: pxToRem(40) }}
+        >
+          Free <span className="highlighted">courses</span>
+        </Typography>
+        {mobile ? <SectionLink /> : null}
+      </Stack>
       <Box
         sx={{
           display: { xs: "none", sm: "grid" },
@@ -97,11 +110,12 @@ const Courses = () => {
           ))}
         </Slider>
       </Box>
-      <TextLink href="" sx={{ marginTop: { xs: "-66px", sm: 0 } }}>
-        View All Courses
-      </TextLink>
+      {mobile ? null : <SectionLink />}
     </Container>
   );
+};
+const SectionLink = (props) => {
+  return <TextLink {...props}>View All Courses</TextLink>;
 };
 
 export default Courses;
