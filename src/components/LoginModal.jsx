@@ -10,19 +10,20 @@ import {
   ToggleButtonGroup,
   ToggleButton,
   Divider,
-  TextField,
   Link,
   FormControlLabel,
   Checkbox,
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { pxToRem } from "px2rem2px";
-import ReactPhoneInput from "react-phone-input-material-ui";
-// import ReCAPTCHA from "react-google-recaptcha";
+import { useForm } from "react-hook-form";
 import IconBtnCircular from "./IconBtnCircular";
+import FormInputText from "./FormInputText";
+// import ReCAPTCHA from "react-google-recaptcha";
 
 import { ReactComponent as Close } from "../images/close.svg";
 import { ReactComponent as Google } from "../images/google.svg";
+import FormInputPhone from "./FormInputPhone";
 
 const ToggleButtonStyled = styled(ToggleButton)({
   color: "#EDECE8",
@@ -77,17 +78,6 @@ const Hr = styled(Divider)({
   },
 });
 
-const TextFieldStyled = styled(TextField)({
-  width: "100%",
-  height: pxToRem(54),
-  borderRadius: pxToRem(30),
-  backgroundColor: "#EDECE8",
-  "& input": {
-    borderRadius: `${pxToRem(30)} !important`,
-    padding: `${pxToRem(15)} ${pxToRem(40)}`,
-  },
-});
-
 const ToggleButtonGroupStyled = styled(ToggleButtonGroup)({
   position: "relative",
   width: pxToRem(300),
@@ -116,27 +106,21 @@ const LoginModal = (props) => {
   const { ...restProps } = props;
   const [register, setRegister] = useState("login");
 
-  const [loginData, setLoginData] = useState({
-    loginEmail: "",
-    loginPassword: "",
-    nickname: "",
-    phone: "",
-    signupEmail: "",
-    signupPassword: "",
-    signupRePassword: "",
+  const { control, handleSubmit } = useForm({
+    values: {
+      name: "",
+      nickname: "",
+      phone: "",
+      signupEmail: "",
+      signupPassword: "",
+      signupRePassword: "",
+    },
   });
 
   const handleChange = (event, newRegister) => {
     if (newRegister !== null) {
       setRegister(newRegister);
     }
-  };
-
-  const inputChange = (name, value) => {
-    setLoginData((oldData) => ({
-      ...oldData,
-      [name]: value,
-    }));
   };
 
   return (
@@ -221,19 +205,17 @@ const LoginModal = (props) => {
                 </Typography>
               </Hr>
               <Stack gap={pxToRem(10)}>
-                <TextFieldStyled
+                <FormInputText
                   name="loginEmail"
-                  type="email"
+                  control={control}
                   placeholder="Email"
-                  value={loginData.loginEmail}
-                  onChange={(e) => inputChange("loginEmail", e.target.value)}
+                  muiProps={{ type: "email" }}
                 />
-                <TextFieldStyled
+                <FormInputText
                   name="loginPassword"
-                  type="password"
+                  control={control}
                   placeholder="Password"
-                  value={loginData.loginPassword}
-                  onChange={(e) => inputChange("loginPassword", e.target.value)}
+                  muiProps={{ type: "password" }}
                 />
               </Stack>
               <ButtonLogin variant="yellow">Log In</ButtonLogin>
@@ -267,75 +249,113 @@ const LoginModal = (props) => {
                   or
                 </Typography>
               </Hr>
-              <Stack gap={pxToRem(10)}>
-                <TextFieldStyled name="name" type="text" placeholder="Name" />
-                <TextFieldStyled
-                  name="nickname"
-                  type="text"
-                  placeholder="Nickname (optional)"
-                  value={loginData.nickname}
-                  onChange={(e) => inputChange("nickname", e.target.value)}
-                />
-                <ReactPhoneInput
-                  inputProps={{
-                    name: "phone",
-                    label: "",
-                    placeholder: "Phone",
-                  }}
-                  value={loginData.phone}
-                  onChange={(phone) => inputChange("phone", phone)}
-                  component={TextFieldStyled}
-                />
-                <TextFieldStyled
-                  name="signupEmail"
-                  type="email"
-                  placeholder="Email"
-                  value={loginData.signupEmail}
-                  onChange={(e) => inputChange("signupEmail", e.target.value)}
-                />
-                <TextFieldStyled
-                  name="signupPassword"
-                  type="password"
-                  placeholder="Password"
-                  value={loginData.signupPassword}
-                  onChange={(e) =>
-                    inputChange("signupPassword", e.target.value)
-                  }
-                />
-                <TextFieldStyled
-                  name="signupRePassword"
-                  type="password"
-                  placeholder="Retype Password"
-                  value={loginData.signupRePassword}
-                  onChange={(e) =>
-                    inputChange("signupRePassword", e.target.value)
-                  }
-                />
-              </Stack>
-              <Stack
-                flexDirection="row"
-                alignItems="center"
-                justifyContent="center"
-                gap={pxToRem(15)}
-                mt={pxToRem(37)}
-              >
-                <FormControlLabel
-                  control={<Checkbox defaultChecked />}
-                  label="I am not a robot!"
-                />
-                {/* <ReCAPTCHA sitekey="Your client site key" /> */}
-              </Stack>
-              <ButtonLogin variant="yellow">Create Account</ButtonLogin>
-              <Stack alignItems="center" gap={pxToRem(10)}>
-                <FormControlLabel
-                  control={<Checkbox defaultChecked />}
-                  label="Keep me signed in."
-                />
-                <FormControlLabel
-                  control={<Checkbox defaultChecked />}
-                  label="Send me emails about updates and news."
-                />
-              </Stack>
+              <form onSubmit={handleSubmit(props.onClose)}>
+                <Stack gap={pxToRem(10)}>
+                  <FormInputText
+                    name="name"
+                    control={control}
+                    placeholder="Name"
+                    muiProps={{ type: "text" }}
+                    rules={{
+                      required: "Field can't be empty",
+                      minLength: {
+                        value: 3,
+                        message: "Minimum 3 characters",
+                      },
+                      maxLength: {
+                        value: 50,
+                        message: "Maximum 50 characters",
+                      },
+                      pattern: {
+                        value: /^[^\s]+(?:$|.*[^\s]+$)/,
+                        message:
+                          "Entered value cant start/end or contain only white spacing",
+                      },
+                    }}
+                  />
+                  <FormInputText
+                    name="nickname"
+                    control={control}
+                    placeholder="Nickname"
+                    muiProps={{ type: "text" }}
+                    rules={{
+                      required: "Field can't be empty",
+                      minLength: {
+                        value: 3,
+                        message: "Minimum 3 characters",
+                      },
+                      maxLength: {
+                        value: 50,
+                        message: "Maximum 50 characters",
+                      },
+                      pattern: {
+                        value: /^[^\s]+(?:$|.*[^\s]+$)/,
+                        message:
+                          "Entered value cant start/end or contain only white spacing",
+                      },
+                    }}
+                  />
+                  <FormInputPhone
+                    name="phone"
+                    control={control}
+                    placeholder="Phone"
+                    rules={{
+                      required: "Field can't be empty",
+                    }}
+                  />
+                  <FormInputText
+                    name="signupEmail"
+                    control={control}
+                    placeholder="Email"
+                    muiProps={{ type: "email" }}
+                    rules={{
+                      required: "Field can't be empty",
+                      pattern: {
+                        value: /\S+@\S+\.\S+/,
+                        message: "Entered value does not match email format",
+                      },
+                    }}
+                  />
+                  <FormInputText
+                    name="signupPassword"
+                    control={control}
+                    placeholder="Password"
+                    muiProps={{ type: "password" }}
+                  />
+                  <FormInputText
+                    name="signupRePassword"
+                    control={control}
+                    placeholder="Retype Password"
+                    muiProps={{ type: "password" }}
+                  />
+                </Stack>
+                <Stack
+                  flexDirection="row"
+                  alignItems="center"
+                  justifyContent="center"
+                  gap={pxToRem(15)}
+                  mt={pxToRem(37)}
+                >
+                  <FormControlLabel
+                    control={<Checkbox defaultChecked />}
+                    label="I am not a robot!"
+                  />
+                  {/* <ReCAPTCHA sitekey="Your client site key" /> */}
+                </Stack>
+                <ButtonLogin variant="yellow" type="submit">
+                  Create Account
+                </ButtonLogin>
+                <Stack alignItems="center" gap={pxToRem(10)}>
+                  <FormControlLabel
+                    control={<Checkbox defaultChecked />}
+                    label="Keep me signed in."
+                  />
+                  <FormControlLabel
+                    control={<Checkbox defaultChecked />}
+                    label="Send me emails about updates and news."
+                  />
+                </Stack>
+              </form>
               <Divider sx={{ borderColor: "#BFBEBB", my: pxToRem(40) }} />
               <Typography
                 maxWidth={pxToRem(300)}

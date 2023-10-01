@@ -242,10 +242,13 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           "&.MuiInputBase-root .MuiOutlinedInput-notchedOutline": {
-            border: "none",
+            borderColor: "transparent",
           },
           "&.MuiInputBase-root.Mui-focused .MuiOutlinedInput-notchedOutline": {
-            border: "none",
+            borderWidth: "1px",
+          },
+          "&.MuiInputBase-root.Mui-error .MuiOutlinedInput-notchedOutline": {
+            borderColor: "#d32f2f",
           },
         },
       },
