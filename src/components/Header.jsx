@@ -93,16 +93,21 @@ const Header = (props) => {
         alignItems="center"
         justifyContent="space-between"
         bgcolor="#EDECE8"
-        p={`${pxToRem(70)} ${pxToRem(110)}`}
-        sx={{ "& button": { boxShadow: "none" } }}
+        p={`${pxToRem(50)} ${pxToRem(110)}`}
+        sx={{
+          "& button": { boxShadow: "none" },
+          "@media(max-width: 400px)": {
+            paddingX: "30px",
+          },
+        }}
       >
         <Button
           onClick={openPopup}
           variant="yellow"
           sx={{
-            height: pxToRem(40),
+            height: `${pxToRem(40)} !important`,
             fontSize: pxToRem(14),
-            p: `${pxToRem(20)} ${pxToRem(47)}`,
+            p: `${pxToRem(20)} ${pxToRem(47)} !important`,
           }}
         >
           Sign In
@@ -113,12 +118,15 @@ const Header = (props) => {
       </Stack>
       <Stack
         alignItems="flex-start"
-        gap={pxToRem(20)}
+        gap={pxToRem(15)}
         p={`${pxToRem(40)} ${pxToRem(110)} ${pxToRem(30)}`}
         sx={{
           "& > a, & > .MuiBox-root > a": {
-            fontSize: pxToRem(30),
+            fontSize: pxToRem(26),
             fontWeight: 700,
+          },
+          "@media(max-width: 400px)": {
+            paddingX: "30px",
           },
         }}
       >
@@ -140,7 +148,7 @@ const Header = (props) => {
         <LinkBtn to="/contact" title="Contact" />
         <Stack
           width="100%"
-          py={pxToRem(60)}
+          py={pxToRem(40)}
           gap={pxToRem(25)}
           borderTop="1px solid rgba(191,190,187,0.5)"
           borderBottom="1px solid rgba(191,190,187,0.5)"
@@ -154,11 +162,11 @@ const Header = (props) => {
         <Button
           variant="outlined"
           sx={{
-            height: pxToRem(40),
+            height: `${pxToRem(40)} !important`,
             fontSize: pxToRem(14),
-            p: `${pxToRem(18)} ${pxToRem(40)}`,
+            p: `${pxToRem(18)} ${pxToRem(40)} !important`,
             borderWidth: pxToRem(2),
-            mt: pxToRem(35),
+            mt: pxToRem(25),
             "&:hover": {
               border: "2px solid #026670",
             },

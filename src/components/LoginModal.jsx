@@ -139,7 +139,7 @@ const LoginModal = (props) => {
         "& .MuiPaper-root": {
           width: "100%",
           maxWidth: pxToRem(500),
-          borderRadius: pxToRem(20),
+          borderRadius: fullScreen ? 0 : pxToRem(20),
           verticalAlign: "top",
         },
         "& .MuiDialog-container": {
@@ -164,7 +164,15 @@ const LoginModal = (props) => {
           <Close color="#026670" />
         </IconBtnCircular>
       </Stack>
-      <Box bgcolor="#F7F6F2" p={`0 ${pxToRem(50)} ${pxToRem(40)}`}>
+      <Box
+        bgcolor="#F7F6F2"
+        p={`0 ${pxToRem(50)} ${pxToRem(40)}`}
+        sx={{
+          "@media(max-width: 400px)": {
+            paddingX: "20px",
+          },
+        }}
+      >
         <Box
           position="relative"
           textAlign="center"
@@ -181,7 +189,7 @@ const LoginModal = (props) => {
             <ToggleButtonStyled value="signup">Sign Up</ToggleButtonStyled>
           </ToggleButtonGroupStyled>
         </Box>
-        <Box position="relative" overflow="hidden">
+        <Box maxWidth={500} position="relative" overflow="hidden" m="auto">
           <Stack
             className={`${register === "signup" ? "active" : ""}`}
             width="200%"
@@ -219,10 +227,12 @@ const LoginModal = (props) => {
                 />
               </Stack>
               <ButtonLogin variant="yellow">Log In</ButtonLogin>
-              <FormControlLabel
-                control={<Checkbox defaultChecked />}
-                label="Keep me logged in?"
-              />
+              <div>
+                <FormControlLabel
+                  control={<Checkbox defaultChecked />}
+                  label="Keep me logged in?"
+                />
+              </div>
               <Divider sx={{ borderColor: "#BFBEBB", my: pxToRem(40) }} />
               <Link
                 href=""

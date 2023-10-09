@@ -38,6 +38,7 @@ const FormInputPhone = ({ name, control, rules, placeholder }) => {
             value={value}
             onChange={onChange}
             component={TextFieldStyled}
+            disableDropdown
           />
         );
       }}
