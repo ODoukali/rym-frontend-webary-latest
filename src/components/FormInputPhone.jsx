@@ -23,7 +23,7 @@ const FormInputPhone = ({ name, control, rules, placeholder }) => {
       name={name}
       control={control}
       rules={rules}
-      render={({ field: { ref, onChange, value }, fieldState }) => {
+      render={({ field: { onChange, value }, fieldState }) => {
         return (
           <ReactPhoneInput
             inputProps={{

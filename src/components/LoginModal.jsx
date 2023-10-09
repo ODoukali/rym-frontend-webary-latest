@@ -106,7 +106,7 @@ const LoginModal = (props) => {
   const { ...restProps } = props;
   const [register, setRegister] = useState("login");
 
-  const { control, handleSubmit } = useForm({
+  const registerForm = useForm({
     values: {
       name: "",
       nickname: "",
@@ -114,6 +114,13 @@ const LoginModal = (props) => {
       signupEmail: "",
       signupPassword: "",
       signupRePassword: "",
+    },
+  });
+
+  const loginForm = useForm({
+    values: {
+      loginEmail: "",
+      loginPassword: "",
     },
   });
 
@@ -212,27 +219,38 @@ const LoginModal = (props) => {
                   or
                 </Typography>
               </Hr>
-              <Stack gap={pxToRem(10)}>
-                <FormInputText
-                  name="loginEmail"
-                  control={control}
-                  placeholder="Email"
-                  muiProps={{ type: "email" }}
-                />
-                <FormInputText
-                  name="loginPassword"
-                  control={control}
-                  placeholder="Password"
-                  muiProps={{ type: "password" }}
-                />
-              </Stack>
-              <ButtonLogin variant="yellow">Log In</ButtonLogin>
-              <div>
-                <FormControlLabel
-                  control={<Checkbox defaultChecked />}
-                  label="Keep me logged in?"
-                />
-              </div>
+              <form onSubmit={loginForm.handleSubmit(props.onClose)}>
+                <Stack gap={pxToRem(10)}>
+                  <FormInputText
+                    name="loginEmail"
+                    control={loginForm.control}
+                    placeholder="Email"
+                    muiProps={{ type: "email" }}
+                    rules={{
+                      required: "Field can't be empty",
+                      pattern: {
+                        value: /\S+@\S+\.\S+/,
+                        message: "Entered value does not match email format",
+                      },
+                    }}
+                  />
+                  <FormInputText
+                    name="loginPassword"
+                    control={loginForm.control}
+                    placeholder="Password"
+                    muiProps={{ type: "password" }}
+                  />
+                </Stack>
+                <ButtonLogin type="submit" variant="yellow">
+                  Log In
+                </ButtonLogin>
+                <div>
+                  <FormControlLabel
+                    control={<Checkbox defaultChecked />}
+                    label="Keep me logged in?"
+                  />
+                </div>
+              </form>
               <Divider sx={{ borderColor: "#BFBEBB", my: pxToRem(40) }} />
               <Link
                 href=""
@@ -259,11 +277,12 @@ const LoginModal = (props) => {
                   or
                 </Typography>
               </Hr>
-              <form onSubmit={handleSubmit(props.onClose)}>
+              <form onSubmit={registerForm.handleSubmit(props.onClose)}>
                 <Stack gap={pxToRem(10)}>
                   <FormInputText
                     name="name"
-                    control={control}
+                    control={registerForm.control}
+                    setValue={registerForm.setValue}
                     placeholder="Name"
                     muiProps={{ type: "text" }}
                     rules={{
@@ -276,20 +295,15 @@ const LoginModal = (props) => {
                         value: 50,
                         message: "Maximum 50 characters",
                       },
-                      pattern: {
-                        value: /^[^\s]+(?:$|.*[^\s]+$)/,
-                        message:
-                          "Entered value cant start/end or contain only white spacing",
-                      },
                     }}
                   />
                   <FormInputText
                     name="nickname"
-                    control={control}
+                    control={registerForm.control}
+                    setValue={registerForm.setValue}
                     placeholder="Nickname"
                     muiProps={{ type: "text" }}
                     rules={{
-                      required: "Field can't be empty",
                       minLength: {
                         value: 3,
                         message: "Minimum 3 characters",
@@ -298,16 +312,11 @@ const LoginModal = (props) => {
                         value: 50,
                         message: "Maximum 50 characters",
                       },
-                      pattern: {
-                        value: /^[^\s]+(?:$|.*[^\s]+$)/,
-                        message:
-                          "Entered value cant start/end or contain only white spacing",
-                      },
                     }}
                   />
                   <FormInputPhone
                     name="phone"
-                    control={control}
+                    control={registerForm.control}
                     placeholder="Phone"
                     rules={{
                       required: "Field can't be empty",
@@ -315,26 +324,29 @@ const LoginModal = (props) => {
                   />
                   <FormInputText
                     name="signupEmail"
-                    control={control}
+                    control={registerForm.control}
+                    setValue={registerForm.setValue}
                     placeholder="Email"
                     muiProps={{ type: "email" }}
                     rules={{
                       required: "Field can't be empty",
-                      pattern: {
-                        value: /\S+@\S+\.\S+/,
-                        message: "Entered value does not match email format",
-                      },
+                      // pattern: {
+                      //   value: /\S+@\S+\.\S+/,
+                      //   message: "Entered value does not match email format",
+                      // },
                     }}
                   />
                   <FormInputText
                     name="signupPassword"
-                    control={control}
+                    control={registerForm.control}
+                    setValue={registerForm.setValue}
                     placeholder="Password"
                     muiProps={{ type: "password" }}
                   />
                   <FormInputText
                     name="signupRePassword"
-                    control={control}
+                    control={registerForm.control}
+                    setValue={registerForm.setValue}
                     placeholder="Retype Password"
                     muiProps={{ type: "password" }}
                   />

@@ -25,7 +25,12 @@ const FormInputText = ({
   muiProps,
   label,
   placeholder,
+  setValue,
 }) => {
+  const handleInputChange = (name, value) => {
+    setValue(name, value.trim());
+  };
+
   return (
     <Controller
       name={name}
@@ -52,6 +57,7 @@ const FormInputText = ({
                   variant="outlined"
                   value={value || ""}
                   onChange={onChange}
+                  onBlur={(e) => handleInputChange(name, e.target.value)}
                   inputRef={ref}
                   placeholder={placeholder}
                 />
