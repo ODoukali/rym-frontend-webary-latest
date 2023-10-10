@@ -16,6 +16,7 @@ const Toast = (props) => {
           minWidth: pxToRem(320),
           borderRadius: pxToRem(10),
           padding: `${pxToRem(8)} ${pxToRem(30)}`,
+          transform: "scale(1.15) !important",
         },
         "& .MuiSnackbarContent-message": {
           fontSize: pxToRem(12),

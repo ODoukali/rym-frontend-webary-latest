@@ -249,6 +249,9 @@ const Header = (props) => {
                 borderRadius: `0 ${pxToRem(40)} ${pxToRem(40)} 0`,
                 overflowY: "initial",
                 overflow: "hidden",
+                "@media(max-width: 400px)": {
+                  borderRadius: 0,
+                },
               },
             }}
           >

@@ -13,6 +13,7 @@ const ToastCookie = (props) => {
           maxWidth: pxToRem(320),
           borderRadius: pxToRem(10),
           padding: pxToRem(30),
+          transform: "scale(1.15) !important",
         },
         "& .MuiSnackbarContent-message": {
           padding: 0,
