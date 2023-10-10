@@ -39,6 +39,7 @@ const FormInputText = ({
       render={({ field: { ref, onChange, value }, fieldState }) => {
         return (
           <FormGroup>
+            {value}
             <FormControlLabel
               label={label}
               labelPlacement="top"
@@ -57,7 +58,14 @@ const FormInputText = ({
                   variant="outlined"
                   value={value || ""}
                   onChange={onChange}
-                  onBlur={(e) => handleInputChange(name, e.target.value)}
+                  onBlur={(e) => {
+                    //https://github.com/facebook/react/issues/14897
+                    if (e.target.type === "email") {
+                      e.target.value = value.trim();
+                    }
+
+                    handleInputChange(name, value);
+                  }}
                   inputRef={ref}
                   placeholder={placeholder}
                 />

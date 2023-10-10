@@ -133,6 +133,15 @@ const LoginModal = (props) => {
     console.log(trimmedData);
   };
 
+  const onLoginSubmit = (data) => {
+    const trimmedData = {};
+    Object.keys(data).forEach((key) => {
+      trimmedData[key] = data[key].trim();
+    });
+    props.onClose();
+    console.log(trimmedData);
+  };
+
   const handleChange = (event, newRegister) => {
     if (newRegister !== null) {
       setRegister(newRegister);
@@ -228,7 +237,7 @@ const LoginModal = (props) => {
                   or
                 </Typography>
               </Hr>
-              <form onSubmit={loginForm.handleSubmit(props.onClose)}>
+              <form onSubmit={loginForm.handleSubmit(onLoginSubmit)} noValidate>
                 <Stack gap={pxToRem(10)}>
                   <FormInputText
                     name="loginEmail"
@@ -237,6 +246,10 @@ const LoginModal = (props) => {
                     muiProps={{ type: "email" }}
                     rules={{
                       required: "Field can't be empty",
+                      maxLength: {
+                        value: 100,
+                        message: "Maximum 100 characters",
+                      },
                       pattern: {
                         value: /\S+@\S+\.\S+/,
                         message: "Entered value does not match email format",
@@ -339,7 +352,9 @@ const LoginModal = (props) => {
                     control={registerForm.control}
                     setValue={registerForm.setValue}
                     placeholder="Email"
-                    muiProps={{ type: "email" }}
+                    muiProps={{
+                      type: "email",
+                    }}
                     rules={{
                       required: "Field can't be empty",
                       maxLength: {
