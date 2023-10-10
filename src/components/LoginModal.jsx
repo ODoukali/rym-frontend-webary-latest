@@ -124,6 +124,15 @@ const LoginModal = (props) => {
     },
   });
 
+  const onRegisterSubmit = (data) => {
+    const trimmedData = {};
+    Object.keys(data).forEach((key) => {
+      trimmedData[key] = data[key].trim();
+    });
+    props.onClose();
+    console.log(trimmedData);
+  };
+
   const handleChange = (event, newRegister) => {
     if (newRegister !== null) {
       setRegister(newRegister);
@@ -277,7 +286,10 @@ const LoginModal = (props) => {
                   or
                 </Typography>
               </Hr>
-              <form onSubmit={registerForm.handleSubmit(props.onClose)}>
+              <form
+                onSubmit={registerForm.handleSubmit(onRegisterSubmit)}
+                noValidate
+              >
                 <Stack gap={pxToRem(10)}>
                   <FormInputText
                     name="name"
@@ -301,7 +313,7 @@ const LoginModal = (props) => {
                     name="nickname"
                     control={registerForm.control}
                     setValue={registerForm.setValue}
-                    placeholder="Nickname"
+                    placeholder="Nickname (optional)"
                     muiProps={{ type: "text" }}
                     rules={{
                       minLength: {
@@ -330,10 +342,14 @@ const LoginModal = (props) => {
                     muiProps={{ type: "email" }}
                     rules={{
                       required: "Field can't be empty",
-                      // pattern: {
-                      //   value: /\S+@\S+\.\S+/,
-                      //   message: "Entered value does not match email format",
-                      // },
+                      maxLength: {
+                        value: 100,
+                        message: "Maximum 100 characters",
+                      },
+                      pattern: {
+                        value: /\S+@\S+\.\S+/,
+                        message: "Entered value does not match email format",
+                      },
                     }}
                   />
                   <FormInputText
