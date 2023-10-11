@@ -93,7 +93,7 @@ const Header = (props) => {
         alignItems="center"
         justifyContent="space-between"
         bgcolor="#EDECE8"
-        p={`${pxToRem(50)} ${pxToRem(110)}`}
+        p={`${pxToRem(40)} ${pxToRem(80)}`}
         sx={{
           "& button": { boxShadow: "none" },
           "@media(max-width: 400px)": {
@@ -119,10 +119,10 @@ const Header = (props) => {
       <Stack
         alignItems="flex-start"
         gap={pxToRem(15)}
-        p={`${pxToRem(40)} ${pxToRem(110)} ${pxToRem(30)}`}
+        p={`${pxToRem(30)} ${pxToRem(80)} ${pxToRem(30)}`}
         sx={{
           "& > a, & > .MuiBox-root > a": {
-            fontSize: pxToRem(26),
+            fontSize: pxToRem(25),
             fontWeight: 700,
           },
           "@media(max-width: 400px)": {
@@ -148,8 +148,8 @@ const Header = (props) => {
         <LinkBtn to="/contact" title="Contact" />
         <Stack
           width="100%"
-          py={pxToRem(40)}
-          gap={pxToRem(25)}
+          py={pxToRem(30)}
+          gap={pxToRem(20)}
           borderTop="1px solid rgba(191,190,187,0.5)"
           borderBottom="1px solid rgba(191,190,187,0.5)"
           sx={{ "& a": { fontSize: pxToRem(16) } }}
@@ -243,7 +243,7 @@ const Header = (props) => {
             sx={{
               zIndex: 1500,
               "& .MuiPaper-root": {
-                maxWidth: pxToRem(470),
+                maxWidth: pxToRem(420),
                 width: "100%",
                 bgcolor: "#F7F6F2",
                 borderRadius: `0 ${pxToRem(40)} ${pxToRem(40)} 0`,
