@@ -118,6 +118,10 @@ const LoginModal = (props) => {
     },
   });
 
+  const registerPhone = registerForm.watch("phone");
+  const registerEmail = registerForm.watch("signupEmail");
+  const registerPassword = registerForm.watch("signupPassword");
+
   const loginForm = useForm({
     values: {
       loginEmail: "",
@@ -125,25 +129,7 @@ const LoginModal = (props) => {
     },
   });
 
-  const onRegisterSubmit = (data) => {
-    const trimmedData = {};
-    Object.keys(data).forEach((key) => {
-      trimmedData[key] = data[key].trim();
-    });
-    props.onClose();
-    console.log(trimmedData);
-  };
-
-  const onLoginSubmit = (data) => {
-    const trimmedData = {};
-    Object.keys(data).forEach((key) => {
-      trimmedData[key] = data[key].trim();
-    });
-    props.onClose();
-    console.log(trimmedData);
-  };
-
-  const handleChange = (event, newRegister) => {
+  const handleTabChange = (event, newRegister) => {
     if (newRegister !== null) {
       setRegister(newRegister);
     }
@@ -209,7 +195,7 @@ const LoginModal = (props) => {
             className={`${register === "signup" ? "active" : ""}`}
             value={register}
             exclusive
-            onChange={handleChange}
+            onChange={handleTabChange}
           >
             <ToggleButtonStyled value="login">Log In</ToggleButtonStyled>
             <ToggleButtonStyled value="signup">Sign Up</ToggleButtonStyled>
@@ -238,11 +224,12 @@ const LoginModal = (props) => {
                   or
                 </Typography>
               </Hr>
-              <form onSubmit={loginForm.handleSubmit(onLoginSubmit)} noValidate>
+              <form onSubmit={loginForm.handleSubmit(props.onClose)} noValidate>
                 <Stack gap={pxToRem(10)}>
                   <FormInputText
                     name="loginEmail"
                     control={loginForm.control}
+                    setValue={loginForm.setValue}
                     placeholder="Email"
                     muiProps={{ type: "email" }}
                     rules={{
@@ -260,8 +247,12 @@ const LoginModal = (props) => {
                   <FormInputText
                     name="loginPassword"
                     control={loginForm.control}
+                    setValue={loginForm.setValue}
                     placeholder="Password"
                     muiProps={{ type: "password" }}
+                    rules={{
+                      required: "Field can't be empty",
+                    }}
                   />
                 </Stack>
                 <ButtonLogin type="submit" variant="yellow">
@@ -302,7 +293,7 @@ const LoginModal = (props) => {
                 </Typography>
               </Hr>
               <form
-                onSubmit={registerForm.handleSubmit(onRegisterSubmit)}
+                onSubmit={registerForm.handleSubmit(props.onClose)}
                 noValidate
               >
                 <Stack gap={pxToRem(10)}>
@@ -311,7 +302,9 @@ const LoginModal = (props) => {
                     control={registerForm.control}
                     setValue={registerForm.setValue}
                     placeholder="Name"
-                    muiProps={{ type: "text" }}
+                    muiProps={{
+                      type: "text",
+                    }}
                     rules={{
                       required: "Field can't be empty",
                       minLength: {
@@ -329,7 +322,9 @@ const LoginModal = (props) => {
                     control={registerForm.control}
                     setValue={registerForm.setValue}
                     placeholder="Nickname (optional)"
-                    muiProps={{ type: "text" }}
+                    muiProps={{
+                      type: "text",
+                    }}
                     rules={{
                       minLength: {
                         value: 3,
@@ -374,7 +369,23 @@ const LoginModal = (props) => {
                     control={registerForm.control}
                     setValue={registerForm.setValue}
                     placeholder="Password"
-                    muiProps={{ type: "password" }}
+                    muiProps={{
+                      type: "password",
+                    }}
+                    rules={{
+                      required: "Field can't be empty",
+                      validate: (v) =>
+                        v !== (registerPhone || registerEmail) ||
+                        "Password can't be the same as the email address or phone number",
+                      minLength: {
+                        value: 6,
+                        message: "Minimum 6 characters",
+                      },
+                      maxLength: {
+                        value: 30,
+                        message: "Maximum 30 characters",
+                      },
+                    }}
                   />
                   <FormInputText
                     name="signupRePassword"
@@ -382,6 +393,13 @@ const LoginModal = (props) => {
                     setValue={registerForm.setValue}
                     placeholder="Retype Password"
                     muiProps={{ type: "password" }}
+                    preventPaste
+                    rules={{
+                      required: "Field can't be empty",
+                      validate: (v) =>
+                        v.trim() === registerPassword.trim() ||
+                        "Passwords must match",
+                    }}
                   />
                 </Stack>
                 <Stack

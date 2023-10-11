@@ -26,9 +26,16 @@ const FormInputText = ({
   label,
   placeholder,
   setValue,
+  preventPaste,
 }) => {
   const handleInputChange = (name, value) => {
     setValue(name, value.trim());
+  };
+
+  const handlePaste = (e) => {
+    if (preventPaste) {
+      e.preventDefault();
+    }
   };
 
   return (
@@ -65,6 +72,7 @@ const FormInputText = ({
 
                     handleInputChange(name, value);
                   }}
+                  onPaste={handlePaste}
                   inputRef={ref}
                   placeholder={placeholder}
                 />
