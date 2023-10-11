@@ -273,18 +273,7 @@ const LoginModal = (props) => {
                     label="Keep me logged in?"
                   />
                 </div>
-                <Stack
-                  flexDirection="row"
-                  alignItems="center"
-                  justifyContent="center"
-                  gap="7px"
-                  mt="20px"
-                >
-                  <Info color="#BFBEBB" />
-                  <Typography color="#BFBEBB" fontSize={pxToRem(12)}>
-                    Not recommended on public devices
-                  </Typography>
-                </Stack>
+                <InfoLabel />
               </form>
               <Divider sx={{ borderColor: "#BFBEBB", my: pxToRem(40) }} />
               <Link
@@ -411,11 +400,14 @@ const LoginModal = (props) => {
                 <ButtonLogin variant="yellow" type="submit">
                   Create Account
                 </ButtonLogin>
-                <Stack alignItems="center" gap={pxToRem(10)}>
-                  <FormControlLabel
-                    control={<Checkbox defaultChecked />}
-                    label="Keep me signed in."
-                  />
+                <Stack alignItems="center" gap={pxToRem(15)}>
+                  <Box>
+                    <FormControlLabel
+                      control={<Checkbox defaultChecked />}
+                      label="Keep me signed in."
+                    />
+                    <InfoLabel />
+                  </Box>
                   <FormControlLabel
                     control={<Checkbox defaultChecked />}
                     label="Send me emails about updates and news."
@@ -446,6 +438,23 @@ const LoginModal = (props) => {
         </Box>
       </Box>
     </Dialog>
+  );
+};
+
+const InfoLabel = () => {
+  return (
+    <Stack
+      flexDirection="row"
+      alignItems="center"
+      justifyContent="center"
+      gap="7px"
+      mt="5px"
+    >
+      <Info color="#BFBEBB" />
+      <Typography color="#BFBEBB" fontSize={pxToRem(12)}>
+        Not recommended on public devices
+      </Typography>
+    </Stack>
   );
 };
 
