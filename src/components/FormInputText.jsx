@@ -39,7 +39,6 @@ const FormInputText = ({
       render={({ field: { ref, onChange, value }, fieldState }) => {
         return (
           <FormGroup>
-            {value}
             <FormControlLabel
               label={label}
               labelPlacement="top"

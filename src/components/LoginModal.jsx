@@ -19,11 +19,12 @@ import { pxToRem } from "px2rem2px";
 import { useForm } from "react-hook-form";
 import IconBtnCircular from "./IconBtnCircular";
 import FormInputText from "./FormInputText";
+import FormInputPhone from "./FormInputPhone";
 // import ReCAPTCHA from "react-google-recaptcha";
 
 import { ReactComponent as Close } from "../images/close.svg";
 import { ReactComponent as Google } from "../images/google.svg";
-import FormInputPhone from "./FormInputPhone";
+import { ReactComponent as Info } from "../images/info.svg";
 
 const ToggleButtonStyled = styled(ToggleButton)({
   color: "#EDECE8",
@@ -48,7 +49,7 @@ const ToggleButtonStyled = styled(ToggleButton)({
 });
 
 const ButtonGoogle = styled(Button)({
-  height: pxToRem(54),
+  height: `${pxToRem(54)} !important`,
   borderWidth: pxToRem(2),
   fontWeight: 500,
   marginBottom: pxToRem(35),
@@ -60,7 +61,7 @@ const ButtonGoogle = styled(Button)({
 
 const ButtonLogin = styled(Button)({
   width: pxToRem(300),
-  height: pxToRem(54),
+  height: `${pxToRem(54)} !important`,
   fontSize: pxToRem(14),
   fontWeight: 600,
   boxShadow: "none",
@@ -272,6 +273,18 @@ const LoginModal = (props) => {
                     label="Keep me logged in?"
                   />
                 </div>
+                <Stack
+                  flexDirection="row"
+                  alignItems="center"
+                  justifyContent="center"
+                  gap="7px"
+                  mt="20px"
+                >
+                  <Info color="#BFBEBB" />
+                  <Typography color="#BFBEBB" fontSize={pxToRem(12)}>
+                    Not recommended on public devices
+                  </Typography>
+                </Stack>
               </form>
               <Divider sx={{ borderColor: "#BFBEBB", my: pxToRem(40) }} />
               <Link
