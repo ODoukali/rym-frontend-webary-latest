@@ -108,7 +108,7 @@ const ListItem = (props) => {
           backgroundColor: "transparent",
           borderBottom: "1px solid rgba(191, 190, 187, 0.5)",
           "& + .MuiTooltip-popper .MuiTooltip-tooltip": {
-            mb: `${pxToRem(3)} !important`,
+            mb: `3px !important`,
           },
           "&:hover .status-ic": {
             display: "flex",

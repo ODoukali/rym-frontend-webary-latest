@@ -1,4 +1,12 @@
-import { Badge, Box, Button, Stack, Tooltip, Typography } from "@mui/material";
+import {
+  Badge,
+  Box,
+  Button,
+  IconButton,
+  Stack,
+  Tooltip,
+  Typography,
+} from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { Link } from "react-router-dom";
 import { pxToRem } from "px2rem2px";
@@ -9,6 +17,8 @@ import IconBtn from "./IconBtn";
 
 import { ReactComponent as Download } from "../../images/writing.svg";
 import { ReactComponent as Print } from "../../images/printer.svg";
+import { ReactComponent as Delete } from "../../images/delete.svg";
+import { ReactComponent as Close } from "../../images/close-circle.svg";
 
 const Block = styled(Box)({
   backgroundColor: "#fff",
@@ -78,7 +88,7 @@ const NotesBookmarks = () => {
             sx={{
               display: "grid",
               gridTemplateColumns: bookmarksQuantity > 4 ? "1fr 1fr" : "1fr",
-              gap: `${pxToRem(10)} ${pxToRem(40)}`,
+              gap: `0 ${pxToRem(40)}`,
               overflow: "hidden",
             }}
           >
@@ -90,7 +100,8 @@ const NotesBookmarks = () => {
                 flexDirection="row"
                 alignItems="center"
                 justifyContent="space-between"
-                pt={pxToRem(10)}
+                gap="10px"
+                py={pxToRem(10)}
                 sx={{
                   position: "relative",
                   "&::after": {
@@ -111,6 +122,9 @@ const NotesBookmarks = () => {
                       span: {
                         color: "#026670",
                       },
+                    },
+                    "& .deleteBtn": {
+                      display: "flex",
                     },
                   },
                 }}
@@ -153,14 +167,55 @@ const NotesBookmarks = () => {
                     Lecture name comes here 1
                   </Typography>
                 </Stack>
-                <Typography
-                  component="span"
-                  fontSize={pxToRem(16)}
-                  fontWeight={600}
-                  color="primary"
-                >
-                  3:45
-                </Typography>
+                <Stack flexDirection="row" alignItems="center" gap="5px">
+                  <Box
+                    className="deleteBtn"
+                    position="relative"
+                    display="none"
+                    sx={{ "&:hover .deleteBtnGroup": { display: "flex" } }}
+                  >
+                    <Delete width={18} height={18} color="#333" />
+                    <Stack
+                      className="deleteBtnGroup"
+                      display="none"
+                      flexDirection="row"
+                      alignItems="center"
+                      position="absolute"
+                      left="42%"
+                      top="50%"
+                      zIndex={1}
+                      sx={{ transform: "translate(-50%,-50%)" }}
+                    >
+                      <IconButton sx={{ padding: "4px" }}>
+                        <Close width={18} height={18} />
+                      </IconButton>
+                      <Button
+                        size="small"
+                        variant="contained"
+                        disableElevation
+                        sx={{
+                          backgroundColor: "rgb(211, 47, 47)",
+                          color: "#fff",
+                          fontSize: "12px",
+                          padding: "5px 10px",
+                          "&:hover": {
+                            backgroundColor: "rgb(211, 47, 47)",
+                          },
+                        }}
+                      >
+                        Delete?
+                      </Button>
+                    </Stack>
+                  </Box>
+                  <Typography
+                    component="span"
+                    fontSize={pxToRem(16)}
+                    fontWeight={600}
+                    color="primary"
+                  >
+                    3:45
+                  </Typography>
+                </Stack>
               </Stack>
             ))}
           </Box>
