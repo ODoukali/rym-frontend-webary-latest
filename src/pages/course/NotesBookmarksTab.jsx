@@ -156,7 +156,12 @@ const NotesBookmarks = () => {
                     Lecture name comes here 1
                   </Typography>
                 </Stack>
-                <Stack flexDirection="row" alignItems="center" gap="5px">
+                <Stack
+                  flexDirection="row"
+                  alignItems="center"
+                  gap="5px"
+                  sx={{ "& svg": { mb: "1px" } }}
+                >
                   <DeleteBtn />
                   <Typography
                     fontSize={pxToRem(16)}

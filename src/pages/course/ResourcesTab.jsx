@@ -28,7 +28,13 @@ const ResourcesTab = () => {
   return (
     <>
       <Box className="rtl-section" mb={pxToRem(40)}>
-        <Typography variant="sectionTitleHebrew" fontSize={pxToRem(30)}>
+        <Typography
+          component="p"
+          variant="sectionTitleHebrew"
+          fontSize={pxToRem(30)}
+          lineHeight={pxToRem(36)}
+          mb="10px"
+        >
           וואס טוט מען ווען דער מאן ארבעט צופרי פאר’ן דאווענען?
         </Typography>
         <Box
@@ -37,7 +43,12 @@ const ResourcesTab = () => {
           borderRadius={pxToRem(20)}
           p={`${pxToRem(3)} ${pxToRem(20)}`}
         >
-          <Typography fontSize={pxToRem(18)} fontWeight="700" color="#026670">
+          <Typography
+            component="p"
+            fontSize={pxToRem(18)}
+            fontWeight="700"
+            color="#026670"
+          >
             Showing Resources for the active lecture only
           </Typography>
         </Box>
