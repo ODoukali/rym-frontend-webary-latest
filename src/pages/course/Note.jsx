@@ -7,6 +7,7 @@ import {
   Typography,
 } from "@mui/material";
 import { pxToRem } from "px2rem2px";
+import DeleteBtn from "./DeleteBtn";
 
 import { ReactComponent as Chevron } from "../../images/chevron.svg";
 
@@ -24,13 +25,19 @@ const Note = (props) => {
         sx={{
           alignItems: "flex-start",
           p: `${pxToRem(10)} 0`,
-          "&:hover": { backgroundColor: "transparent" },
+          "&:hover": {
+            backgroundColor: "transparent",
+            "& .deleteBtn": {
+              display: "flex",
+            },
+          },
         }}
       >
         <Stack
           flexDirection="row"
           alignItems="flex-start"
           justifyContent="space-between"
+          gap="10px"
           flex={1}
         >
           <Typography
@@ -42,15 +49,23 @@ const Note = (props) => {
           >
             Lecture name comes here 1
           </Typography>
-          <Typography
-            component="span"
-            fontSize={pxToRem(16)}
-            fontWeight={600}
-            color="primary"
-            mr={pxToRem(20)}
+          <Stack
+            flexDirection="row"
+            alignItems="center"
+            gap="5px"
+            sx={{ "& svg": { mb: "1px" } }}
           >
-            3:45
-          </Typography>
+            <DeleteBtn />
+            <Typography
+              component="span"
+              fontSize={pxToRem(16)}
+              fontWeight={600}
+              color="primary"
+              mr={pxToRem(20)}
+            >
+              3:45
+            </Typography>
+          </Stack>
         </Stack>
         <Box
           sx={{

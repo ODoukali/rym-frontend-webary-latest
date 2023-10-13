@@ -11,6 +11,7 @@ const DeleteBtn = () => {
     <Box className="deleteBtn" position="relative" display="none">
       <IconButton
         onClick={(e) => {
+          e.stopPropagation();
           e.preventDefault();
           setOpen(true);
         }}
@@ -37,6 +38,7 @@ const DeleteBtn = () => {
       >
         <IconButton
           onClick={(e) => {
+            e.stopPropagation();
             e.preventDefault();
             setOpen(false);
           }}
