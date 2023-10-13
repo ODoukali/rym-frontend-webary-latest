@@ -1,12 +1,4 @@
-import {
-  Badge,
-  Box,
-  Button,
-  IconButton,
-  Stack,
-  Tooltip,
-  Typography,
-} from "@mui/material";
+import { Badge, Box, Button, Stack, Tooltip, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { Link } from "react-router-dom";
 import { pxToRem } from "px2rem2px";
@@ -14,11 +6,10 @@ import TextLink from "../../components/TextLink";
 import BlockBordered from "../../components/BlockBordered";
 import Note from "./Note";
 import IconBtn from "./IconBtn";
+import DeleteBtn from "./DeleteBtn";
 
 import { ReactComponent as Download } from "../../images/writing.svg";
 import { ReactComponent as Print } from "../../images/printer.svg";
-import { ReactComponent as Delete } from "../../images/delete.svg";
-import { ReactComponent as Close } from "../../images/close-circle.svg";
 
 const Block = styled(Box)({
   backgroundColor: "#fff",
@@ -131,12 +122,11 @@ const NotesBookmarks = () => {
               >
                 <Stack
                   flexDirection="row"
+                  alignItems="center"
                   columnGap={pxToRem(15)}
-                  component="span"
                 >
                   <Box
                     className="bookmark-number"
-                    component="span"
                     width={pxToRem(27)}
                     height={pxToRem(27)}
                     borderRadius="100%"
@@ -157,10 +147,9 @@ const NotesBookmarks = () => {
                   </Box>
                   <Typography
                     className="text"
-                    component="span"
                     display="block"
                     fontSize={pxToRem(16)}
-                    lineHeight={pxToRem(27)}
+                    lineHeight={pxToRem(20)}
                     fontWeight={600}
                     color="secondary"
                   >
@@ -168,47 +157,8 @@ const NotesBookmarks = () => {
                   </Typography>
                 </Stack>
                 <Stack flexDirection="row" alignItems="center" gap="5px">
-                  <Box
-                    className="deleteBtn"
-                    position="relative"
-                    display="none"
-                    sx={{ "&:hover .deleteBtnGroup": { display: "flex" } }}
-                  >
-                    <Delete width={18} height={18} color="#333" />
-                    <Stack
-                      className="deleteBtnGroup"
-                      display="none"
-                      flexDirection="row"
-                      alignItems="center"
-                      position="absolute"
-                      left="42%"
-                      top="50%"
-                      zIndex={1}
-                      sx={{ transform: "translate(-50%,-50%)" }}
-                    >
-                      <IconButton sx={{ padding: "4px" }}>
-                        <Close width={18} height={18} />
-                      </IconButton>
-                      <Button
-                        size="small"
-                        variant="contained"
-                        disableElevation
-                        sx={{
-                          backgroundColor: "rgb(211, 47, 47)",
-                          color: "#fff",
-                          fontSize: "12px",
-                          padding: "5px 10px",
-                          "&:hover": {
-                            backgroundColor: "rgb(211, 47, 47)",
-                          },
-                        }}
-                      >
-                        Delete?
-                      </Button>
-                    </Stack>
-                  </Box>
+                  <DeleteBtn />
                   <Typography
-                    component="span"
                     fontSize={pxToRem(16)}
                     fontWeight={600}
                     color="primary"
