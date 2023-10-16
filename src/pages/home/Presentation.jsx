@@ -6,7 +6,7 @@ import BlockBordered from "../../components/BlockBordered";
 import PlayBtn from "../../components/PlayBtn";
 
 import PresentationImg from "../../images/presentation-img.jpg";
-import { ReactComponent as Play } from "../../images/play-video.svg";
+import { ReactComponent as Play } from "../../images/play.svg";
 
 const Presentation = () => {
   return (
@@ -72,7 +72,12 @@ const Presentation = () => {
             width={{ xs: "60px", sm: pxToRem(120) }}
             height={{ xs: "60px", sm: pxToRem(120) }}
           >
-            <Play color="#026670" style={{ marginLeft: "6%" }} />
+            <Play
+              color="#026670"
+              width={pxToRem(20)}
+              height={pxToRem(24)}
+              style={{ marginLeft: "6%" }}
+            />
           </PlayBtn>
         </Link>
       </Box>

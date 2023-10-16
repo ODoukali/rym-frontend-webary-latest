@@ -119,6 +119,7 @@ const VideoSlide = (props) => {
         display="flex"
         alignItems="center"
         justifyContent="center"
+        width={{ xs: "180px", sm: "auto" }}
         height={{ xs: "180px", sm: pxToRem(240) }}
       >
         <Link

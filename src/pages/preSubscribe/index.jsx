@@ -91,9 +91,9 @@ const LinearProgressStyled = styled(LinearProgress)(({ theme }) => ({
 const PreSubscribe = () => {
   return (
     <>
-      <Box position="relative" zIndex={2}>
+      <Box position="relative" zIndex={2} pt={{ xs: "27px", md: 0 }}>
         <Guides color="rgba(0,0,0,0.02)" zIndex={-1} pb={pxToRem(30)} />
-        <Header />
+        <Header menuVisible />
         <Box className="header-padding" mt={pxToRem(40)}>
           <Container disableGutters>
             <Box
@@ -205,7 +205,7 @@ const PreSubscribe = () => {
                         </IconBtnCircular>
                       </Box>
                     </Tooltip>
-                    <Tooltip open={true} title="Share Now" placement="left">
+                    <Tooltip title="Share Now" placement="left">
                       <Box
                         sx={{
                           "& button:hover": {
@@ -268,13 +268,13 @@ const PreSubscribe = () => {
           </Container>
         </Box>
       </Box>
-      <Box position="relative" pt={pxToRem(173)} mt={pxToRem(-30)}>
+      <Box position="relative" pt={pxToRem(100)} mt={pxToRem(-30)}>
         <Guides color="rgba(0,0,0,0.06)" zIndex={-1} />
 
         <Box
           position="relative"
-          pt={pxToRem(190)}
-          mt={pxToRem(-190)}
+          pt={pxToRem(150)}
+          mt={pxToRem(-110)}
           mb={pxToRem(150)}
         >
           <Container disableGutters>
