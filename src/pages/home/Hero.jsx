@@ -1,4 +1,5 @@
-import { Box, Button, Typography } from "@mui/material";
+import { useEffect, useState } from "react";
+import { Box, Button, Skeleton, Typography } from "@mui/material";
 import { styled } from "@mui/system";
 import { pxToRem } from "px2rem2px";
 import Guides from "../../components/Guides";
@@ -34,12 +35,20 @@ const PageTitleHighlighted = styled(Typography)(({ theme }) => {
 });
 
 const Hero = () => {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  }, []);
+
   return (
     <Box
       position="relative"
       pt={pxToRem(30)}
       pb={pxToRem(40)}
-      minHeight={pxToRem(830)}
+      minHeight={pxToRem(835)}
       sx={{
         backgroundImage: `url(${BgImg})`,
         backgroundRepeat: "no-repeat",
@@ -82,29 +91,51 @@ const Hero = () => {
         px={{ xs: "20px", sm: "30px", md: 0 }}
         zIndex={1}
       >
-        <Typography
-          component="h1"
-          fontFamily="PloniBold"
-          fontSize={{ xs: "50px", sm: pxToRem(80) }}
-          lineHeight={{ xs: "50px", sm: pxToRem(75) }}
-          mb={pxToRem(30)}
-        >
-          דא ווערן{" "}
-          <PageTitleHighlighted component="span">
-            דורכגערעדט
-          </PageTitleHighlighted>{" "}
-          די וויכטיגסטע{" "}
-          <PageTitleHighlighted component="span">
-            יסודות אין לעבן,
-          </PageTitleHighlighted>{" "}
-          וועלכע קומען צוניץ אין{" "}
-          <PageTitleHighlighted component="span">יעדן מצב</PageTitleHighlighted>{" "}
-          פון א מענטשנס לעבן…
-        </Typography>
+        {loading ? (
+          [...Array(3).keys()].map((val) => (
+            <Skeleton
+              key={val}
+              variant="text"
+              animation="wave"
+              sx={{ fontSize: "50px" }}
+            />
+          ))
+        ) : (
+          <Typography
+            component="h1"
+            fontFamily="PloniBold"
+            fontSize={{ xs: "50px", sm: pxToRem(80) }}
+            lineHeight={{ xs: "50px", sm: pxToRem(75) }}
+            mb={pxToRem(30)}
+          >
+            דא ווערן{" "}
+            <PageTitleHighlighted component="span">
+              דורכגערעדט
+            </PageTitleHighlighted>{" "}
+            די וויכטיגסטע{" "}
+            <PageTitleHighlighted component="span">
+              יסודות אין לעבן,
+            </PageTitleHighlighted>{" "}
+            וועלכע קומען צוניץ אין{" "}
+            <PageTitleHighlighted component="span">
+              יעדן מצב
+            </PageTitleHighlighted>{" "}
+            פון א מענטשנס לעבן…
+          </Typography>
+        )}
         <Typography fontSize={pxToRem(18)} fontWeight={500} mb={pxToRem(50)}>
           Lorem ipsum dolor amet, consectetur adipiscing elit tempor.
         </Typography>
-        <Button variant="white">Our Philosophy</Button>
+        {loading ? (
+          <Skeleton
+            variant="rounded"
+            animation="wave"
+            width={211}
+            height={57}
+          />
+        ) : (
+          <Button variant="white">Our Philosophy</Button>
+        )}
       </Box>
       <Guides color="rgba(0,0,0,0.03)" zIndex="0" />
     </Box>
