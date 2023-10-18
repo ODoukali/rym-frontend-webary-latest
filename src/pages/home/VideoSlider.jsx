@@ -1,4 +1,12 @@
-import { Box, Container, Link, Stack, Typography } from "@mui/material";
+import { useEffect, useState } from "react";
+import {
+  Box,
+  Container,
+  Link,
+  Skeleton,
+  Stack,
+  Typography,
+} from "@mui/material";
 import { NavLink } from "react-router-dom";
 import { SwiperSlide } from "swiper/react";
 import { pxToRem } from "px2rem2px";
@@ -42,6 +50,14 @@ const videos = [
 ];
 
 const VideoSlider = () => {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  }, []);
+
   return (
     <Box
       mt={{ xs: "80px", sm: "120px", md: pxToRem(150) }}
@@ -56,14 +72,48 @@ const VideoSlider = () => {
           gap="15px"
           mb={pxToRem(30)}
         >
-          <Box>
-            <Typography variant="sectionTitle" component="h2">
-              Hi <span className="highlighted"> Alex,</span> Continue Watching
-            </Typography>
-          </Box>
-          <TextLink href="" sx={{ marginTop: pxToRem(15) }}>
-            View All Videos
-          </TextLink>
+          {loading ? (
+            <Box>
+              <Skeleton
+                variant="text"
+                animation="wave"
+                width={300}
+                sx={{ fontSize: "30px" }}
+              />
+              <Skeleton
+                variant="text"
+                animation="wave"
+                width={400}
+                sx={{ fontSize: "40px" }}
+              />
+            </Box>
+          ) : (
+            <Box>
+              <Typography
+                variant="sectionTitle"
+                component="h2"
+                fontSize="30px"
+                lineHeight="35px"
+              >
+                Hi <span className="highlighted"> Alex,</span>
+              </Typography>
+              <Typography variant="sectionTitle" component="h2">
+                Continue Watching
+              </Typography>
+            </Box>
+          )}
+          {loading ? (
+            <Skeleton
+              variant="text"
+              animation="wave"
+              width={150}
+              sx={{ fontSize: "20px" }}
+            />
+          ) : (
+            <TextLink href="" sx={{ marginTop: pxToRem(15) }}>
+              View All Videos
+            </TextLink>
+          )}
         </Stack>
       </Container>
       <Slider
@@ -74,11 +124,25 @@ const VideoSlider = () => {
       >
         {videos.map((v) => (
           <SwiperSlide key={v.id}>
-            <VideoSlide
-              image={v.image}
-              videoLink={v.videoLink}
-              progress={v.progress}
-            />
+            {loading ? (
+              <Skeleton
+                variant="rounded"
+                animation="wave"
+                sx={{ borderRadius: "20px" }}
+              >
+                <VideoSlide
+                  image={v.image}
+                  videoLink={v.videoLink}
+                  progress={v.progress}
+                />
+              </Skeleton>
+            ) : (
+              <VideoSlide
+                image={v.image}
+                videoLink={v.videoLink}
+                progress={v.progress}
+              />
+            )}
           </SwiperSlide>
         ))}
       </Slider>

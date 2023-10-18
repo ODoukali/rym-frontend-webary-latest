@@ -106,7 +106,6 @@ const Hero = () => {
             fontFamily="PloniBold"
             fontSize={{ xs: "50px", sm: pxToRem(80) }}
             lineHeight={{ xs: "50px", sm: pxToRem(75) }}
-            mb={pxToRem(30)}
           >
             דא ווערן{" "}
             <PageTitleHighlighted component="span">
@@ -123,15 +122,22 @@ const Hero = () => {
             פון א מענטשנס לעבן…
           </Typography>
         )}
-        <Typography fontSize={pxToRem(18)} fontWeight={500} mb={pxToRem(50)}>
-          Lorem ipsum dolor amet, consectetur adipiscing elit tempor.
-        </Typography>
+        <Box mb={pxToRem(50)} mt={pxToRem(30)}>
+          {loading ? (
+            <Skeleton variant="rounded" animation="wave" width="70%" />
+          ) : (
+            <Typography fontSize={pxToRem(18)} fontWeight={500}>
+              Lorem ipsum dolor amet, consectetur adipiscing elit tempor.
+            </Typography>
+          )}
+        </Box>
         {loading ? (
           <Skeleton
             variant="rounded"
             animation="wave"
             width={211}
             height={57}
+            sx={{ borderRadius: "30px" }}
           />
         ) : (
           <Button variant="white">Our Philosophy</Button>
