@@ -317,25 +317,37 @@ const LoginModal = (props) => {
                       },
                     }}
                   />
-                  <FormInputText
-                    name="nickname"
-                    control={registerForm.control}
-                    setValue={registerForm.setValue}
-                    placeholder="Nickname (optional)"
-                    muiProps={{
-                      type: "text",
-                    }}
-                    rules={{
-                      minLength: {
-                        value: 3,
-                        message: "Minimum 3 characters",
-                      },
-                      maxLength: {
-                        value: 50,
-                        message: "Maximum 50 characters",
-                      },
-                    }}
-                  />
+                  <Box>
+                    <FormInputText
+                      name="nickname"
+                      control={registerForm.control}
+                      setValue={registerForm.setValue}
+                      placeholder="Nickname (optional)"
+                      muiProps={{
+                        type: "text",
+                      }}
+                      rules={{
+                        minLength: {
+                          value: 3,
+                          message: "Minimum 3 characters",
+                        },
+                        maxLength: {
+                          value: 50,
+                          message: "Maximum 50 characters",
+                        },
+                      }}
+                    />
+                    <Typography
+                      textAlign="left"
+                      fontSize="11px"
+                      lineHeight="13px"
+                      mt="5px"
+                      mx="14px"
+                    >
+                      Your Nickname will show up when you leave a comment etc.
+                      anonymously
+                    </Typography>
+                  </Box>
                   <FormInputPhone
                     name="phone"
                     control={registerForm.control}
