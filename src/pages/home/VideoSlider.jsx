@@ -61,7 +61,7 @@ const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
   width: "100%",
   position: "absolute",
   bottom: 0,
-  height: 4,
+  height: 5,
   borderRadius: 0,
   zIndex: 1,
   [`&.${linearProgressClasses.colorPrimary}`]: {
@@ -209,7 +209,7 @@ const VideoSlide = (props) => {
               : pxToRem(-20),
           },
           "& .video-progress-bar": {
-            bottom: "-4px",
+            bottom: "-5px",
           },
         },
       }}
@@ -221,7 +221,7 @@ const VideoSlide = (props) => {
         justifyContent="center"
         width={{ xs: "180px", sm: "auto" }}
         height={{ xs: "180px", sm: pxToRem(240) }}
-        borderRadius="18px"
+        borderRadius="19px"
         overflow="hidden"
       >
         <Link
@@ -241,6 +241,11 @@ const VideoSlide = (props) => {
             />
           </PlayBtn>
         </Link>
+        <BorderLinearProgress
+          className="video-progress-bar"
+          variant="determinate"
+          value={props.progress}
+        />
         <img
           style={{
             objectFit: "cover",
@@ -250,11 +255,6 @@ const VideoSlide = (props) => {
           }}
           src={props.image}
           alt=""
-        />
-        <BorderLinearProgress
-          className="video-progress-bar"
-          variant="determinate"
-          value={props.progress}
         />
       </Box>
       <Box
