@@ -2,11 +2,16 @@ import { useEffect, useState } from "react";
 import {
   Box,
   Container,
+  LinearProgress,
   Link,
   Skeleton,
   Stack,
   Typography,
+  linearProgressClasses,
+  useMediaQuery,
+  useTheme,
 } from "@mui/material";
+import { styled } from "@mui/material/styles";
 import { NavLink } from "react-router-dom";
 import { SwiperSlide } from "swiper/react";
 import { pxToRem } from "px2rem2px";
@@ -24,32 +29,53 @@ const videos = [
     id: 0,
     image: SlideWide,
     videoLink: "/",
-    progress: "50%",
+    progress: 50,
   },
   {
     id: 1,
     image: SlideVideo1,
     videoLink: "/",
+    progress: 80,
   },
   {
     id: 2,
     image: SlideVideo2,
     videoLink: "/",
-    progress: "25%",
+    progress: 25,
   },
   {
     id: 3,
     image: SlideVideo1,
     videoLink: "/",
+    progress: 90,
   },
   {
     id: 4,
     image: SlideWide,
     videoLink: "/",
+    progress: 65,
   },
 ];
 
+const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
+  width: "100%",
+  position: "absolute",
+  bottom: 0,
+  height: 4,
+  borderRadius: 0,
+  zIndex: 1,
+  [`&.${linearProgressClasses.colorPrimary}`]: {
+    backgroundColor: "#717171",
+  },
+  [`& .${linearProgressClasses.bar}`]: {
+    borderRadius: 0,
+    backgroundColor: "#FCE181",
+  },
+}));
+
 const VideoSlider = () => {
+  const theme = useTheme();
+  const mobile = useMediaQuery(theme.breakpoints.down("sm"));
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -134,6 +160,7 @@ const VideoSlider = () => {
                   image={v.image}
                   videoLink={v.videoLink}
                   progress={v.progress}
+                  isMobile={mobile}
                 />
               </Skeleton>
             ) : (
@@ -141,6 +168,7 @@ const VideoSlider = () => {
                 image={v.image}
                 videoLink={v.videoLink}
                 progress={v.progress}
+                isMobile={mobile}
               />
             )}
           </SwiperSlide>
@@ -174,17 +202,27 @@ const VideoSlide = (props) => {
             top: pxToRem(-20),
           },
           "& .border-bottom": {
-            bottom: props.progress ? pxToRem(-60) : pxToRem(-20),
+            bottom: props.progress
+              ? props.isMobile
+                ? pxToRem(-20)
+                : pxToRem(-35)
+              : pxToRem(-20),
+          },
+          "& .video-progress-bar": {
+            bottom: "-4px",
           },
         },
       }}
     >
       <Box
+        position="relative"
         display="flex"
         alignItems="center"
         justifyContent="center"
         width={{ xs: "180px", sm: "auto" }}
         height={{ xs: "180px", sm: pxToRem(240) }}
+        borderRadius="18px"
+        overflow="hidden"
       >
         <Link
           to={props.videoLink}
@@ -213,15 +251,27 @@ const VideoSlide = (props) => {
           src={props.image}
           alt=""
         />
+        <BorderLinearProgress
+          className="video-progress-bar"
+          variant="determinate"
+          value={props.progress}
+        />
       </Box>
       <Box
         className="border-bottom"
         sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
           position: "absolute",
           bottom: 0,
           left: "50%",
           width: `calc(100% - ${pxToRem(40)})`,
-          height: props.progress ? pxToRem(60) : pxToRem(20),
+          height: props.progress
+            ? props.isMobile
+              ? pxToRem(20)
+              : pxToRem(35)
+            : pxToRem(20),
           backgroundColor: "#FCE181",
           borderRadius: `0 0 ${pxToRem(20)} ${pxToRem(20)}`,
           transform: "translateX(-50%)",
@@ -230,31 +280,15 @@ const VideoSlide = (props) => {
           transition: "0.2s ease",
         }}
       >
-        {props.progress ? (
-          <Box
-            height="100%"
-            display="flex"
-            flexDirection="column"
-            alignItems="center"
-            justifyContent="center"
+        {props.progress && !props.isMobile ? (
+          <Typography
+            color="#026670"
+            fontSize={pxToRem(14)}
+            lineHeight={pxToRem(18)}
+            fontWeight={500}
           >
-            <Typography
-              color="#026670"
-              fontSize={pxToRem(14)}
-              lineHeight={pxToRem(18)}
-              fontWeight={600}
-            >
-              Continue watching
-            </Typography>
-            <Typography
-              color="#026670"
-              fontSize={pxToRem(14)}
-              lineHeight={pxToRem(18)}
-              fontWeight={500}
-            >
-              ({props.progress} progress)
-            </Typography>
-          </Box>
+            {props.progress}% progress
+          </Typography>
         ) : null}
       </Box>
     </Box>

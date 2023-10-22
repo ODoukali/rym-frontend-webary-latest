@@ -458,6 +458,10 @@ media-player[data-started].pip:hover .pip-overlay {
   transform: translate(-50%, -50%);
 }
 
+.video-progress-bar {
+  transition: 0.2s ease;
+}
+
 @keyframes playAnim {
   from {
     opacity: 1;
