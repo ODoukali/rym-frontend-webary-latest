@@ -8,7 +8,11 @@ const DeleteBtn = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <Box className="deleteBtn" position="relative" display="none">
+    <Box
+      className="deleteBtn"
+      position="relative"
+      display={open ? "flex" : "none"}
+    >
       <IconButton
         onClick={(e) => {
           e.stopPropagation();
