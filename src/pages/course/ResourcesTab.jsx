@@ -60,9 +60,7 @@ const ResourcesTab = () => {
         onChange={handleChange("panel1")}
       >
         <AccordionSummary expandIcon={<Chevron color="#026670" />}>
-          <Typography fontSize="20px" fontWeight={700} color="secondary">
-            Course Summary
-          </Typography>
+          <AccordionTitle>Course Summary</AccordionTitle>
         </AccordionSummary>
         <AccordionDetails>
           <Box
@@ -108,13 +106,7 @@ const ResourcesTab = () => {
             flexWrap="wrap"
             mr={pxToRem(30)}
           >
-            <Typography
-              fontSize={pxToRem(20)}
-              fontWeight={700}
-              color="secondary"
-            >
-              Course References
-            </Typography>
+            <AccordionTitle>Course References</AccordionTitle>
             <Stack
               flexDirection="row"
               gap={pxToRem(10)}
@@ -188,13 +180,7 @@ const ResourcesTab = () => {
             flexWrap="wrap"
             mr={pxToRem(30)}
           >
-            <Typography
-              fontSize={pxToRem(20)}
-              fontWeight={700}
-              color="secondary"
-            >
-              Downloads
-            </Typography>
+            <AccordionTitle>Downloads</AccordionTitle>
             <Button variant="text">Download All</Button>
           </Stack>
         </AccordionSummary>
@@ -261,6 +247,14 @@ const ResourcesTab = () => {
         </AccordionDetails>
       </Accordion>
     </>
+  );
+};
+
+const AccordionTitle = (props) => {
+  return (
+    <Typography fontSize="20px" fontWeight={700} color="secondary" {...props}>
+      {props.children}
+    </Typography>
   );
 };
 
