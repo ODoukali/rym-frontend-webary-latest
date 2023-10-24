@@ -42,6 +42,8 @@ html {
   backdrop-filter: blur(16px);
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   transition: background-color 0.2s;
+  padding-left: 27px;
+  padding-right: 27px;
 }
 
 .sticky + .header-padding {
@@ -485,6 +487,13 @@ media-player[data-started].pip:hover .pip-overlay {
 @media (max-width: 767px) {
   .highlighted::after {
     bottom: 5px;
+  }
+}
+
+@media (max-width: 899px) {
+  .sticky {
+    padding-left: 0;
+    padding-right: 0;
   }
 }
 
