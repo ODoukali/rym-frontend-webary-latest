@@ -197,11 +197,14 @@ const PreSubscribe = () => {
                         sx={{
                           "& + .MuiTooltip-popper .MuiTooltip-tooltip": {
                             backgroundColor: "#fce181",
+                            color: "#026670",
                           },
+                          "& svg": { transition: "0.2s ease" },
+                          "&:hover svg": { color: "#026670" },
                         }}
                       >
                         <IconBtnCircular className="yellow-ic">
-                          <Gift />
+                          <Gift color="#fff" />
                         </IconBtnCircular>
                       </Box>
                     </Tooltip>
