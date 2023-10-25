@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Box, Collapse } from "@mui/material";
 import { pxToRem } from "px2rem2px";
+import { Link } from "react-router-dom";
 import LinkBtn from "./LinkBtn";
 
 const NestedMenu = (props) => {
@@ -41,6 +42,7 @@ const NestedMenu = (props) => {
     >
       <LinkBtn
         title={props.title}
+        component={Link}
         onClick={handleClick}
         onMouseOver={handleClick}
         onMouseLeave={handleCloseHover}

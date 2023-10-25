@@ -4,12 +4,12 @@ import { NavLink } from "react-router-dom";
 import { pxToRem } from "px2rem2px";
 
 const LinkBtn = (props) => {
-  const { title, footerLink, ...rest } = props;
+  const { title, footerLink, component, ...rest } = props;
   return (
     <Link
       {...rest}
       to={props.to}
-      component={NavLink}
+      component={component ?? NavLink}
       underline="none"
       sx={{
         position: "relative",
@@ -31,6 +31,9 @@ const LinkBtn = (props) => {
           "&::before": {
             width: "100%",
           },
+        },
+        "&.active": {
+          color: "#333",
         },
       }}
     >

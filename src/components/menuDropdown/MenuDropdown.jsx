@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Box, Menu } from "@mui/material";
 import { pxToRem } from "px2rem2px";
+import { Link } from "react-router-dom";
 import LinkBtn from "../LinkBtn";
 
 const MenuBtn = (props) => {
@@ -59,6 +60,7 @@ const MenuBtn = (props) => {
     >
       <LinkBtn
         title={props.title}
+        component={Link}
         onClick={handleClick}
         onMouseOver={handleClick}
         onMouseLeave={handleCloseHover}
