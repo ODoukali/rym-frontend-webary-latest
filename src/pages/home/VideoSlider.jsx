@@ -197,6 +197,9 @@ const VideoSlide = (props) => {
           zIndex: -1,
           transition: "0.2s ease",
         },
+        "& img": {
+          transition: "0.2s ease",
+        },
         "&:hover": {
           "&::before": {
             top: pxToRem(-20),
@@ -210,6 +213,9 @@ const VideoSlide = (props) => {
           },
           "& .video-progress-bar": {
             bottom: "-5px",
+          },
+          img: {
+            clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%) !important",
           },
         },
       }}
@@ -252,6 +258,7 @@ const VideoSlide = (props) => {
             width: "100%",
             height: "100%",
             borderRadius: pxToRem(20),
+            clipPath: "polygon(0 0, 100% 0, 100% 211px, 0 211px)",
           }}
           src={props.image}
           alt=""

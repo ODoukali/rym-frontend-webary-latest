@@ -43,7 +43,7 @@ const Philosophy = () => {
           alignItems={{ xs: "flex-start", md: "center" }}
           gap={{ xs: "60px", sm: "72px", md: "80px" }}
         >
-          <Box flexShrink={0}>
+          <Box maxWidth={340} flexShrink={0}>
             {mobile ? <SectionTitle /> : null}
             <Box
               position="relative"
