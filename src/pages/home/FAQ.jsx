@@ -61,46 +61,34 @@ const FAQ = () => {
       disableGutters
       sx={{ mb: { xs: "86px", sm: "100px", md: pxToRem(150) } }}
     >
-      <Stack
-        flexDirection={{ xs: "column-reverse", sm: "row" }}
-        alignItems={{ xs: "flex-end", sm: "flex-start" }}
-        justifyContent="space-between"
-      >
-        <TextLink href="" sx={{ marginTop: { xs: "30px", sm: pxToRem(14) } }}>
-          Explore all Q&A
-        </TextLink>
-        <Box maxWidth={pxToRem(553)} className="rtl-section">
+      <Box maxWidth={pxToRem(553)} className="rtl-section" marginLeft="auto">
+        <Typography
+          variant="sectionTitleHebrew"
+          component="h2"
+          mb={pxToRem(30)}
+        >
+          פראגעס און <span className="highlighted">ענטפערס</span>
+        </Typography>
+        <BlockBordered mb={{ xs: "40px", md: pxToRem(50) }}>
           <Typography
-            variant="sectionTitleHebrew"
-            component="h2"
-            mb={pxToRem(30)}
+            maxWidth={pxToRem(522)}
+            variant="large"
+            fontFamily="Noto Sans Hebrew"
+            fontWeight={700}
           >
-            פראגעס און <span className="highlighted">ענטפערס</span>
+            האט איר א פראגע? די איז די פלאץ וואו איר קענט פרעגן אייער פראגע און
+            ר’ יעקב משה וועט אי”ה ענטפערן בתשואת חן. עס קען ווערן געפרעגט אויפן
+            אופן אז יעדער וועט קענען זעהן (נאכן ווערן איבערגעקוקט) אדער קען דאס
+            זיין אנאנום און מ’וועט דאס נישט ארויפשטעלן.
           </Typography>
-          <BlockBordered mb={{ xs: "40px", md: pxToRem(50) }}>
-            <Typography
-              maxWidth={pxToRem(522)}
-              variant="large"
-              fontFamily="Noto Sans Hebrew"
-              fontWeight={700}
-            >
-              האט איר א פראגע? די איז די פלאץ וואו איר קענט פרעגן אייער פראגע
-              און ר’ יעקב משה וועט אי”ה ענטפערן בתשואת חן. עס קען ווערן געפרעגט
-              אויפן אופן אז יעדער וועט קענען זעהן (נאכן ווערן איבערגעקוקט) אדער
-              קען דאס זיין אנאנום און מ’וועט דאס נישט ארויפשטעלן.
-            </Typography>
-          </BlockBordered>
-          <Button variant="yellow" sx={{ position: "relative", zIndex: 1 }}>
-            Send us Your Question
-          </Button>
-        </Box>
-      </Stack>
+        </BlockBordered>
+      </Box>
       <Box
         position="relative"
         maxWidth={pxToRem(960)}
         mx={{ xs: "-25px", sm: 0 }}
         mr="auto"
-        mt={{ xs: "50px", sm: pxToRem(-32) }}
+        mt="50px"
         className="rtl-section"
       >
         {faqArr.map((a) => (
@@ -167,6 +155,22 @@ const FAQ = () => {
           </Accordion>
         ))}
       </Box>
+      <Stack
+        flexDirection="row"
+        alignItems="center"
+        flexWrap="wrap"
+        gap={{
+          xs: "10px",
+          md: pxToRem(20),
+          "& button": {
+            "@media(max-width: 767px)": { width: "219px" },
+          },
+        }}
+        mt="40px"
+      >
+        <Button variant="outlined">Explore All Q&A</Button>
+        <Button variant="yellow">Send us Your Question</Button>
+      </Stack>
     </Container>
   );
 };
