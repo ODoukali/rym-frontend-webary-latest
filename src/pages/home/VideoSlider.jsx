@@ -241,11 +241,8 @@ const VideoSlide = (props) => {
             />
           </PlayBtn>
         </Link>
-        <Box position="absolute">
-          <PlayBtn
-            width={{ xs: "60px", sm: pxToRem(96) }}
-            height={{ xs: "60px", sm: pxToRem(96) }}
-          ></PlayBtn>
+        <Box position="absolute" width="0.1px">
+          <PlayBtn />
         </Box>
         <BorderLinearProgress
           className="video-progress-bar"
