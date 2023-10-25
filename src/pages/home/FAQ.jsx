@@ -11,7 +11,6 @@ import {
 } from "@mui/material";
 import { pxToRem } from "px2rem2px";
 import BlockBordered from "../../components/BlockBordered";
-import TextLink from "../../components/TextLink";
 
 import { ReactComponent as Chevron } from "../../images/chevron.svg";
 
