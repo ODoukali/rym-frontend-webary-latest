@@ -20,9 +20,11 @@ import MenuDropdown from "./menuDropdown/MenuDropdown";
 import LoginModal from "./LoginModal";
 import Toast from "./Toast";
 import ToastCookie from "./ToastCookie";
+import ProfileMenu from "./ProfileMenu";
 
 import { ReactComponent as Menu } from "../images/menu.svg";
 import { ReactComponent as Search } from "../images/search.svg";
+import { ReactComponent as Alarm } from "../images/alarm.svg";
 import { ReactComponent as Logo } from "../images/logo.svg";
 import { ReactComponent as Close } from "../images/close.svg";
 
@@ -195,14 +197,9 @@ const Header = (props) => {
             alignItems="center"
             columnGap={pxToRem(15)}
           >
-            {!props.menuVisible || tablet ? (
-              <IconBtnCircular onClick={toggleDrawer(true)}>
-                <Menu />
-              </IconBtnCircular>
-            ) : null}
-            <IconBtnCircular>
-              <Search />
-            </IconBtnCircular>
+            <Link to="/" style={{ display: "flex" }}>
+              <Logo color="#333" />
+            </Link>
             {props.menuVisible && !tablet ? (
               <Stack
                 flexDirection="row"
@@ -233,9 +230,20 @@ const Header = (props) => {
               </Stack>
             ) : null}
           </Stack>
-          <Link to="/" style={{ display: "flex" }}>
-            <Logo color="#333" />
-          </Link>
+          <Stack flexDirection="row" alignItems="center" gap="10px">
+            {!props.menuVisible || tablet ? (
+              <IconBtnCircular onClick={toggleDrawer(true)}>
+                <Menu />
+              </IconBtnCircular>
+            ) : null}
+            <IconBtnCircular>
+              <Search />
+            </IconBtnCircular>
+            <IconBtnCircular>
+              <Alarm />
+            </IconBtnCircular>
+            <ProfileMenu />
+          </Stack>
           <Drawer
             anchor="left"
             open={isOpen}
