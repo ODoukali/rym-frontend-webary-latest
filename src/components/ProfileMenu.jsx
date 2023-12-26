@@ -7,10 +7,21 @@ import {
   Menu,
   MenuItem,
 } from "@mui/material";
+import { styled } from "@mui/material/styles";
 import { NavLink } from "react-router-dom";
 import { pxToRem } from "px2rem2px";
 
 import AvatarImg from "../images/avatar.png";
+
+const LinkStyled = styled(Link)(({ theme }) => ({
+  color: "#BFBEBB",
+  fontSize: "15px",
+  lineHeight: "30px",
+  fontWeight: 600,
+  ":hover": {
+    color: "#026670",
+  },
+}));
 
 const ProfileMenu = () => {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -59,7 +70,7 @@ const ProfileMenu = () => {
                 },
               },
               hr: {
-                my: "20px",
+                my: "15px",
               },
             },
           },
@@ -88,27 +99,43 @@ const ProfileMenu = () => {
         </MenuItem>
         <Divider sx={{ mt: "10px !important" }} />
         <MenuItem onClick={handleClose}>
-          <Link to="" component={NavLink} underline="none">
+          <LinkStyled to="" component={NavLink} underline="none">
             My Courses
-          </Link>
+          </LinkStyled>
         </MenuItem>
         <MenuItem onClick={handleClose}>
-          <Link to="" component={NavLink} underline="none">
+          <LinkStyled to="" component={NavLink} underline="none">
             My Favorites
-          </Link>
+          </LinkStyled>
         </MenuItem>
         <MenuItem onClick={handleClose}>
-          <Link to="" component={NavLink} underline="none">
+          <LinkStyled to="/user" component={NavLink} underline="none">
             Account
-          </Link>
+          </LinkStyled>
         </MenuItem>
         <Divider />
         <MenuItem onClick={handleClose}>
-          <Link to="" component={NavLink} underline="none">
+          <LinkStyled
+            to=""
+            component={NavLink}
+            underline="none"
+            sx={{ fontSize: "12px", lineHeight: "20px" }}
+          >
             Help & Support
-          </Link>
+          </LinkStyled>
         </MenuItem>
-        <MenuItem onClick={handleClose}>Logout</MenuItem>
+        <MenuItem
+          onClick={handleClose}
+          sx={{
+            fontSize: "12px",
+            lineHeight: "20px",
+            fontWeight: 600,
+            color: "#BFBEBB",
+            ":hover": { color: "#026670" },
+          }}
+        >
+          Signout
+        </MenuItem>
       </Menu>
     </>
   );

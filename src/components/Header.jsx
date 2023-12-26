@@ -182,7 +182,12 @@ const Header = (props) => {
 
   return (
     <>
-      <Box ref={header} className={isSticky ? "sticky" : ""} zIndex={100}>
+      <Box
+        ref={header}
+        className={isSticky ? "sticky" : ""}
+        width="100%"
+        zIndex={100}
+      >
         <Stack
           maxWidth={pxToRem(1380)}
           flexDirection="row"

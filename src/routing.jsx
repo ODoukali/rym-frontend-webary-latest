@@ -3,6 +3,7 @@ import Layout from "./components/Layout";
 import Home from "./pages/home";
 import Course from "./pages/course";
 import PreSubscribe from "./pages/preSubscribe";
+import User from "./pages/user";
 
 export const router = createBrowserRouter([
   {
@@ -32,6 +33,16 @@ export const router = createBrowserRouter([
       {
         path: "/pre-subscribe",
         element: <PreSubscribe />,
+      },
+    ],
+  },
+  {
+    path: "/user",
+    element: <Layout />,
+    children: [
+      {
+        path: "/user",
+        element: <User />,
       },
     ],
   },
