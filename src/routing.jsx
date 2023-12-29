@@ -1,5 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Layout from "./components/Layout";
+import UserLayout from "./components/UserLayout";
+
 import Home from "./pages/home";
 import Course from "./pages/course";
 import PreSubscribe from "./pages/preSubscribe";
@@ -38,7 +40,7 @@ export const router = createBrowserRouter([
   },
   {
     path: "/user",
-    element: <Layout />,
+    element: <UserLayout />,
     children: [
       {
         path: "/user",
