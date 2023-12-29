@@ -8,6 +8,7 @@ const Layout = () => {
   return (
     <ModalProvider>
       <Box
+        position="relative"
         maxWidth={pxToRem(1920)}
         m="0 auto"
         p={{ xs: 0, md: pxToRem(30) }}

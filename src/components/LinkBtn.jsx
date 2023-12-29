@@ -33,7 +33,7 @@ const LinkBtn = (props) => {
           },
         },
         "&.active": {
-          color: "#333",
+          color: props.footerLink ? "#fff" : "#333",
         },
       }}
     >
