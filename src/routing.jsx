@@ -5,7 +5,7 @@ import UserLayout from "./components/UserLayout";
 import Home from "./pages/home";
 import Course from "./pages/course";
 import PreSubscribe from "./pages/preSubscribe";
-import User from "./pages/user";
+import Dashboard from "./pages/dashboard";
 
 export const router = createBrowserRouter([
   {
@@ -43,8 +43,8 @@ export const router = createBrowserRouter([
     element: <UserLayout />,
     children: [
       {
-        path: "/user",
-        element: <User />,
+        path: "/user/dashboard",
+        element: <Dashboard />,
       },
     ],
   },

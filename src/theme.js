@@ -35,6 +35,11 @@ const theme = createTheme({
         fontSize: "40px",
       },
     },
+    blockTitle: {
+      fontSize: pxToRem(22),
+      fontWeight: 700,
+      lineHeight: pxToRem(30),
+    },
     small: {
       fontSize: pxToRem(14),
       fontWeight: 500,

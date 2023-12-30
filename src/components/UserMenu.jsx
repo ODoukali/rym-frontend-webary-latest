@@ -17,7 +17,7 @@ const UserMenu = () => {
   return (
     <Box width="250px">
       <Link
-        to="/user"
+        to="/user/dashboard"
         component={NavLink}
         underline="none"
         sx={{
