@@ -57,7 +57,7 @@ const UserMenu = () => {
         }}
       >
         <MenuItem to="/account-settings" title="Account & Activity"></MenuItem>
-        <MenuItem to="/notifications" title="Notifications"></MenuItem>
+        <MenuItem to="/user/notifications" title="Notifications"></MenuItem>
         <MenuItem to="/purchase-history" title="Purchase History"></MenuItem>
         <MenuItem to="/playback" title="Playback"></MenuItem>
         <MenuItem to="/general" title="General"></MenuItem>

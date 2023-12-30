@@ -6,6 +6,7 @@ import Home from "./pages/home";
 import Course from "./pages/course";
 import PreSubscribe from "./pages/preSubscribe";
 import Dashboard from "./pages/dashboard";
+import Notifications from "./pages/notifications";
 
 export const router = createBrowserRouter([
   {
@@ -45,6 +46,10 @@ export const router = createBrowserRouter([
       {
         path: "/user/dashboard",
         element: <Dashboard />,
+      },
+      {
+        path: "/user/notifications",
+        element: <Notifications />,
       },
     ],
   },
