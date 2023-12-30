@@ -3,6 +3,7 @@ import { Stack } from "@mui/material";
 const PlayBtn = (props) => {
   return (
     <Stack
+      className="play-btn"
       alignItems="center"
       justifyContent="center"
       width={props.width}
