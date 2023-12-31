@@ -21,7 +21,7 @@ const LinkBtn = (props) => {
           position: "absolute",
           left: 0,
           bottom: pxToRem(-8),
-          height: pxToRem(2),
+          height: "2px",
           width: 0,
           bgcolor: props.footerLink ? "#fff" : "primary.main",
           transition: "0.2s ease",
