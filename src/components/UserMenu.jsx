@@ -56,7 +56,10 @@ const UserMenu = () => {
           borderTop: "1px solid rgba(191,190,187, 0.5)",
         }}
       >
-        <MenuItem to="/account-settings" title="Account & Activity"></MenuItem>
+        <MenuItem
+          to="/user/account-settings"
+          title="Account & Activity"
+        ></MenuItem>
         <MenuItem to="/user/notifications" title="Notifications"></MenuItem>
         <MenuItem to="/purchase-history" title="Purchase History"></MenuItem>
         <MenuItem to="/playback" title="Playback"></MenuItem>

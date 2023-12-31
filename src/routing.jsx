@@ -7,6 +7,7 @@ import Course from "./pages/course";
 import PreSubscribe from "./pages/preSubscribe";
 import Dashboard from "./pages/dashboard";
 import Notifications from "./pages/notifications";
+import AccountSettings from "./pages/accountSettings";
 
 export const router = createBrowserRouter([
   {
@@ -50,6 +51,10 @@ export const router = createBrowserRouter([
       {
         path: "/user/notifications",
         element: <Notifications />,
+      },
+      {
+        path: "/user/account-settings",
+        element: <AccountSettings />,
       },
     ],
   },

@@ -109,7 +109,11 @@ const ProfileMenu = () => {
           </LinkStyled>
         </MenuItem>
         <MenuItem onClick={handleClose}>
-          <LinkStyled to="" component={NavLink} underline="none">
+          <LinkStyled
+            to="/user/account-settings"
+            component={NavLink}
+            underline="none"
+          >
             Account
           </LinkStyled>
         </MenuItem>
