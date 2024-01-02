@@ -13,6 +13,7 @@ import { pxToRem } from "px2rem2px";
 import Slider from "../../components/Slider";
 import PlayBtn from "../../components/PlayBtn";
 import Alert from "./Alert";
+import BlockHeading from "../../components/BlockHeading";
 
 import SlideVideo1 from "../../images/video-slide2.jpg";
 import SlideVideo2 from "../../images/video-slide3.jpg";
@@ -73,15 +74,11 @@ const Dashboard = () => {
         borderRadius="20px"
         p={pxToRem(60)}
       >
-        <Box
-          borderBottom="1px solid rgba(191,190,187, 0.5)"
-          pb={pxToRem(30)}
-          mb={pxToRem(30)}
-        >
+        <BlockHeading>
           <Typography component="h3" variant="blockTitle">
             Alerts & Notifications
           </Typography>
-        </Box>
+        </BlockHeading>
 
         <Stack gap={pxToRem(20)} mb={pxToRem(60)}>
           <Alert severity="error" title="Payment Issue">
@@ -92,15 +89,11 @@ const Dashboard = () => {
           </Alert>
         </Stack>
 
-        <Box
-          borderBottom="1px solid rgba(191,190,187, 0.5)"
-          pb={pxToRem(30)}
-          mb={pxToRem(30)}
-        >
+        <BlockHeading>
           <Typography component="h3" variant="blockTitle">
             Recently Watched
           </Typography>
-        </Box>
+        </BlockHeading>
 
         <Box
           sx={{

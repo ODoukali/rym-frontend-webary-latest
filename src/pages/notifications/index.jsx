@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Box, Button, Divider, Stack, Typography } from "@mui/material";
 import { pxToRem } from "px2rem2px";
-
+import BlockHeading from "../../components/BlockHeading";
 import Switcher from "../../components/Switcher";
 
 const Notifications = () => {
@@ -97,18 +97,14 @@ const Notifications = () => {
         borderRadius="20px"
         p={pxToRem(60)}
       >
-        <Box
-          borderBottom="1px solid rgba(191,190,187, 0.5)"
-          pb={pxToRem(30)}
-          mb={pxToRem(30)}
-        >
+        <BlockHeading>
           <Typography component="h3" variant="blockTitle" mb={pxToRem(5)}>
             General Notifications
           </Typography>
           <Typography component="p" variant="medium">
             Sed ut perspiciatis unde omnis iste natus accusantium.
           </Typography>
-        </Box>
+        </BlockHeading>
 
         <Stack
           gap={pxToRem(20)}
