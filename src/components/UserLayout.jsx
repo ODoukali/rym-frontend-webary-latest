@@ -22,8 +22,9 @@ const UserLayout = () => {
         <Box position="relative">
           <Guides color="rgba(0,0,0,0.06)" zIndex={-1} />
           <Box
+            height={{ xs: "100px", md: "130px" }}
+            borderRadius={{ xs: 0, md: "40px 40px 0 0" }}
             sx={{
-              height: "130px",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
@@ -31,7 +32,6 @@ const UserLayout = () => {
               backgroundRepeat: "no-repeat",
               backgroundSize: "cover",
               backgroundPosition: "top center",
-              borderRadius: "40px 40px 0 0",
             }}
           >
             <Header menuVisible />
@@ -41,13 +41,20 @@ const UserLayout = () => {
           <Container
             disableGutters
             sx={{
-              pt: pxToRem(80),
-              pb: pxToRem(140),
+              pt: { xs: "50px", md: pxToRem(80) },
+              pb: { xs: "70px", md: pxToRem(140) },
             }}
           >
-            <Stack flexDirection="row" gap="50px">
-              <UserMenu />
-              <Outlet />
+            <Stack flexDirection="row" gap={{ xs: "30px", md: "50px" }}>
+              <Box width={{ xs: "200px", md: "250px" }}>
+                <UserMenu />
+              </Box>
+              <Box
+                flex={1}
+                width={{ xs: "calc(100% - 260px)", md: "calc(100% - 310px)" }}
+              >
+                <Outlet />
+              </Box>
             </Stack>
           </Container>
         </Box>

@@ -7,6 +7,8 @@ import {
   Stack,
   useTheme,
   useMediaQuery,
+  Avatar,
+  Typography,
 } from "@mui/material";
 import { Link } from "react-router-dom";
 import { styled } from "@mui/material/styles";
@@ -27,6 +29,7 @@ import { ReactComponent as Search } from "../images/search.svg";
 import { ReactComponent as Alarm } from "../images/alarm.svg";
 import { ReactComponent as Logo } from "../images/logo.svg";
 import { ReactComponent as Close } from "../images/close.svg";
+import AvatarImg from "../images/avatar.png";
 
 const Hr = styled(Divider)({
   width: "100%",
@@ -40,10 +43,12 @@ const Header = (props) => {
   const [toast1, setToast1] = useState(false);
   const [toast2, setToast2] = useState(false);
   const [toast3, setToast3] = useState(false);
+  const [isLoggedIn] = useState(true);
   const header = useRef(null);
 
   const theme = useTheme();
   const tablet = useMediaQuery(theme.breakpoints.down("md"));
+  const mobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   const handleClose = (event, reason) => {
     if (reason === "clickaway") {
@@ -103,17 +108,28 @@ const Header = (props) => {
           },
         }}
       >
-        <Button
-          onClick={openPopup}
-          variant="yellow"
-          sx={{
-            height: `${pxToRem(40)} !important`,
-            fontSize: pxToRem(14),
-            p: `${pxToRem(20)} ${pxToRem(47)} !important`,
-          }}
-        >
-          Sign In
-        </Button>
+        {isLoggedIn && mobile ? (
+          <Box>
+            <Avatar sx={{ width: pxToRem(48), height: pxToRem(48) }}>
+              <img src={AvatarImg} alt="" />
+            </Avatar>{" "}
+            <Typography fontSize="15px" fontWeight={700} mt="10px">
+              Hi, Alex Fried
+            </Typography>
+          </Box>
+        ) : (
+          <Button
+            onClick={openPopup}
+            variant="yellow"
+            sx={{
+              height: `${pxToRem(40)} !important`,
+              fontSize: pxToRem(14),
+              p: `${pxToRem(20)} ${pxToRem(47)} !important`,
+            }}
+          >
+            Sign In
+          </Button>
+        )}
         <IconBtnCircular onClick={toggleDrawer(false)}>
           <Close color="#026670" />
         </IconBtnCircular>
@@ -198,19 +214,29 @@ const Header = (props) => {
           m="auto"
         >
           <Stack
+            flex={1}
             flexDirection="row"
             alignItems="center"
-            columnGap={pxToRem(15)}
+            columnGap={{ xs: 0, lg: pxToRem(15) }}
           >
+            {!props.menuVisible || tablet ? (
+              <Box mr="10px">
+                <IconBtnCircular onClick={toggleDrawer(true)}>
+                  <Menu />
+                </IconBtnCircular>
+              </Box>
+            ) : null}
             <Link to="/" style={{ display: "flex" }}>
               <Logo color="#333" />
             </Link>
             {props.menuVisible && !tablet ? (
               <Stack
+                flex={1}
                 flexDirection="row"
                 alignItems="center"
-                columnGap={pxToRem(56)}
-                ml={pxToRem(25)}
+                justifyContent={{ xs: "space-between", lg: "flex-start" }}
+                columnGap={{ xs: pxToRem(15), lg: pxToRem(56) }}
+                mx={pxToRem(40)}
               >
                 <LinkBtn to="/" title="Main" />
                 <MenuDropdown title="Philosophy">
@@ -236,18 +262,13 @@ const Header = (props) => {
             ) : null}
           </Stack>
           <Stack flexDirection="row" alignItems="center" gap="10px">
-            {!props.menuVisible || tablet ? (
-              <IconBtnCircular onClick={toggleDrawer(true)}>
-                <Menu />
-              </IconBtnCircular>
-            ) : null}
             <IconBtnCircular>
               <Search />
             </IconBtnCircular>
             <IconBtnCircular>
               <Alarm />
             </IconBtnCircular>
-            <ProfileMenu />
+            {!mobile ? <ProfileMenu /> : null}
           </Stack>
           <Drawer
             anchor="left"

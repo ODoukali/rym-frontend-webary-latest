@@ -57,7 +57,7 @@ const Dashboard = () => {
   const mobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   return (
-    <Box flex={1}>
+    <>
       <Typography
         variant="sectionTitle"
         component="h2"
@@ -117,7 +117,7 @@ const Dashboard = () => {
           </Slider>
         </Box>
       </Box>
-    </Box>
+    </>
   );
 };
 
@@ -128,6 +128,7 @@ const VideoSlide = (props) => {
       component={NavLink}
       underline="none"
       sx={{
+        width: { xs: "180px", sm: "auto" },
         "&:hover": {
           ".MuiTypography-root": { color: "#333" },
           ".play-btn": {

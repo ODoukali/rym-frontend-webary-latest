@@ -1,12 +1,4 @@
-import {
-  Avatar,
-  Box,
-  Button,
-  Link,
-  List,
-  ListItem,
-  Stack,
-} from "@mui/material";
+import { Avatar, Button, Link, List, ListItem, Stack } from "@mui/material";
 import { NavLink } from "react-router-dom";
 import { pxToRem } from "px2rem2px";
 
@@ -15,7 +7,7 @@ import LinkBtn from "./LinkBtn";
 
 const UserMenu = () => {
   return (
-    <Box width="250px">
+    <>
       <Link
         to="/user/dashboard"
         component={NavLink}
@@ -36,8 +28,7 @@ const UserMenu = () => {
       </Link>
 
       <Stack
-        flexDirection="row"
-        alignItems="center"
+        flexDirection={{ xs: "column", md: "row" }}
         justifyContent="space-between"
         gap="5px"
       >
@@ -78,7 +69,7 @@ const UserMenu = () => {
       <Button size="small" variant="outlined" sx={{ mt: pxToRem(40) }}>
         Sign Out
       </Button>
-    </Box>
+    </>
   );
 };
 

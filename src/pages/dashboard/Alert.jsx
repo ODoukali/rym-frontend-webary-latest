@@ -8,20 +8,22 @@ const Alert = (props) => {
     props.severity === "error"
       ? "#FFEDED"
       : props.severity === "success"
-      ? "#FBFFF0"
+      ? "#EAF7EE"
       : "black";
   const borderColor =
     props.severity === "error"
-      ? "#FF4D4D"
+      ? "#F6CCC4"
       : props.severity === "success"
-      ? "#A7C74F"
+      ? "#BFE4C9"
       : "black";
 
   return (
     <Stack
-      flexDirection="row"
-      alignItems="center"
+      position="relative"
+      flexDirection={{ xs: "column", lg: "row" }}
+      alignItems={{ xs: "flex-start", lg: "center" }}
       justifyContent="space-between"
+      gap={pxToRem(20)}
       border="2px solid"
       borderRadius="10px"
       borderColor={borderColor}
@@ -35,6 +37,7 @@ const Alert = (props) => {
           fontSize={pxToRem(18)}
           fontWeight={600}
           mb={pxToRem(5)}
+          pr={{ xs: "28px", lg: 0 }}
         >
           {props.title}
         </Typography>
@@ -51,14 +54,24 @@ const Alert = (props) => {
         flexDirection="row"
         alignItems="center"
         gap={pxToRem(30)}
-        sx={{ "& button": { m: 0 } }}
+        sx={{
+          "& button": {
+            m: 0,
+          },
+        }}
       >
         <Button size="small" variant="outlined">
           What’s Next
         </Button>
-        <TestimonialMenu sx={{ m: 0 }}>
-          <MenuItem onClick={() => {}}>Menu</MenuItem>
-        </TestimonialMenu>
+        <Box
+          position={{ xs: "absolute", lg: "static" }}
+          top="17px"
+          right="28px"
+        >
+          <TestimonialMenu>
+            <MenuItem onClick={() => {}}>Menu</MenuItem>
+          </TestimonialMenu>
+        </Box>
       </Stack>
     </Stack>
   );

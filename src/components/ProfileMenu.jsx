@@ -14,7 +14,6 @@ import { pxToRem } from "px2rem2px";
 import AvatarImg from "../images/avatar.png";
 
 const LinkStyled = styled(Link)(({ theme }) => ({
-  color: "#BFBEBB",
   fontSize: "15px",
   lineHeight: "30px",
   fontWeight: 600,
@@ -41,6 +40,7 @@ const ProfileMenu = () => {
         aria-controls={open ? "account-menu" : undefined}
         aria-haspopup="true"
         aria-expanded={open ? "true" : undefined}
+        sx={{ p: 0 }}
       >
         <Avatar sx={{ width: pxToRem(48), height: pxToRem(48) }}>
           <img src={AvatarImg} alt="" />
@@ -123,7 +123,7 @@ const ProfileMenu = () => {
             to=""
             component={NavLink}
             underline="none"
-            sx={{ fontSize: "12px", lineHeight: "20px" }}
+            sx={{ fontSize: "12px", lineHeight: "20px", color: "#BFBEBB" }}
           >
             Help & Support
           </LinkStyled>

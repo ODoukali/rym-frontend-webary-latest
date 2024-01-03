@@ -7,7 +7,7 @@ import AvatarImg from "../../images/avatar.png";
 
 const AccountSettings = () => {
   return (
-    <Box flex={1}>
+    <>
       <Typography
         variant="sectionTitle"
         component="h2"
@@ -116,7 +116,7 @@ const AccountSettings = () => {
           </Stack>
         </Box>
       </Box>
-    </Box>
+    </>
   );
 };
 

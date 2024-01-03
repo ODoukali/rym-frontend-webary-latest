@@ -55,6 +55,7 @@ const Notifications = () => {
       isChecked: false,
     },
   ]);
+  const [notificationsToggle, setNotificationsToggle] = useState(true);
 
   const handleSwitchChange = (id) => {
     const updatedNotifications = notifications.map((notification) => {
@@ -71,16 +72,21 @@ const Notifications = () => {
   };
 
   const turnOffNotifications = () => {
+    const anyChecked = notifications.some(
+      (notification) => notification.isChecked
+    );
+
     const updatedNotifications = notifications.map((notification) => ({
       ...notification,
-      isChecked: false,
+      isChecked: !anyChecked,
     }));
 
     setNotifications(updatedNotifications);
+    setNotificationsToggle(!notificationsToggle);
   };
 
   return (
-    <Box flex={1}>
+    <>
       <Typography
         variant="sectionTitle"
         component="h2"
@@ -132,10 +138,10 @@ const Notifications = () => {
         />
 
         <Button variant="yellow" size="small" onClick={turnOffNotifications}>
-          Turn All Off
+          Turn All {notificationsToggle ? "Off" : "On"}
         </Button>
       </Box>
-    </Box>
+    </>
   );
 };
 
