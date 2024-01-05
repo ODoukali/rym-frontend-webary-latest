@@ -2,12 +2,12 @@ import { Box, Container, Stack } from "@mui/material";
 import { Outlet } from "react-router-dom";
 import { pxToRem } from "px2rem2px";
 import ModalProvider from "mui-modal-provider";
-import Footer from "./Footer";
-import Guides from "./Guides";
-import Header from "./Header";
+import Footer from "../Footer";
+import Guides from "../Guides";
+import Header from "../Header";
 import UserMenu from "./UserMenu";
 
-import HeaderBgrImg from "../images/bgr-short.svg";
+import HeaderBgrImg from "../../images/bgr-short.svg";
 
 const UserLayout = () => {
   return (
@@ -46,7 +46,7 @@ const UserLayout = () => {
             }}
           >
             <Stack flexDirection="row" gap={{ xs: "30px", md: "50px" }}>
-              <Box width={{ xs: "200px", md: "250px" }}>
+              <Box className="user-menu" width={{ xs: "200px", md: "250px" }}>
                 <UserMenu />
               </Box>
               <Box

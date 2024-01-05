@@ -17,7 +17,7 @@ const TextFieldStyled = styled(TextField)({
   },
 });
 
-const FormInputPhone = ({ name, control, rules, placeholder }) => {
+const FormInputPhone = ({ name, control, rules, placeholder, muiProps }) => {
   return (
     <Controller
       name={name}
@@ -27,6 +27,7 @@ const FormInputPhone = ({ name, control, rules, placeholder }) => {
         return (
           <ReactPhoneInput
             inputProps={{
+              ...muiProps,
               label: "",
               placeholder: placeholder,
               error: !!fieldState.error,

@@ -6,6 +6,19 @@ import BlockHeading from "../../components/BlockHeading";
 import AvatarImg from "../../images/avatar.png";
 
 const AccountSettings = () => {
+  // const user = useForm({
+  //   values: {
+  //     name: "Moshy Biener",
+  //     nickname: "Moshy",
+  //     phone: "+1(718) 555-5555",
+  //     email: "moshy@rym.com",
+  //     password: "Password",
+  //   },
+  // });
+
+  // const UserPhone = user.watch("phone");
+  // const UserEmail = user.watch("email");
+
   return (
     <>
       <Typography
@@ -33,23 +46,89 @@ const AccountSettings = () => {
         <Stack
           flexDirection="row"
           justifyContent="space-between"
-          gap="50px"
+          gap="15px"
           mb={pxToRem(60)}
         >
           <Stack flex={1} gap={pxToRem(20)}>
-            <InputGroup label="Full Name" value="Moshy Biener" type="text" />
             <InputGroup
-              label="Telephone"
-              value="+1(718) 555-5555"
+              label="Full Name"
+              value="Moshy Biener"
               type="text"
+              rules={{
+                required: "Field can't be empty",
+                minLength: {
+                  value: 3,
+                  message: "Minimum 3 characters",
+                },
+                maxLength: {
+                  value: 50,
+                  message: "Maximum 50 characters",
+                },
+              }}
             />
-            <InputGroup label="Nickname" value="Moshy" type="text" />
+
+            <InputGroup
+              phone
+              label="Telephone"
+              value="+17185555555"
+              rules={{
+                required: "Field can't be empty",
+              }}
+            />
+
+            <InputGroup
+              label="Nickname"
+              value="Moshy"
+              type="text"
+              rules={{
+                minLength: {
+                  value: 3,
+                  message: "Minimum 3 characters",
+                },
+                maxLength: {
+                  value: 50,
+                  message: "Maximum 50 characters",
+                },
+              }}
+            />
+
             <InputGroup
               label="Email Address"
               value="moshy@rym.com"
               type="email"
+              rules={{
+                required: "Field can't be empty",
+                maxLength: {
+                  value: 100,
+                  message: "Maximum 100 characters",
+                },
+                pattern: {
+                  value: /\S+@\S+\.\S+/,
+                  message: "Entered value does not match email format",
+                },
+              }}
             />
-            <InputGroup label="Password" value="Password" type="password" />
+
+            <InputGroup
+              passwordEye
+              label="Password"
+              value="Password"
+              type="password"
+              rules={{
+                required: "Field can't be empty",
+                // validate: (v) =>
+                //   v !== (registerPhone || registerEmail) ||
+                //   "Password can't be the same as the email address or phone number",
+                minLength: {
+                  value: 6,
+                  message: "Minimum 6 characters",
+                },
+                maxLength: {
+                  value: 30,
+                  message: "Maximum 30 characters",
+                },
+              }}
+            />
           </Stack>
 
           <Box>

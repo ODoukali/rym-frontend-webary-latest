@@ -1,17 +1,11 @@
 import { useState } from "react";
-import {
-  Avatar,
-  Divider,
-  IconButton,
-  Link,
-  Menu,
-  MenuItem,
-} from "@mui/material";
+import { Avatar, Button, Divider, Link, Menu, MenuItem } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { NavLink } from "react-router-dom";
 import { pxToRem } from "px2rem2px";
 
 import AvatarImg from "../images/avatar.png";
+import { ReactComponent as Chevron } from "../images/chevron.svg";
 
 const LinkStyled = styled(Link)(({ theme }) => ({
   fontSize: "15px",
@@ -34,18 +28,23 @@ const ProfileMenu = () => {
 
   return (
     <>
-      <IconButton
+      <Button
         onClick={handleClick}
         size="small"
         aria-controls={open ? "account-menu" : undefined}
         aria-haspopup="true"
         aria-expanded={open ? "true" : undefined}
-        sx={{ p: 0 }}
+        endIcon={<Chevron />}
+        sx={{
+          p: 0,
+          "& .MuiButton-endIcon": { ml: pxToRem(12) },
+          "& svg": { transform: "rotate(90deg)", mt: pxToRem(3) },
+        }}
       >
         <Avatar sx={{ width: pxToRem(48), height: pxToRem(48) }}>
           <img src={AvatarImg} alt="" />
         </Avatar>
-      </IconButton>
+      </Button>
       <Menu
         anchorEl={anchorEl}
         id="account-menu"

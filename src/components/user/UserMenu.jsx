@@ -1,9 +1,17 @@
-import { Avatar, Button, Link, List, ListItem, Stack } from "@mui/material";
+import {
+  Avatar,
+  Badge,
+  Button,
+  Link,
+  List,
+  ListItem,
+  Stack,
+} from "@mui/material";
 import { NavLink } from "react-router-dom";
 import { pxToRem } from "px2rem2px";
+import LinkBtn from "../LinkBtn";
 
-import AvatarImg from "../images/avatar.png";
-import LinkBtn from "./LinkBtn";
+import AvatarImg from "../../images/avatar.png";
 
 const UserMenu = () => {
   return (
@@ -32,10 +40,20 @@ const UserMenu = () => {
         justifyContent="space-between"
         gap="5px"
       >
-        <Button to="" component={NavLink} size="small" variant="outlined">
+        <Button
+          to="/user/courses"
+          component={NavLink}
+          size="small"
+          variant="outlined"
+        >
           My Courses
         </Button>
-        <Button to="" component={NavLink} size="small" variant="outlined">
+        <Button
+          to="/user/favorites"
+          component={NavLink}
+          size="small"
+          variant="outlined"
+        >
           Favorites
         </Button>
       </Stack>
@@ -47,6 +65,11 @@ const UserMenu = () => {
           borderTop: "1px solid rgba(191,190,187, 0.5)",
         }}
       >
+        <MenuItem
+          to="/user/dashboard"
+          title="Dashboard"
+          notificationQuantity={2}
+        ></MenuItem>
         <MenuItem
           to="/user/account-settings"
           title="Account & Activity"
@@ -85,7 +108,17 @@ const MenuItem = (props) => {
         },
       }}
     >
-      <LinkBtn to={props.to} title={props.title} />
+      <Badge
+        color="secondary"
+        badgeContent={props.notificationQuantity}
+        sx={{
+          "& .MuiBadge-badge": {
+            right: "-10px",
+          },
+        }}
+      >
+        <LinkBtn to={props.to} title={props.title} />
+      </Badge>
     </ListItem>
   );
 };

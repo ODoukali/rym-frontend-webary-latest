@@ -10,7 +10,7 @@ import {
   Avatar,
   Typography,
 } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { styled } from "@mui/material/styles";
 import { useModal } from "mui-modal-provider";
 import { pxToRem } from "px2rem2px";
@@ -265,7 +265,7 @@ const Header = (props) => {
             <IconBtnCircular>
               <Search />
             </IconBtnCircular>
-            <IconBtnCircular>
+            <IconBtnCircular to="/user/dashboard" component={NavLink}>
               <Alarm />
             </IconBtnCircular>
             {!mobile ? <ProfileMenu /> : null}

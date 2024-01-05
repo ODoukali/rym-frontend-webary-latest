@@ -1,9 +1,13 @@
+// import { useState } from "react";
 import { TextField } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormGroup from "@mui/material/FormGroup";
 import { Controller } from "react-hook-form";
 import { pxToRem } from "px2rem2px";
+
+// import Visibility from "@mui/icons-material/Visibility";
+// import VisibilityOff from "@mui/icons-material/VisibilityOff";
 
 const TextFieldStyled = styled(TextField)({
   width: "100%",
@@ -27,6 +31,7 @@ const FormInputText = ({
   placeholder,
   setValue,
   preventPaste,
+  passwordEye,
 }) => {
   const handleInputChange = (name, value) => {
     setValue(name, value.trim());
@@ -37,6 +42,14 @@ const FormInputText = ({
       e.preventDefault();
     }
   };
+
+  // const [showPassword, setShowPassword] = useState(false);
+
+  // const handleClickShowPassword = () => setShowPassword((show) => !show);
+
+  // const handleMouseDownPassword = (event) => {
+  //   event.preventDefault();
+  // };
 
   return (
     <Controller
@@ -75,6 +88,23 @@ const FormInputText = ({
                   onPaste={handlePaste}
                   inputRef={ref}
                   placeholder={placeholder}
+                  // type={passwordEye && showPassword ? "text" : "password"}
+                  // InputProps={{
+                  //   endAdornment: (
+                  //     <InputAdornment position="end">
+                  //       {passwordEye ? (
+                  //         <IconButton
+                  //           aria-label="toggle password visibility"
+                  //           onClick={handleClickShowPassword}
+                  //           onMouseDown={handleMouseDownPassword}
+                  //           edge="end"
+                  //         >
+                  //           {showPassword ? <VisibilityOff /> : <Visibility />}
+                  //         </IconButton>
+                  //       ) : null}
+                  //     </InputAdornment>
+                  //   ),
+                  // }}
                 />
               }
             />

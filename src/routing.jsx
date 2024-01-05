@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Layout from "./components/Layout";
-import UserLayout from "./components/UserLayout";
+import UserLayout from "./components/user/UserLayout";
 
 import Home from "./pages/home";
 import Course from "./pages/course";
@@ -8,6 +8,7 @@ import PreSubscribe from "./pages/preSubscribe";
 import Dashboard from "./pages/dashboard";
 import Notifications from "./pages/notifications";
 import AccountSettings from "./pages/accountSettings";
+import Courses from "./pages/courses";
 
 export const router = createBrowserRouter([
   {
@@ -55,6 +56,10 @@ export const router = createBrowserRouter([
       {
         path: "/user/account-settings",
         element: <AccountSettings />,
+      },
+      {
+        path: "/user/courses",
+        element: <Courses />,
       },
     ],
   },
