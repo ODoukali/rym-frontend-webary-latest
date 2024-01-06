@@ -86,6 +86,7 @@ const Header = (props) => {
         setIsSticky(false);
       }
     };
+    handleScroll();
     window.addEventListener("scroll", handleScroll);
 
     return () => {
@@ -108,7 +109,7 @@ const Header = (props) => {
           },
         }}
       >
-        {isLoggedIn && mobile ? (
+        {isLoggedIn ? (
           <Box>
             <Avatar sx={{ width: pxToRem(48), height: pxToRem(48) }}>
               <img src={AvatarImg} alt="" />
@@ -268,7 +269,7 @@ const Header = (props) => {
             <IconBtnCircular to="/user/dashboard" component={NavLink}>
               <Alarm />
             </IconBtnCircular>
-            {!mobile ? <ProfileMenu /> : null}
+            {mobile || props.hideUserProfile ? null : <ProfileMenu />}
           </Stack>
           <Drawer
             anchor="left"

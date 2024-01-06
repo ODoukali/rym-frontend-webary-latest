@@ -1,13 +1,13 @@
-// import { useState } from "react";
-import { TextField } from "@mui/material";
+import { useState } from "react";
+import { IconButton, InputAdornment, TextField } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormGroup from "@mui/material/FormGroup";
 import { Controller } from "react-hook-form";
 import { pxToRem } from "px2rem2px";
 
-// import Visibility from "@mui/icons-material/Visibility";
-// import VisibilityOff from "@mui/icons-material/VisibilityOff";
+import Visibility from "@mui/icons-material/Visibility";
+import VisibilityOff from "@mui/icons-material/VisibilityOff";
 
 const TextFieldStyled = styled(TextField)({
   width: "100%",
@@ -43,13 +43,15 @@ const FormInputText = ({
     }
   };
 
-  // const [showPassword, setShowPassword] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
-  // const handleClickShowPassword = () => setShowPassword((show) => !show);
+  const handleClickShowPassword = () => {
+    setShowPassword((show) => !show);
+  };
 
-  // const handleMouseDownPassword = (event) => {
-  //   event.preventDefault();
-  // };
+  const handleMouseDownPassword = (event) => {
+    event.preventDefault();
+  };
 
   return (
     <Controller
@@ -88,23 +90,28 @@ const FormInputText = ({
                   onPaste={handlePaste}
                   inputRef={ref}
                   placeholder={placeholder}
-                  // type={passwordEye && showPassword ? "text" : "password"}
-                  // InputProps={{
-                  //   endAdornment: (
-                  //     <InputAdornment position="end">
-                  //       {passwordEye ? (
-                  //         <IconButton
-                  //           aria-label="toggle password visibility"
-                  //           onClick={handleClickShowPassword}
-                  //           onMouseDown={handleMouseDownPassword}
-                  //           edge="end"
-                  //         >
-                  //           {showPassword ? <VisibilityOff /> : <Visibility />}
-                  //         </IconButton>
-                  //       ) : null}
-                  //     </InputAdornment>
-                  //   ),
-                  // }}
+                  type={
+                    passwordEye
+                      ? showPassword && !muiProps.disabled
+                        ? "text"
+                        : "password"
+                      : muiProps.type
+                  }
+                  InputProps={{
+                    endAdornment:
+                      passwordEye && !muiProps.disabled ? (
+                        <InputAdornment position="end">
+                          <IconButton
+                            aria-label="toggle password visibility"
+                            onClick={handleClickShowPassword}
+                            onMouseDown={handleMouseDownPassword}
+                            edge="end"
+                          >
+                            {showPassword ? <VisibilityOff /> : <Visibility />}
+                          </IconButton>
+                        </InputAdornment>
+                      ) : undefined,
+                  }}
                 />
               }
             />

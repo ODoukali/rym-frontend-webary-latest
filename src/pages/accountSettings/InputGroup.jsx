@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button, Stack, Typography } from "@mui/material";
+import { Box, Button, Stack, Typography } from "@mui/material";
 import { pxToRem } from "px2rem2px";
 import FormInputText from "../../components/FormInputText";
 import { useForm } from "react-hook-form";
@@ -67,31 +67,33 @@ const InputGroup = (props) => {
 
       <form onSubmit={handleSubmit(onSubmit)} noValidate>
         <Stack flex={1} flexDirection="row" gap={pxToRem(20)}>
-          {props.phone ? (
-            <FormInputPhone
-              name="value"
-              control={control}
-              setValue={setValue}
-              rules={props.rules}
-              muiProps={{
-                disabled: disabled,
-                sx: inputStyles,
-              }}
-            />
-          ) : (
-            <FormInputText
-              name="value"
-              control={control}
-              setValue={setValue}
-              rules={props.rules}
-              passwordEye={props.passwordEye}
-              muiProps={{
-                type: props.type,
-                disabled: disabled,
-                sx: inputStyles,
-              }}
-            />
-          )}
+          <Box maxWidth="268px">
+            {props.phone ? (
+              <FormInputPhone
+                name="value"
+                control={control}
+                setValue={setValue}
+                rules={props.rules}
+                muiProps={{
+                  disabled: disabled,
+                  sx: inputStyles,
+                }}
+              />
+            ) : (
+              <FormInputText
+                name="value"
+                control={control}
+                setValue={setValue}
+                rules={props.rules}
+                passwordEye={props.passwordEye}
+                muiProps={{
+                  type: props.type,
+                  disabled: disabled,
+                  sx: inputStyles,
+                }}
+              />
+            )}
+          </Box>
 
           <Stack alignItems="flex-start" width="42px">
             {disabled ? (

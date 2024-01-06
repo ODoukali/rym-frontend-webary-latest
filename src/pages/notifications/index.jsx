@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Box, Button, Divider, Stack, Typography } from "@mui/material";
+import { Button, Divider, Stack, Typography } from "@mui/material";
 import { pxToRem } from "px2rem2px";
 import BlockHeading from "../../components/BlockHeading";
 import Switcher from "../../components/Switcher";
@@ -87,60 +87,50 @@ const Notifications = () => {
 
   return (
     <>
-      <Typography
-        variant="sectionTitle"
-        component="h2"
-        fontSize={pxToRem(35)}
-        pl={pxToRem(60)}
-        mb={pxToRem(27)}
-      >
-        Notifications
-      </Typography>
+      <BlockHeading>
+        <Typography component="h3" variant="blockTitle" mb={pxToRem(5)}>
+          General Notifications
+        </Typography>
+        <Typography component="p" variant="medium">
+          Sed ut perspiciatis unde omnis iste natus accusantium.
+        </Typography>
+      </BlockHeading>
 
-      <Box
-        position="relative"
-        bgcolor="#fff"
-        borderRadius="20px"
-        p={pxToRem(60)}
-      >
-        <BlockHeading>
-          <Typography component="h3" variant="blockTitle" mb={pxToRem(5)}>
-            General Notifications
-          </Typography>
-          <Typography component="p" variant="medium">
-            Sed ut perspiciatis unde omnis iste natus accusantium.
-          </Typography>
-        </BlockHeading>
-
-        <Stack
-          gap={pxToRem(20)}
-          sx={{
-            "& label .MuiTypography-root": {
+      <Stack
+        gap={pxToRem(20)}
+        sx={{
+          "& label": {
+            alignItems: "flex-start",
+            "& .MuiTypography-root": {
               fontSize: pxToRem(18),
               fontWeight: 600,
               color: "#333",
+              ml: "20px",
             },
-          }}
-        >
-          {notifications.map((n) => (
-            <Switcher
-              key={n.id}
-              name={n.name}
-              label={n.label}
-              checked={n.isChecked}
-              onChange={() => handleSwitchChange(n.id)}
-            />
-          ))}
-        </Stack>
+          },
+          "& .MuiSwitch-root": {
+            mt: "4px !important",
+          },
+        }}
+      >
+        {notifications.map((n) => (
+          <Switcher
+            key={n.id}
+            name={n.name}
+            label={n.label}
+            checked={n.isChecked}
+            onChange={() => handleSwitchChange(n.id)}
+          />
+        ))}
+      </Stack>
 
-        <Divider
-          sx={{ my: pxToRem(30), borderColor: "rgba(191,190,187, 0.5)" }}
-        />
+      <Divider
+        sx={{ my: pxToRem(30), borderColor: "rgba(191,190,187, 0.5)" }}
+      />
 
-        <Button variant="yellow" size="small" onClick={turnOffNotifications}>
-          Turn All {notificationsToggle ? "Off" : "On"}
-        </Button>
-      </Box>
+      <Button variant="yellow" size="small" onClick={turnOffNotifications}>
+        Turn All {notificationsToggle ? "Off" : "On"}
+      </Button>
     </>
   );
 };

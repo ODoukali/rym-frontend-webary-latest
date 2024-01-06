@@ -58,64 +58,48 @@ const Dashboard = () => {
 
   return (
     <>
-      <Typography
-        variant="sectionTitle"
-        component="h2"
-        fontSize={pxToRem(35)}
-        pl={pxToRem(60)}
-        mb={pxToRem(27)}
-      >
-        Dashboard
-      </Typography>
+      <BlockHeading>
+        <Typography component="h3" variant="blockTitle">
+          Alerts & Notifications
+        </Typography>
+      </BlockHeading>
+
+      <Stack gap={pxToRem(20)} mb={pxToRem(60)}>
+        <Alert severity="error" title="Payment Issue">
+          Sed ut perspiciatis unde omnis iste natus accusantium.
+        </Alert>
+        <Alert severity="success" title="Account Created">
+          Sed ut perspiciatis unde omnis iste natus error sit accusantium.
+        </Alert>
+      </Stack>
+
+      <BlockHeading>
+        <Typography component="h3" variant="blockTitle">
+          Recently Watched
+        </Typography>
+      </BlockHeading>
 
       <Box
-        position="relative"
-        bgcolor="#fff"
-        borderRadius="20px"
-        p={pxToRem(60)}
+        sx={{
+          "& .MuiContainer-root": { p: 0 },
+          "& .swiper": { pb: "35px" },
+          "& .swiper-slide": { width: "auto" },
+          "& .arrow-prev": { left: "-90px", top: "40%" },
+          "& .arrow-next": { right: "-90px", top: "40%" },
+        }}
       >
-        <BlockHeading>
-          <Typography component="h3" variant="blockTitle">
-            Alerts & Notifications
-          </Typography>
-        </BlockHeading>
-
-        <Stack gap={pxToRem(20)} mb={pxToRem(60)}>
-          <Alert severity="error" title="Payment Issue">
-            Sed ut perspiciatis unde omnis iste natus accusantium.
-          </Alert>
-          <Alert severity="success" title="Account Created">
-            Sed ut perspiciatis unde omnis iste natus error sit accusantium.
-          </Alert>
-        </Stack>
-
-        <BlockHeading>
-          <Typography component="h3" variant="blockTitle">
-            Recently Watched
-          </Typography>
-        </BlockHeading>
-
-        <Box
-          sx={{
-            "& .MuiContainer-root": { p: 0 },
-            "& .swiper-slide": { width: "auto" },
-            "& .arrow-prev": { left: "-90px", top: "40%" },
-            "& .arrow-next": { right: "-90px", top: "40%" },
-          }}
-        >
-          <Slider slidesPerView={"auto"} spaceBetween={20} arrows>
-            {videos.map((v) => (
-              <SwiperSlide key={v.id}>
-                <VideoSlide
-                  image={v.image}
-                  videoLink={v.videoLink}
-                  title={v.title}
-                  isMobile={mobile}
-                />
-              </SwiperSlide>
-            ))}
-          </Slider>
-        </Box>
+        <Slider slidesPerView={"auto"} spaceBetween={20} arrows>
+          {videos.map((v) => (
+            <SwiperSlide key={v.id}>
+              <VideoSlide
+                image={v.image}
+                videoLink={v.videoLink}
+                title={v.title}
+                isMobile={mobile}
+              />
+            </SwiperSlide>
+          ))}
+        </Slider>
       </Box>
     </>
   );
