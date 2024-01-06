@@ -83,7 +83,7 @@ const UserLayout = () => {
                   bgcolor="#F7F6F2"
                   px={{ xs: "25px", sm: 0 }}
                   mb={{ xs: 0, sm: pxToRem(27) }}
-                  zIndex={1}
+                  zIndex={2}
                 >
                   <Typography
                     variant="sectionTitle"
