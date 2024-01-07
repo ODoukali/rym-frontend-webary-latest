@@ -37,6 +37,7 @@ const UserLayout = () => {
         <Box position="relative">
           <Guides color="rgba(0,0,0,0.06)" zIndex={-1} />
           <Box
+            display={{ xs: "block", sm: "none" }}
             height={{ xs: "100px", md: "130px" }}
             borderRadius={{ xs: 0, md: "40px 40px 0 0" }}
             sx={{
@@ -56,8 +57,8 @@ const UserLayout = () => {
           <Container
             disableGutters
             sx={{
-              pt: { xs: "50px", md: pxToRem(80) },
-              pb: { xs: "70px", md: pxToRem(140) },
+              pt: { xs: 0, sm: "50px", md: pxToRem(80) },
+              pb: { xs: 0, sm: "70px", md: pxToRem(140) },
             }}
           >
             <Stack
@@ -114,7 +115,9 @@ const UserLayout = () => {
           </Container>
         </Box>
 
-        <Footer />
+        <Box display={{ xs: "block", sm: "none" }}>
+          <Footer />
+        </Box>
       </Box>
     </ModalProvider>
   );
