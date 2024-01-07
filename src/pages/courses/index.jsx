@@ -127,13 +127,6 @@ const Courses = () => {
             lg: "repeat(4, minmax(0, 1fr))",
           },
           gap: "30px 20px",
-          "& > .MuiBox-root": {
-            width: "auto",
-            "& > .MuiBox-root": {
-              width: "auto",
-              height: "auto",
-            },
-          },
           "@media(max-width: 575px)": {
             gap: "20px 11px",
           },
@@ -147,7 +140,7 @@ const Courses = () => {
             title={v.title}
             subscription={v.subscription}
             subscribed={v.subscribed}
-          ></Course>
+          />
         ))}
       </Box>
     </>

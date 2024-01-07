@@ -9,6 +9,7 @@ import Dashboard from "./pages/dashboard";
 import Notifications from "./pages/notifications";
 import AccountSettings from "./pages/accountSettings";
 import Courses from "./pages/courses";
+import Favorites from "./pages/favorites";
 
 export const router = createBrowserRouter([
   {
@@ -60,6 +61,10 @@ export const router = createBrowserRouter([
       {
         path: "/user/courses",
         element: <Courses />,
+      },
+      {
+        path: "/user/favorites",
+        element: <Favorites />,
       },
     ],
   },

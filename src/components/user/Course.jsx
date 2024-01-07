@@ -1,15 +1,16 @@
-import { Box, Button, Stack, Typography } from "@mui/material";
+import { Box, Button, Rating, Stack, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { NavLink } from "react-router-dom";
 import { pxToRem } from "px2rem2px";
 import PlayBtn from "../PlayBtn";
 
 import { ReactComponent as Play } from "../../images/play.svg";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 
 const ButtonStyled = styled(Button)({
   position: "static",
   maxWidth: "134px",
-  marginTop: "10px",
   "&::before": {
     content: "''",
     position: "absolute",
@@ -25,12 +26,20 @@ const ButtonStyled = styled(Button)({
   },
 });
 
+const StyledRating = styled(Rating)({
+  "& .MuiRating-iconFilled": {
+    color: "#026670",
+  },
+  "& .MuiRating-iconHover": {
+    color: "#026670",
+  },
+});
+
 const Course = (props) => {
   return (
     <Box
       sx={{
         position: "relative",
-        width: { xs: "180px", sm: "auto" },
         pb: "20px",
         "&:hover": {
           bgcolor: "#F7F6F2",
@@ -53,8 +62,6 @@ const Course = (props) => {
         display="flex"
         alignItems="center"
         justifyContent="center"
-        width={{ xs: "180px", sm: "auto" }}
-        height={{ xs: "180px", sm: pxToRem(190) }}
         borderRadius="19px"
         overflow="hidden"
       >
@@ -93,7 +100,6 @@ const Course = (props) => {
           Subscribed {props.subscribed}
         </Typography>
         <Typography
-          // maxWidth={{ xs: "180px", sm: pxToRem(190) }}
           component="p"
           fontSize={pxToRem(16)}
           lineHeight={pxToRem(20)}
@@ -102,7 +108,13 @@ const Course = (props) => {
         >
           {props.title}
         </Typography>
-        <Stack flexDirection="row" alignItems="center" justifyContent="center">
+        <Stack
+          flexDirection="row"
+          alignItems="center"
+          justifyContent="center"
+          gap="10px"
+          mt="10px"
+        >
           <ButtonStyled
             to={props.videoLink}
             component={NavLink}
@@ -111,6 +123,14 @@ const Course = (props) => {
           >
             {props.subscription ? "Watch" : "ReSubscribe"}
           </ButtonStyled>
+          {props.favorite ? (
+            <StyledRating
+              max={1}
+              icon={<FavoriteIcon />}
+              emptyIcon={<FavoriteBorderIcon />}
+              sx={{ position: "relative", zIndex: 1 }}
+            />
+          ) : null}
         </Stack>
       </Box>
     </Box>

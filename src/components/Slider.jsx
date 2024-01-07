@@ -3,6 +3,7 @@ import { Box, Container, Stack } from "@mui/material";
 import { Swiper } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
+import "swiper/css/grid";
 import { pxToRem } from "px2rem2px";
 
 import { ReactComponent as Chevron } from "../images/chevron.svg";

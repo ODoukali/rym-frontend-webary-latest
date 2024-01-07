@@ -16,6 +16,7 @@ const routeTitles = {
   "/user/notifications": "Notifications",
   "/user/account-settings": "Account Settings",
   "/user/courses": "My Courses",
+  "/user/favorites": "My Favorites",
 };
 
 const UserLayout = () => {
@@ -80,7 +81,7 @@ const UserLayout = () => {
                   flexDirection="row"
                   alignItems="center"
                   justifyContent="space-between"
-                  bgcolor="#F7F6F2"
+                  bgcolor={{ xs: "#F7F6F2", sm: "transparent" }}
                   px={{ xs: "25px", sm: 0 }}
                   mb={{ xs: 0, sm: pxToRem(27) }}
                   zIndex={2}

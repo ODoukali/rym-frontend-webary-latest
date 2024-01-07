@@ -284,6 +284,9 @@ const theme = createTheme({
           "& .MuiButton-endIcon": {
             marginRight: 0,
           },
+          "& .MuiButton-startIcon": {
+            marginLeft: 0,
+          },
         },
       },
       variants: [
