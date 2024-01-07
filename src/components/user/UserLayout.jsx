@@ -37,11 +37,10 @@ const UserLayout = () => {
         <Box position="relative">
           <Guides color="rgba(0,0,0,0.06)" zIndex={-1} />
           <Box
-            display={{ xs: "block", sm: "none" }}
+            display={{ xs: "none", sm: "flex" }}
             height={{ xs: "100px", md: "130px" }}
             borderRadius={{ xs: 0, md: "40px 40px 0 0" }}
             sx={{
-              display: "flex",
               alignItems: "center",
               justifyContent: "center",
               backgroundImage: `url("${HeaderBgrImg}")`,
@@ -115,7 +114,7 @@ const UserLayout = () => {
           </Container>
         </Box>
 
-        <Box display={{ xs: "block", sm: "none" }}>
+        <Box display={{ xs: "none", sm: "block" }}>
           <Footer />
         </Box>
       </Box>
