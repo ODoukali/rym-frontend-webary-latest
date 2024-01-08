@@ -1,15 +1,25 @@
-import { Box, Container, Stack, Typography } from "@mui/material";
-import { Outlet, useLocation, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import {
+  Box,
+  Container,
+  IconButton,
+  Stack,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
+import { Outlet, useLocation } from "react-router-dom";
 import { pxToRem } from "px2rem2px";
 import ModalProvider from "mui-modal-provider";
 import Footer from "../Footer";
 import Guides from "../Guides";
 import Header from "../Header";
 import UserMenu from "./UserMenu";
-import IconBtnCircular from "../IconBtnCircular";
+import { usePath } from "../../utils/PathContext";
+import CloseBtn from "./CloseBtn";
 
 import HeaderBgrImg from "../../images/bgr-short.svg";
-import { ReactComponent as Close } from "../../images/close-user-menu.svg";
+import { ReactComponent as Chevron } from "../../images/chevron.svg";
 
 const routeTitles = {
   "/user/dashboard": "Dashboard",
@@ -21,9 +31,19 @@ const routeTitles = {
 
 const UserLayout = () => {
   const location = useLocation();
-  const navigate = useNavigate();
-  const { pathname } = location;
-  const pageTitle = routeTitles[pathname] || "User";
+  const { pathname } = useLocation();
+  const pageTitle = routeTitles[pathname] || "Dashboard";
+  const [isMenuVisible, setIsMenuVisible] = useState(true);
+  const { setPath } = usePath();
+
+  const theme = useTheme();
+  const mobile = useMediaQuery(theme.breakpoints.down("sm"));
+
+  useEffect(() => {
+    if (location.state?.referer) {
+      setPath(location.state.referer);
+    }
+  }, [location.state, setPath]);
 
   return (
     <ModalProvider>
@@ -61,18 +81,26 @@ const UserLayout = () => {
             }}
           >
             <Stack
+              className={isMenuVisible ? "" : "user-active"}
               flexDirection="row"
               gap={{ xs: "30px", md: "50px" }}
               overflow={{ xs: "hidden", sm: "visible" }}
             >
-              <Box className="user-menu" width={{ xs: "200px", md: "250px" }}>
-                <UserMenu />
+              <Box
+                className="user-menu"
+                width={{ xs: "100%", sm: "200px", md: "250px" }}
+              >
+                <UserMenu setIsMenuVisible={setIsMenuVisible} />
               </Box>
 
               <Box
                 className="user-page"
                 flex={1}
-                width={{ xs: "calc(100% - 260px)", md: "calc(100% - 310px)" }}
+                width={{
+                  xs: "100%",
+                  sm: "calc(100% - 260px)",
+                  md: "calc(100% - 310px)",
+                }}
               >
                 <Stack
                   height={{ xs: "90px", sm: "auto" }}
@@ -86,19 +114,29 @@ const UserLayout = () => {
                   mb={{ xs: 0, sm: pxToRem(27) }}
                   zIndex={2}
                 >
-                  <Typography
-                    variant="sectionTitle"
-                    component="h2"
-                    fontSize={{ xs: "20px", sm: pxToRem(35) }}
-                    pl={{ xs: 0, sm: pxToRem(60) }}
-                  >
-                    {pageTitle}
-                  </Typography>
-                  <Box display={{ xs: "block", sm: "none" }}>
-                    <IconBtnCircular onClick={() => navigate("/")}>
-                      <Close color="#026670" />
-                    </IconBtnCircular>
-                  </Box>
+                  <Stack flexDirection="row" alignItems="center" gap="10px">
+                    {mobile ? (
+                      <IconButton
+                        onClick={() => setIsMenuVisible(true)}
+                        sx={{
+                          "& svg": {
+                            transform: "rotate(180deg)",
+                          },
+                        }}
+                      >
+                        <Chevron color="#333" />
+                      </IconButton>
+                    ) : null}
+                    <Typography
+                      variant="sectionTitle"
+                      component="h2"
+                      fontSize={{ xs: "20px", sm: pxToRem(35) }}
+                      pl={{ xs: 0, sm: pxToRem(60) }}
+                    >
+                      {pageTitle}
+                    </Typography>
+                  </Stack>
+                  <CloseBtn />
                 </Stack>
                 <Box
                   minHeight={{ xs: "calc(100% - 90px)", sm: "auto" }}

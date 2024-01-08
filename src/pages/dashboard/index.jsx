@@ -88,7 +88,19 @@ const Dashboard = () => {
           "& .arrow-next": { right: "-90px", top: "40%" },
         }}
       >
-        <Slider slidesPerView={"auto"} spaceBetween={20} arrows>
+        <Slider
+          slidesPerView={2}
+          spaceBetween={20}
+          arrows
+          breakpoints={{
+            320: {
+              slidesPerView: 2,
+            },
+            576: {
+              slidesPerView: "auto",
+            },
+          }}
+        >
           {videos.map((v) => (
             <SwiperSlide key={v.id}>
               <VideoSlide
@@ -112,7 +124,7 @@ const VideoSlide = (props) => {
       component={NavLink}
       underline="none"
       sx={{
-        width: { xs: "180px", sm: "auto" },
+        width: { xs: "auto", ssm: "180px", sm: "auto" },
         "&:hover": {
           ".MuiTypography-root": { color: "#333" },
           ".play-btn": {
@@ -129,8 +141,8 @@ const VideoSlide = (props) => {
         display="flex"
         alignItems="center"
         justifyContent="center"
-        width={{ xs: "180px", sm: "auto" }}
-        height={{ xs: "180px", sm: pxToRem(190) }}
+        width={{ xs: "auto", ssm: "180px", sm: "auto" }}
+        height={{ xs: "auto", ssm: "180px", sm: pxToRem(190) }}
         borderRadius="19px"
         overflow="hidden"
       >

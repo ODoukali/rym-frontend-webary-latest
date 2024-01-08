@@ -10,7 +10,7 @@ import {
   Avatar,
   Typography,
 } from "@mui/material";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { styled } from "@mui/material/styles";
 import { useModal } from "mui-modal-provider";
 import { pxToRem } from "px2rem2px";
@@ -45,6 +45,7 @@ const Header = (props) => {
   const [toast3, setToast3] = useState(false);
   const [isLoggedIn] = useState(true);
   const header = useRef(null);
+  const { pathname } = useLocation();
 
   const theme = useTheme();
   const tablet = useMediaQuery(theme.breakpoints.down("md"));
@@ -173,7 +174,12 @@ const Header = (props) => {
           borderBottom="1px solid rgba(191,190,187,0.5)"
           sx={{ "& a": { fontSize: pxToRem(16) } }}
         >
-          <MenuDropdownLink to="/">Account</MenuDropdownLink>
+          <MenuDropdownLink
+            to={tablet && !mobile ? "/user/dashboard" : "/user"}
+            state={{ referer: pathname }}
+          >
+            Account
+          </MenuDropdownLink>
           <MenuDropdownLink to="/">Subscriptions</MenuDropdownLink>
           <MenuDropdownLink to="/">Settings</MenuDropdownLink>
           <MenuDropdownLink to="/">Help</MenuDropdownLink>
@@ -273,7 +279,7 @@ const Header = (props) => {
           </Stack>
           <Drawer
             anchor="left"
-            open={isOpen}
+            open={tablet ? isOpen : false}
             onClose={toggleDrawer(false)}
             sx={{
               zIndex: 1500,

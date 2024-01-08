@@ -8,7 +8,8 @@ const NestedMenu = (props) => {
   let currentlyHovering = false;
   const [open, setOpen] = useState(false);
 
-  const handleClick = () => {
+  const handleClick = (e) => {
+    e.preventDefault();
     setOpen(!open);
   };
 

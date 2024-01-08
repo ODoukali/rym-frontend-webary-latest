@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   Avatar,
   Badge,
@@ -11,14 +12,20 @@ import {
 import { NavLink, useNavigate } from "react-router-dom";
 import { pxToRem } from "px2rem2px";
 import LinkBtn from "../LinkBtn";
-import IconBtnCircular from "../IconBtnCircular";
+import CloseBtn from "./CloseBtn";
 
 import AvatarImg from "../../images/avatar.png";
-import { ReactComponent as Close } from "../../images/close-user-menu.svg";
 import { ReactComponent as Chevron } from "../../images/chevron.svg";
 
-const UserMenu = () => {
+const UserMenu = (props) => {
   const navigate = useNavigate();
+  const [activeRoute, setActiveRoute] = useState();
+
+  const handleItemClick = (route) => {
+    navigate(route);
+    props.setIsMenuVisible(false);
+    setActiveRoute(route);
+  };
 
   return (
     <>
@@ -28,8 +35,7 @@ const UserMenu = () => {
         sx={{ "& .MuiIconButton-root": { width: "36px", height: "36px" } }}
       >
         <Link
-          to="/user/dashboard"
-          component={NavLink}
+          onClick={() => handleItemClick("/user/dashboard")}
           underline="none"
           sx={{
             display: "flex",
@@ -46,11 +52,7 @@ const UserMenu = () => {
           Hi, Alex Fried
         </Link>
 
-        <Box display={{ xs: "block", sm: "none" }}>
-          <IconBtnCircular onClick={() => navigate("/")}>
-            <Close color="#026670" />
-          </IconBtnCircular>
-        </Box>
+        <CloseBtn />
       </Stack>
 
       <Stack
@@ -59,16 +61,14 @@ const UserMenu = () => {
         gap="5px"
       >
         <Button
-          to="/user/courses"
-          component={NavLink}
+          onClick={() => handleItemClick("/user/courses")}
           size="small"
           variant="outlined"
         >
           My Courses
         </Button>
         <Button
-          to="/user/favorites"
-          component={NavLink}
+          onClick={() => handleItemClick("/user/favorites")}
           size="small"
           variant="outlined"
         >
@@ -84,15 +84,21 @@ const UserMenu = () => {
         }}
       >
         <MenuItem
-          to="/user/dashboard"
+          onClick={() => handleItemClick("/user/dashboard")}
+          isActive={activeRoute === "/user/dashboard"}
           title="Dashboard"
           notificationQuantity={2}
         ></MenuItem>
         <MenuItem
-          to="/user/account-settings"
+          onClick={() => handleItemClick("/user/account-settings")}
+          isActive={activeRoute === "/user/account-settings"}
           title="Account & Activity"
         ></MenuItem>
-        <MenuItem to="/user/notifications" title="Notifications"></MenuItem>
+        <MenuItem
+          onClick={() => handleItemClick("/user/notifications")}
+          isActive={activeRoute === "/user/notifications"}
+          title="Notifications"
+        ></MenuItem>
         <MenuItem to="/purchase-history" title="Purchase History"></MenuItem>
         <MenuItem to="/playback" title="Playback"></MenuItem>
         <MenuItem to="/general" title="General"></MenuItem>
@@ -124,9 +130,13 @@ const MenuItem = (props) => {
         justifyContent: "space-between",
         "& .MuiLink-root": {
           fontWeight: 700,
+          color: props.isActive ? "#333" : "#026670",
+          "&:hover": {
+            color: "#333",
+          },
         },
-        "&:has(a.MuiLink-root.active) .chevron svg": {
-          color: "#333",
+        "& .chevron svg": {
+          color: props.isActive ? "#333" : "#BFBEBB",
         },
       }}
     >
@@ -139,7 +149,11 @@ const MenuItem = (props) => {
           },
         }}
       >
-        <LinkBtn to={props.to} title={props.title} />
+        <LinkBtn
+          component="button"
+          onClick={props.onClick}
+          title={props.title}
+        />
       </Badge>
       <Box className="chevron" display={{ xs: "block", sm: "none" }}>
         <Chevron color="#BFBEBB" />

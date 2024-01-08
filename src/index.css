@@ -488,24 +488,28 @@ media-player[data-started].pip:hover .pip-overlay {
   .highlighted::after {
     bottom: 5px;
   }
-  .user-menu {
-    position: fixed;
-    left: -100%;
-    inset: 0;
-    width: 100% !important;
-    background-color: #f7f6f2;
-    overflow-y: auto;
-    padding: 30px 25px;
-    z-index: 100;
-  }
+  .user-menu,
   .user-page {
     position: fixed;
-    left: 0;
     inset: 0;
     width: 100% !important;
     background-color: #f7f6f2;
     overflow-y: auto;
     z-index: 100;
+    transition: left 0.3s;
+  }
+  .user-menu {
+    left: 0;
+    padding: 30px 25px;
+  }
+  .user-page {
+    left: 100%;
+  }
+  .user-active .user-menu {
+    left: -100%;
+  }
+  .user-active .user-page {
+    left: 0;
   }
 }
 
