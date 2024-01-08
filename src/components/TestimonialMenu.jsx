@@ -49,13 +49,14 @@ const TestimonialMenu = (props) => {
             display: "flex",
             flexDirection: "column",
             rowGap: pxToRem(10),
-            p: `${pxToRem(25)} ${pxToRem(30)}`,
+            p: { xs: "15px", sm: `${pxToRem(25)} ${pxToRem(30)}` },
           },
           "& .MuiMenuItem-root": {
             fontSize: pxToRem(15),
             fontWeight: 600,
             color: "#333",
             p: 0,
+            minHeight: { xs: "26px", sm: "48px" },
             "&:hover": {
               color: "secondary.main",
               backgroundColor: "transparent",

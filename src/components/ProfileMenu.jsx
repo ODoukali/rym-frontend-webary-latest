@@ -98,12 +98,12 @@ const ProfileMenu = () => {
         </MenuItem>
         <Divider sx={{ mt: "10px !important" }} />
         <MenuItem onClick={handleClose}>
-          <LinkStyled to="" component={NavLink} underline="none">
+          <LinkStyled to="/user/courses" component={NavLink} underline="none">
             My Courses
           </LinkStyled>
         </MenuItem>
         <MenuItem onClick={handleClose}>
-          <LinkStyled to="" component={NavLink} underline="none">
+          <LinkStyled to="/user/favorites" component={NavLink} underline="none">
             My Favorites
           </LinkStyled>
         </MenuItem>

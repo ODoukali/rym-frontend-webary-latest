@@ -108,7 +108,7 @@ const Favorites = () => {
                 fontSize: "14px",
                 "& .MuiButton-endIcon": {
                   ml: pxToRem(12),
-                  "& svg": { transform: "rotate(90deg)", mt: pxToRem(3) },
+                  "& svg": { transform: "rotate(90deg)" },
                 },
               }}
             >
@@ -123,7 +123,7 @@ const Favorites = () => {
                 fontSize: "14px",
                 "& .MuiButton-endIcon": {
                   ml: pxToRem(12),
-                  "& svg": { transform: "rotate(90deg)", mt: pxToRem(3) },
+                  "& svg": { transform: "rotate(90deg)" },
                 },
               }}
             >
