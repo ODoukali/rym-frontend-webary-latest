@@ -119,6 +119,7 @@ const UserLayout = () => {
                       <IconButton
                         onClick={() => setIsMenuVisible(true)}
                         sx={{
+                          ml: "-8px",
                           "& svg": {
                             transform: "rotate(180deg)",
                           },

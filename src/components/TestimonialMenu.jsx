@@ -56,7 +56,7 @@ const TestimonialMenu = (props) => {
             fontWeight: 600,
             color: "#333",
             p: 0,
-            minHeight: { xs: "26px", sm: "48px" },
+            minHeight: { xs: "26px", sm: "auto" },
             "&:hover": {
               color: "secondary.main",
               backgroundColor: "transparent",

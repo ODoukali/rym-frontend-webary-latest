@@ -8,10 +8,10 @@ import {
   List,
   ListItem,
   Stack,
+  Typography,
 } from "@mui/material";
 import { NavLink, useNavigate } from "react-router-dom";
 import { pxToRem } from "px2rem2px";
-import LinkBtn from "../LinkBtn";
 import CloseBtn from "./CloseBtn";
 
 import AvatarImg from "../../images/avatar.png";
@@ -124,37 +124,59 @@ const MenuItem = (props) => {
   return (
     <ListItem
       sx={{
-        py: pxToRem(20),
-        px: 0,
+        p: 0,
         borderBottom: "1px solid rgba(191,190,187, 0.5)",
         justifyContent: "space-between",
         "& .MuiLink-root": {
-          fontWeight: 700,
+          display: "block",
+          width: "100%",
+          textAlign: "left",
           color: props.isActive ? "#333" : "#026670",
+          py: pxToRem(20),
+          "& .MuiTypography-root::before": {
+            content: '""',
+            position: "absolute",
+            left: 0,
+            bottom: pxToRem(-8),
+            height: "2px",
+            width: 0,
+            bgcolor: props.footerLink ? "#fff" : "primary.main",
+            transition: "0.2s ease",
+          },
           "&:hover": {
             color: "#333",
+            "& .MuiTypography-root::before": {
+              width: "100%",
+            },
           },
         },
         "& .chevron svg": {
           color: props.isActive ? "#333" : "#BFBEBB",
         },
+        "& .link-wrapper::before": {
+          content: "''",
+          position: "absolute",
+          inset: 0,
+          width: "100%",
+          height: "100%",
+        },
       }}
     >
-      <Badge
-        color="secondary"
-        badgeContent={props.notificationQuantity}
-        sx={{
-          "& .MuiBadge-badge": {
-            right: "-10px",
-          },
-        }}
-      >
-        <LinkBtn
-          component="button"
-          onClick={props.onClick}
-          title={props.title}
-        />
-      </Badge>
+      <Link component="button" onClick={props.onClick}>
+        <Badge
+          color="secondary"
+          badgeContent={props.notificationQuantity}
+          sx={{
+            "& .MuiBadge-badge": {
+              right: "-10px",
+            },
+          }}
+        >
+          <Typography component="span" position="relative" fontWeight={700}>
+            {props.title}
+          </Typography>
+        </Badge>
+      </Link>
       <Box className="chevron" display={{ xs: "block", sm: "none" }}>
         <Chevron color="#BFBEBB" />
       </Box>
