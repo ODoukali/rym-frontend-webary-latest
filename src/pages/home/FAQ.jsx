@@ -110,7 +110,7 @@ const FAQ = () => {
               <Typography
                 position="relative"
                 fontFamily="PloniBold"
-                fontSize={pxToRem(30)}
+                fontSize={{ xs: "23px", sm: pxToRem(30) }}
                 lineHeight={pxToRem(30)}
                 color="secondary"
                 sx={{
@@ -146,6 +146,7 @@ const FAQ = () => {
                   fontFamily="Noto Sans Hebrew"
                   fontWeight={700}
                   component="p"
+                  fontSize={{ xs: "15px", sm: "16px" }}
                 >
                   {a.answer}
                 </Typography>
