@@ -10,7 +10,10 @@ const CloseBtn = () => {
   const { currentPath } = usePath();
 
   return (
-    <Box display={{ xs: "block", sm: "none" }}>
+    <Box
+      display={{ xs: "block", sm: "none" }}
+      sx={{ "& button": { boxShadow: "none" } }}
+    >
       <IconBtnCircular onClick={() => navigate(currentPath)}>
         <Close color="#026670" />
       </IconBtnCircular>
