@@ -25,6 +25,7 @@ const routeTitles = {
   "/user/dashboard": "Dashboard",
   "/user/notifications": "Notifications",
   "/user/account-settings": "Account Settings",
+  "/user/purchase-history": "Purchase History",
   "/user/courses": "My Courses",
   "/user/favorites": "My Favorites",
 };

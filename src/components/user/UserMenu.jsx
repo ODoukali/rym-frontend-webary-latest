@@ -99,7 +99,11 @@ const UserMenu = (props) => {
           isActive={activeRoute === "/user/notifications"}
           title="Notifications"
         ></MenuItem>
-        <MenuItem to="/purchase-history" title="Purchase History"></MenuItem>
+        <MenuItem
+          onClick={() => handleItemClick("/user/purchase-history")}
+          isActive={activeRoute === "/user/purchase-history"}
+          title="Purchase History"
+        ></MenuItem>
         <MenuItem to="/playback" title="Playback"></MenuItem>
         <MenuItem to="/general" title="General"></MenuItem>
       </List>

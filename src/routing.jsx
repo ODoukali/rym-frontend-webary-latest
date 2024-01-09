@@ -10,6 +10,7 @@ import Notifications from "./pages/notifications";
 import AccountSettings from "./pages/accountSettings";
 import Courses from "./pages/courses";
 import Favorites from "./pages/favorites";
+import PurchaseHistory from "./pages/purchaseHistory";
 
 const useRouter = () => {
   const router = createBrowserRouter([
@@ -58,6 +59,10 @@ const useRouter = () => {
         {
           path: "/user/account-settings",
           element: <AccountSettings />,
+        },
+        {
+          path: "/user/purchase-history",
+          element: <PurchaseHistory />,
         },
         {
           path: "/user/courses",
