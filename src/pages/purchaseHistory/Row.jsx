@@ -23,6 +23,7 @@ const StatusStyled = styled(Box)({
   fontWeight: 600,
   textAlign: "center",
   marginLeft: "auto",
+  transform: "translateY(-2px)",
 });
 
 const TypographySlyled = styled(Typography)({
@@ -144,7 +145,13 @@ const Row = (props) => {
             pr: 0,
           }}
         >
-          <Button sx={{ fontSize: "12px", fontWeight: 600 }}>
+          <Button
+            sx={{
+              fontSize: "12px",
+              fontWeight: 600,
+              transform: "translateY(-3px)",
+            }}
+          >
             View Details
           </Button>
         </TableCell>
