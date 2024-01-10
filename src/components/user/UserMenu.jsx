@@ -59,8 +59,10 @@ const UserMenu = (props) => {
         flexDirection={{ xs: "row", sm: "column", md: "row" }}
         justifyContent={{ xs: "flex-start", sm: "space-beetwen" }}
         gap="5px"
+        sx={{ "& button": { maxWidth: "200px" } }}
       >
         <Button
+          fullWidth
           onClick={() => handleItemClick("/user/courses")}
           size="small"
           variant="outlined"
@@ -68,6 +70,7 @@ const UserMenu = (props) => {
           My Courses
         </Button>
         <Button
+          fullWidth
           onClick={() => handleItemClick("/user/favorites")}
           size="small"
           variant="outlined"

@@ -45,12 +45,67 @@ const rows = [
     expiration: "14/31/24",
     status: "Subscription",
   },
+  {
+    id: 4,
+    course: "Sed ut perspiciatis unde omnis iste",
+    date: "11/31/23",
+    price: "$350.00",
+    discount: "$25.00",
+    expiration: "11/31/24",
+    status: "Inactive",
+  },
+  {
+    id: 5,
+    course: "Sed ut perspiciatis unde omnis iste",
+    date: "12/31/23",
+    price: "$250.00",
+    discount: "$35.00",
+    expiration: "12/31/24",
+    status: "Active",
+  },
+  {
+    id: 6,
+    course: "Sed ut perspiciatis unde omnis iste",
+    date: "13/31/23",
+    price: "$150.00",
+    discount: "$15.00",
+    expiration: "13/31/24",
+    status: "Pending",
+  },
+  {
+    id: 7,
+    course: "Sed ut perspiciatis unde omnis iste",
+    date: "14/31/23",
+    price: "$200.00",
+    discount: "$15.00",
+    expiration: "14/31/24",
+    status: "Subscription",
+  },
 ];
 
 const PurchaseTable = () => {
   return (
-    <TableContainer>
-      <Table>
+    <TableContainer
+      sx={{
+        maxHeight: 440,
+        "&::-webkit-scrollbar": {
+          width: "5px",
+          height: "5px",
+        },
+        "&::-webkit-scrollbar-track": {
+          boxShadow: "inset 0 0 6px rgba(0,0,0,0.00)",
+          webkitBoxShadow: "inset 0 0 6px rgba(0,0,0,0.00)",
+        },
+        "&::-webkit-scrollbar-thumb": {
+          backgroundColor: "rgba(0,0,0,.1)",
+          borderRadius: "5px",
+        },
+        "&::-webkit-scrollbar-thumb:hover": {
+          backgroundColor: "#ccc",
+        },
+      }}
+    >
+      <Table stickyHeader>
         <TableHead sx={{ display: { xs: "none", sm: "table-header-group" } }}>
           <TableRow
             sx={{
