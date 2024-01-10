@@ -6,36 +6,65 @@ import {
   TableHead,
   TableRow,
 } from "@mui/material";
+import Row from "./Row";
 
-function Row(props) {
-  return (
-    <>
-      <TableRow sx={{ "& > *": { borderBottom: "unset" } }}>
-        <TableCell align="left">Sed ut perspiciatis unde omnis iste</TableCell>
-        <TableCell align="center" sx={{ verticalAlign: "baseline" }}>
-          11/31/23
-        </TableCell>
-        <TableCell align="center" sx={{ verticalAlign: "baseline" }}>
-          $350.00
-        </TableCell>
-        <TableCell align="center" sx={{ verticalAlign: "baseline" }}>
-          $25.00
-        </TableCell>
-        <TableCell align="center" sx={{ verticalAlign: "baseline" }}>
-          11/31/24
-        </TableCell>
-      </TableRow>
-    </>
-  );
-}
+const rows = [
+  {
+    id: 0,
+    course: "Sed ut perspiciatis unde omnis iste",
+    date: "11/31/23",
+    price: "$350.00",
+    discount: "$25.00",
+    expiration: "11/31/24",
+    status: "Inactive",
+  },
+  {
+    id: 1,
+    course: "Sed ut perspiciatis unde omnis iste",
+    date: "12/31/23",
+    price: "$250.00",
+    discount: "$35.00",
+    expiration: "12/31/24",
+    status: "Active",
+  },
+  {
+    id: 2,
+    course: "Sed ut perspiciatis unde omnis iste",
+    date: "13/31/23",
+    price: "$150.00",
+    discount: "$15.00",
+    expiration: "13/31/24",
+    status: "Pending",
+  },
+  {
+    id: 3,
+    course: "Sed ut perspiciatis unde omnis iste",
+    date: "14/31/23",
+    price: "$200.00",
+    discount: "$15.00",
+    expiration: "14/31/24",
+    status: "Subscription",
+  },
+];
 
 const PurchaseTable = () => {
   return (
     <TableContainer>
       <Table>
-        <TableHead>
-          <TableRow>
-            <TableCell align="left">Course</TableCell>
+        <TableHead sx={{ display: { xs: "none", sm: "table-header-group" } }}>
+          <TableRow
+            sx={{
+              "& th": {
+                color: "#026670",
+                fontSize: "16px",
+                fontWeight: 700,
+                pt: 0,
+              },
+            }}
+          >
+            <TableCell align="left" sx={{ minWidth: "160px", pl: 0 }}>
+              Course
+            </TableCell>
             <TableCell align="center">Date</TableCell>
             <TableCell align="center">Price</TableCell>
             <TableCell align="center">Discount</TableCell>
@@ -44,8 +73,23 @@ const PurchaseTable = () => {
             <TableCell />
           </TableRow>
         </TableHead>
-        <TableBody>
-          <Row />
+        <TableBody
+          sx={{
+            "& tr:first-of-type td": { pt: { xs: 0, sm: "16px" } },
+            "& tr:last-of-type td": { borderBottom: "unset" },
+          }}
+        >
+          {rows.map((r) => (
+            <Row
+              key={r.id}
+              course={r.course}
+              date={r.date}
+              price={r.price}
+              discount={r.discount}
+              expiration={r.expiration}
+              status={r.status}
+            />
+          ))}
         </TableBody>
       </Table>
     </TableContainer>

@@ -279,7 +279,7 @@ const Header = (props) => {
           </Stack>
           <Drawer
             anchor="left"
-            open={tablet ? isOpen : false}
+            open={isOpen}
             onClose={toggleDrawer(false)}
             sx={{
               zIndex: 1500,

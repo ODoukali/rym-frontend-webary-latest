@@ -464,6 +464,30 @@ media-player[data-started].pip:hover .pip-overlay {
   transition: 0.2s ease;
 }
 
+.status-inactive {
+  background-color: #ffeded;
+  color: #f6ccc4;
+  border-color: #f6ccc4;
+}
+
+.status-active {
+  background-color: #eaf7ee;
+  color: #bfe4c9;
+  border-color: #bfe4c9;
+}
+
+.status-pending {
+  background-color: #fdf8eb;
+  color: #f6e0b7;
+  border-color: #f6e0b7;
+}
+
+.status-subscription {
+  background-color: #e7eff9;
+  color: #b2ccef;
+  border-color: #b2ccef;
+}
+
 @keyframes playAnim {
   from {
     opacity: 1;

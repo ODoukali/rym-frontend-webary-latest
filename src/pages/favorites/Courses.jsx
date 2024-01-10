@@ -1,6 +1,5 @@
 import { Box, Button, Stack, Typography } from "@mui/material";
 import { SwiperSlide } from "swiper/react";
-import { Grid } from "swiper/modules";
 import { pxToRem } from "px2rem2px";
 import BlockHeading from "../../components/BlockHeading";
 import Slider from "../../components/Slider";
@@ -91,7 +90,7 @@ const Courses = () => {
           flexWrap="wrap"
         >
           <Typography component="h3" variant="blockTitle">
-            Recently Watched
+            Courses
           </Typography>
 
           <Stack
@@ -157,14 +156,9 @@ const Courses = () => {
           slidesPerView={2}
           spaceBetween={20}
           arrows
-          modules={[Grid]}
           breakpoints={{
             320: {
               slidesPerView: 2,
-              grid: {
-                rows: 2,
-                fill: "row",
-              },
             },
             600: {
               slidesPerView: 3,
