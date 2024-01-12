@@ -11,6 +11,7 @@ import {
 import { styled } from "@mui/material/styles";
 import { pxToRem } from "px2rem2px";
 import { Link } from "react-router-dom";
+import { useModal } from "mui-modal-provider";
 import Guides from "../../components/Guides";
 import Header from "../../components/Header";
 import Sidebar from "../../components/Sidebar";
@@ -21,6 +22,7 @@ import Testimonial from "../../components/Testimonial";
 import IconBtnCircular from "../../components/IconBtnCircular";
 import PlayBtn from "../../components/PlayBtn";
 import VideosSection from "../../components/VideosSection";
+import PreviewModal from "./PreviewModal";
 
 import PresentationImg from "../../images/pre-subscribed-banner.jpg";
 import { ReactComponent as Play } from "../../images/play.svg";
@@ -89,6 +91,8 @@ const LinearProgressStyled = styled(LinearProgress)(({ theme }) => ({
 }));
 
 const PreSubscribe = () => {
+  const { showModal } = useModal();
+
   return (
     <>
       <Box position="relative" zIndex={2} pt={{ xs: "27px", md: 0 }}>
@@ -164,6 +168,7 @@ const PreSubscribe = () => {
                       </Typography>
                     </Stack>
                     <Button
+                      onClick={() => showModal(PreviewModal)}
                       variant="green"
                       sx={{
                         height: pxToRem(54),
@@ -228,11 +233,13 @@ const PreSubscribe = () => {
                 </Box>
               </Box>
               <Box
+                onClick={() => showModal(PreviewModal)}
                 position="absolute"
                 top="50%"
                 left="27.2%"
                 sx={{
                   transform: "translateY(-50%)",
+                  cursor: "pointer",
                   "& .MuiStack-root": { margin: `0 auto ${pxToRem(10)}` },
                 }}
               >
