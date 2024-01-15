@@ -23,6 +23,8 @@ import IconBtnCircular from "../../components/IconBtnCircular";
 import PlayBtn from "../../components/PlayBtn";
 import VideosSection from "../../components/VideosSection";
 import PreviewModal from "./PreviewModal";
+import Login from "./Login";
+import { useAuth } from "../../utils/AuthContext";
 
 import PresentationImg from "../../images/pre-subscribed-banner.jpg";
 import { ReactComponent as Play } from "../../images/play.svg";
@@ -91,7 +93,19 @@ const LinearProgressStyled = styled(LinearProgress)(({ theme }) => ({
 }));
 
 const PreSubscribe = () => {
-  const { showModal } = useModal();
+  const { showModal, hideModal } = useModal();
+  const { isAuthenticated } = useAuth();
+
+  const showSubscriptionModal = () => {
+    const modal = showModal(PreviewModal, {
+      openSubscriptionModal: () => {
+        if (!isAuthenticated) {
+          hideModal(modal.id);
+          showModal(Login);
+        }
+      },
+    });
+  };
 
   return (
     <>
@@ -168,7 +182,7 @@ const PreSubscribe = () => {
                       </Typography>
                     </Stack>
                     <Button
-                      onClick={() => showModal(PreviewModal)}
+                      onClick={showSubscriptionModal}
                       variant="green"
                       sx={{
                         height: pxToRem(54),
@@ -233,7 +247,7 @@ const PreSubscribe = () => {
                 </Box>
               </Box>
               <Box
-                onClick={() => showModal(PreviewModal)}
+                onClick={showSubscriptionModal}
                 position="absolute"
                 top="50%"
                 left="27.2%"

@@ -140,10 +140,14 @@ const VideoPlayerDraggable = ({ resetPosition, x, y }) => {
   }
 
   function onPause(event) {
-    if (event.request.trigger.MEDIA_GESTURE) {
+    if (event.request?.trigger.MEDIA_GESTURE) {
       setPauseTriggered(true);
     }
     setPlayTriggered(false);
+  }
+
+  function onEnd(event) {
+    console.log(event, "end");
   }
 
   return (
@@ -193,6 +197,7 @@ const VideoPlayerDraggable = ({ resetPosition, x, y }) => {
           crossorigin=""
           onPause={onPause}
           onPlay={onPlay}
+          onEnd={onEnd}
           onProviderSetup={onProviderSetup}
         >
           <MediaOutlet>

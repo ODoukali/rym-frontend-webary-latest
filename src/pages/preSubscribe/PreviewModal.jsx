@@ -9,11 +9,9 @@ import {
   Divider,
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import { useModal } from "mui-modal-provider";
 import { pxToRem } from "px2rem2px";
 import IconBtnCircular from "../../components/IconBtnCircular";
 import VideoPlayer from "../../components/VideoPlayer";
-import Login from "./Login";
 
 import { ReactComponent as Close } from "../../images/close.svg";
 
@@ -37,17 +35,9 @@ const Hr = styled(Divider)({
 });
 
 const PreviewModal = (props) => {
-  const isLogged = false;
-  const { showModal } = useModal();
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down("sm"));
-  const { onClose, ...restProps } = props;
-
-  const openSubscriptionModal = () => {
-    if (!isLogged) {
-      showModal(Login);
-    }
-  };
+  const { openSubscriptionModal, ...restProps } = props;
 
   return (
     <Dialog

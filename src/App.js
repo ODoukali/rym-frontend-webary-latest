@@ -4,15 +4,18 @@ import CssBaseline from "@mui/material/CssBaseline";
 import useRouter from "./routing";
 import theme from "./theme";
 import { PathProvider } from "./utils/PathContext";
+import { AuthProvider } from "./utils/AuthContext";
 
 const App = () => {
   const router = useRouter();
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <PathProvider>
-        <RouterProvider router={router} />
-      </PathProvider>
+      <AuthProvider>
+        <PathProvider>
+          <RouterProvider router={router} />
+        </PathProvider>
+      </AuthProvider>
     </ThemeProvider>
   );
 };

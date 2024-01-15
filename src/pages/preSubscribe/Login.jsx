@@ -1,66 +1,18 @@
-import {
-  Dialog,
-  useTheme,
-  useMediaQuery,
-  Typography,
-  Stack,
-} from "@mui/material";
-import { pxToRem } from "px2rem2px";
-import IconBtnCircular from "../../components/IconBtnCircular";
-
-import { ReactComponent as Close } from "../../images/close.svg";
+import { Box, Button, Typography } from "@mui/material";
+import ModalLayout from "./ModalLayout";
 
 const Login = (props) => {
-  const theme = useTheme();
-  const fullScreen = useMediaQuery(theme.breakpoints.down("sm"));
-  const { ...restProps } = props;
   return (
-    <Dialog
-      {...restProps}
-      fullScreen={fullScreen}
-      maxWidth="xs"
-      scroll="body"
-      disableEscapeKeyDown
-      onClose={(event, reason) => {
-        if (reason !== "backdropClick") {
-          return;
-        }
-      }}
-      sx={{
-        "& .MuiPaper-root": {
-          width: "100%",
-          maxWidth: 500,
-          borderRadius: fullScreen ? 0 : pxToRem(20),
-          verticalAlign: "center",
-          backgroundColor: "#F7F6F2",
-        },
-        zIndex: 1500,
-      }}
-    >
-      <Stack
-        position="relative"
-        direction="row"
-        alignItems="center"
-        justifyContent="space-between"
-        bgcolor="#EDECE8"
-        p={`${pxToRem(40)} ${pxToRem(50)} ${pxToRem(67)}`}
-        sx={{ "& button": { boxShadow: "none" } }}
-      >
-        <Typography
-          fontSize="30px"
-          lineHeight="30px"
-          fontWeight="900"
-          fontFamily="PloniBold"
-          letterSpacing="-0.44px"
-          textAlign="right"
-        >
-          וואס טוט מען ווען דער מאן ארבעט צופרי
+    <ModalLayout {...props} headerTitle="וואס טוט מען ווען דער מאן ארבעט">
+      <Box textAlign="center">
+        <Typography variant="medium" component="p" fontSize="16px" mb="40px">
+          You need to login or signup in order to purchase this course.
         </Typography>
-        <IconBtnCircular onClick={() => props.onClose()}>
-          <Close color="#026670" />
-        </IconBtnCircular>
-      </Stack>
-    </Dialog>
+        <Button variant="yellow" sx={{ width: "300px" }}>
+          Log In / Sign up
+        </Button>
+      </Box>
+    </ModalLayout>
   );
 };
 

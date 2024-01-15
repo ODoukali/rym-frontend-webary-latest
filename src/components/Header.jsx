@@ -23,6 +23,7 @@ import LoginModal from "./LoginModal";
 import Toast from "./Toast";
 import ToastCookie from "./ToastCookie";
 import ProfileMenu from "./ProfileMenu";
+import { useAuth } from "../utils/AuthContext";
 
 import { ReactComponent as Menu } from "../images/menu.svg";
 import { ReactComponent as Search } from "../images/search.svg";
@@ -43,9 +44,9 @@ const Header = (props) => {
   const [toast1, setToast1] = useState(false);
   const [toast2, setToast2] = useState(false);
   const [toast3, setToast3] = useState(false);
-  const [isLoggedIn] = useState(true);
   const header = useRef(null);
   const { pathname } = useLocation();
+  const { isAuthenticated } = useAuth();
 
   const theme = useTheme();
   const tablet = useMediaQuery(theme.breakpoints.down("md"));
@@ -110,7 +111,7 @@ const Header = (props) => {
           },
         }}
       >
-        {isLoggedIn ? (
+        {isAuthenticated ? (
           <Box>
             <Avatar sx={{ width: pxToRem(48), height: pxToRem(48) }}>
               <img src={AvatarImg} alt="" />
