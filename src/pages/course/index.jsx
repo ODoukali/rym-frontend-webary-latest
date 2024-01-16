@@ -2,7 +2,7 @@ import { Box, Container, Stack, Typography } from "@mui/material";
 import { pxToRem } from "px2rem2px";
 import Guides from "../../components/Guides";
 import Header from "../../components/Header";
-import VideoPlayer from "../../components/VideoPlayer";
+import VideoPlayer from "../../components/videoPlayer/VideoPlayer";
 import Sidebar from "../../components/Sidebar";
 import CourseTabs from "./CourseTabs";
 import VideosSection from "../../components/VideosSection";

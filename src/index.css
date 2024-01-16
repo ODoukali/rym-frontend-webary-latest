@@ -206,6 +206,10 @@ media-player[data-started].pip .media-controls-group {
   transition: none;
 }
 
+media-player[data-ended] .end-overlay {
+  display: flex;
+}
+
 .play-btn media-play-button {
   padding: 0;
   margin: 0;

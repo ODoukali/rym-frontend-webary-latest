@@ -11,7 +11,7 @@ import {
 import { styled } from "@mui/material/styles";
 import { pxToRem } from "px2rem2px";
 import IconBtnCircular from "../../components/IconBtnCircular";
-import VideoPlayer from "../../components/VideoPlayer";
+import VideoPlayer from "../../components/videoPlayer/VideoPlayer";
 
 import { ReactComponent as Close } from "../../images/close.svg";
 

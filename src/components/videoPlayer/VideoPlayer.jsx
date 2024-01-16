@@ -8,7 +8,6 @@ import {
   Typography,
 } from "@mui/material";
 import { styled } from "@mui/system";
-import IconBtnCircular from "./IconBtnCircular";
 import {
   MediaFullscreenButton,
   MediaGesture,
@@ -41,26 +40,28 @@ import {
   useSensor,
   useSensors,
 } from "@dnd-kit/core";
-import restrictToWindowEdgesMargin from "../utils/restrictToWindowEdges";
+import restrictToWindowEdgesMargin from "../../utils/restrictToWindowEdges";
 import { pxToRem } from "px2rem2px";
 import { CSS } from "@dnd-kit/utilities";
+import IconBtnCircular from "../IconBtnCircular";
+import EndView from "./EndView";
 
 import "vidstack/styles/defaults.css";
 import "vidstack/styles/community-skin/video.css";
 
-import PresentationImg from "../images/presentation-img.jpg";
-import { ReactComponent as Bookmark } from "../images/bookmark.svg";
-import { ReactComponent as Notes } from "../images/notes.svg";
-import { ReactComponent as Share } from "../images/share.svg";
-import { ReactComponent as Next } from "../images/next.svg";
-import { ReactComponent as Play } from "../images/play.svg";
-import { ReactComponent as Pause } from "../images/pause.svg";
-import { ReactComponent as Volume } from "../images/volume.svg";
-import { ReactComponent as Fullscreen } from "../images/fullscreen.svg";
-import { ReactComponent as FullscreenExit } from "../images/full-screen-exit.svg";
-import { ReactComponent as Settings } from "../images/settings.svg";
-import { ReactComponent as Close } from "../images/close.svg";
-import { ReactComponent as NewWindow } from "../images/open-in-new-window.svg";
+import PresentationImg from "../../images/presentation-img.jpg";
+import { ReactComponent as Bookmark } from "../../images/bookmark.svg";
+import { ReactComponent as Notes } from "../../images/notes.svg";
+import { ReactComponent as Share } from "../../images/share.svg";
+import { ReactComponent as Next } from "../../images/next.svg";
+import { ReactComponent as Play } from "../../images/play.svg";
+import { ReactComponent as Pause } from "../../images/pause.svg";
+import { ReactComponent as Volume } from "../../images/volume.svg";
+import { ReactComponent as Fullscreen } from "../../images/fullscreen.svg";
+import { ReactComponent as FullscreenExit } from "../../images/full-screen-exit.svg";
+import { ReactComponent as Settings } from "../../images/settings.svg";
+import { ReactComponent as Close } from "../../images/close.svg";
+import { ReactComponent as NewWindow } from "../../images/open-in-new-window.svg";
 
 const IconButtonStyled = styled(IconButton)(() => {
   return {
@@ -146,10 +147,6 @@ const VideoPlayerDraggable = ({ resetPosition, x, y }) => {
     setPlayTriggered(false);
   }
 
-  function onEnd(event) {
-    console.log(event, "end");
-  }
-
   return (
     <Box
       position="relative"
@@ -197,7 +194,6 @@ const VideoPlayerDraggable = ({ resetPosition, x, y }) => {
           crossorigin=""
           onPause={onPause}
           onPlay={onPlay}
-          onEnd={onEnd}
           onProviderSetup={onProviderSetup}
         >
           <MediaOutlet>
@@ -577,6 +573,7 @@ const VideoPlayerDraggable = ({ resetPosition, x, y }) => {
               </Stack>
             </Stack>
           </Stack>
+          <EndView />
         </MediaPlayer>
       </Box>
     </Box>
