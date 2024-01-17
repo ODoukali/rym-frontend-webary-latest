@@ -3,7 +3,7 @@ import React, { createContext, useContext } from "react";
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const isAuthenticated = false;
+  const isAuthenticated = true;
 
   return (
     <AuthContext.Provider value={{ isAuthenticated }}>
