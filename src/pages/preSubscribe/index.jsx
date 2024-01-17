@@ -12,6 +12,7 @@ import { styled } from "@mui/material/styles";
 import { pxToRem } from "px2rem2px";
 import { Link } from "react-router-dom";
 import { useModal } from "mui-modal-provider";
+import { useAuth } from "../../utils/AuthContext";
 import Guides from "../../components/Guides";
 import Header from "../../components/Header";
 import Sidebar from "../../components/Sidebar";
@@ -23,8 +24,9 @@ import IconBtnCircular from "../../components/IconBtnCircular";
 import PlayBtn from "../../components/PlayBtn";
 import VideosSection from "../../components/VideosSection";
 import PreviewModal from "./PreviewModal";
-import Login from "./Login";
-import { useAuth } from "../../utils/AuthContext";
+import LoginSubscribeModal from "./LoginSubscribeModal";
+import PurchaseModal from "./PurchaseModal";
+import LoginModal from "../../components/LoginModal";
 
 import PresentationImg from "../../images/pre-subscribed-banner.jpg";
 import { ReactComponent as Play } from "../../images/play.svg";
@@ -99,9 +101,16 @@ const PreSubscribe = () => {
   const showSubscriptionModal = () => {
     const modal = showModal(PreviewModal, {
       openSubscriptionModal: () => {
-        if (!isAuthenticated) {
-          hideModal(modal.id);
-          showModal(Login);
+        hideModal(modal.id);
+        if (isAuthenticated) {
+          showModal(PurchaseModal);
+        } else {
+          const modal = showModal(LoginSubscribeModal, {
+            openLoginModal: () => {
+              hideModal(modal.id);
+              showModal(LoginModal);
+            },
+          });
         }
       },
     });
