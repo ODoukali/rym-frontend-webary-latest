@@ -15,15 +15,34 @@ import ModalLayout from "./ModalLayout";
 import Switcher from "../../components/Switcher";
 
 import { ReactComponent as Chevron } from "../../images/chevron.svg";
+import { ReactComponent as GPay } from "../../images/G_Pay.svg";
+import { ReactComponent as APay } from "../../images/apple-pay.svg";
+import { ReactComponent as PayPal } from "../../images/paypal.svg";
 
 const DividerStyled = styled(Divider)({
   margin: "30px 0",
   borderColor: "#BFBEBB",
 });
 
+const TabStyled = styled(Tab)({
+  fontSize: "14px",
+  lineHeight: "14px",
+  fontWeight: 700,
+  color: "#333",
+  textTransform: "none",
+  border: "2px solid #BFBEBB",
+  borderRadius: "10px",
+  height: "64px",
+  width: "87px",
+  minWidth: "auto",
+  "&.Mui-selected": {
+    borderColor: "#333",
+  },
+});
+
 const PurchaseModal = (props) => {
   const [isPromoVisible, setIsPromoVisible] = useState(false);
-  const [value, setValue] = useState();
+  const [value, setValue] = useState("1");
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -134,16 +153,33 @@ const PurchaseModal = (props) => {
         </Button>
         <DividerStyled />
         <TabContext value={value}>
-          <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-            <TabList onChange={handleChange}>
-              <Tab label="Credit Card" value="1" />
-              <Tab label="" value="2" />
-              <Tab label="" value="3" />
-            </TabList>
-          </Box>
-          <TabPanel value="1"></TabPanel>
+          <TabList
+            variant="scrollable"
+            scrollButtons={false}
+            onChange={handleChange}
+            sx={{
+              "& .MuiTabs-flexContainer": { gap: "10px" },
+              "& .MuiTabs-indicator": { display: "none" },
+            }}
+          >
+            <TabStyled label="Credit Card" value="1" />
+            <TabStyled icon={<GPay />} value="2" />
+            <TabStyled icon={<APay />} value="3" />
+            <TabStyled label={<PayPal />} value="4" />
+          </TabList>
+          <TabPanel value="1">
+            <Typography
+              component="p"
+              fontSize="16px"
+              fontWeight={700}
+              mb="20px"
+            >
+              Credit Card Information
+            </Typography>
+          </TabPanel>
           <TabPanel value="2"></TabPanel>
           <TabPanel value="3"></TabPanel>
+          <TabPanel value="4"></TabPanel>
         </TabContext>
         <Typography
           component="p"
