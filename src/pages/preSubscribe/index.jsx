@@ -102,7 +102,7 @@ const PreSubscribe = () => {
 
   const showSubscriptionModal = () => {
     const modal = showModal(PreviewModal, {
-      openSubscriptionModal: () => {
+      openSubscriptionModal: (price) => {
         hideModal(modal.id);
         if (isAuthenticated) {
           const modal = showModal(PurchaseModal, {
@@ -119,6 +119,7 @@ const PreSubscribe = () => {
                 },
               });
             },
+            price,
           });
         } else {
           const modal = showModal(LoginSubscribeModal, {

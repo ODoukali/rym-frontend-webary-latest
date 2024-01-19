@@ -47,9 +47,10 @@ const TabStyled = styled(Tab)({
 });
 
 const PurchaseModal = (props) => {
-  const { openThankModal, openErrorModal, ...restProps } = props;
+  const { openThankModal, openErrorModal, price, ...restProps } = props;
   const [isPromoVisible, setIsPromoVisible] = useState(false);
   const [tabValue, setTabValue] = useState("1");
+
   const handleChange = (event, newValue) => {
     setTabValue(newValue);
   };
@@ -63,8 +64,7 @@ const PurchaseModal = (props) => {
   });
 
   const onSubmit = (data) => {
-    console.log(data);
-    if (false) {
+    if (true) {
       openThankModal();
     } else {
       openErrorModal();
@@ -91,7 +91,7 @@ const PurchaseModal = (props) => {
             fontWeight="700"
             color="#026670"
           >
-            $250.59
+            ${price}
           </Typography>
           <Typography
             fontSize="16px"
@@ -115,8 +115,6 @@ const PurchaseModal = (props) => {
           name="lifetime-access"
           label="Need Lifetime Access"
           defaultChecked={true}
-          // checked={true}
-          // onChange={() => handleSwitchChange(n.id)}
         />
         <DividerStyled />
         <Button
@@ -210,12 +208,9 @@ const PurchaseModal = (props) => {
                   muiProps={{
                     type: "text",
                   }}
+                  mask={/^[0-9]{0,16}$/}
                   rules={{
                     required: "Field can't be empty",
-                    pattern: {
-                      value: /^[0-9]*$/,
-                      message: "Invalid input. Only digits are allowed.",
-                    },
                   }}
                 />
                 <Stack flexDirection="row" gap="10px">
@@ -262,8 +257,6 @@ const PurchaseModal = (props) => {
                 name="save-info"
                 label="Save my information for a future checkouts"
                 defaultChecked={true}
-                // checked={true}
-                // onChange={() => handleSwitchChange(n.id)}
               />
               <Box bgcolor="#EDECE8" p="40px 60px" m="30px -60px 0">
                 <Stack
@@ -281,7 +274,7 @@ const PurchaseModal = (props) => {
                     fontWeight="700"
                     color="#026670"
                   >
-                    $250.59
+                    ${price}
                   </Typography>
                 </Stack>
                 <Button
