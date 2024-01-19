@@ -77,7 +77,7 @@ const ModalLayout = (props) => {
           <Close color="#026670" />
         </IconBtnCircular>
       </Stack>
-      <Box p="40px 60px">
+      <Box position="relative" p="40px 60px">
         {props.children}
         <Stack
           flexDirection="row"

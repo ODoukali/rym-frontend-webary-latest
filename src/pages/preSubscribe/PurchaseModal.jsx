@@ -47,6 +47,7 @@ const TabStyled = styled(Tab)({
 });
 
 const PurchaseModal = (props) => {
+  const { openThankModal, ...restProps } = props;
   const [isPromoVisible, setIsPromoVisible] = useState(false);
   const [tabValue, setTabValue] = useState("1");
   const handleChange = (event, newValue) => {
@@ -63,10 +64,11 @@ const PurchaseModal = (props) => {
 
   const onSubmit = (data) => {
     console.log(data);
+    openThankModal();
   };
 
   return (
-    <ModalLayout {...props} headerTitle="וואס טוט מען ווען דער מאן ארבעט">
+    <ModalLayout {...restProps} headerTitle="וואס טוט מען ווען דער מאן">
       <Box textAlign="center">
         <Typography component="p" fontSize="20px" fontWeight={700} mb="20px">
           Course Subscription for

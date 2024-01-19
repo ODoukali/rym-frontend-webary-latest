@@ -27,6 +27,7 @@ import PreviewModal from "./PreviewModal";
 import LoginSubscribeModal from "./LoginSubscribeModal";
 import PurchaseModal from "./PurchaseModal";
 import LoginModal from "../../components/LoginModal";
+import ThankModal from "./ThankModal";
 
 import PresentationImg from "../../images/pre-subscribed-banner.jpg";
 import { ReactComponent as Play } from "../../images/play.svg";
@@ -103,7 +104,12 @@ const PreSubscribe = () => {
       openSubscriptionModal: () => {
         hideModal(modal.id);
         if (isAuthenticated) {
-          showModal(PurchaseModal);
+          const modal = showModal(PurchaseModal, {
+            openThankModal: () => {
+              hideModal(modal.id);
+              showModal(ThankModal);
+            },
+          });
         } else {
           const modal = showModal(LoginSubscribeModal, {
             openLoginModal: () => {

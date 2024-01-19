@@ -5,7 +5,7 @@ const LoginSubscribeModal = (props) => {
   const { openLoginModal, ...restProps } = props;
 
   return (
-    <ModalLayout {...restProps} headerTitle="וואס טוט מען ווען דער מאן ארבעט">
+    <ModalLayout {...restProps} headerTitle="וואס טוט מען ווען דער מאן">
       <Box textAlign="center">
         <Typography variant="medium" component="p" fontSize="16px" mb="40px">
           You need to login or signup in order to purchase this course.
