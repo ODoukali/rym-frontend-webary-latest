@@ -69,7 +69,7 @@ const PreviewModal = (props) => {
           p={{ xs: "30px 25px", ssm: "40px 60px" }}
         >
           <Button
-            onClick={() => openSubscriptionModal(350)}
+            onClick={() => openSubscriptionModal(350, "subscribe")}
             fullWidth
             variant="yellow"
             fontSize="14px"
@@ -80,7 +80,7 @@ const PreviewModal = (props) => {
           <TypographyStyled component="p">Valid for 6 months</TypographyStyled>
           <Hr>or</Hr>
           <Button
-            onClick={() => openSubscriptionModal(475)}
+            onClick={() => openSubscriptionModal(475, "buy")}
             fullWidth
             variant="outlined"
             fontSize="14px"

@@ -47,7 +47,7 @@ const TabStyled = styled(Tab)({
 });
 
 const PurchaseModal = (props) => {
-  const { openThankModal, openErrorModal, price, ...restProps } = props;
+  const { openThankModal, openErrorModal, price, type, ...restProps } = props;
   const [isPromoVisible, setIsPromoVisible] = useState(false);
   const [tabValue, setTabValue] = useState("1");
 
@@ -114,7 +114,7 @@ const PurchaseModal = (props) => {
         <Switcher
           name="lifetime-access"
           label="Need Lifetime Access"
-          defaultChecked={true}
+          checked={type === "buy" ? true : false}
         />
         <DividerStyled />
         <Button
