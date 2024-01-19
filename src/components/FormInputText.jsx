@@ -19,6 +19,9 @@ const TextFieldStyled = styled(TextField)({
   "& input": {
     borderRadius: `${pxToRem(30)} !important`,
     padding: `${pxToRem(15)} ${pxToRem(40)}`,
+    "&:focus": {
+      backgroundColor: "#fff",
+    },
   },
 });
 

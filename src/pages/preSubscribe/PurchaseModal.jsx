@@ -11,8 +11,10 @@ import {
 } from "@mui/material";
 import { TabContext, TabList, TabPanel } from "@mui/lab";
 import { styled } from "@mui/material/styles";
+import { useForm } from "react-hook-form";
 import ModalLayout from "./ModalLayout";
 import Switcher from "../../components/Switcher";
+import FormInputText from "../../components/FormInputText";
 
 import { ReactComponent as Chevron } from "../../images/chevron.svg";
 import { ReactComponent as GPay } from "../../images/G_Pay.svg";
@@ -22,6 +24,10 @@ import { ReactComponent as PayPal } from "../../images/paypal.svg";
 const DividerStyled = styled(Divider)({
   margin: "30px 0",
   borderColor: "#BFBEBB",
+});
+
+const TabPanelStyled = styled(TabPanel)({
+  padding: "30px 0",
 });
 
 const TabStyled = styled(Tab)({
@@ -42,9 +48,21 @@ const TabStyled = styled(Tab)({
 
 const PurchaseModal = (props) => {
   const [isPromoVisible, setIsPromoVisible] = useState(false);
-  const [value, setValue] = useState("1");
+  const [tabValue, setTabValue] = useState("1");
   const handleChange = (event, newValue) => {
-    setValue(newValue);
+    setTabValue(newValue);
+  };
+
+  const { control, setValue, handleSubmit } = useForm({
+    values: {
+      creditCard: "",
+      expiration: "",
+      cvv: "",
+    },
+  });
+
+  const onSubmit = (data) => {
+    console.log(data);
   };
 
   return (
@@ -152,7 +170,7 @@ const PurchaseModal = (props) => {
           Select Payment Plan
         </Button>
         <DividerStyled />
-        <TabContext value={value}>
+        <TabContext value={tabValue}>
           <TabList
             variant="scrollable"
             scrollButtons={false}
@@ -167,7 +185,7 @@ const PurchaseModal = (props) => {
             <TabStyled icon={<APay />} value="3" />
             <TabStyled label={<PayPal />} value="4" />
           </TabList>
-          <TabPanel value="1">
+          <TabPanelStyled value="1">
             <Typography
               component="p"
               fontSize="16px"
@@ -176,10 +194,103 @@ const PurchaseModal = (props) => {
             >
               Credit Card Information
             </Typography>
-          </TabPanel>
-          <TabPanel value="2"></TabPanel>
-          <TabPanel value="3"></TabPanel>
-          <TabPanel value="4"></TabPanel>
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <Stack gap="10px">
+                <FormInputText
+                  name="creditCard"
+                  control={control}
+                  setValue={setValue}
+                  placeholder="Credit Card Number"
+                  muiProps={{
+                    type: "text",
+                  }}
+                  rules={{
+                    required: "Field can't be empty",
+                    pattern: {
+                      value: /^[0-9]*$/,
+                      message: "Invalid input. Only digits are allowed.",
+                    },
+                  }}
+                />
+                <Stack flexDirection="row" gap="10px">
+                  <Box flex={0.55}>
+                    <FormInputText
+                      name="expiration"
+                      control={control}
+                      setValue={setValue}
+                      placeholder="Expiration"
+                      muiProps={{
+                        type: "text",
+                      }}
+                      rules={{
+                        required: "Field can't be empty",
+                        pattern: {
+                          value: /^(0[1-9]|1[0-2])\/?([0-9]{4}|[0-9]{2})$/,
+                          message: "Wrong format.",
+                        },
+                      }}
+                    />
+                  </Box>
+                  <Box flex={0.58}>
+                    <FormInputText
+                      name="cvv"
+                      control={control}
+                      setValue={setValue}
+                      placeholder="CVV Code"
+                      muiProps={{
+                        type: "text",
+                      }}
+                      rules={{
+                        required: "Field can't be empty",
+                        pattern: {
+                          value: /^[0-9]{3,4}$/,
+                          message: "Invalid input. Only digits are allowed.",
+                        },
+                      }}
+                    />
+                  </Box>
+                </Stack>
+              </Stack>
+              <DividerStyled />
+              <Switcher
+                name="save-info"
+                label="Save my information for a future checkouts"
+                defaultChecked={true}
+                // checked={true}
+                // onChange={() => handleSwitchChange(n.id)}
+              />
+              <Box bgcolor="#EDECE8" p="40px 60px" m="30px -60px 0">
+                <Stack
+                  flexDirection="row"
+                  justifyContent="center"
+                  gap="10px"
+                  mb="20px"
+                >
+                  <Typography fontSize="16px" fontWeight={700} mt="6px">
+                    Checkout:
+                  </Typography>
+                  <Typography
+                    fontSize="30px"
+                    lineHeight="30px"
+                    fontWeight="700"
+                    color="#026670"
+                  >
+                    $250.59
+                  </Typography>
+                </Stack>
+                <Button
+                  variant="yellow"
+                  type="submit"
+                  sx={{ fontSize: "16px", fontWeight: 700 }}
+                >
+                  Checkout & Pay Now
+                </Button>
+              </Box>
+            </form>
+          </TabPanelStyled>
+          <TabPanelStyled value="2"></TabPanelStyled>
+          <TabPanelStyled value="3"></TabPanelStyled>
+          <TabPanelStyled value="4"></TabPanelStyled>
         </TabContext>
         <Typography
           component="p"
