@@ -47,7 +47,7 @@ const TabStyled = styled(Tab)({
 });
 
 const PurchaseModal = (props) => {
-  const { openThankModal, ...restProps } = props;
+  const { openThankModal, openErrorModal, ...restProps } = props;
   const [isPromoVisible, setIsPromoVisible] = useState(false);
   const [tabValue, setTabValue] = useState("1");
   const handleChange = (event, newValue) => {
@@ -64,7 +64,11 @@ const PurchaseModal = (props) => {
 
   const onSubmit = (data) => {
     console.log(data);
-    openThankModal();
+    if (false) {
+      openThankModal();
+    } else {
+      openErrorModal();
+    }
   };
 
   return (

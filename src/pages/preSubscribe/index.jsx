@@ -28,6 +28,7 @@ import LoginSubscribeModal from "./LoginSubscribeModal";
 import PurchaseModal from "./PurchaseModal";
 import LoginModal from "../../components/LoginModal";
 import ThankModal from "./ThankModal";
+import ErrorModal from "./ErrorModal";
 
 import PresentationImg from "../../images/pre-subscribed-banner.jpg";
 import { ReactComponent as Play } from "../../images/play.svg";
@@ -108,6 +109,15 @@ const PreSubscribe = () => {
             openThankModal: () => {
               hideModal(modal.id);
               showModal(ThankModal);
+            },
+            openErrorModal: () => {
+              hideModal(modal.id);
+              const errorModal = showModal(ErrorModal, {
+                openPurchaseModal: () => {
+                  hideModal(errorModal.id);
+                  showModal(PurchaseModal);
+                },
+              });
             },
           });
         } else {
