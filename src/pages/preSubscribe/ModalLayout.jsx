@@ -17,8 +17,10 @@ import { ReactComponent as Close } from "../../images/close.svg";
 
 const LinkStyled = styled(Link)({
   fontSize: "12px",
+  lineHeight: "14px",
   fontWeight: 600,
   color: "#BFBEBB",
+  textAlign: "center",
   "&:hover": {
     color: "#333",
   },
@@ -57,10 +59,10 @@ const ModalLayout = (props) => {
         position="relative"
         direction="row"
         alignItems="center"
-        justifyContent="space-between"
+        justifyContent="flex-end"
         gap="20px"
         bgcolor="#EDECE8"
-        p="40px 60px"
+        p={{ xs: "30px 25px", ssm: "40px 60px" }}
         sx={{ "& button": { boxShadow: "none" } }}
       >
         <Typography
@@ -77,16 +79,16 @@ const ModalLayout = (props) => {
           <Close color="#026670" />
         </IconBtnCircular>
       </Stack>
-      <Box position="relative" p="40px 60px">
+      <Box position="relative" p={{ xs: "30px 25px", ssm: "40px 60px" }}>
         {props.children}
         <Stack
           flexDirection="row"
           alignItems="center"
           justifyContent="center"
-          gap="40px"
+          gap={{ xs: "30px", ssm: "40px" }}
           borderTop="1px solid #BFBEBB"
-          mt="40px"
-          pt="40px"
+          mt={{ xs: "30px", ssm: "40px" }}
+          pt={{ xs: "30px", ssm: "40px" }}
         >
           {isAuthenticated ? (
             <>

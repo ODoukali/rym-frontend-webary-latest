@@ -35,6 +35,7 @@ const FormInputText = ({
   setValue,
   preventPaste,
   passwordEye,
+  format,
 }) => {
   const handleInputChange = (name, value) => {
     setValue(name, value.trim());
@@ -81,7 +82,13 @@ const FormInputText = ({
                   fullWidth
                   variant="outlined"
                   value={value || ""}
-                  onChange={onChange}
+                  onChange={(e) => {
+                    if (format) {
+                      format(e, onChange);
+                    } else {
+                      onChange(e);
+                    }
+                  }}
                   onBlur={(e) => {
                     //https://github.com/facebook/react/issues/14897
                     if (e.target.type === "email") {

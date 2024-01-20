@@ -46,6 +46,43 @@ const TabStyled = styled(Tab)({
   },
 });
 
+function formatCurrency(amount, minimumFractionDigits, maximumFractionDigits) {
+  amount = parseFloat(amount);
+  return amount.toLocaleString("en-US", {
+    style: "currency",
+    currency: "USD",
+    minimumFractionDigits: minimumFractionDigits,
+    maximumFractionDigits: maximumFractionDigits,
+  });
+}
+
+const formatCc = (e, onChange) => {
+  if (e.target.value.length <= 19) {
+    onChange(
+      e.target.value
+        .replace(/\D/g, "")
+        .replace(/(\d{4})(\d{0,4})(\d{0,4})(\d{0,4})/, "$1 $2 $3 $4")
+        .trim()
+    );
+  }
+};
+
+const formatCvv = (e, onChange) => {
+  if (e.target.value.length <= 4) {
+    onChange(e.target.value.replace(/\D/g, "").trim());
+  }
+};
+
+const formatExpiration = (e, onChange) => {
+  let inputValue = e.target.value;
+  inputValue = inputValue.replace(/\D/g, "");
+
+  if (inputValue.length <= 4) {
+    inputValue = inputValue.replace(/(\d{2})(\d{0,2})/, "$1/$2").trim();
+  }
+  onChange(inputValue);
+};
+
 const PurchaseModal = (props) => {
   const { openThankModal, openErrorModal, price, type, ...restProps } = props;
   const [isPromoVisible, setIsPromoVisible] = useState(false);
@@ -91,7 +128,7 @@ const PurchaseModal = (props) => {
             fontWeight="700"
             color="#026670"
           >
-            ${price}
+            {formatCurrency(price)}
           </Typography>
           <Typography
             fontSize="16px"
@@ -114,9 +151,9 @@ const PurchaseModal = (props) => {
         <Switcher
           name="lifetime-access"
           label="Need Lifetime Access"
-          checked={type === "buy" ? true : false}
+          defaultChecked={type === "buy" ? true : false}
         />
-        <DividerStyled />
+        <DividerStyled sx={{ mb: "20px" }} />
         <Button
           fullWidth
           endIcon={<Chevron />}
@@ -162,9 +199,10 @@ const PurchaseModal = (props) => {
             </Button>
           </Stack>
         </Collapse>
-        <DividerStyled />
+        <DividerStyled sx={{ mt: "20px" }} />
         <Typography variant="medium" component="p" fontSize="16px" mb="20px">
-          You are eligible for a payment plan of 3 payments of $85.39
+          You are eligible for a <b>Payment plan</b> of 3 payments of
+          <b> $85.39</b>
         </Typography>
         <Button
           variant="yellow"
@@ -208,9 +246,13 @@ const PurchaseModal = (props) => {
                   muiProps={{
                     type: "text",
                   }}
-                  mask={/^[0-9]{0,16}$/}
+                  format={formatCc}
                   rules={{
                     required: "Field can't be empty",
+                    pattern: {
+                      value: /\d{4} *\d{4} *\d{4} *\d{4}/,
+                      message: "Wrong format.",
+                    },
                   }}
                 />
                 <Stack flexDirection="row" gap="10px">
@@ -219,6 +261,7 @@ const PurchaseModal = (props) => {
                       name="expiration"
                       control={control}
                       setValue={setValue}
+                      format={formatExpiration}
                       placeholder="Expiration"
                       muiProps={{
                         type: "text",
@@ -237,6 +280,7 @@ const PurchaseModal = (props) => {
                       name="cvv"
                       control={control}
                       setValue={setValue}
+                      format={formatCvv}
                       placeholder="CVV Code"
                       muiProps={{
                         type: "text",
@@ -245,7 +289,7 @@ const PurchaseModal = (props) => {
                         required: "Field can't be empty",
                         pattern: {
                           value: /^[0-9]{3,4}$/,
-                          message: "Invalid input. Only digits are allowed.",
+                          message: "Wrong format.",
                         },
                       }}
                     />
@@ -258,7 +302,11 @@ const PurchaseModal = (props) => {
                 label="Save my information for a future checkouts"
                 defaultChecked={true}
               />
-              <Box bgcolor="#EDECE8" p="40px 60px" m="30px -60px 0">
+              <Box
+                bgcolor="#EDECE8"
+                p={{ xs: "20px 25px", ssm: "40px 60px" }}
+                m={{ xs: "30px -25px 0", ssm: "30px -60px 0" }}
+              >
                 <Stack
                   flexDirection="row"
                   justifyContent="center"
@@ -274,7 +322,7 @@ const PurchaseModal = (props) => {
                     fontWeight="700"
                     color="#026670"
                   >
-                    ${price}
+                    {formatCurrency(price)}
                   </Typography>
                 </Stack>
                 <Button
@@ -287,9 +335,15 @@ const PurchaseModal = (props) => {
               </Box>
             </form>
           </TabPanelStyled>
-          <TabPanelStyled value="2"></TabPanelStyled>
-          <TabPanelStyled value="3"></TabPanelStyled>
-          <TabPanelStyled value="4"></TabPanelStyled>
+          <TabPanelStyled value="2">
+            <Button variant="yellow">Continue with Google Pay</Button>
+          </TabPanelStyled>
+          <TabPanelStyled value="3">
+            <Button variant="yellow">Continue with Apple Pay</Button>
+          </TabPanelStyled>
+          <TabPanelStyled value="4">
+            <Button variant="yellow">Continue with Paypal</Button>
+          </TabPanelStyled>
         </TabContext>
         <Typography
           component="p"
