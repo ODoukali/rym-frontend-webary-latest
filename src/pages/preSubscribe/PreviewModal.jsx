@@ -134,7 +134,7 @@ const PreviewModal = (props) => {
             accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
             quae ab illo inventore veritatis et quasi architecto.
           </Typography>
-          <VideoPlayer />
+          <VideoPlayer preview />
         </Box>
       </Stack>
     </Dialog>

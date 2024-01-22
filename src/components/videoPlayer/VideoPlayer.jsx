@@ -1,12 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import {
-  Box,
-  Button,
-  IconButton,
-  Stack,
-  Tooltip,
-  Typography,
-} from "@mui/material";
+import { Box, Button, IconButton, Stack, Typography } from "@mui/material";
 import { styled } from "@mui/system";
 import {
   MediaFullscreenButton,
@@ -43,16 +36,12 @@ import {
 import restrictToWindowEdgesMargin from "../../utils/restrictToWindowEdges";
 import { pxToRem } from "px2rem2px";
 import { CSS } from "@dnd-kit/utilities";
-import IconBtnCircular from "../IconBtnCircular";
 import EndView from "./EndView";
 
 import "vidstack/styles/defaults.css";
 import "vidstack/styles/community-skin/video.css";
 
 import PresentationImg from "../../images/presentation-img.jpg";
-import { ReactComponent as Bookmark } from "../../images/bookmark.svg";
-import { ReactComponent as Notes } from "../../images/notes.svg";
-import { ReactComponent as Share } from "../../images/share.svg";
 import { ReactComponent as Next } from "../../images/next.svg";
 import { ReactComponent as Play } from "../../images/play.svg";
 import { ReactComponent as Pause } from "../../images/pause.svg";
@@ -62,6 +51,7 @@ import { ReactComponent as FullscreenExit } from "../../images/full-screen-exit.
 import { ReactComponent as Settings } from "../../images/settings.svg";
 import { ReactComponent as Close } from "../../images/close.svg";
 import { ReactComponent as NewWindow } from "../../images/open-in-new-window.svg";
+import SidePanel from "./SidePanel";
 
 const IconButtonStyled = styled(IconButton)(() => {
   return {
@@ -75,7 +65,7 @@ const IconButtonStyled = styled(IconButton)(() => {
   };
 });
 
-const VideoPlayerDraggable = ({ resetPosition, x, y }) => {
+const VideoPlayerDraggable = ({ resetPosition, x, y, preview }) => {
   const playerWrapper = useRef(null);
   const player = useRef(null);
   const { fullscreen } = useMediaStore(player);
@@ -321,92 +311,7 @@ const VideoPlayerDraggable = ({ resetPosition, x, y }) => {
             </MediaPlayButton>
             <PlayerBtn icon={<Volume />}>Listen</PlayerBtn>
           </Stack>
-          <Stack
-            className="media-controls-group"
-            position="absolute"
-            top={pxToRem(40)}
-            right={pxToRem(40)}
-            gap={pxToRem(10)}
-            zIndex={27}
-            sx={{
-              "& button": {
-                backgroundColor: "#fff",
-              },
-            }}
-          >
-            <Tooltip
-              title="Bookmark"
-              enterDelay={0}
-              enterTouchDelay={0}
-              PopperProps={{ disablePortal: true }}
-              placement="left"
-            >
-              <Box className="tooltip-fix">
-                <IconBtnCircular className="hover-green">
-                  <Bookmark color="#026670" />
-                </IconBtnCircular>
-              </Box>
-            </Tooltip>
-            <Tooltip
-              title="Notes"
-              enterDelay={0}
-              enterTouchDelay={0}
-              PopperProps={{ disablePortal: true }}
-              placement="left"
-            >
-              <Box>
-                <IconBtnCircular className="hover-green">
-                  <Notes color="#026670" />
-                </IconBtnCircular>
-              </Box>
-            </Tooltip>
-            <Tooltip
-              title="Share Now"
-              enterDelay={0}
-              enterTouchDelay={0}
-              PopperProps={{ disablePortal: true }}
-              placement="left"
-              sx={{
-                "& + .MuiTooltip-popper .MuiTooltip-tooltip": {
-                  whiteSpace: "nowrap",
-                },
-              }}
-            >
-              <Box>
-                <IconBtnCircular className="hover-green">
-                  <Share
-                    color="#026670"
-                    style={{ marginRight: pxToRem(1.5) }}
-                  />
-                </IconBtnCircular>
-              </Box>
-            </Tooltip>
-            <Box position="relative">
-              <IconBtnCircular className="yellow-ic">
-                <Volume color="#026670" />
-              </IconBtnCircular>
-              <Box
-                className="toggle-tooltip"
-                sx={{
-                  position: "absolute",
-                  top: "50%",
-                  right: pxToRem(62),
-                  transform: "translateY(-50%)",
-                  fontSize: pxToRem(12),
-                  fontWeight: 600,
-                  color: "#026670",
-                  borderRadius: pxToRem(10),
-                  backgroundColor: "#FCE181",
-                  whiteSpace: "nowrap",
-                  padding: `${pxToRem(1)} ${pxToRem(10)}`,
-                  opacity: 0,
-                  transition: "opacity 0.1s ease",
-                }}
-              >
-                Listen / Watch
-              </Box>
-            </Box>
-          </Stack>
+          <SidePanel preview={preview} />
           <Stack
             className="media-controls-group"
             height={pxToRem(64)}
@@ -439,19 +344,21 @@ const VideoPlayerDraggable = ({ resetPosition, x, y }) => {
                   - 10 sec
                 </Typography>
               </MediaSeekButton>
-              <Box className="tooltip-hover">
-                <MediaTooltip position="top center">
-                  <span>Prev</span>
-                </MediaTooltip>
-                <IconButtonStyled
-                  sx={{
-                    width: pxToRem(21),
-                    "& svg": { transform: "rotate(180deg)" },
-                  }}
-                >
-                  <Next color="#026670" />
-                </IconButtonStyled>
-              </Box>
+              {preview ? null : (
+                <Box className="tooltip-hover">
+                  <MediaTooltip position="top center">
+                    <span>Prev</span>
+                  </MediaTooltip>
+                  <IconButtonStyled
+                    sx={{
+                      width: pxToRem(21),
+                      "& svg": { transform: "rotate(180deg)" },
+                    }}
+                  >
+                    <Next color="#026670" />
+                  </IconButtonStyled>
+                </Box>
+              )}
               <MediaPlayButton>
                 <MediaTooltip position="top center">
                   <span slot="play">Play</span>
@@ -462,14 +369,16 @@ const VideoPlayerDraggable = ({ resetPosition, x, y }) => {
                 <Pause slot="pause" color="#fce181" />
                 <Play slot="replay" color="#026670" />
               </MediaPlayButton>
-              <Box className="tooltip-hover">
-                <MediaTooltip position="top center">
-                  <span>Next</span>
-                </MediaTooltip>
-                <IconButtonStyled sx={{ width: pxToRem(21) }}>
-                  <Next color="#026670" />
-                </IconButtonStyled>
-              </Box>
+              {preview ? null : (
+                <Box className="tooltip-hover">
+                  <MediaTooltip position="top center">
+                    <span>Next</span>
+                  </MediaTooltip>
+                  <IconButtonStyled sx={{ width: pxToRem(21) }}>
+                    <Next color="#026670" />
+                  </IconButtonStyled>
+                </Box>
+              )}
               <MediaSeekButton seconds={+10}>
                 <MediaTooltip position="top center">
                   <span>Seek +10s</span>
@@ -601,7 +510,7 @@ const defaultCoordinates = {
   y: -25,
 };
 
-const VideoPlayer = () => {
+const VideoPlayer = (props) => {
   const [{ x, y }, setCoordinates] = useState(defaultCoordinates);
 
   const mouseSensor = useSensor(MouseSensor);
@@ -635,6 +544,7 @@ const VideoPlayer = () => {
         x={x}
         y={y}
         resetPosition={() => setCoordinates({ x: -25, y: -25 })}
+        preview={props.preview}
       />
     </DndContext>
   );
