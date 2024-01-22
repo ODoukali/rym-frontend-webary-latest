@@ -46,6 +46,21 @@ const TabStyled = styled(Tab)({
   },
 });
 
+const TextFieldStyled = styled(TextField)({
+  "& .MuiInputBase-root": {
+    borderRadius: 30,
+    backgroundColor: "#EDECE8",
+  },
+  "& input": {
+    height: "54px",
+    borderRadius: 30,
+    padding: "0 150px 0 40px",
+    "&:focus": {
+      backgroundColor: "#fff",
+    },
+  },
+});
+
 function formatCurrency(amount, minimumFractionDigits, maximumFractionDigits) {
   amount = parseFloat(amount);
   return amount.toLocaleString("en-US", {
@@ -170,6 +185,7 @@ const PurchaseModal = (props) => {
         </Button>
         <Collapse in={isPromoVisible} timeout="auto" unmountOnExit>
           <Stack
+            position="relative"
             height="54px"
             flexDirection="row"
             alignItems="center"
@@ -177,9 +193,8 @@ const PurchaseModal = (props) => {
             bgcolor="#EDECE8"
             borderRadius="30px"
             mt="10px"
-            p="0 10px"
           >
-            <TextField
+            <TextFieldStyled
               fullWidth
               placeholder="Apply Promo Code"
               sx={{
@@ -193,7 +208,14 @@ const PurchaseModal = (props) => {
             <Button
               variant="yellow"
               size="small"
-              sx={{ minWidth: "120px", fontSize: "14px !important" }}
+              sx={{
+                position: "absolute",
+                top: "50%",
+                right: "8px",
+                transform: "translateY(-50%)",
+                minWidth: "120px",
+                fontSize: "14px !important",
+              }}
             >
               Apply
             </Button>
