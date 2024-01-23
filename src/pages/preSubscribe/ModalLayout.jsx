@@ -28,7 +28,7 @@ const LinkStyled = styled(Link)({
 
 const ModalLayout = (props) => {
   const theme = useTheme();
-  const fullScreen = useMediaQuery(theme.breakpoints.down("sm"));
+  const fullScreen = useMediaQuery(theme.breakpoints.down("ssm"));
   const { isAuthenticated } = useAuth();
   const { headerTitle, ...restProps } = props;
 

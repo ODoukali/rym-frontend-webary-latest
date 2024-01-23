@@ -5,11 +5,11 @@ import {
   Collapse,
   Divider,
   Stack,
-  Tab,
   TextField,
+  ToggleButton,
+  ToggleButtonGroup,
   Typography,
 } from "@mui/material";
-import { TabContext, TabList, TabPanel } from "@mui/lab";
 import { styled } from "@mui/material/styles";
 import { useForm } from "react-hook-form";
 import ModalLayout from "./ModalLayout";
@@ -26,23 +26,33 @@ const DividerStyled = styled(Divider)({
   borderColor: "#BFBEBB",
 });
 
-const TabPanelStyled = styled(TabPanel)({
-  padding: "30px 0",
+const ToggleButtonGroupStyled = styled(ToggleButtonGroup)({
+  justifyContent: "space-between",
+  gap: "10px",
+  paddingBottom: "5px",
+  borderRadius: 0,
+  overflow: "auto hidden",
 });
 
-const TabStyled = styled(Tab)({
-  fontSize: "14px",
-  lineHeight: "14px",
-  fontWeight: 700,
-  color: "#333",
-  textTransform: "none",
-  border: "2px solid #BFBEBB",
-  borderRadius: "10px",
+const ToggleButtonStyled = styled(ToggleButton)({
+  border: "2px solid #BFBEBB !important",
+  borderRadius: "10px !important",
   height: "64px",
-  width: "87px",
-  minWidth: "auto",
+  minWidth: "87px",
+  padding: "0 5px",
+  "&:hover": {
+    backgroundColor: "transparent !important",
+  },
+  "& p": {
+    fontSize: "14px",
+    lineHeight: "14px",
+    fontWeight: 700,
+    color: "#333",
+    textTransform: "none",
+  },
   "&.Mui-selected": {
-    borderColor: "#333",
+    borderColor: "#333 !important",
+    backgroundColor: "transparent",
   },
 });
 
@@ -101,10 +111,22 @@ const formatExpiration = (e, onChange) => {
 const PurchaseModal = (props) => {
   const { openThankModal, openErrorModal, price, type, ...restProps } = props;
   const [isPromoVisible, setIsPromoVisible] = useState(false);
-  const [tabValue, setTabValue] = useState("1");
+  const [tabValue, setTabValue] = useState(null);
+  const [promoCode, setPromoCode] = useState("");
+  const [isCollapsed, setIsCollapsed] = useState(false);
 
-  const handleChange = (event, newValue) => {
-    setTabValue(newValue);
+  const handleTabChange = (event, newValue) => {
+    if (newValue) {
+      setTabValue(newValue);
+      setTimeout(() => {
+        setIsCollapsed(true);
+      }, 0);
+    } else {
+      setIsCollapsed(false);
+      setTimeout(() => {
+        setTabValue(newValue);
+      }, 300);
+    }
   };
 
   const { control, setValue, handleSubmit } = useForm({
@@ -129,7 +151,6 @@ const PurchaseModal = (props) => {
         <Typography component="p" fontSize="20px" fontWeight={700} mb="20px">
           Course Subscription for
         </Typography>
-        <DividerStyled sx={{ my: "20px" }} />
         <Stack
           flexDirection="row"
           justifyContent="center"
@@ -185,6 +206,7 @@ const PurchaseModal = (props) => {
         </Button>
         <Collapse in={isPromoVisible} timeout="auto" unmountOnExit>
           <Stack
+            component="form"
             position="relative"
             height="54px"
             flexDirection="row"
@@ -197,6 +219,8 @@ const PurchaseModal = (props) => {
             <TextFieldStyled
               fullWidth
               placeholder="Apply Promo Code"
+              value={promoCode}
+              onChange={(e) => setPromoCode(e.target.value)}
               sx={{
                 "& input": {
                   fontSize: "12px",
@@ -234,145 +258,171 @@ const PurchaseModal = (props) => {
           Select Payment Plan
         </Button>
         <DividerStyled />
-        <TabContext value={tabValue}>
-          <TabList
-            variant="scrollable"
-            scrollButtons={false}
-            onChange={handleChange}
-            sx={{
-              "& .MuiTabs-flexContainer": { gap: "10px" },
-              "& .MuiTabs-indicator": { display: "none" },
-            }}
-          >
-            <TabStyled label="Credit Card" value="1" />
-            <TabStyled icon={<GPay />} value="2" />
-            <TabStyled icon={<APay />} value="3" />
-            <TabStyled label={<PayPal />} value="4" />
-          </TabList>
-          <TabPanelStyled value="1">
-            <Typography
-              component="p"
-              fontSize="16px"
-              fontWeight={700}
-              mb="20px"
-            >
-              Credit Card Information
-            </Typography>
-            <form onSubmit={handleSubmit(onSubmit)}>
-              <Stack gap="10px">
-                <FormInputText
-                  name="creditCard"
-                  control={control}
-                  setValue={setValue}
-                  placeholder="Credit Card Number"
-                  muiProps={{
-                    type: "text",
-                  }}
-                  format={formatCc}
-                  rules={{
-                    required: "Field can't be empty",
-                    pattern: {
-                      value: /\d{4} *\d{4} *\d{4} *\d{4}/,
-                      message: "Wrong format.",
-                    },
-                  }}
-                />
-                <Stack flexDirection="row" gap="10px">
-                  <Box flex={0.55}>
-                    <FormInputText
-                      name="expiration"
-                      control={control}
-                      setValue={setValue}
-                      format={formatExpiration}
-                      placeholder="Expiration"
-                      muiProps={{
-                        type: "text",
-                      }}
-                      rules={{
-                        required: "Field can't be empty",
-                        pattern: {
-                          value: /^(0[1-9]|1[0-2])\/?([0-9]{4}|[0-9]{2})$/,
-                          message: "Wrong format.",
-                        },
-                      }}
-                    />
-                  </Box>
-                  <Box flex={0.58}>
-                    <FormInputText
-                      name="cvv"
-                      control={control}
-                      setValue={setValue}
-                      format={formatCvv}
-                      placeholder="CVV Code"
-                      muiProps={{
-                        type: "text",
-                      }}
-                      rules={{
-                        required: "Field can't be empty",
-                        pattern: {
-                          value: /^[0-9]{3,4}$/,
-                          message: "Wrong format.",
-                        },
-                      }}
-                    />
-                  </Box>
-                </Stack>
-              </Stack>
-              <DividerStyled />
-              <Switcher
-                name="save-info"
-                label="Save my information for a future checkouts"
-                defaultChecked={true}
-              />
-              <Box
-                bgcolor="#EDECE8"
-                p={{ xs: "20px 25px", ssm: "40px 60px" }}
-                m={{ xs: "30px -25px 0", ssm: "30px -60px 0" }}
+
+        <ToggleButtonGroupStyled
+          exclusive
+          fullWidth
+          value={tabValue}
+          onChange={handleTabChange}
+        >
+          <ToggleButtonStyled value="creditCard">
+            <Typography>Credit Card</Typography>
+          </ToggleButtonStyled>
+          <ToggleButtonStyled value="googlePay">
+            <GPay />
+          </ToggleButtonStyled>
+          <ToggleButtonStyled value="applePay">
+            <APay />
+          </ToggleButtonStyled>
+          <ToggleButtonStyled value="paypal">
+            <PayPal />
+          </ToggleButtonStyled>
+        </ToggleButtonGroupStyled>
+
+        {tabValue === "creditCard" ? (
+          <Collapse in={isCollapsed}>
+            <Box pt="25px">
+              <Typography
+                component="p"
+                fontSize="16px"
+                fontWeight={700}
+                mb="20px"
               >
-                <Stack
-                  flexDirection="row"
-                  justifyContent="center"
-                  gap="10px"
-                  mb="20px"
-                >
-                  <Typography fontSize="16px" fontWeight={700} mt="6px">
-                    Checkout:
-                  </Typography>
-                  <Typography
-                    fontSize="30px"
-                    lineHeight="30px"
-                    fontWeight="700"
-                    color="#026670"
-                  >
-                    {formatCurrency(price)}
-                  </Typography>
+                Credit Card Information
+              </Typography>
+              <form onSubmit={handleSubmit(onSubmit)}>
+                <Stack gap="10px">
+                  <FormInputText
+                    name="creditCard"
+                    control={control}
+                    setValue={setValue}
+                    placeholder="Credit Card Number"
+                    muiProps={{
+                      type: "text",
+                    }}
+                    format={formatCc}
+                    rules={{
+                      required: "Field can't be empty",
+                      pattern: {
+                        value: /\d{4} *\d{4} *\d{4} *\d{4}/,
+                        message: "Wrong format.",
+                      },
+                    }}
+                  />
+                  <Stack flexDirection="row" gap="10px">
+                    <Box flex={0.55}>
+                      <FormInputText
+                        name="expiration"
+                        control={control}
+                        setValue={setValue}
+                        format={formatExpiration}
+                        placeholder="Expiration"
+                        muiProps={{
+                          type: "text",
+                        }}
+                        rules={{
+                          required: "Field can't be empty",
+                          pattern: {
+                            value: /^(0[1-9]|1[0-2])\/?([0-9]{4}|[0-9]{2})$/,
+                            message: "Wrong format.",
+                          },
+                        }}
+                      />
+                    </Box>
+                    <Box flex={0.58}>
+                      <FormInputText
+                        name="cvv"
+                        control={control}
+                        setValue={setValue}
+                        format={formatCvv}
+                        placeholder="CVV Code"
+                        muiProps={{
+                          type: "text",
+                        }}
+                        rules={{
+                          required: "Field can't be empty",
+                          pattern: {
+                            value: /^[0-9]{3,4}$/,
+                            message: "Wrong format.",
+                          },
+                        }}
+                      />
+                    </Box>
+                  </Stack>
                 </Stack>
-                <Button
-                  variant="yellow"
-                  type="submit"
-                  sx={{ fontSize: "16px", fontWeight: 700 }}
+                <DividerStyled />
+                <Switcher
+                  name="save-info"
+                  label="Save my information for a future checkouts"
+                  defaultChecked={true}
+                />
+                <Box
+                  bgcolor="#EDECE8"
+                  p={{ xs: "20px 25px", ssm: "40px 60px" }}
+                  m={{ xs: "30px -25px 0", ssm: "30px -60px 0" }}
                 >
-                  Checkout & Pay Now
-                </Button>
-              </Box>
-            </form>
-          </TabPanelStyled>
-          <TabPanelStyled value="2">
-            <Button variant="yellow">Continue with Google Pay</Button>
-          </TabPanelStyled>
-          <TabPanelStyled value="3">
-            <Button variant="yellow">Continue with Apple Pay</Button>
-          </TabPanelStyled>
-          <TabPanelStyled value="4">
-            <Button variant="yellow">Continue with Paypal</Button>
-          </TabPanelStyled>
-        </TabContext>
+                  <Stack
+                    flexDirection="row"
+                    justifyContent="center"
+                    gap="10px"
+                    mb="20px"
+                  >
+                    <Typography fontSize="16px" fontWeight={700} mt="6px">
+                      Checkout:
+                    </Typography>
+                    <Typography
+                      fontSize="30px"
+                      lineHeight="30px"
+                      fontWeight="700"
+                      color="#026670"
+                    >
+                      {formatCurrency(price)}
+                    </Typography>
+                  </Stack>
+                  <Button
+                    variant="yellow"
+                    type="submit"
+                    sx={{ fontSize: "16px", fontWeight: 700 }}
+                  >
+                    Checkout & Pay Now
+                  </Button>
+                </Box>
+              </form>
+            </Box>
+          </Collapse>
+        ) : null}
+
+        {tabValue === "googlePay" ? (
+          <Collapse in={isCollapsed}>
+            <Box pt="25px">
+              <Button variant="yellow">Continue with Google Pay</Button>
+            </Box>
+          </Collapse>
+        ) : null}
+
+        {tabValue === "applePay" ? (
+          <Collapse in={isCollapsed}>
+            <Box pt="25px">
+              <Button variant="yellow">Continue with Apple Pay</Button>
+            </Box>
+          </Collapse>
+        ) : null}
+
+        {tabValue === "paypal" ? (
+          <Collapse in={isCollapsed}>
+            <Box pt="25px">
+              <Button variant="yellow">Continue with Paypal</Button>
+            </Box>
+          </Collapse>
+        ) : null}
+
         <Typography
           component="p"
           fontSize="12px"
           fontWeight={500}
           color="#BFBEBB"
           textAlign="left"
+          mt="30px"
         >
           * Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
