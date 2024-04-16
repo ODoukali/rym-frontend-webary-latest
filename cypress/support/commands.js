@@ -10,7 +10,27 @@
 //
 //
 // -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
+Cypress.Commands.add('login', (email, password) => { 
+
+
+  cy.fixture('users').then(testdata => {
+    const user = testdata.user[0];
+    cy.session([user.email, user.password], () => {
+      cy.visit('https://rym-students.webaryco.com');
+      cy.wait(1500);
+      cy.get('.css-qt9lmr > .MuiButton-root').click();
+      cy.get('#\\:r1\\:').type(user.email);
+      cy.get('#\\:r2\\:').type(user.password);
+      cy.wait(1500);
+      cy.get(':nth-child(1) > form > .MuiButton-root').click();
+    }, {
+      cacheAcrossSpecs: true
+    });
+  });
+ 
+
+
+})
 //
 //
 // -- This is a child command --
@@ -26,27 +46,6 @@
 
 // No changes are required here since the credentials will be passed as arguments
 // In cypress/support/commands.js
-Cypress.Commands.add('login', () => {
-  
-  cy.fixture('users').then(testdata => {
-    const user = testdata.user[0];
-    cy.session([user.email, user.password], () => {
-      cy.visit('https://rym-students.webaryco.com');
-      cy.wait(1500);
-      cy.get('.css-qt9lmr > .MuiButton-root').click();
-      cy.get('#\\:r1\\:').type(user.email);
-      cy.get('#\\:r2\\:').type(user.password);
-      cy.wait(1500);
-      cy.get(':nth-child(1) > form > .MuiButton-root').click();
-    }, {
-      cacheAcrossSpecs: true
-    });
-  });
-  cy.clearCookies();
-  cy.clearLocalStorage();
-  cy.clearAllSessionStorage();
-});
-
 
 
 
